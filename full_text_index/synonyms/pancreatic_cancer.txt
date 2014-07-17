@@ -1,0 +1,86 @@
+PNCA1
+PNCA2
+PNCA3
+PNCA4
+BRCA1
+BRCA2
+PALB2
+PALLD
+KRAS
+KRAS2
+CDKN2
+CDKN2A
+G101W
+SMAD4
+MLL3
+TGFBR2
+ARID1A
+SF3B1
+EPC1
+ARID2
+ATM
+ZIM2
+MAP2K4
+NALCN
+SLC16A4
+MAGEA6
+DAXX
+ATRX
+MEN1
+MADH4
+TP53
+ARMET
+STK11
+ACVR1B
+RBBBP8
+PRSS1
+GLUD1
+GOT1
+p53
+CLPTM1L
+TERT
+SLIT
+SLIT1
+ROBO
+ROBO1
+mTOR
+Peutz-Jeghers syndrome
+hereditary nonpolyposis colon cancer syndrome
+HPNCC
+colon cancer
+hereditary breast-ovarian cancer syndrome 
+breast cancer
+ovarian cancer
+breast-ovarian cancer
+Hippel-Lindau syndrome
+ataxia-telangiectasia
+juvenile polyposis syndrome
+Diabetes
+diabetes type 2
+diabetes mellitus
+hereditary pancreatitis
+pancreatic ductal adenocarcinoma
+CD40
+PRLX 93936
+GV1001
+RP101
+MT201
+Erlotinib
+G17DT
+EUR-1008
+anti-alpha5Beta1-integrin antibody
+Lintitript
+DTS-201
+Hedgehog pathway inhibitor
+ANX-510
+AVN-944
+MGCD-0103
+WF10
+MGI-114
+R115777
+Imexon
+DHA-paclitaxel
+PX-12
+AGRO100
+Gemcitabine
+Hydroxocobalamin
