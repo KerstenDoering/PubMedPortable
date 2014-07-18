@@ -304,9 +304,9 @@ class MedlineParser:
                                 "RetractionIn", "UpdateIn", "UpdateOf", "SummaryForPatientsIn",
                                 "OriginalReportIn", "ReprintIn", "ReprintOf"):
                         DBComment = PubMedDB.Comment()
-                        temp = elem.find(ctype)
-                        if temp:
-                            for subelem in temp:
+                        comment = elem.find(ctype)
+                        if comment:
+                            for subelem in comment:
                                 if subelem.find("RefSource"):
                                     DBComment.ref_source = subelem.find("RefSource").text
                                 if subelem.find("PMID"):
@@ -343,16 +343,16 @@ class MedlineParser:
                         DBMeSHHeading = PubMedDB.MeSHHeading()
                         DBQualifier = PubMedDB.Qualifier()
 
-                        temp = mesh.find("DescriptorName")
-                        if temp:
-                            DBMeSHHeading.descriptor_name = temp.text
-                            DBMeSHHeading.descriptor_name_major_yn = temp.attrib['MajorTopicYN']
-                            DBQualifier.descriptor_name = temp.text
+                        mesh_desc = mesh.find("DescriptorName")
+                        if mesh_desc:
+                            DBMeSHHeading.descriptor_name = mesh_desc.text
+                            DBMeSHHeading.descriptor_name_major_yn = mesh_desc.attrib['MajorTopicYN']
+                            DBQualifier.descriptor_name = mesh_desc.text
 
-                        temp = mesh.find("QualifierName")
-                        if temp:
-                            DBQualifier.qualifier_name = temp.text
-                            DBQualifier.qualifier_name_major_yn = temp.attrib['MajorTopicYN']
+                        mesh_qual = mesh.find("QualifierName")
+                        if mesh_qual:
+                            DBQualifier.qualifier_name = mesh_qual.text
+                            DBQualifier.qualifier_name_major_yn = mesh_qual.attrib['MajorTopicYN']
                             DBCitation.qualifiers.append(DBQualifier)
 
                         DBCitation.meshheadings.append(DBMeSHHeading)
@@ -383,9 +383,9 @@ class MedlineParser:
                         DBDataBank.data_bank_name = databank.find("DataBankName").text
                         DBCitation.databanks.append(DBDataBank)
 
-                        temp = databank.find("AccessionNumberList")
-                        if temp:
-                            for acc_number in temp:
+                        acc_numbers = databank.find("AccessionNumberList")
+                        if acc_numbers:
+                            for acc_number in acc_numbers:
                                 DBAccession = PubMedDB.Accession()
                                 DBAccession.data_bank_name = DBDataBank.data_bank_name
                                 DBAccession.accession_number = acc_number.text
