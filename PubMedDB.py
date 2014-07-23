@@ -133,7 +133,7 @@ class Journal(Base):
     issn_type           = Column(VARCHAR(30))
     volume              = Column(VARCHAR(200))
     issue               = Column(VARCHAR(200))
-    pub_date_year       = Column(Integer(4), index=True)
+    pub_date_year       = Column(Integer, index=True)
     pub_date_month      = Column(VARCHAR(20))
     pub_date_day        = Column(VARCHAR(2))
     medline_date        = Column(VARCHAR(40))
