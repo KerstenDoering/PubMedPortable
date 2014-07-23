@@ -350,7 +350,7 @@ class MedlineParser:
                             DBQualifier.descriptor_name = mesh_desc.text
 
                         mesh_qual = mesh.find("QualifierName")
-                        if mesh_qual =! None:
+                        if mesh_qual != None:
                             DBQualifier.qualifier_name = mesh_qual.text
                             DBQualifier.qualifier_name_major_yn = mesh_qual.attrib['MajorTopicYN']
                             DBCitation.qualifiers.append(DBQualifier)
