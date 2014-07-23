@@ -153,8 +153,8 @@ class MedlineParser:
                     DBJournal.issn_type = elem.attrib['IssnType']
 
                 if elem.tag == "JournalIssue" or elem.tag == "Book":
-                    if elem.find("Volume"):         DBJournal.volume = elem.find("Volume").text
-                    if elem.find("Issue"):          DBJournal.issue = elem.find("Issue").text
+                    if elem.find("Volume") != None:         DBJournal.volume = elem.find("Volume").text
+                    if elem.find("Issue") != None:          DBJournal.issue = elem.find("Issue").text
 
                     pubdate = False
                     year = False
@@ -194,9 +194,9 @@ class MedlineParser:
                     pass
 
                 if elem.tag == "Journal":
-                    if elem.find("Title"):
+                    if elem.find("Title") != None:
                         DBJournal.title = elem.find("Title").text
-                    if elem.find("ISOAbbreviation"):
+                    if elem.find("ISOAbbreviation") != None:
                         DBJournal.iso_abbreviation = elem.find("ISOAbbreviation").text
 
                 if elem.tag == "ArticleTitle" or elem.tag == "BookTitle":
@@ -211,18 +211,18 @@ class MedlineParser:
                     for author in elem:
                         DBAuthor = PubMedDB.Author()
 
-                        if author.find("LastName"):
+                        if author.find("LastName") != None:
                             DBAuthor.last_name = author.find("LastName").text
                         # Forname is restricted to max 99 characters
-                        if author.find("ForeName") and not len(author.find("ForeName").text) > 100:
+                        if author.find("ForeName") != None and not len(author.find("ForeName").text) > 100:
                             DBAuthor.fore_name = author.find("ForeName").text
-                        elif author.find("ForeName") and len(author.find("ForeName").text) > 100:
+                        elif author.find("ForeName") != None and len(author.find("ForeName").text) > 100:
                             DBAuthor.fore_name = author.find("ForeName").text[0:100]
-                        if author.find("Initials"):
+                        if author.find("Initials") != None:
                             DBAuthor.initials = author.find("Initials").text
-                        if author.find("Suffix"):
+                        if author.find("Suffix") != None:
                             DBAuthor.suffix = author.find("Suffix").text
-                        if author.find("CollectiveName"):
+                        if author.find("CollectiveName") != None:
                             DBAuthor.collective_name = author.find("CollectiveName").text
 
                         DBCitation.authors.append(DBAuthor)
@@ -232,13 +232,13 @@ class MedlineParser:
                     for pname in elem:
                         DBPersonalName = PubMedDB.PersonalName()
 
-                        if pname.find("LastName"):
+                        if pname.find("LastName") != None:
                             DBPersonalName.last_name = pname.find("LastName").text
-                        if pname.find("ForeName"):
+                        if pname.find("ForeName") != None:
                             DBPersonalName.fore_name = pname.find("ForeName").text
-                        if pname.find("Initials"):
+                        if pname.find("Initials") != None:
                             DBPersonalName.initials = pname.find("Initials").text
-                        if pname.find("Suffix"):
+                        if pname.find("Suffix") != None:
                             DBPersonalName.suffix = pname.find("Suffix").text
 
                         DBCitation.personal_names.append(DBPersonalName)
@@ -249,15 +249,15 @@ class MedlineParser:
                     for investigator in elem:
                         DBInvestigator = PubMedDB.Investigator()
 
-                        if investigator.find("LastName"):
+                        if investigator.find("LastName") != None:
                             DBInvestigator.last_name = investigator.find("LastName").text
-                        if investigator.find("ForeName"):
+                        if investigator.find("ForeName") != None:
                             DBInvestigator.fore_name = investigator.find("ForeName").text
-                        if investigator.find("Initials"):
+                        if investigator.find("Initials") != None:
                             DBInvestigator.initials = investigator.find("Initials").text
-                        if investigator.find("Suffix"):
+                        if investigator.find("Suffix") != None:
                             DBInvestigator.suffix = investigator.find("Suffix").text
-                        if investigator.find("Affiliation"):
+                        if investigator.find("Affiliation") != None:
                             DBInvestigator.investigator_affiliation = investigator.find("Affiliation").text
 
                         DBCitation.investigators.append(DBInvestigator)
@@ -280,9 +280,9 @@ class MedlineParser:
                     for chemical in elem:
                         DBChemical = PubMedDB.Chemical()
 
-                        if chemical.find("RegistryNumber"):
+                        if chemical.find("RegistryNumber") != None:
                             DBChemical.registry_number = chemical.find("RegistryNumber").text
-                        if chemical.find("NameOfSubstance"):
+                        if chemical.find("NameOfSubstance") != None:
                             DBChemical.name_of_substance = chemical.find("NameOfSubstance").text
 
                         DBCitation.chemicals.append(DBChemical)
@@ -304,30 +304,30 @@ class MedlineParser:
                                 "RetractionIn", "UpdateIn", "UpdateOf", "SummaryForPatientsIn",
                                 "OriginalReportIn", "ReprintIn", "ReprintOf"):
                         DBComment = PubMedDB.Comment()
-                        comment = elem.find(ctype)
-                        if comment:
-                            for subelem in comment:
-                                if subelem.find("RefSource"):
+                        temp = elem.find(ctype)
+                        if temp != None:
+                            for subelem in temp:
+                                if subelem.find("RefSource") != None:
                                     DBComment.ref_source = subelem.find("RefSource").text
-                                if subelem.find("PMID"):
+                                if subelem.find("PMID") != None:
                                     DBComment.pmid = int(subelem.find("PMID").text)
-                                if subelem.find("Note"):
+                                if subelem.find("Note") != None:
                                     DBComment.note = subelem.find("Note").text
                                 DBComment.type = ctype
                             DBCitation.comments.append(DBComment)
 
                 if elem.tag == "MedlineJournalInfo":
                     DBJournalInfo = PubMedDB.JournalInfo()
-                    if elem.find("NlmUniqueID"):
+                    if elem.find("NlmUniqueID") != None:
                         DBJournalInfo.nlm_unique_id = elem.find("NlmUniqueID").text
-                    if elem.find("Country"):
+                    if elem.find("Country") != None:
                         DBJournalInfo.country = elem.find("Country").text
                     """#MedlineTA is just a name for the journal as an abbreviation
                     Abstract with PubMed-ID 21625393 has no MedlineTA attributebut it has to be set in PostgreSQL, that is why "unknown" is inserted instead. There is just a <MedlineTA/> tag and the same information is given in  </JournalIssue> <Title>Biotechnology and bioprocess engineering : BBE</Title>, but this is not (yet) read in this parser -> line 173:
                     """
-                    if elem.find("MedlineTA") and elem.find("MedlineTA").text == None:
+                    if elem.find("MedlineTA") != None and elem.find("MedlineTA").text == None:
                         DBJournalInfo.medline_ta = "unknown"
-                    elif elem.find("MedlineTA"):
+                    elif elem.find("MedlineTA") != None:
                         DBJournalInfo.medline_ta = elem.find("MedlineTA").text
                     DBCitation.journal_infos = [DBJournalInfo]
 
@@ -344,13 +344,13 @@ class MedlineParser:
                         DBQualifier = PubMedDB.Qualifier()
 
                         mesh_desc = mesh.find("DescriptorName")
-                        if mesh_desc:
+                        if mesh_desc != None:
                             DBMeSHHeading.descriptor_name = mesh_desc.text
                             DBMeSHHeading.descriptor_name_major_yn = mesh_desc.attrib['MajorTopicYN']
                             DBQualifier.descriptor_name = mesh_desc.text
 
                         mesh_qual = mesh.find("QualifierName")
-                        if mesh_qual:
+                        if mesh_qual =! None:
                             DBQualifier.qualifier_name = mesh_qual.text
                             DBQualifier.qualifier_name_major_yn = mesh_qual.attrib['MajorTopicYN']
                             DBCitation.qualifiers.append(DBQualifier)
@@ -363,13 +363,13 @@ class MedlineParser:
                     for grant in elem:
                         DBGrants = PubMedDB.Grant()
 
-                        if grant.find("GrantID"):
+                        if grant.find("GrantID") != None:
                             DBGrants.grantid = grant.find("GrantID").text
-                        if grant.find("Acronym"):
+                        if grant.find("Acronym") != None:
                             DBGrants.acronym = grant.find("Acronym").text
-                        if grant.find("Agency"):
+                        if grant.find("Agency") != None:
                             DBGrants.agency = grant.find("Agency").text
-                        if grant.find("Country"):
+                        if grant.find("Country") != None:
                             DBGrants.country = grant.find("Country").text
                         DBCitation.grants.append(DBGrants)
 
@@ -384,7 +384,7 @@ class MedlineParser:
                         DBCitation.databanks.append(DBDataBank)
 
                         acc_numbers = databank.find("AccessionNumberList")
-                        if acc_numbers:
+                        if acc_numbers != None:
                             for acc_number in acc_numbers:
                                 DBAccession = PubMedDB.Accession()
                                 DBAccession.data_bank_name = DBDataBank.data_bank_name
@@ -440,14 +440,14 @@ class MedlineParser:
                     #prepare empty string for "normal" abstracts or "labelled" abstracts
                     temp_abstract_text = ""
                     #if there are multiple AbstractText-Tags:
-                    if elem.find("AbstractText") and len(elem.findall("AbstractText")) > 1:
+                    if elem.find("AbstractText") != None and len(elem.findall("AbstractText")) > 1:
                         for child_AbstractText in elem.getchildren():
                             # iteration over all labels is needed otherwise only "OBJECTIVE" would be pushed into database
                             # debug: check label
                             # [('NlmCategory', 'METHODS'), ('Label', 'CASE SUMMARY')]
                             # ...
                             # also checked for empty child-tags in this structure!
-                            if child_AbstractText.tag == "AbstractText" and child_AbstractText.text:
+                            if child_AbstractText.tag == "AbstractText" and child_AbstractText.text != None:
                             #if child_AbstractText.tag == "AbstractText": # would give an error!
                                 # no label - this case should not happen with multiple AbstractText-Tags:
                                 if len(child_AbstractText.items()) == 0:
@@ -463,12 +463,12 @@ class MedlineParser:
                                 if len(child_AbstractText.items()) == 2:
                                     temp_abstract_text += child_AbstractText.items()[1][1] + ":\n" + child_AbstractText.text + "\n"    
                     # if there is only one AbstractText-Tag ("usually") - no labels used:
-                    if elem.find("AbstractText") and len(elem.findall("AbstractText")) == 1:
+                    if elem.find("AbstractText") != None and len(elem.findall("AbstractText")) == 1:
                         temp_abstract_text = elem.findtext("AbstractText")
                     # append abstract text for later pushing it into db:
                     DBAbstract.abstract_text = temp_abstract_text
                     # next 3 lines are unchanged - some abstract texts (few) contain the child-tag "CopyrightInformation" after all AbstractText-Tags:
-                    if elem.find("CopyrightInformation"):   
+                    if elem.find("CopyrightInformation") != None:   
                         DBAbstract.copyright_information = elem.find("CopyrightInformation").text
                     DBCitation.abstracts.append(DBAbstract)
                 # end Kersten - code changed
@@ -479,8 +479,8 @@ class MedlineParser:
                     DBAbstract = PubMedDB.Abstract()
                     DBCitation.abstracts = []
 
-                    if elem.find("AbstractText"):   DBAbstract.abstract_text = elem.find("AbstractText").text
-                    if elem.find("CopyrightInformation"):   DBAbstract.copyright_information = elem.find("CopyrightInformation").text
+                    if elem.find("AbstractText") != None:   DBAbstract.abstract_text = elem.find("AbstractText").text
+                    if elem.find("CopyrightInformation") != None:   DBAbstract.copyright_information = elem.find("CopyrightInformation").text
                     DBCitation.abstracts.append(DBAbstract)
                 """
                 if elem.tag == "KeywordList":
@@ -522,7 +522,7 @@ def _start_parser(path):
 def run(medline_path, clean, start, end, PROCESSES):
     con = 'postgresql://parser:parser@localhost/'+db
 
-    if end:
+    if end != None:
         end = int(end)
 
     if clean:
