@@ -38,7 +38,7 @@ These are the packages that need to be installed to use PubMed2Go:
 
 - python-psycopg2>=2.4.5 (dependency from SQLAlchemy)
 
-- if there is not yet a superuser for the PostgreSQL database, create one with the name of your local account
+- If there is not yet a superuser for the PostgreSQL database, create one with the name of your local account:
 
     - sudo -u postgres createuser \--superuser <user_name>
 
@@ -48,7 +48,7 @@ These are the packages that need to be installed to use PubMed2Go:
 
        - \\q
 
-- now you can connect to the standard PostgreSQL database "postgres" with PGAdmin3 or via command-line:
+- Now, you can connect to the standard PostgreSQL database "postgres" with PGAdmin3 or via command-line:
 
     - psql -h localhost -d postgres -U <user_name>
 
@@ -295,7 +295,7 @@ PostgreSQL
 
         - select count(*) from pubmed.tbl_medline_journal_info where lower(country) = \'united states\'; \-- 9304 publications
 
-    - I took the first publication for our query "pancreatic cancer" in the browser on NCBI and wanted to know wheter this author has other publications. For our data set, this is not the case, because the query result is "1".
+    - I took the first publication for our query "pancreatic cancer" in the browser on NCBI and wanted to know whether this author has other publications. For our data set, this is not the case, because the query result is "1".
 
         - select count (*) from pubmed.tbl_author where last_name = \'Iswanto\'; \-- 1 line
 
