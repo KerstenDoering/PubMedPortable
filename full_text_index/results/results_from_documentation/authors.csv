@@ -1,5 +1,5 @@
 Hruban, Ralph H	237
-not_selected_collection_name	218
+not_selected_collection_name	219
 Friess, H	186
 Friess, Helmut	184
 Saif, Muhammad Wasif	182
@@ -71,10 +71,10 @@ Adler, G	44
 Schulick, Richard D	43
 Pedrazzoli, S	43
 Nakao, A	43
+Nakai, Yousuke	43
 Hong, Seung-Mo	43
 Chari, Suresh T	43
 Song, Si Young	42
-Nakai, Yousuke	42
 Ma, Qingyong	42
 Kim, Y S	42
 Heinemann, Volker	42
@@ -256,6 +256,7 @@ Douglass, H O	26
 Chen, Zhen	26
 Chen, Ge	26
 Ben-Josef, Edgar	26
+Azmi, Asfar S	26
 Adler, Guido	26
 Yamaue, Hiroki	25
 Wang, Feng	25
@@ -282,7 +283,6 @@ Goggins, M	25
 Funakoshi, Akihiro	25
 Fendrich, Volker	25
 Cameron, J L	25
-Azmi, Asfar S	25
 Ahmad, Aamir	25
 Yanagimoto, Hiroaki	24
 Yanaga, Katsuhiko	24
@@ -583,7 +583,6 @@ Longnecker, D S	17
 Liu, Tao	17
 Liu, Chen	17
 Link, K H	17
-Li, Yan	17
 Kurtz, Robert C	17
 Kornmann, Marko	17
 Kim, Yong-Tae	17
@@ -646,6 +645,7 @@ Masui, Toshihiko	16
 Malats, N	16
 Liu, Jun	16
 Liu, Han	16
+Li, Yan	16
 Li, Hui	16
 Levy, Michael J	16
 Lee, Sang Soo	16
@@ -696,7 +696,6 @@ Angonese, C	16
 Amano, Ryosuke	16
 Aboukameel, Amro	16
 Zhu, Yi	15
-Zhang, Wei	15
 Zambon, Carlo-Federico	15
 Yoshida, T	15
 Yamamoto, Keisuke	15
@@ -782,6 +781,7 @@ Arslan, Alan A	15
 Arizumi, Toshihiko	15
 Amundadottir, Laufey	15
 van den Brandt, Piet A	14
+Zhang, Wei	14
 Zhang, Tai-Ping	14
 Zerbi, Alessandro	14
 Zamboni, Giuseppe	14
@@ -5291,6 +5291,7 @@ Ohmuraya, Masaki	4
 Ohlsson, Bodil	4
 Ohkohchi, Nobuhiro	4
 Ohashi, Masaki	4
+Ohara, K	4
 Oh, Sung Yong	4
 Oh, Hyoung-Chul	4
 Ogura, Yasuhiro	4
@@ -6388,7 +6389,6 @@ Bacchella, Telesforo	4
 Baba, N	4
 Azzariti, Amalia	4
 Azmi, Asfar Sohail	4
-Azmi, Asfar	4
 Axilbund, Jennifer E	4
 Axelson, Jan	4
 Awasthi, Vibhudutta	4
@@ -6496,7 +6496,6 @@ Zhuang, Yan	3
 Zhu, Zhenping	3
 Zhu, Yunxia	3
 Zhu, Yan	3
-Zhu, Wenhe	3
 Zhu, Wei	3
 Zhu, Rong	3
 Zhu, Jianhui	3
@@ -6706,7 +6705,6 @@ Xu, Qing	3
 Xu, Qian	3
 Xu, Min	3
 Xu, Lijian	3
-Xu, Junjie	3
 Xu, Jun	3
 Xu, Jing	3
 Xu, Jinbin	3
@@ -7177,6 +7175,7 @@ Sudha, Thangirala	3
 Suda, Koichi	3
 Su, Zao-Zhong	3
 Su, Ying	3
+Su, S B	3
 Su, J	3
 Stömmer, P	3
 Strychor, Sandra	3
@@ -7491,6 +7490,7 @@ Rust, Alistair G	3
 Russo, S	3
 Russo, A J	3
 Runge, R G	3
+Ruml, Tomáš	3
 Rulyak, Stephen J	3
 Ruiz-Tovar, Jaime	3
 Ruhstaller, Thomas	3
@@ -7802,7 +7802,6 @@ Ohira, Go	3
 Ohge, Hiroki	3
 Ohashi, Y	3
 Ohashi, M	3
-Ohara, K	3
 Oh, Sang Cheul	3
 Oguro, Seiji	3
 Ogura, Takeshi	3
@@ -9441,7 +9440,6 @@ Dong, Ziming	3
 Dong, Zigang	3
 Dong, Ying	3
 Dong, Y T	3
-Dong, Wei-Guo	3
 Dong, Ke	3
 Dong, Jiahong	3
 Domschke, Wolfram	3
@@ -9972,6 +9970,7 @@ Baba, Yasuyuki	3
 Baba, Tomohisa	3
 Azuma, Toshifumi	3
 Azorsa, David O	3
+Azmi, Asfar	3
 Azemoto, Nobuaki	3
 Ay, Cihan	3
 Axon, A T	3
@@ -10219,6 +10218,7 @@ Zhu, Y R	2
 Zhu, Xiaoyan	2
 Zhu, Xiao-Yan	2
 Zhu, Wenwei	2
+Zhu, Wenhe	2
 Zhu, Shuai	2
 Zhu, Shajun	2
 Zhu, Q	2
@@ -10235,7 +10235,6 @@ Zhu, Hongbo	2
 Zhu, Dongming	2
 Zhu, Dong-Ming	2
 Zhu, Bao Ting	2
-Zhou, Zong-Guang	2
 Zhou, Zhuan	2
 Zhou, Yujia	2
 Zhou, Yuepeng	2
@@ -10750,6 +10749,7 @@ Xu, Mousheng	2
 Xu, Maojin	2
 Xu, Lei	2
 Xu, Ke-Cheng	2
+Xu, Junjie	2
 Xu, Jianwei	2
 Xu, Jianfeng	2
 Xu, Jian-hua	2
@@ -11128,7 +11128,6 @@ Wang, Jiancheng	2
 Wang, Jian-Hua	2
 Wang, Jian-Guo	2
 Wang, Jia-Xiang	2
-Wang, Huiyan	2
 Wang, Horng-Yuan	2
 Wang, Hong-cheng	2
 Wang, Hong-Xia	2
@@ -11972,7 +11971,6 @@ Su, Zheng	2
 Su, Yun	2
 Su, Y	2
 Su, Shi-Bing	2
-Su, S B	2
 Su, Li-Kuo	2
 Su, Li	2
 Su, Hai-Bing	2
@@ -12844,7 +12842,6 @@ Russo, Angelo	2
 Russell, C	2
 Rupasinghe, Chamila N	2
 Rummeny, Ernst J	2
-Ruml, Tomáš	2
 Ruiz-Rabelo, Juan F	2
 Ruiz-Rabelo, Juan	2
 Ruiz, Laura	2
@@ -13998,7 +13995,6 @@ Nakajima, K	2
 Nakajima, Hitoshi	2
 Nakajima, Futoshi	2
 Nakaigawa, Noboru	2
-Nakai, Yosuke	2
 Nakai, Hiroaki	2
 Nakahara, Kazunari	2
 Nakagawara, Akira	2
@@ -14752,7 +14748,6 @@ Lynch, Thomas J	2
 Lynch, S F	2
 Lynch, Henry	2
 Lyn-Cook, Beverly	2
-Lv, Shijie	2
 Lv, Nan	2
 Lv, G M	2
 Lv, Chongqing	2
@@ -15119,7 +15114,6 @@ Leja-Szpak, Anna	2
 Leitzel, Kim	2
 Leinonen, J	2
 Leichtle, Alexander Benedikt	2
-Lei, Xiao-Fei	2
 Lei, Qun-Ying	2
 Lehrach, Hans	2
 Lehrach, H	2
@@ -15497,6 +15491,7 @@ Komatsu, Yoshito	2
 Komatsu, S	2
 Komasawa, Nobuyasu	2
 Komar, Gaber	2
+Kolář, Michal	2
 Kollin, E	2
 Kollar, Laura E	2
 Koliopanos, Alexander	2
@@ -17888,6 +17883,7 @@ Dono, K	2
 Doni, M G	2
 Doni, L	2
 Dong, Yu-Ting	2
+Dong, Wei-Guo	2
 Dong, Qiang G	2
 Dong, Mi-Lian	2
 Dong, Mei	2
@@ -20306,6 +20302,8 @@ Zhu, Andrew	1
 Zhu, An-Long	1
 Zhou, Zunqiang	1
 Zhou, Zongguang	1
+Zhou, Zong-guang	1
+Zhou, Zong-Guang	1
 Zhou, Zhu-Chao	1
 Zhou, Zhongyuan	1
 Zhou, Zhong-Kai	1
@@ -22070,7 +22068,7 @@ Yannopoulos, A	1
 Yankaskas, B C	1
 Yaniv, Isaac	1
 Yang, Zu-Yao	1
-Yang, Zi-Rong	1
+Yang, Zi-rong	1
 Yang, Zhulin	1
 Yang, Zhu-lin	1
 Yang, Zhong-Yi	1
@@ -24273,7 +24271,7 @@ Wang, Zishu	1
 Wang, Ziqiu	1
 Wang, Ziqiang	1
 Wang, Ziliang	1
-Wang, Zi-Qiang	1
+Wang, Zi-qiang	1
 Wang, Zi	1
 Wang, Zhuo-Ren	1
 Wang, Zhou	1
@@ -24335,10 +24333,10 @@ Wang, Ying-Wei	1
 Wang, Yin	1
 Wang, Yiming	1
 Wang, Yijun	1
+Wang, Yi-han	1
 Wang, Yi-Sheng	1
 Wang, Yi-Qian	1
 Wang, Yi-Ming	1
-Wang, Yi-Han	1
 Wang, Ye	1
 Wang, Yaoguang	1
 Wang, Yao-Jun	1
@@ -24568,9 +24566,10 @@ Wang, Ji-Gang	1
 Wang, Jean	1
 Wang, Jayson	1
 Wang, Jack P	1
-Wang, J-J	1
 Wang, J-G	1
 Wang, J Y	1
+Wang, J J	1
+Wang, Huiyan	1
 Wang, Huimin	1
 Wang, Hui-yuan	1
 Wang, Hui-Yu	1
@@ -24929,7 +24928,6 @@ Vörös, Julia	1
 Völker, Uwe	1
 Vérine, Alain	1
 Védrine, Lionel	1
-Véda, Martin	1
 Vågerö, D	1
 Välilä, Johanna	1
 Vázquez, Manuel Ramos	1
@@ -25627,7 +25625,7 @@ Van Hemelrijck, Mieke	1
 Van Heek, N T	1
 Van Hee, R	1
 Van Hazel, G	1
-Van Hagen, Thomas	1
+Van Hagen, T	1
 Van Gool, S	1
 Van Golen, Kenneth	1
 Van Geer, Michael A	1
@@ -27811,7 +27809,7 @@ Tan, Y	1
 Tan, Xingguo	1
 Tan, Xing-guo	1
 Tan, Xing-Guo	1
-Tan, Xiao-Ping	1
+Tan, Xiao-ping	1
 Tan, Xianhua	1
 Tan, XiangLin	1
 Tan, Xiang-Long	1
@@ -28449,6 +28447,7 @@ Swain, Gary	1
 Swain, Christopher P	1
 Swaen, Gerard M H	1
 Swaen, Gerard	1
+Svéda, Martin	1
 Svébisová, H	1
 Svrcek, M	1
 Svobodová, S	1
@@ -28926,7 +28925,6 @@ Su, Xingwen	1
 Su, W-C	1
 Su, Ta-Chen	1
 Su, S-P	1
-Su, S-B	1
 Su, Ming-Yao	1
 Su, Ming	1
 Su, Min	1
@@ -33446,7 +33444,6 @@ Rummeny, E J	1
 Rummel, Seth	1
 Rumley, T O	1
 Ruml, Tomás	1
-Ruml, Tomá	1
 Rumio, Cristiano	1
 Rumie Vittar, Natalia B	1
 Rumi, György	1
@@ -38318,7 +38315,6 @@ Ohara, Takeshi	1
 Ohara, Masanori	1
 Ohara, Maki	1
 Ohara, Keiichiro	1
-Ohara, Kanako	1
 Ohara, J	1
 Ohana, Patricia	1
 Oh, Young Ah	1
@@ -39800,6 +39796,7 @@ Nakajima, Hiromu	1
 Nakajima, Hiroko	1
 Nakajima, H	1
 Nakaji, So	1
+Nakai, Yosuke	1
 Nakai, Yasutomo	1
 Nakai, Yasushi	1
 Nakai, Takuya	1
@@ -42567,6 +42564,7 @@ Matsushima-Nishiwaki, Rie	1
 Matsushima, Yu	1
 Matsushima, K	1
 Matsusaki, Michiya	1
+Matsusaka, Keisuke	1
 Matsuoka, Yutaka	1
 Matsuoka, Y	1
 Matsuoka, Taka-aki	1
@@ -42982,7 +42980,7 @@ Martin, J L	1
 Martin, Ian G	1
 Martin, Ian	1
 Martin, Holly	1
-Martin, Hilary L	1
+Martin, H L	1
 Martin, F	1
 Martin, Eric S	1
 Martin, Edward W	1
@@ -44043,6 +44041,7 @@ Lv, Ying	1
 Lv, Xiu-hong	1
 Lv, Xiao-Guang	1
 Lv, ShunLi	1
+Lv, Shijie	1
 Lv, Ran	1
 Lv, Ming	1
 Lv, Liyan	1
@@ -45990,6 +45989,8 @@ Leibold, P	1
 Lei, Zhou	1
 Lei, Yun	1
 Lei, Xiudong	1
+Lei, Xiao-fei	1
+Lei, Xiao-Fei	1
 Lei, Siyuan	1
 Lei, Shi-yue	1
 Lei, Ruo-qing	1
@@ -48128,8 +48129,6 @@ Komarnitsky, Philip	1
 Komanduri, Srinadh	1
 Komander, Christine	1
 Komaki, Takamitsu	1
-Kolář, Michal	1
-Kolá, Michal	1
 Kolstad, H A	1
 Kolodner, Richard D	1
 Kolodecik, Thomas	1
@@ -48977,9 +48976,9 @@ Kim, Mi Eun	1
 Kim, Mee-Ja	1
 Kim, Manho	1
 Kim, Kyungsuk	1
-Kim, Kyungmann	1
 Kim, Kyungjin	1
 Kim, Kyunghwa	1
+Kim, KyungMann	1
 Kim, Kyung-Tae	1
 Kim, Kyung-Sik	1
 Kim, Kyung Won	1
@@ -49254,7 +49253,7 @@ Kida, Hideo	1
 Kida, A	1
 Kickuth, Ralph	1
 Kickuth, R	1
-Kiberu, Andrew	1
+Kiberu, A	1
 Kianmanesh, Reza	1
 Kianicka, Bohuslav	1
 Kiani, Alexander	1
@@ -49295,7 +49294,7 @@ Khay, G	1
 Khawaja, H T	1
 Khaw, K T	1
 Khauv, Davitte	1
-Khattak, Muhammad	1
+Khattak, M A	1
 Khattak, Ilyas	1
 Khatry, Deepak B	1
 Khatib, Areej	1
@@ -52933,7 +52932,7 @@ Hu, Jieqing	1
 Hu, Jianwen	1
 Hu, Jiankun	1
 Hu, Jianjun	1
-Hu, Jian-Kun	1
+Hu, Jian-kun	1
 Hu, Jia-Ni	1
 Hu, Jennifer J	1
 Hu, J L	1
@@ -60361,6 +60360,7 @@ Dong, Yan Bin	1
 Dong, Yan	1
 Dong, Xiaoxin	1
 Dong, Xiang Da Eric	1
+Dong, Wei-guo	1
 Dong, Su-Zhen	1
 Dong, Shui-Feng	1
 Dong, Rui-zen	1
@@ -61429,7 +61429,7 @@ Davidson, K	1
 Davidson, Jaime A	1
 Davidson, J M	1
 Davidson, Christian J	1
-Davidson, Andrew	1
+Davidson, A	1
 Davidenko, I	1
 David, V	1
 David, Patrice	1
@@ -63073,7 +63073,7 @@ Chiu, Han-Mo	1
 Chiu, H F	1
 Chiu, Chun-Chih	1
 Chiu, Cheng-Tang	1
-Chiu, C-C	1
+Chiu, C C	1
 Chiu, B C	1
 Chiu, Alexander S	1
 Chittenden, Thomas W	1
@@ -63572,8 +63572,8 @@ Chen, Ji S	1
 Chen, Jer-Shen	1
 Chen, Jeng-Yeou	1
 Chen, Jaw-Wen	1
-Chen, J-J	1
 Chen, J Y	1
+Chen, J J	1
 Chen, I W	1
 Chen, Huapu	1
 Chen, Huan-nian	1
@@ -69173,7 +69173,7 @@ Aiba, Tsuneo	1
 Aiba, K	1
 Ai, Yongxing	1
 Ai, R	1
-Ai, Ming-Hua	1
+Ai, Ming-hua	1
 Ai, Liang	1
 Ai, Kai-xing	1
 Ai, Kai-Xing	1

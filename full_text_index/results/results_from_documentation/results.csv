@@ -27,6 +27,7 @@
 11091610	BRCA1
 24775809	BRCA1
 20301425	BRCA1
+24147435	BRCA1
 23657012	BRCA1
 21989927	BRCA1
 18349832	BRCA1
@@ -39,7 +40,6 @@
 20876795	BRCA1
 22846737	BRCA1
 21633318	BRCA1
-24147435	BRCA1
 23613489	BRCA1
 18581219	BRCA1
 21365267	BRCA1
@@ -54,8 +54,8 @@
 22406596	BRCA1
 23846919	BRCA1
 16632103	BRCA1
-16632102	BRCA1
 19768832	BRCA1
+16632102	BRCA1
 23474559	BRCA1
 18657973	BRCA1
 20858716	BRCA1
@@ -64,8 +64,8 @@
 20711688	BRCA1
 24534203	BRCA1
 22664588	BRCA1
-8673090	BRCA1
 8950667	BRCA1
+8673090	BRCA1
 22162228	BRCA1
 11291558	BRCA1
 24534469	BRCA1
@@ -126,8 +126,8 @@
 22399190	BRCA2
 17351952	BRCA2
 21289082	BRCA2
-21750719	BRCA2
 15806175	BRCA2
+21750719	BRCA2
 23935836	BRCA2
 16243825	BRCA2
 21598239	BRCA2
@@ -149,6 +149,7 @@
 19635604	BRCA2
 21352873	BRCA2
 21610317	BRCA2
+24147435	BRCA2
 9140390	BRCA2
 24395243	BRCA2
 18439109	BRCA2
@@ -174,7 +175,6 @@
 22162228	BRCA2
 11561603	BRCA2
 10436775	BRCA2
-24147435	BRCA2
 10436789	BRCA2
 22493542	BRCA2
 21774034	BRCA2
@@ -343,8 +343,8 @@
 22493246	KRAS
 23958541	KRAS
 23435671	KRAS
-23752186	KRAS
 22751122	KRAS
+23752186	KRAS
 21894049	KRAS
 24152947	KRAS
 24798941	KRAS
@@ -470,10 +470,10 @@
 19917056	KRAS
 23470560	KRAS
 24550494	KRAS
+24604757	KRAS
 24026351	KRAS
 24278292	KRAS
 23209031	KRAS
-24604757	KRAS
 23302291	KRAS
 22773551	KRAS
 23989613	KRAS
@@ -498,8 +498,8 @@
 24568222	KRAS
 24670819	KRAS
 24978597	KRAS
-24857345	KRAS
 19023234	KRAS
+24857345	KRAS
 22954004	KRAS
 25003666	KRAS
 21199651	KRAS
@@ -599,11 +599,11 @@
 22759592	KRAS
 24177032	KRAS
 22458520	KRAS
+24947179	KRAS
 23588713	KRAS
 19931263	KRAS
 24737325	KRAS
 24194913	KRAS
-24947179	KRAS
 24240689	KRAS
 24827134	KRAS
 24561527	KRAS
@@ -918,8 +918,8 @@
 11323508	SMAD4
 17659731	SMAD4
 16367914	SMAD4
-24709776	SMAD4
 24670043	SMAD4
+24709776	SMAD4
 23749643	SMAD4
 24886203	SMAD4
 24306217	SMAD4
@@ -1221,12 +1221,12 @@
 22004109	TP53
 22041919	TP53
 24293293	TP53
+24604757	TP53
 18164859	TP53
 22128300	TP53
 22833572	TP53
 19720778	TP53
 22820191	TP53
-24604757	TP53
 17203180	TP53
 17406026	TP53
 15832194	TP53
@@ -1326,13 +1326,14 @@
 12782576	p53
 15810085	p53
 7872670	p53
-11332152	p53
 17230496	p53
+11332152	p53
 16481301	p53
 10624116	p53
 17540599	p53
 18617777	p53
 8311654	p53
+24725405	p53
 10737712	p53
 10415873	p53
 23238993	p53
@@ -1444,7 +1445,6 @@
 24454372	p53
 17659731	p53
 23873029	p53
-24725405	p53
 24838627	p53
 24297112	p53
 21607521	p53
@@ -1508,8 +1508,8 @@
 12903435	p53
 15940643	p53
 12094699	p53
-11159909	p53
 23744356	p53
+11159909	p53
 9767968	p53
 18310506	p53
 20452353	p53
@@ -1533,9 +1533,9 @@
 11197871	p53
 12454109	p53
 9276865	p53
+23549168	p53
 10445844	p53
 21894434	p53
-23549168	p53
 20418756	p53
 9792901	p53
 16827803	p53
@@ -1564,9 +1564,9 @@
 9537202	p53
 10449972	p53
 11358795	p53
+10547195	p53
 11455476	p53
 17911264	p53
-10547195	p53
 10760829	p53
 10436775	p53
 21468597	p53
@@ -1642,8 +1642,8 @@
 21860420	p53
 22805328	p53
 24717934	p53
-9641888	p53
 9792903	p53
+9641888	p53
 15827813	p53
 17569628	p53
 10486610	p53
@@ -1660,6 +1660,7 @@
 22004109	p53
 15316318	p53
 24247204	p53
+18949401	p53
 12696169	p53
 12145820	p53
 15375316	p53
@@ -1670,7 +1671,6 @@
 22851273	p53
 23403010	p53
 9671958	p53
-18949401	p53
 9866890	p53
 16760004	p53
 17111879	p53
@@ -1678,8 +1678,8 @@
 23416985	p53
 9821173	p53
 12605713	p53
-10436844	p53
 9853517	p53
+10436844	p53
 22066019	p53
 24462734	p53
 21909380	p53
@@ -1724,15 +1724,15 @@
 16280307	p53
 12138230	p53
 8834768	p53
-15084981	p53
 16171565	p53
-23851436	p53
 17023981	p53
-12909734	p53
+15084981	p53
+23851436	p53
 12079267	p53
+12909734	p53
 23431158	p53
-19351817	p53
 21535200	p53
+19351817	p53
 19023234	p53
 12021895	p53
 15645141	p53
@@ -1742,13 +1742,13 @@
 17027978	p53
 22146521	p53
 9816165	p53
-19002021	p53
 9710368	p53
+19002021	p53
 21362628	p53
-21199651	p53
 19260744	p53
-24338709	p53
+21199651	p53
 8893335	p53
+24338709	p53
 23049538	p53
 12520639	p53
 11854690	p53
@@ -1758,11 +1758,11 @@
 19273710	p53
 14743890	p53
 12718618	p53
-23912084	p53
 22487979	p53
+23912084	p53
 19816711	p53
-22699205	p53
 21740780	p53
+22699205	p53
 22200978	p53
 10415856	p53
 17714734	p53
@@ -1770,25 +1770,25 @@
 24474939	p53
 23226501	p53
 12448010	p53
-22753594	p53
 8681308	p53
-12657951	p53
+22753594	p53
 11077487	p53
 21611096	p53
 24445769	p53
 16940943	p53
-16397267	p53
+12657951	p53
 12946833	p53
 9717985	p53
-23519249	p53
 24469230	p53
+16397267	p53
 11561610	p53
-21343390	p53
 24658320	p53
+23519249	p53
 7553647	p53
 8681296	p53
-22041919	p53
+21343390	p53
 21196348	p53
+22041919	p53
 24481067	p53
 9641882	p53
 15184866	p53
@@ -1796,35 +1796,35 @@
 21242978	p53
 24550494	p53
 23200980	p53
-22991414	p53
 24212645	p53
+22991414	p53
 22027695	p53
 21289082	p53
-22128300	p53
 18999925	p53
+22128300	p53
 21036712	p53
 21904072	p53
 23774697	p53
 19294695	p53
 16146690	p53
-20110284	p53
 23148997	p53
 24307251	p53
+20110284	p53
 20455200	p53
 23023703	p53
 12748427	p53
 10436774	p53
 22320912	p53
 24874484	p53
-11075991	p53
 24549287	p53
+11075991	p53
 17900536	p53
 21236335	p53
 21894339	p53
-15846069	p53
 21333732	p53
-20522432	p53
+15846069	p53
 24303806	p53
+20522432	p53
 24067278	p53
 12353234	p53
 18691340	p53
@@ -1841,9 +1841,9 @@
 11561602	p53
 19896100	p53
 10781373	p53
-17203180	p53
 23357533	p53
 19896093	p53
+17203180	p53
 24648112	p53
 10436811	p53
 23544163	p53
@@ -1861,8 +1861,8 @@
 18443365	p53
 19919125	p53
 23456390	p53
-15832194	p53
 17369680	p53
+15832194	p53
 15264268	p53
 16699954	p53
 11520255	p53
@@ -1897,9 +1897,10 @@
 23108411	p53
 20864511	p53
 9806467	p53
-11323508	p53
 21836633	p53
+11323508	p53
 24775809	p53
+24607504	p53
 15955213	p53
 17409444	p53
 20154087	p53
@@ -2040,8 +2041,8 @@
 18525343	mTOR
 23455452	mTOR
 22946344	mTOR
-23443316	mTOR
 23828595	mTOR
+23443316	mTOR
 17457047	mTOR
 19679549	mTOR
 21593197	mTOR
@@ -2234,7 +2235,6 @@
 7917843	colon cancer
 2539553	colon cancer
 416901	colon cancer
-24855947	colon cancer
 1349189	colon cancer
 20168227	colon cancer
 7543165	colon cancer
@@ -2247,6 +2247,7 @@
 3118075	colon cancer
 12961849	colon cancer
 11392877	colon cancer
+24855947	colon cancer
 11280764	colon cancer
 21567561	colon cancer
 3821718	colon cancer
@@ -2323,7 +2324,6 @@
 22233948	colon cancer
 8965352	colon cancer
 16858628	colon cancer
-23463791	colon cancer
 12133726	colon cancer
 24846064	colon cancer
 24899072	colon cancer
@@ -2333,6 +2333,7 @@
 18155156	colon cancer
 21498735	colon cancer
 9779625	colon cancer
+23463791	colon cancer
 1829883	colon cancer
 15199612	colon cancer
 3664480	colon cancer
@@ -2654,13 +2655,13 @@
 12650603	breast cancer
 23352629	breast cancer
 1349189	breast cancer
-23463791	breast cancer
 15894351	breast cancer
 24296589	breast cancer
 21170760	breast cancer
 22203481	breast cancer
 9134530	breast cancer
 17346108	breast cancer
+23463791	breast cancer
 10948732	breast cancer
 6407507	breast cancer
 22739019	breast cancer
@@ -3352,7 +3353,6 @@
 3935345	ovarian cancer
 15131409	ovarian cancer
 24947586	ovarian cancer
-24725405	ovarian cancer
 8161897	ovarian cancer
 21325953	ovarian cancer
 1698728	ovarian cancer
@@ -3368,6 +3368,7 @@
 20711688	ovarian cancer
 6141569	ovarian cancer
 22664588	ovarian cancer
+24725405	ovarian cancer
 18465846	ovarian cancer
 23978168	ovarian cancer
 17679466	ovarian cancer
@@ -3617,8 +3618,8 @@
 2191168	Diabetes
 23669472	Diabetes
 7616537	Diabetes
-22719752	Diabetes
 21416856	Diabetes
+22719752	Diabetes
 20571492	Diabetes
 21748485	Diabetes
 9794172	Diabetes
@@ -3726,8 +3727,8 @@
 19890202	Diabetes
 19563838	Diabetes
 21416850	Diabetes
-23156459	Diabetes
 22940508	Diabetes
+23156459	Diabetes
 24152945	Diabetes
 24331184	Diabetes
 3741772	Diabetes
@@ -3746,6 +3747,7 @@
 20717964	Diabetes
 25000339	Diabetes
 23375875	Diabetes
+24126227	Diabetes
 7556816	Diabetes
 24979618	Diabetes
 22811857	Diabetes
@@ -3864,7 +3866,6 @@
 22196222	Diabetes
 11135318	Diabetes
 3372055	Diabetes
-24126227	Diabetes
 3966456	Diabetes
 19152242	Diabetes
 17512546	Diabetes
@@ -3944,9 +3945,10 @@
 24138811	Diabetes
 22421283	Diabetes
 10594206	Diabetes
+16958677	Diabetes
 11266395	Diabetes
-10892054	Diabetes
 10470520	Diabetes
+10892054	Diabetes
 18176040	Diabetes
 19639663	Diabetes
 19564793	Diabetes
@@ -3958,12 +3960,11 @@
 5975532	Diabetes
 6154495	Diabetes
 388633	Diabetes
-6809253	Diabetes
 434747	Diabetes
+6809253	Diabetes
 3243135	Diabetes
 8129601	Diabetes
 639606	Diabetes
-16958677	Diabetes
 24177141	Diabetes
 19077449	Diabetes
 21918030	Diabetes
@@ -4024,8 +4025,8 @@
 22951988	Diabetes
 22520674	Diabetes
 18836802	Diabetes
-15211110	Diabetes
 15986640	Diabetes
+15211110	Diabetes
 23663483	Diabetes
 6826689	Diabetes
 9600293	Diabetes
@@ -4044,8 +4045,8 @@
 23867225	Diabetes
 23565389	Diabetes
 24773234	Diabetes
-7529956	Diabetes
 6663709	Diabetes
+7529956	Diabetes
 8766950	Diabetes
 22589078	Diabetes
 23579979	Diabetes
@@ -4067,8 +4068,8 @@
 18067213	Diabetes
 10555999	Diabetes
 22374239	Diabetes
-1773717	Diabetes
 23267155	Diabetes
+1773717	Diabetes
 18503172	Diabetes
 21258973	Diabetes
 19334283	Diabetes
@@ -4103,7 +4104,6 @@
 17584141	Diabetes
 19349734	Diabetes
 19806144	Diabetes
-24784121	Diabetes
 6586110	Diabetes
 24303367	Diabetes
 3954380	Diabetes
@@ -4133,6 +4133,7 @@
 16307289	Diabetes
 21417406	Diabetes
 22798551	Diabetes
+24784121	Diabetes
 9121943	Diabetes
 18206818	Diabetes
 24622469	Diabetes
@@ -4510,8 +4511,8 @@
 9308706	diabetes mellitus
 22960655	diabetes mellitus
 21790335	diabetes mellitus
-23719602	diabetes mellitus
 12163695	diabetes mellitus
+23719602	diabetes mellitus
 22487526	diabetes mellitus
 19152242	diabetes mellitus
 3966456	diabetes mellitus
@@ -4594,8 +4595,8 @@
 7969313	diabetes mellitus
 8129601	diabetes mellitus
 639606	diabetes mellitus
-12213350	diabetes mellitus
 15823719	diabetes mellitus
+12213350	diabetes mellitus
 7556816	diabetes mellitus
 21129444	diabetes mellitus
 16358942	diabetes mellitus
@@ -4604,9 +4605,9 @@
 9211494	diabetes mellitus
 21411499	diabetes mellitus
 23597482	diabetes mellitus
+22379635	diabetes mellitus
 17317087	diabetes mellitus
 21104117	diabetes mellitus
-22379635	diabetes mellitus
 23342285	diabetes mellitus
 10389330	diabetes mellitus
 23207610	diabetes mellitus
@@ -4621,9 +4622,9 @@
 12730869	diabetes mellitus
 21847538	diabetes mellitus
 24262590	diabetes mellitus
+21932502	diabetes mellitus
 21357378	diabetes mellitus
 8014014	diabetes mellitus
-21932502	diabetes mellitus
 20543614	diabetes mellitus
 18762690	diabetes mellitus
 18591845	diabetes mellitus
@@ -4638,8 +4639,8 @@
 19299909	diabetes mellitus
 23565389	diabetes mellitus
 24773234	diabetes mellitus
-7529956	diabetes mellitus
 6663709	diabetes mellitus
+7529956	diabetes mellitus
 12063821	diabetes mellitus
 22396456	diabetes mellitus
 8669804	diabetes mellitus
@@ -4650,8 +4651,8 @@
 21251264	diabetes mellitus
 18836802	diabetes mellitus
 15211110	diabetes mellitus
-22196222	diabetes mellitus
 22442738	diabetes mellitus
+22196222	diabetes mellitus
 16225471	diabetes mellitus
 15205751	diabetes mellitus
 19218147	diabetes mellitus
@@ -4664,14 +4665,14 @@
 19190162	diabetes mellitus
 19403515	diabetes mellitus
 22424537	diabetes mellitus
-8661216	diabetes mellitus
 16610026	diabetes mellitus
 18067213	diabetes mellitus
-17674956	diabetes mellitus
 21249318	diabetes mellitus
+8661216	diabetes mellitus
+17674956	diabetes mellitus
 6857193	diabetes mellitus
-21851372	diabetes mellitus
 10555999	diabetes mellitus
+21851372	diabetes mellitus
 8449644	diabetes mellitus
 20647474	diabetes mellitus
 22865296	diabetes mellitus
@@ -4683,14 +4684,14 @@
 8908394	diabetes mellitus
 18503172	diabetes mellitus
 21258973	diabetes mellitus
-15632694	diabetes mellitus
 23674344	diabetes mellitus
+15632694	diabetes mellitus
 15753536	diabetes mellitus
 22750971	diabetes mellitus
 20665496	diabetes mellitus
 22719752	diabetes mellitus
-20178008	diabetes mellitus
 12813633	diabetes mellitus
+20178008	diabetes mellitus
 7638764	diabetes mellitus
 11522748	diabetes mellitus
 17220709	diabetes mellitus
@@ -4698,27 +4699,27 @@
 21720164	diabetes mellitus
 7791356	diabetes mellitus
 12717272	diabetes mellitus
+9710368	diabetes mellitus
 20174821	diabetes mellitus
 20389298	diabetes mellitus
-9710368	diabetes mellitus
 22087246	diabetes mellitus
 11385246	diabetes mellitus
 21464580	diabetes mellitus
 20455996	diabetes mellitus
-22015968	diabetes mellitus
 12555988	diabetes mellitus
+22015968	diabetes mellitus
 7349806	diabetes mellitus
 23834149	diabetes mellitus
 2952394	diabetes mellitus
 3222476	diabetes mellitus
 16172216	diabetes mellitus
+23847240	diabetes mellitus
 10444810	diabetes mellitus
 22955327	diabetes mellitus
 7015954	diabetes mellitus
-23847240	diabetes mellitus
+16191762	diabetes mellitus
 21944519	diabetes mellitus
 23708182	diabetes mellitus
-16191762	diabetes mellitus
 21334333	diabetes mellitus
 18192877	diabetes mellitus
 12727601	diabetes mellitus
@@ -4735,22 +4736,22 @@
 19111249	diabetes mellitus
 20888394	diabetes mellitus
 11135321	diabetes mellitus
-24784121	diabetes mellitus
-23110810	diabetes mellitus
 6586110	diabetes mellitus
+23110810	diabetes mellitus
 22290402	diabetes mellitus
 23159131	diabetes mellitus
-22311282	diabetes mellitus
 15986640	diabetes mellitus
-2934312	diabetes mellitus
+22311282	diabetes mellitus
 23632817	diabetes mellitus
+2934312	diabetes mellitus
 22166190	diabetes mellitus
-22845701	diabetes mellitus
 23161083	diabetes mellitus
+22845701	diabetes mellitus
 18328435	diabetes mellitus
 23966578	diabetes mellitus
 16083707	diabetes mellitus
 21937637	diabetes mellitus
+24784121	diabetes mellitus
 3372055	diabetes mellitus
 18206818	diabetes mellitus
 24622469	diabetes mellitus
@@ -4761,52 +4762,53 @@
 18762470	diabetes mellitus
 20814212	diabetes mellitus
 24746233	diabetes mellitus
-23375875	diabetes mellitus
 23946268	diabetes mellitus
+23375875	diabetes mellitus
 19434873	diabetes mellitus
 11014130	diabetes mellitus
 19608732	diabetes mellitus
 22162228	diabetes mellitus
-22617715	diabetes mellitus
 3487245	diabetes mellitus
+22617715	diabetes mellitus
 10198261	diabetes mellitus
 19064563	diabetes mellitus
-22374239	diabetes mellitus
 2487791	diabetes mellitus
-1773717	diabetes mellitus
+22374239	diabetes mellitus
 8651908	diabetes mellitus
+1773717	diabetes mellitus
 18049799	diabetes mellitus
 9526524	diabetes mellitus
 22911869	diabetes mellitus
 10520930	diabetes mellitus
 23052750	diabetes mellitus
 18217391	diabetes mellitus
-20388847	diabetes mellitus
+24126227	diabetes mellitus
 12020106	diabetes mellitus
-17897335	diabetes mellitus
+20388847	diabetes mellitus
 2061121	diabetes mellitus
+17897335	diabetes mellitus
 15244186	diabetes mellitus
 24488510	diabetes mellitus
 24153158	diabetes mellitus
 9259404	diabetes mellitus
 23438848	diabetes mellitus
 21111933	diabetes mellitus
-21241523	diabetes mellitus
 12512917	diabetes mellitus
+21241523	diabetes mellitus
 21748485	diabetes mellitus
 19450353	diabetes mellitus
 1946316	diabetes mellitus
 24658609	diabetes mellitus
 12115510	diabetes mellitus
-23669472	diabetes mellitus
 22938473	diabetes mellitus
+23669472	diabetes mellitus
 23146921	diabetes mellitus
-21295812	diabetes mellitus
 19691747	diabetes mellitus
-17401636	diabetes mellitus
-20183795	diabetes mellitus
+21295812	diabetes mellitus
 10436811	diabetes mellitus
 15115683	diabetes mellitus
+17401636	diabetes mellitus
+20183795	diabetes mellitus
 16127228	diabetes mellitus
 11474289	diabetes mellitus
 22416175	diabetes mellitus
@@ -4815,15 +4817,15 @@
 9581160	diabetes mellitus
 11992802	diabetes mellitus
 19107929	diabetes mellitus
-24073725	diabetes mellitus
 15170674	diabetes mellitus
+24073725	diabetes mellitus
 12127931	diabetes mellitus
 2317575	diabetes mellitus
 19572116	diabetes mellitus
 19263254	diabetes mellitus
 21403041	diabetes mellitus
-23890140	diabetes mellitus
 9260197	diabetes mellitus
+23890140	diabetes mellitus
 24411300	diabetes mellitus
 22020928	diabetes mellitus
 21254281	diabetes mellitus
@@ -5150,9 +5152,9 @@
 22622471	pancreatic ductal adenocarcinoma
 22644446	pancreatic ductal adenocarcinoma
 17492507	pancreatic ductal adenocarcinoma
+24838526	pancreatic ductal adenocarcinoma
 24995015	pancreatic ductal adenocarcinoma
 22511932	pancreatic ductal adenocarcinoma
-24838526	pancreatic ductal adenocarcinoma
 22238308	pancreatic ductal adenocarcinoma
 19077459	pancreatic ductal adenocarcinoma
 22249132	pancreatic ductal adenocarcinoma
@@ -5185,7 +5187,6 @@
 19425054	pancreatic ductal adenocarcinoma
 12454109	pancreatic ductal adenocarcinoma
 22066465	pancreatic ductal adenocarcinoma
-24709776	pancreatic ductal adenocarcinoma
 24989027	pancreatic ductal adenocarcinoma
 22004109	pancreatic ductal adenocarcinoma
 17942922	pancreatic ductal adenocarcinoma
@@ -5205,6 +5206,7 @@
 23498362	pancreatic ductal adenocarcinoma
 18787902	pancreatic ductal adenocarcinoma
 19260470	pancreatic ductal adenocarcinoma
+24709776	pancreatic ductal adenocarcinoma
 10935512	pancreatic ductal adenocarcinoma
 24484537	pancreatic ductal adenocarcinoma
 21088996	pancreatic ductal adenocarcinoma
@@ -5698,7 +5700,6 @@
 22372497	pancreatic ductal adenocarcinoma
 11077487	pancreatic ductal adenocarcinoma
 23187836	pancreatic ductal adenocarcinoma
-24325450	pancreatic ductal adenocarcinoma
 19760965	pancreatic ductal adenocarcinoma
 23716361	pancreatic ductal adenocarcinoma
 24175789	pancreatic ductal adenocarcinoma
@@ -5751,6 +5752,7 @@
 21851372	pancreatic ductal adenocarcinoma
 20875068	pancreatic ductal adenocarcinoma
 24326367	pancreatic ductal adenocarcinoma
+24325450	pancreatic ductal adenocarcinoma
 18310506	pancreatic ductal adenocarcinoma
 21331805	pancreatic ductal adenocarcinoma
 9622089	pancreatic ductal adenocarcinoma
@@ -5813,8 +5815,8 @@
 24914341	pancreatic ductal adenocarcinoma
 20461761	pancreatic ductal adenocarcinoma
 20495387	pancreatic ductal adenocarcinoma
-23679813	pancreatic ductal adenocarcinoma
 23378339	pancreatic ductal adenocarcinoma
+23679813	pancreatic ductal adenocarcinoma
 24717934	pancreatic ductal adenocarcinoma
 24115212	pancreatic ductal adenocarcinoma
 21457003	pancreatic ductal adenocarcinoma
@@ -5912,6 +5914,7 @@
 21098698	pancreatic ductal adenocarcinoma
 22576056	pancreatic ductal adenocarcinoma
 24622070	pancreatic ductal adenocarcinoma
+24947179	pancreatic ductal adenocarcinoma
 21803981	pancreatic ductal adenocarcinoma
 17943729	pancreatic ductal adenocarcinoma
 16844323	pancreatic ductal adenocarcinoma
@@ -5941,7 +5944,6 @@
 22925330	pancreatic ductal adenocarcinoma
 24114022	pancreatic ductal adenocarcinoma
 24975163	pancreatic ductal adenocarcinoma
-24947179	pancreatic ductal adenocarcinoma
 22934697	pancreatic ductal adenocarcinoma
 24714323	pancreatic ductal adenocarcinoma
 21057545	pancreatic ductal adenocarcinoma
@@ -6138,7 +6140,6 @@
 24465802	pancreatic ductal adenocarcinoma
 23588624	pancreatic ductal adenocarcinoma
 22010213	pancreatic ductal adenocarcinoma
-24142503	pancreatic ductal adenocarcinoma
 24856119	pancreatic ductal adenocarcinoma
 24536047	pancreatic ductal adenocarcinoma
 24433772	pancreatic ductal adenocarcinoma
@@ -6252,6 +6253,7 @@
 15735017	pancreatic ductal adenocarcinoma
 20927319	pancreatic ductal adenocarcinoma
 23019409	pancreatic ductal adenocarcinoma
+24142503	pancreatic ductal adenocarcinoma
 19571666	pancreatic ductal adenocarcinoma
 21572519	pancreatic ductal adenocarcinoma
 23497499	pancreatic ductal adenocarcinoma
@@ -6269,7 +6271,6 @@
 23047891	pancreatic ductal adenocarcinoma
 20660600	pancreatic ductal adenocarcinoma
 21742805	pancreatic ductal adenocarcinoma
-24316551	pancreatic ductal adenocarcinoma
 15202051	pancreatic ductal adenocarcinoma
 22723862	pancreatic ductal adenocarcinoma
 15754313	pancreatic ductal adenocarcinoma
@@ -6292,8 +6293,8 @@
 24894410	pancreatic ductal adenocarcinoma
 22870146	pancreatic ductal adenocarcinoma
 21673986	pancreatic ductal adenocarcinoma
-24607504	pancreatic ductal adenocarcinoma
 24007603	pancreatic ductal adenocarcinoma
+24316551	pancreatic ductal adenocarcinoma
 22078386	pancreatic ductal adenocarcinoma
 24048788	pancreatic ductal adenocarcinoma
 21719059	pancreatic ductal adenocarcinoma
@@ -6311,6 +6312,7 @@
 24025152	pancreatic ductal adenocarcinoma
 24306217	pancreatic ductal adenocarcinoma
 21327533	pancreatic ductal adenocarcinoma
+24607504	pancreatic ductal adenocarcinoma
 20641636	pancreatic ductal adenocarcinoma
 24574398	pancreatic ductal adenocarcinoma
 24294505	pancreatic ductal adenocarcinoma
@@ -6341,8 +6343,8 @@
 21850211	Erlotinib
 24827134	Erlotinib
 24474924	Erlotinib
-24857345	Erlotinib
 22712013	Erlotinib
+24857345	Erlotinib
 22645717	Erlotinib
 19707431	Erlotinib
 24073321	Erlotinib
@@ -6364,8 +6366,8 @@
 17591829	Erlotinib
 21700070	Erlotinib
 24170435	Erlotinib
-21498735	Erlotinib
 21151476	Erlotinib
+21498735	Erlotinib
 12840799	Erlotinib
 17704662	Erlotinib
 17457047	Erlotinib
@@ -6494,8 +6496,8 @@
 21613822	Erlotinib
 15892618	Erlotinib
 21266529	Erlotinib
-24857044	Erlotinib
 24096486	Erlotinib
+24857044	Erlotinib
 19236713	Erlotinib
 16360004	Erlotinib
 17430687	Erlotinib
@@ -6673,15 +6675,15 @@
 23448807	Gemcitabine
 23002368	Gemcitabine
 24556918	Gemcitabine
-24023491	Gemcitabine
 23788909	Gemcitabine
 23898224	Gemcitabine
 24692710	Gemcitabine
 19688061	Gemcitabine
-24562449	Gemcitabine
 24403454	Gemcitabine
+24562449	Gemcitabine
 21850211	Gemcitabine
 23801065	Gemcitabine
+24023491	Gemcitabine
 24075517	Gemcitabine
 24649130	Gemcitabine
 24619961	Gemcitabine
@@ -6854,8 +6856,8 @@
 15131028	Gemcitabine
 9460776	Gemcitabine
 8937492	Gemcitabine
-21811892	Gemcitabine
 20233917	Gemcitabine
+21811892	Gemcitabine
 11558629	Gemcitabine
 24957905	Gemcitabine
 17378914	Gemcitabine
@@ -6951,7 +6953,6 @@
 20461765	Gemcitabine
 16060994	Gemcitabine
 18251175	Gemcitabine
-24401833	Gemcitabine
 21205085	Gemcitabine
 21148071	Gemcitabine
 22289537	Gemcitabine
@@ -6980,8 +6981,8 @@
 12655447	Gemcitabine
 12894712	Gemcitabine
 22573342	Gemcitabine
-20544530	Gemcitabine
 20567622	Gemcitabine
+20544530	Gemcitabine
 12182983	Gemcitabine
 24322377	Gemcitabine
 17704662	Gemcitabine
@@ -7024,6 +7025,7 @@
 16638857	Gemcitabine
 15365074	Gemcitabine
 20523344	Gemcitabine
+24401833	Gemcitabine
 16434988	Gemcitabine
 14654905	Gemcitabine
 18176375	Gemcitabine
@@ -7253,7 +7255,6 @@
 23354694	Gemcitabine
 17212129	Gemcitabine
 22909993	Gemcitabine
-24280569	Gemcitabine
 12590317	Gemcitabine
 23583440	Gemcitabine
 16341905	Gemcitabine
@@ -7265,9 +7266,9 @@
 15573257	Gemcitabine
 20665488	Gemcitabine
 21715364	Gemcitabine
+12174927	Gemcitabine
 24356569	Gemcitabine
 24592173	Gemcitabine
-12174927	Gemcitabine
 19444385	Gemcitabine
 12571808	Gemcitabine
 19549912	Gemcitabine
@@ -7307,8 +7308,8 @@
 21656739	Gemcitabine
 15361643	Gemcitabine
 24930058	Gemcitabine
-24301456	Gemcitabine
 23474363	Gemcitabine
+24301456	Gemcitabine
 15570926	Gemcitabine
 20947887	Gemcitabine
 23837479	Gemcitabine
@@ -7354,6 +7355,7 @@
 22426593	Gemcitabine
 21419876	Gemcitabine
 21547571	Gemcitabine
+24280569	Gemcitabine
 11142685	Gemcitabine
 15646530	Gemcitabine
 20868602	Gemcitabine
@@ -7486,6 +7488,7 @@
 16418882	Gemcitabine
 18770957	Gemcitabine
 18257397	Gemcitabine
+24838526	Gemcitabine
 20461379	Gemcitabine
 21519814	Gemcitabine
 22272248	Gemcitabine
@@ -7494,7 +7497,6 @@
 18334830	Gemcitabine
 19949026	Gemcitabine
 22300608	Gemcitabine
-24838526	Gemcitabine
 22104618	Gemcitabine
 18301403	Gemcitabine
 22806305	Gemcitabine
@@ -7657,8 +7659,8 @@
 23208490	Gemcitabine
 23462324	Gemcitabine
 17272317	Gemcitabine
-17646699	Gemcitabine
 24605022	Gemcitabine
+17646699	Gemcitabine
 22192731	Gemcitabine
 19513511	Gemcitabine
 14998851	Gemcitabine
@@ -7780,8 +7782,8 @@
 21896540	Gemcitabine
 24917019	Gemcitabine
 22202408	Gemcitabine
-20203443	Gemcitabine
 21941491	Gemcitabine
+20203443	Gemcitabine
 21983131	Gemcitabine
 18633220	Gemcitabine
 21969502	Gemcitabine
@@ -7822,8 +7824,8 @@
 19098414	Gemcitabine
 23860726	Gemcitabine
 23863659	Gemcitabine
-22858734	Gemcitabine
 24875648	Gemcitabine
+22858734	Gemcitabine
 18309942	Gemcitabine
 22024222	Gemcitabine
 20163915	Gemcitabine
@@ -7870,8 +7872,8 @@
 19088724	Gemcitabine
 23591198	Gemcitabine
 18349845	Gemcitabine
-24857345	Gemcitabine
 18633271	Gemcitabine
+24857345	Gemcitabine
 17089051	Gemcitabine
 21922147	Gemcitabine
 24393861	Gemcitabine
@@ -7925,7 +7927,6 @@
 12909221	Gemcitabine
 13129554	Gemcitabine
 21834073	Gemcitabine
-24316554	Gemcitabine
 21224577	Gemcitabine
 22320450	Gemcitabine
 21556798	Gemcitabine
@@ -7959,6 +7960,7 @@
 17908982	Gemcitabine
 20824697	Gemcitabine
 17440727	Gemcitabine
+24316554	Gemcitabine
 22142827	Gemcitabine
 23423329	Gemcitabine
 12562645	Gemcitabine
@@ -8005,8 +8007,8 @@
 12601933	Gemcitabine
 14967465	Gemcitabine
 15452756	Gemcitabine
-15151634	Gemcitabine
 15882933	Gemcitabine
+15151634	Gemcitabine
 16344312	Gemcitabine
 16457249	Gemcitabine
 17471277	Gemcitabine
@@ -8024,11 +8026,11 @@
 17906218	Gemcitabine
 18309957	Gemcitabine
 18316544	Gemcitabine
-18326918	Gemcitabine
 18577724	Gemcitabine
 18577725	Gemcitabine
-18362852	Gemcitabine
+18326918	Gemcitabine
 18344882	Gemcitabine
+18362852	Gemcitabine
 19077495	Gemcitabine
 19877122	Gemcitabine
 19238023	Gemcitabine
@@ -8046,15 +8048,15 @@
 21864184	Gemcitabine
 21673540	Gemcitabine
 22327868	Gemcitabine
-23030218	Gemcitabine
 22415672	Gemcitabine
+23030218	Gemcitabine
 22695089	Gemcitabine
+24854654	Gemcitabine
 24476438	Gemcitabine
 24476439	Gemcitabine
-24854654	Gemcitabine
 24476440	Gemcitabine
-24865544	Gemcitabine
 24670859	Gemcitabine
+24865544	Gemcitabine
 24573040	Gemcitabine
 7641030	Gemcitabine
 8914509	Gemcitabine
@@ -8261,7 +8263,6 @@
 16490547	Gemcitabine
 11200146	Gemcitabine
 18356073	Gemcitabine
-24142503	Gemcitabine
 16033083	Gemcitabine
 18381943	Gemcitabine
 10376382	Gemcitabine
@@ -8287,6 +8288,7 @@
 21617724	Gemcitabine
 24618424	Gemcitabine
 17179482	Gemcitabine
+24142503	Gemcitabine
 24972449	Gemcitabine
 17040199	Gemcitabine
 21470434	Gemcitabine
@@ -8371,8 +8373,8 @@
 22681698	Gemcitabine
 10823002	Gemcitabine
 15486557	Gemcitabine
-17896154	Gemcitabine
 18756532	Gemcitabine
+17896154	Gemcitabine
 16351494	Gemcitabine
 23393331	Gemcitabine
 22829202	Gemcitabine
@@ -8455,8 +8457,6 @@
 23112132	Gemcitabine
 10416883	Gemcitabine
 21521158	Gemcitabine
-24280570	Gemcitabine
-24784121	Gemcitabine
 22372497	Gemcitabine
 19466902	Gemcitabine
 12643012	Gemcitabine
@@ -8481,6 +8481,7 @@
 18469443	Gemcitabine
 11875597	Gemcitabine
 18839175	Gemcitabine
+24784121	Gemcitabine
 19829097	Gemcitabine
 18240351	Gemcitabine
 23321032	Gemcitabine
@@ -8504,6 +8505,7 @@
 23187854	Gemcitabine
 11172670	Gemcitabine
 21937408	Gemcitabine
+24280570	Gemcitabine
 20601799	Gemcitabine
 19581734	Gemcitabine
 17600091	Gemcitabine
@@ -8811,8 +8813,8 @@
 18813198	Gemcitabine
 23338795	Gemcitabine
 22406595	Gemcitabine
-18040627	Gemcitabine
 18930345	Gemcitabine
+18040627	Gemcitabine
 23379413	Gemcitabine
 21821486	Gemcitabine
 17708601	Gemcitabine
@@ -8937,7 +8939,6 @@
 24663812	Gemcitabine
 16138769	Gemcitabine
 22923052	Gemcitabine
-24330851	Gemcitabine
 17331695	Gemcitabine
 21326002	Gemcitabine
 23303403	Gemcitabine
@@ -9026,6 +9027,7 @@
 21484249	Gemcitabine
 23112883	Gemcitabine
 12826245	Gemcitabine
+24330851	Gemcitabine
 18192876	Gemcitabine
 20495649	Gemcitabine
 17591805	Gemcitabine

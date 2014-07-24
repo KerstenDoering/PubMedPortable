@@ -75,8 +75,15 @@ class MedlineParser:
             if event == "end":
                 if elem.tag == "MedlineCitation" or elem.tag == "BookDocument":
                     loop_counter += 1
-                    DBCitation.citation_owner = elem.attrib["Owner"]
-                    DBCitation.citation_status = elem.attrib["Status"]
+                    #catch KeyError in case there is no Owner or Status attribute before committing DBCitation
+                    try:
+                        DBCitation.citation_owner = elem.attrib["Owner"]
+                    except:
+                        pass
+                    try:
+                        DBCitation.citation_status = elem.attrib["Status"]
+                    except:
+                        pass
                     DBCitation.journals = [DBJournal]
 
                     pubmed_id = int(elem.find("PMID").text)
@@ -205,7 +212,11 @@ class MedlineParser:
                     DBCitation.medline_pgn = elem.text
 
                 if elem.tag == "AuthorList":
-                    DBCitation.article_author_list_comp_yn = elem.attrib["CompleteYN"]
+                    #catch KeyError in case there is no CompleteYN attribute before committing DBCitation
+                    try:
+                        DBCitation.article_author_list_comp_yn = elem.attrib["CompleteYN"]
+                    except:
+                        pass
 
                     DBCitation.authors = []
                     for author in elem:
@@ -358,7 +369,11 @@ class MedlineParser:
                         DBCitation.meshheadings.append(DBMeSHHeading)
 
                 if elem.tag == "GrantList":
-                    DBCitation.grant_list_complete_yn = elem.attrib["CompleteYN"]
+                    #catch KeyError in case there is no CompleteYN attribute before committing DBCitation
+                    try:
+                        DBCitation.grant_list_complete_yn = elem.attrib["CompleteYN"]
+                    except:
+                        pass
                     DBCitation.grants = []
                     for grant in elem:
                         DBGrants = PubMedDB.Grant()
@@ -374,7 +389,11 @@ class MedlineParser:
                         DBCitation.grants.append(DBGrants)
 
                 if elem.tag == "DataBankList":
-                    DBCitation.data_bank_list_complete_yn = elem.attrib["CompleteYN"]
+                    #catch KeyError in case there is no CompleteYN attribute before committing DBCitation
+                    try:
+                        DBCitation.data_bank_list_complete_yn = elem.attrib["CompleteYN"]
+                    except:
+                        pass
                     DBCitation.accessions = []
                     DBCitation.databanks = []
 
@@ -484,12 +503,20 @@ class MedlineParser:
                     DBCitation.abstracts.append(DBAbstract)
                 """
                 if elem.tag == "KeywordList":
-                    DBCitation.keyword_list_owner = elem.attrib["Owner"]
+                    #catch KeyError in case there is no Owner attribute before committing DBCitation
+                    try:
+                        DBCitation.keyword_list_owner = elem.attrib["Owner"]
+                    except:
+                        pass
                     DBCitation.keywords = []
                     for subelem in elem:
                         DBKeyword = PubMedDB.Keyword()
                         DBKeyword.keyword = subelem.text
-                        DBKeyword.keyword_major_yn = subelem.attrib["MajorTopicYN"]
+                        #catch KeyError in case there is no MajorTopicYN attribute before committing DBCitation
+                        try:
+                            DBKeyword.keyword_major_yn = subelem.attrib["MajorTopicYN"]
+                        except:
+                            pass
                         DBCitation.keywords.append(DBKeyword)
 
                 if elem.tag == "Affiliation":

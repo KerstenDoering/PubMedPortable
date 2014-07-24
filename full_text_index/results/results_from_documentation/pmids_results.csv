@@ -5566,7 +5566,7 @@
 24121041	pancreatic ductal adenocarcinoma
 24121585	Gemcitabine
 24122257	Gemcitabine
-24126227	Diabetes
+24126227	Diabetes	diabetes mellitus
 24126240	p53	colon cancer
 24127333	breast cancer	ovarian cancer
 24127542	breast cancer
@@ -5947,7 +5947,7 @@
 24605110	pancreatic ductal adenocarcinoma
 24606850	Gemcitabine
 24607009	colon cancer
-24607504	KRAS	pancreatic ductal adenocarcinoma
+24607504	KRAS	p53	pancreatic ductal adenocarcinoma
 24608188	colon cancer
 24608432	KRAS	pancreatic ductal adenocarcinoma
 24608575	pancreatic ductal adenocarcinoma
