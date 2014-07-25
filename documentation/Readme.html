@@ -50,7 +50,7 @@
 <li><p>python-xapian&gt;=1.2.8</p></li>
 <li><p>python-sqlalchemy&gt;=0.7.4</p></li>
 <li><p>python-psycopg2&gt;=2.4.5 (dependency from SQLAlchemy)</p></li>
-<li><p>if there is not yet a superuser for the PostgreSQL database, create one with the name of your local account</p>
+<li><p>If there is not yet a superuser for the PostgreSQL database, create one with the name of your local account:</p>
 <blockquote>
 <ul>
 <li><p>sudo -u postgres createuser --superuser &lt;user_name&gt;</p></li>
@@ -63,7 +63,7 @@
 </blockquote></li>
 </ul>
 </blockquote></li>
-<li><p>now you can connect to the standard PostgreSQL database “postgres” with PGAdmin3 or via command-line:</p>
+<li><p>Now, you can connect to the standard PostgreSQL database “postgres” with PGAdmin3 or via command-line:</p>
 <blockquote>
 <ul>
 <li>psql -h localhost -d postgres -U &lt;user_name&gt;</li>
@@ -148,14 +148,19 @@
 <li><p>Start loading the data from PubMed into your PostgreSQL database:</p>
 <blockquote>
 <ul>
-<li><p>./create_database.sh &lt;path/to/input/files&gt; &lt;optional: database name&gt; &lt;optional: # processors&gt;</p></li>
+<li><p>./create_database.sh &lt;path/to/input/files&gt; &lt;optional: database name&gt; &lt;optional: # processors&gt; &lt;optional: “noTables” if complete PostgreSQL schema already exists&gt;</p></li>
 <li><p>The default database name is “pancreatic_cancer_db” and the default number of processors is 2. If you only want to change the number of processors, you also have to enter the database name keeping the order of parameters as it is shown.</p></li>
 <li><p>It is important that you only type in the name of the folder containing all XML files, but not the name of the file(s). This parameter is mandatory. You do not need to type in the absolute path. Suppose, you have saved your XML file(s) in the directory “data/pancreatic_cancer”, use this command to run it with 4 processors and the database “pancreatic_cancer_db”:</p>
 <blockquote>
 <ul>
 <li><p>./create_database.sh data/pancreatic_cancer pancreatic_cancer_db 4</p></li>
 <li><p>If you get an error concerning too many database connections, activate the sleep command in line 77 and 79 in “create_database.sh” that is commented out. Sometimes the database connections are closed by the programme, but still remain open for some seconds, preventing the new programme to open a connection. You can also increase the number of possible connections to your PostgreSQL server that can be opened (Ubuntu: “max_connections = &lt;type in number&gt;” in “/etc/postgresql/&lt;version number&gt;/main/postgresql.conf”).</p></li>
-<li><p>If you want to rebuild the database, but it is already created, you do not need to delete it and recreate it, again. You will only receive an error, because the schema “pubmed” already exists, but the data inside this schema will be deleted before new XML files will be inserted by “create_database.sh”.</p></li>
+</ul>
+</blockquote></li>
+<li><p>While running the script “create_database.sh”, you will be asked once for the password “parser” referring to the PostgreSQL user “parser”. If you want to load new data into the database, but it is already created, you do not need to delete it and recreate it, again. The data inside this schema will be deleted before new XML files will be inserted. Just change your command like this:</p>
+<blockquote>
+<ul>
+<li>./create_database.sh data/pancreatic_cancer pancreatic_cancer_db 4 noTables</li>
 </ul>
 </blockquote></li>
 <li><p>For one file with around 230 MB this takes around 10 min (only one processor can be used). For the same amount of data split into files with only 100 PubMed-IDs (use “generate_efetch.py”) it takes around 3 min with 4 processors (2,83 GHz and 8 GB RAM).</p></li>

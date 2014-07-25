@@ -148,7 +148,7 @@ Build up a Relational Database in PostgreSQL
 
         - If you get an error concerning too many database connections, activate the sleep command in line 77 and 79 in "create_database.sh" that is commented out. Sometimes the database connections are closed by the programme, but still remain open for some seconds, preventing the new programme to open a connection. You can also increase the number of possible connections to your PostgreSQL server that can be opened (Ubuntu: "max_connections = <type in number>" in "/etc/postgresql/<version number>/main/postgresql.conf").
 
-    - While running the script "create_database.sh", you will be asked once for the password "parser" referring to the PostgreSQL user "parser". If you want to load new data into the database, but it is already created, you do not need to delete it and recreate it, again. The data inside this schema will be deleted before new XML files will be inserted. Just change your command like this:
+    - While running the script "create_database.sh", you will be asked once for the password "parser" referring to the PostgreSQL user "parser". If you want to load new data into the database, but it is already created, you do not need to delete it and recreate it, again. Just change your command like this:
 
         - ./create_database.sh data/pancreatic_cancer pancreatic_cancer_db 4 noTables
 

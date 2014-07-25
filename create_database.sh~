@@ -15,8 +15,9 @@
 #template1=# \q
 
 #then create tables and load xml data into PostgreSQL database
-#usage: ./create_database.sh <path/to/input/files> <optional: database name> <optional: # processors> <optional: "noTables" if complete PostgreSQL schema already exists>
-#./create_database.sh data/pancreatic_cancer pancreatic_cancer_db 4 noTables
+#usage: ./create_database.sh <path/to/input/files> <optional: database name> <optional: # processors> <optional: PostgreSQL user name> <optional: "noTables" if complete PostgreSQL schema already exists>
+#./create_database.sh /media/Databases/kersten/drugmine_cors/streptom/git_removed/Abstracts/xml_pubmed parserdb 4 parser noTables
+#
 
 ################################################################
 
@@ -46,8 +47,8 @@ fi
 echo "number of processors is: $proc"
 
 #control whether schema "pubmed" and its tables should be built
-if [ -n "$4" ]; then
-    variable=$4
+if [ -n "$5" ]; then
+    proc=$5
     echo "No new schema \"pubmed\" with tables will be constructed"
 else
     #if database and user were created as it is described in the documenation, schema pubmed will be created
