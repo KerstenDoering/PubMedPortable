@@ -581,16 +581,17 @@ def run(medline_path, clean, start, end, PROCESSES):
 
 
 if __name__ == "__main__":
-    #code changed Kersten 13.06.2014
+    #code changed Kersten 08.08.2014
     from optparse import OptionParser
 
     parser = OptionParser()
     parser.add_option("-c", "--cleandb", dest="clean",
-                      action="store_true", default=False,
-                      help="Truncate the Database before running the parser")
-    parser.add_option("-v", "--verbose",
-                      action="store_true", dest="verbose", default=False,
-                      help="Print status messages to stdout")
+                      action="store_false", default=True,
+                      help="Truncate the Database before running the parser (default: True).")
+#    #verbose parameter not yet used
+#    parser.add_option("-v", "--verbose",
+#                      action="store_true", dest="verbose", default=False,
+#                      help="Print status messages to stdout (default: False).")
     parser.add_option("-s", "--start",
                       dest="start", default=0,
                       help="All queued files are passed if no start and end parameter is set. Otherwise you can specify a start and end o the queue. For example to split the parsing on several machines.")
@@ -598,11 +599,11 @@ if __name__ == "__main__":
                       dest="end", default=None,
                       help="All queued files are passed if no start and end parameter is set. Otherwise you can specify a start and end o the queue. For example to split the parsing on several machines.")
     parser.add_option("-i", "--input", dest="medline_path",
-                      default='/media/data/medline/pubmed/current/',
-                      help="specify the path to the medine XML-Files (default: /media/data/medline/pubmed/current/)")
+                      default='data/pancreatic_cancer/',
+                      help="specify the path to the medine XML-Files (default: data/pancreatic_cancer/)")
     parser.add_option("-p", "--processes",
                       dest="PROCESSES", default=2,
-                      help="How many processes should be used. (Default: 4)")
+                      help="How many processes should be used. (Default: 2)")
     parser.add_option("-d", "--database",
                       dest="database", default="pancreatic_cancer_db",
                       help="What is the name of the database. (Default: pancreatic_cancer_db)")
