@@ -34,24 +34,57 @@ These are the packages that need to be installed to use PubMed2Go:
 
 - python-xapian>=1.2.8
 
-- python-sqlalchemy>=0.7.4
+- python-sqlalchemy>=0.9.7
 
 - python-psycopg2>=2.4.5 (dependency from SQLAlchemy)
 
-- If there is not yet a superuser for the PostgreSQL database, create one with the name of your local account:
+- To install, the following command can be used in the Ubuntu terminal:
 
-    - sudo -u postgres createuser \--superuser <user_name>
+    - "sudo apt-get install"
 
-    - sudo -u <user_name> psql template1
-    
-       - \\password <press enter, type in password, and press enter, again>
+- If you use an older Ubuntu version, you can use "pip" to upgrade your package versions specifically for your user name, e.g.:
 
-       - \\q
+    - "sudo pip install sqlalchemy --upgrade"
 
-- Now, you can connect to the standard PostgreSQL database "postgres" with PGAdmin3 or via command-line:
+------
+Fedora
+------
 
-    - psql -h localhost -d postgres -U <user_name>
+- This section describes how to install required packages and how to adjust PostgreSQL settings in Fedora.
 
+- To install the Fedora packages use the following command. It will install all required packages:
+
+    - "sudo -E yum install python python-xappy python-sqlalchemy python-psycopg2 postgresql postgresql-server postgresql-contrib"
+
+- To enable PostgreSQL in Fedora, use the following steps: 
+
+    - "sudo systemctl enable postgresql"
+
+    - To start postgresql use the following command
+
+        - "sudo systemctl start postgresql"
+
+    - To populate initial data, the following command is required:
+
+        - "journalctl -xn"
+
+    - To initialise database, use the following command:
+
+        - "sudo postgresql-setup initdb"
+
+    - To allow read access to postgres, SELinux should be modified. This can be done with the following command:
+
+        - "grep postgres /var/log/audit/audit.log | audit2allow -M mypol"
+
+    - Then you can do this:
+
+        - "sudo semodule -i mypol.pp"
+
+    - Append this line in the file "pg_hba.conf" (default location: "/var/lib/pgsql/data/pg_hba.conf"): 
+
+        - "host    all             all             0.0.0.0         0.0.0.0         trust"
+
+        - If "trust" is used instead of "ident", you are allowed to use a password. "0.0.0.0" means that all machines are allowed to login. That means, if you want to customise which server has to reach the database, you can control it here.
 
 -------
 Windows
@@ -60,11 +93,23 @@ Windows
 - <will follow soon>
 
 
-------
-Fedora
-------
+********************************
+Creation of PostgreSQL superuser
+********************************
 
-- <will follow soon>
+- If there is not yet a superuser for the PostgreSQL database, create one with the name of your local account
+
+    - "sudo -u postgres createuser \--superuser <user_name>"
+
+    - "sudo -u <user_name> psql template1"
+    
+       - \\password <press enter, type in password, and press enter, again>
+
+       - \\q
+
+- Now, you can connect to the standard PostgreSQL database "postgres" with PGAdmin3 or via command-line:
+
+    - "psql -h localhost -d postgres -U <user_name>"
 
 
 *******************
@@ -122,35 +167,47 @@ Build up a Relational Database in PostgreSQL
 
 - Open a Terminal and type in:
 
-    - psql template1
+    - "psql template1"
 
-- Now enter the following commands into psql prompt to create a database and and a standard user:
+- Enter the following commands into psql prompt to create a database, the schema "pubmed", and a standard user "parser". It is important to write the user "parser" in single quotes in the creation step:
 
-    - CREATE USER parser WITH PASSWORD \'parser\'; <parser in single quotes>
-    
+    - CREATE USER parser WITH PASSWORD \'parser\'; 
+
     - CREATE DATABASE pancreatic_cancer_db;
-    
+
     - GRANT ALL PRIVILEGES ON DATABASE pancreatic_cancer_db to parser;
-    
+
     - \\q
+
+- Now you can create a schema "pubmed" as user "parser". You will be asked to enter your password "parser" here:
+
+    - "psql -h localhost -d pancreatic_cancer_db -U parser -f create_schema.sql"
 
 - If you want to use another database name, just change "pancreatic_cancer_db" in these commands and provide this name in all other scripts by choosing the right parameter.
 
-- Start loading the data from PubMed into your PostgreSQL database:
+- It is recommended to use the name "parser" with password "parser" and the schema "pubmed", because this is hard coded in "PubMedDB.py" and "PubMedParser.py"
 
-    - ./create_database.sh <path/to/input/files> <optional: database name> <optional: # processors> <optional: "noTables" if complete PostgreSQL schema already exists>
+- Create the tables in your database schema "pubmed" like this:
 
-    - The default database name is "pancreatic_cancer_db" and the default number of processors is 2. If you only want to change the number of processors, you also have to enter the database name keeping the order of parameters as it is shown.
+    - Use the command "python PubMedDB.py -d pancreatic_cancer_db" in your terminal. There are no other parameters that can be set.
 
-    - It is important that you only type in the name of the folder containing all XML files, but not the name of the file(s). This parameter is mandatory. You do not need to type in the absolute path. Suppose, you have saved your XML file(s) in the directory "data/pancreatic_cancer", use this command to run it with 4 processors and the database "pancreatic_cancer_db":
+- Load the data from PubMed into your PostgreSQL database:
 
-        - ./create_database.sh data/pancreatic_cancer pancreatic_cancer_db 4
+    - You can check "python PubMedParser.py -h" to get a help screen with all adjustable parameters. If you want to use the defaults, you can simply type in "python PubMedParser.py". 
 
-        - If you get an error concerning too many database connections, activate the sleep command in line 77 and 79 in "create_database.sh" that is commented out. Sometimes the database connections are closed by the programme, but still remain open for some seconds, preventing the new programme to open a connection. You can also increase the number of possible connections to your PostgreSQL server that can be opened (Ubuntu: "max_connections = <type in number>" in "/etc/postgresql/<version number>/main/postgresql.conf").
+        - By default, previously in PostgreSQL inserted data will be deleted before loading the new XML files into the database. That means you just have to call "python PubMedParser.py", again in case you want to load new data into your already created database.
 
-    - While running the script "create_database.sh", you will be asked once for the password "parser" referring to the PostgreSQL user "parser". If you want to load new data into the database, but it is already created, you do not need to delete it and recreate it, again. The data inside this schema will be deleted before new XML files will be inserted. Just change your command like this:
+        - If you do not want to delete, but only add XML files to the data that is already inside your PostgreSQL database, use parameter "-c".
 
-        - ./create_database.sh data/pancreatic_cancer pancreatic_cancer_db 4 noTables
+        - The default database name is "pancreatic_cancer_db" and the default number of processors is 2. For changing, use parameters "-d" and "-p".
+
+        - If you want to process only part of your files, use the parameters "-s" and "-e" with numbers referring to your alphabetically sorted files, e.g. "-s 0 -e 20" for the first 20 XML files in the directory.
+
+    - It is important that you only type in the name of the folder containing all XML files with parameter "-i", but not the name of the file(s). You do not need to type in the absolute path. Suppose, you have saved your XML file(s) in the directory "data/pancreatic_cancer", use this command to run it with 4 processors and the database "pancreatic_cancer_db":
+
+        - "python PubMedParser.py -i data/pancreatic_cancer/ -d pancreatic_cancer_db -p 4"
+
+    - If you receive an error concerning too many database connections, make sure that you use the latest version of SQLAlchemy. In earlier versions, sometimes the database connections were closed by the programme, but still remained open for some seconds, preventing the new programme to open a new connection. You can also increase the number of possible connections to your PostgreSQL server that can be opened (Ubuntu: "max_connections = <type in number>" in "/etc/postgresql/<version number>/main/postgresql.conf").
 
     - For one file with around 230 MB this takes around 10 min (only one processor can be used). For the same amount of data split into files with only 100 PubMed-IDs (use "generate_efetch.py") it takes around 3 min with 4 processors (2,83 GHz and 8 GB RAM).
 

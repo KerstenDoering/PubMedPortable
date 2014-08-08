@@ -15,19 +15,20 @@
 <ul>
 <li><a href="#requirements"><span class="toc-section-number">1</span> Requirements</a><ul>
 <li><a href="#ubuntu"><span class="toc-section-number">1.1</span> Ubuntu</a></li>
-<li><a href="#windows"><span class="toc-section-number">1.2</span> Windows</a></li>
-<li><a href="#fedora"><span class="toc-section-number">1.3</span> Fedora</a></li>
+<li><a href="#fedora"><span class="toc-section-number">1.2</span> Fedora</a></li>
+<li><a href="#windows"><span class="toc-section-number">1.3</span> Windows</a></li>
 </ul></li>
-<li><a href="#download-a-data-set"><span class="toc-section-number">2</span> Download a Data Set</a></li>
-<li><a href="#build-up-a-relational-database-in-postgresql"><span class="toc-section-number">3</span> Build up a Relational Database in PostgreSQL</a></li>
-<li><a href="#build-up-a-full-text-index-with-xapian-and-search-it"><span class="toc-section-number">4</span> Build up a Full Text Index with Xapian and Search It</a></li>
-<li><a href="#examples-for-connecting-full-text-search-and-selection-of-data-from-postgresql"><span class="toc-section-number">5</span> Examples for Connecting Full Text Search and Selection of Data from PostgreSQL</a><ul>
-<li><a href="#xapian"><span class="toc-section-number">5.1</span> Xapian</a></li>
-<li><a href="#postgresql"><span class="toc-section-number">5.2</span> PostgreSQL</a></li>
-<li><a href="#postgresql-and-xapian"><span class="toc-section-number">5.3</span> PostgreSQL and Xapian</a></li>
+<li><a href="#creation-of-postgresql-superuser"><span class="toc-section-number">2</span> Creation of PostgreSQL superuser</a></li>
+<li><a href="#download-a-data-set"><span class="toc-section-number">3</span> Download a Data Set</a></li>
+<li><a href="#build-up-a-relational-database-in-postgresql"><span class="toc-section-number">4</span> Build up a Relational Database in PostgreSQL</a></li>
+<li><a href="#build-up-a-full-text-index-with-xapian-and-search-it"><span class="toc-section-number">5</span> Build up a Full Text Index with Xapian and Search It</a></li>
+<li><a href="#examples-for-connecting-full-text-search-and-selection-of-data-from-postgresql"><span class="toc-section-number">6</span> Examples for Connecting Full Text Search and Selection of Data from PostgreSQL</a><ul>
+<li><a href="#xapian"><span class="toc-section-number">6.1</span> Xapian</a></li>
+<li><a href="#postgresql"><span class="toc-section-number">6.2</span> PostgreSQL</a></li>
+<li><a href="#postgresql-and-xapian"><span class="toc-section-number">6.3</span> PostgreSQL and Xapian</a></li>
 </ul></li>
-<li><a href="#contact"><span class="toc-section-number">6</span> Contact</a><ul>
-<li><a href="#license"><span class="toc-section-number">6.1</span> License</a></li>
+<li><a href="#contact"><span class="toc-section-number">7</span> Contact</a><ul>
+<li><a href="#license"><span class="toc-section-number">7.1</span> License</a></li>
 </ul></li>
 </ul>
 </div>
@@ -48,13 +49,85 @@
 <li><p>python-xappy&gt;=0.5</p></li>
 <li><p>apt-xapian-index&gt;=0.44</p></li>
 <li><p>python-xapian&gt;=1.2.8</p></li>
-<li><p>python-sqlalchemy&gt;=0.7.4</p></li>
+<li><p>python-sqlalchemy&gt;=0.9.7</p></li>
 <li><p>python-psycopg2&gt;=2.4.5 (dependency from SQLAlchemy)</p></li>
-<li><p>If there is not yet a superuser for the PostgreSQL database, create one with the name of your local account:</p>
+<li><p>To install, the following command can be used in the Ubuntu terminal:</p>
 <blockquote>
 <ul>
-<li><p>sudo -u postgres createuser --superuser &lt;user_name&gt;</p></li>
-<li><p>sudo -u &lt;user_name&gt; psql template1</p>
+<li>“sudo apt-get install”</li>
+</ul>
+</blockquote></li>
+<li><p>If you use an older Ubuntu version, you can use “pip” to upgrade your package versions specifically for your user name, e.g.:</p>
+<blockquote>
+<ul>
+<li>“sudo pip install sqlalchemy –upgrade”</li>
+</ul>
+</blockquote></li>
+</ul>
+<h2 id="fedora"><a href="#TOC"><span class="header-section-number">1.2</span> Fedora</a></h2>
+<ul>
+<li><p>This section describes how to install required packages and how to adjust PostgreSQL settings in Fedora.</p></li>
+<li><p>To install the Fedora packages use the following command. It will install all required packages:</p>
+<blockquote>
+<ul>
+<li>“sudo -E yum install python python-xappy python-sqlalchemy python-psycopg2 postgresql postgresql-server postgresql-contrib”</li>
+</ul>
+</blockquote></li>
+<li><p>To enable PostgreSQL in Fedora, use the following steps:</p>
+<blockquote>
+<ul>
+<li><p>“sudo systemctl enable postgresql”</p></li>
+<li><p>To start postgresql use the following command</p>
+<blockquote>
+<ul>
+<li>“sudo systemctl start postgresql”</li>
+</ul>
+</blockquote></li>
+<li><p>To populate initial data, the following command is required:</p>
+<blockquote>
+<ul>
+<li>“journalctl -xn”</li>
+</ul>
+</blockquote></li>
+<li><p>To initialise database, use the following command:</p>
+<blockquote>
+<ul>
+<li>“sudo postgresql-setup initdb”</li>
+</ul>
+</blockquote></li>
+<li><p>To allow read access to postgres, SELinux should be modified. This can be done with the following command:</p>
+<blockquote>
+<ul>
+<li>“grep postgres /var/log/audit/audit.log | audit2allow -M mypol”</li>
+</ul>
+</blockquote></li>
+<li><p>Then you can do this:</p>
+<blockquote>
+<ul>
+<li>“sudo semodule -i mypol.pp”</li>
+</ul>
+</blockquote></li>
+<li><p>Append this line in the file “pg_hba.conf” (default location: “/var/lib/pgsql/data/pg_hba.conf”):</p>
+<blockquote>
+<ul>
+<li><p>“host all all 0.0.0.0 0.0.0.0 trust”</p></li>
+<li><p>If “trust” is used instead of “ident”, you are allowed to use a password. “0.0.0.0” means that all machines are allowed to login. That means, if you want to customise which server has to reach the database, you can control it here.</p></li>
+</ul>
+</blockquote></li>
+</ul>
+</blockquote></li>
+</ul>
+<h2 id="windows"><a href="#TOC"><span class="header-section-number">1.3</span> Windows</a></h2>
+<ul>
+<li>&lt;will follow soon&gt;</li>
+</ul>
+<h1 id="creation-of-postgresql-superuser"><a href="#TOC"><span class="header-section-number">2</span> Creation of PostgreSQL superuser</a></h1>
+<ul>
+<li><p>If there is not yet a superuser for the PostgreSQL database, create one with the name of your local account</p>
+<blockquote>
+<ul>
+<li><p>“sudo -u postgres createuser --superuser &lt;user_name&gt;”</p></li>
+<li><p>“sudo -u &lt;user_name&gt; psql template1”</p>
 <blockquote>
 <ul>
 <li><p>\password &lt;press enter, type in password, and press enter, again&gt;</p></li>
@@ -66,19 +139,11 @@
 <li><p>Now, you can connect to the standard PostgreSQL database “postgres” with PGAdmin3 or via command-line:</p>
 <blockquote>
 <ul>
-<li>psql -h localhost -d postgres -U &lt;user_name&gt;</li>
+<li>“psql -h localhost -d postgres -U &lt;user_name&gt;”</li>
 </ul>
 </blockquote></li>
 </ul>
-<h2 id="windows"><a href="#TOC"><span class="header-section-number">1.2</span> Windows</a></h2>
-<ul>
-<li>&lt;will follow soon&gt;</li>
-</ul>
-<h2 id="fedora"><a href="#TOC"><span class="header-section-number">1.3</span> Fedora</a></h2>
-<ul>
-<li>&lt;will follow soon&gt;</li>
-</ul>
-<h1 id="download-a-data-set"><a href="#TOC"><span class="header-section-number">2</span> Download a Data Set</a></h1>
+<h1 id="download-a-data-set"><a href="#TOC"><span class="header-section-number">3</span> Download a Data Set</a></h1>
 <ul>
 <li><p>Type in the following URL into your browser and search for “pancreatic cancer”:</p>
 <blockquote>
@@ -127,48 +192,62 @@
 </blockquote></li>
 <li><p>You can insert the XML files in an extra directory in your project folder “data” or somewhere else. The only important thing is to use only one type of topic or XML files in one folder, because the programme will insert all files of type XML in a directory into the database given (next step).</p></li>
 </ul>
-<h1 id="build-up-a-relational-database-in-postgresql"><a href="#TOC"><span class="header-section-number">3</span> Build up a Relational Database in PostgreSQL</a></h1>
+<h1 id="build-up-a-relational-database-in-postgresql"><a href="#TOC"><span class="header-section-number">4</span> Build up a Relational Database in PostgreSQL</a></h1>
 <ul>
 <li><p>Open a Terminal and type in:</p>
 <blockquote>
 <ul>
-<li>psql template1</li>
+<li>“psql template1”</li>
 </ul>
 </blockquote></li>
-<li><p>Now enter the following commands into psql prompt to create a database and and a standard user:</p>
+<li><p>Enter the following commands into psql prompt to create a database, the schema “pubmed”, and a standard user “parser”. It is important to write the user “parser” in single quotes in the creation step:</p>
 <blockquote>
 <ul>
-<li><p>CREATE USER parser WITH PASSWORD 'parser'; &lt;parser in single quotes&gt;</p></li>
+<li><p>CREATE USER parser WITH PASSWORD 'parser';</p></li>
 <li><p>CREATE DATABASE pancreatic_cancer_db;</p></li>
 <li><p>GRANT ALL PRIVILEGES ON DATABASE pancreatic_cancer_db to parser;</p></li>
 <li><p>\q</p></li>
 </ul>
 </blockquote></li>
+<li><p>Now you can create a schema “pubmed” as user “parser”. You will be asked to enter your password “parser” here:</p>
+<blockquote>
+<ul>
+<li>“psql -h localhost -d pancreatic_cancer_db -U parser -f create_schema.sql”</li>
+</ul>
+</blockquote></li>
 <li><p>If you want to use another database name, just change “pancreatic_cancer_db” in these commands and provide this name in all other scripts by choosing the right parameter.</p></li>
-<li><p>Start loading the data from PubMed into your PostgreSQL database:</p>
+<li><p>It is recommended to use the name “parser” with password “parser” and the schema “pubmed”, because this is hard coded in “PubMedDB.py” and “PubMedParser.py”</p></li>
+<li><p>Create the tables in your database schema “pubmed” like this:</p>
 <blockquote>
 <ul>
-<li><p>./create_database.sh &lt;path/to/input/files&gt; &lt;optional: database name&gt; &lt;optional: # processors&gt; &lt;optional: “noTables” if complete PostgreSQL schema already exists&gt;</p></li>
-<li><p>The default database name is “pancreatic_cancer_db” and the default number of processors is 2. If you only want to change the number of processors, you also have to enter the database name keeping the order of parameters as it is shown.</p></li>
-<li><p>It is important that you only type in the name of the folder containing all XML files, but not the name of the file(s). This parameter is mandatory. You do not need to type in the absolute path. Suppose, you have saved your XML file(s) in the directory “data/pancreatic_cancer”, use this command to run it with 4 processors and the database “pancreatic_cancer_db”:</p>
-<blockquote>
-<ul>
-<li><p>./create_database.sh data/pancreatic_cancer pancreatic_cancer_db 4</p></li>
-<li><p>If you get an error concerning too many database connections, activate the sleep command in line 77 and 79 in “create_database.sh” that is commented out. Sometimes the database connections are closed by the programme, but still remain open for some seconds, preventing the new programme to open a connection. You can also increase the number of possible connections to your PostgreSQL server that can be opened (Ubuntu: “max_connections = &lt;type in number&gt;” in “/etc/postgresql/&lt;version number&gt;/main/postgresql.conf”).</p></li>
+<li>Use the command “python PubMedDB.py -d pancreatic_cancer_db” in your terminal. There are no other parameters that can be set.</li>
 </ul>
 </blockquote></li>
-<li><p>While running the script “create_database.sh”, you will be asked once for the password “parser” referring to the PostgreSQL user “parser”. If you want to load new data into the database, but it is already created, you do not need to delete it and recreate it, again. The data inside this schema will be deleted before new XML files will be inserted. Just change your command like this:</p>
+<li><p>Load the data from PubMed into your PostgreSQL database:</p>
 <blockquote>
 <ul>
-<li>./create_database.sh data/pancreatic_cancer pancreatic_cancer_db 4 noTables</li>
+<li><p>You can check “python PubMedParser.py -h” to get a help screen with all adjustable parameters. If you want to use the defaults, you can simply type in “python PubMedParser.py”.</p>
+<blockquote>
+<ul>
+<li><p>By default, previously in PostgreSQL inserted data will be deleted before loading the new XML files into the database. That means you just have to call “python PubMedParser.py”, again in case you want to load new data into your already created database.</p></li>
+<li><p>If you do not want to delete, but only add XML files to the data that is already inside your PostgreSQL database, use parameter “-c”.</p></li>
+<li><p>The default database name is “pancreatic_cancer_db” and the default number of processors is 2. For changing, use parameters “-d” and “-p”.</p></li>
+<li><p>If you want to process only part of your files, use the parameters “-s” and “-e” with numbers referring to your alphabetically sorted files, e.g. “-s 0 -e 20” for the first 20 XML files in the directory.</p></li>
 </ul>
 </blockquote></li>
+<li><p>It is important that you only type in the name of the folder containing all XML files with parameter “-i”, but not the name of the file(s). You do not need to type in the absolute path. Suppose, you have saved your XML file(s) in the directory “data/pancreatic_cancer”, use this command to run it with 4 processors and the database “pancreatic_cancer_db”:</p>
+<blockquote>
+<ul>
+<li>“python PubMedParser.py -i data/pancreatic_cancer/ -d pancreatic_cancer_db -p 4”</li>
+</ul>
+</blockquote></li>
+<li><p>If you receive an error concerning too many database connections, make sure that you use the latest version of SQLAlchemy. In earlier versions, sometimes the database connections were closed by the programme, but still remained open for some seconds, preventing the new programme to open a new connection. You can also increase the number of possible connections to your PostgreSQL server that can be opened (Ubuntu: “max_connections = &lt;type in number&gt;” in “/etc/postgresql/&lt;version number&gt;/main/postgresql.conf”).</p></li>
 <li><p>For one file with around 230 MB this takes around 10 min (only one processor can be used). For the same amount of data split into files with only 100 PubMed-IDs (use “generate_efetch.py”) it takes around 3 min with 4 processors (2,83 GHz and 8 GB RAM).</p></li>
 </ul>
 </blockquote></li>
 <li><p>Now, a schema “pubmed” exists in your database “pancreatic_cancer_db” that contains all abstracts, titles, authors, etc. More information will be given in section 5, containing SQL queries and small programming examples.</p></li>
 </ul>
-<h1 id="build-up-a-full-text-index-with-xapian-and-search-it"><a href="#TOC"><span class="header-section-number">4</span> Build up a Full Text Index with Xapian and Search It</a></h1>
+<h1 id="build-up-a-full-text-index-with-xapian-and-search-it"><a href="#TOC"><span class="header-section-number">5</span> Build up a Full Text Index with Xapian and Search It</a></h1>
 <ul>
 <li><p>The results from this section can be found in “full_text_index/results/results_from_documentation/”.</p></li>
 <li><p>Change into the directory “full_text_index” in your terminal.</p></li>
@@ -227,8 +306,8 @@
 </ul>
 </blockquote></li>
 </ul>
-<h1 id="examples-for-connecting-full-text-search-and-selection-of-data-from-postgresql"><a href="#TOC"><span class="header-section-number">5</span> Examples for Connecting Full Text Search and Selection of Data from PostgreSQL</a></h1>
-<h2 id="xapian"><a href="#TOC"><span class="header-section-number">5.1</span> Xapian</a></h2>
+<h1 id="examples-for-connecting-full-text-search-and-selection-of-data-from-postgresql"><a href="#TOC"><span class="header-section-number">6</span> Examples for Connecting Full Text Search and Selection of Data from PostgreSQL</a></h1>
+<h2 id="xapian"><a href="#TOC"><span class="header-section-number">6.1</span> Xapian</a></h2>
 <ul>
 <li><p>Use the following scripts to work with the functions OR, AND, NEAR, ADJ, NOT, and phrase search in Xapian and have a look at the HTML output files. As the number of PubMed-IDs increases continuously, the resulting numbers in this documentation can be seen as a reference point for the given query “pancreatic cancer”. Having a look at these scripts as well as “RunXapian.py” can be useful to build your own modified queries. There is also a small note in “full_text_index/xapian/readme.txt”.</p>
 <blockquote>
@@ -267,7 +346,7 @@
 </ul>
 </blockquote></li>
 </ul>
-<h2 id="postgresql"><a href="#TOC"><span class="header-section-number">5.2</span> PostgreSQL</a></h2>
+<h2 id="postgresql"><a href="#TOC"><span class="header-section-number">6.2</span> PostgreSQL</a></h2>
 <ul>
 <li><p>Type in these SQL queries in PGAdmin3 or in the PostgreSQL shell to get familiar with the schema “pubmed”:</p>
 <blockquote>
@@ -325,7 +404,7 @@
 </ul>
 </blockquote></li>
 </ul>
-<h2 id="postgresql-and-xapian"><a href="#TOC"><span class="header-section-number">5.3</span> PostgreSQL and Xapian</a></h2>
+<h2 id="postgresql-and-xapian"><a href="#TOC"><span class="header-section-number">6.3</span> PostgreSQL and Xapian</a></h2>
 <ul>
 <li><p>The results of this subsection can be found in “full_text_index/results/results_from_documentation/”.</p></li>
 <li><p>Try “python find_authors.py” to see an example for processing a PostgreSQL query in Python. Use “python find_authors.py -f &lt;output_filename&gt; -d &lt;name_of_database&gt;” to specify the name of the output file and the database to connect to. “python find_authors.py -h” shows all adjustable parameters.</p>
@@ -368,7 +447,7 @@
 </blockquote></li>
 <li><p>Next steps can be to select the abstracts that were identified with Xapian from PostgreSQL and to use a sentence tokeniser. Like this, groups of words and semantic structures can be analysed with natural language processing methods.</p></li>
 </ul>
-<h1 id="contact"><a href="#TOC"><span class="header-section-number">6</span> Contact</a></h1>
+<h1 id="contact"><a href="#TOC"><span class="header-section-number">7</span> Contact</a></h1>
 <ul>
 <li><p>Please, write an e-mail, if you have questions, feedback, improvements, or new ideas:</p>
 <blockquote>
@@ -388,7 +467,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'<code>'+e+'</code>'+'<\/'+
 </ul>
 </blockquote></li>
 </ul>
-<h2 id="license"><a href="#TOC"><span class="header-section-number">6.1</span> License</a></h2>
+<h2 id="license"><a href="#TOC"><span class="header-section-number">7.1</span> License</a></h2>
 <ul>
 <li>PubMed2Go is published with an ISC license given in “license.txt”.</li>
 </ul>
