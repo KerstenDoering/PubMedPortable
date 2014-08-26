@@ -78,10 +78,10 @@ if __name__=="__main__":
         ### debug:
 #        print "###",len(articles),"###"
         Article.closeConnection()
-        print "\n-------------"
-        print "processing files from year " + str(b_year) + " to " + str(e_year)
         print "-------------"
-        print "got articles from PostgreSQL database"
+        print "processing files from year " + b_year + " to " + e_year
+        print "-------------"
+        print "\ngot articles from PostgreSQL database"
         print "-------------"
     #take the last year to create directory
     indexer  = PubMedXapian(xapian_name)

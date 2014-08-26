@@ -22,10 +22,6 @@ class SynonymParser():
         
     def parseAndFind(self):
 
-        currentCid  = ""
-        currentRank = 0
-        synonyms    = []
-
         for row in open(self.__path):
             synonym = row.strip()
             pmids = self.__pubMedXapian.findPMIDsWithSynonyms([synonym])
