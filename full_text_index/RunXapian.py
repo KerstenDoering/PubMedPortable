@@ -27,12 +27,12 @@ if __name__=="__main__":
 
     parser = OptionParser()
     parser.add_option("-b", "--b_year", dest="b", help="year of the index to begin parsing (default: 1809)", default=1809)
-    parser.add_option("--xapian-database-path", dest="xapian_database_path", help="Specify the path to the Xapian full text index.", default="xapian")
+    parser.add_option("-p", "--xapian_database_path", dest="xapian_database_path", help="Specify the path to the Xapian full text index.", default="xapian")
     parser.add_option("-e", "--e_year", dest="e", help="year of the index to end parsing (default: 2014)", default=2014)
     parser.add_option("-x", "--index", dest="x", action="store_true", default=False, help="Create Xapian index first (default: False)")
     parser.add_option("-s", "--synoynm_path", dest="s", help="relative path to synonym list (default: synonyms/pancreatic_cancer.txt)", default = "synonyms/pancreatic_cancer.txt")
     parser.add_option("-d", "--db_psql", dest="d", help="database in PostgreSQL to connect to (default: pancreatic_cancer_db)", default = "pancreatic_cancer_db")
-    parser.add_option("-f", "--find", dest="f", action="store_false", help="find synonyms in Xapian database (default: True)", default=True)
+    parser.add_option("-f", "--no_search", dest="f", action="store_false", help="find synonyms in Xapian database (default: True)", default=True)
     parser.add_option("-r", "--results_name", dest="r", help="name of the results file (default: results.csv)", default = "results")
     parser.add_option("-n", "--name_xapian_db", dest="n", help="name of the xapian database folder (default: xapian<e_year>)", default = "xapian")
     
