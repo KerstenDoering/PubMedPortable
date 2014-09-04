@@ -91,7 +91,7 @@ if __name__=="__main__":
        print "now indexing articles in Xapian"
        indexer.buildIndexWithArticles(articles)
        print "\n-------------"
-    if not (os.path.isdir(options.xapian_database_path+"/"+xapian_name)):
+    if not (os.path.isdir("xapian/"+xapian_name)):
         print "xapian files are not existing"
         parser.print_help()
         exit(0)
