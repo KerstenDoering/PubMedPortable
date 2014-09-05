@@ -581,17 +581,12 @@ def run(medline_path, clean, start, end, PROCESSES):
 
 
 if __name__ == "__main__":
-    #code changed Kersten 08.08.2014
     from optparse import OptionParser
 
     parser = OptionParser()
-    parser.add_option("-c", "--do_not_clean_db", dest="clean",
+    parser.add_option("-c", "--no_cleaning", dest="clean",
                       action="store_false", default=True,
                       help="Truncate the Database before running the parser (default: True).")
-#    #verbose parameter not yet used
-#    parser.add_option("-v", "--verbose",
-#                      action="store_true", dest="verbose", default=False,
-#                      help="Print status messages to stdout (default: False).")
     parser.add_option("-s", "--start",
                       dest="start", default=0,
                       help="All queued files are passed if no start and end parameter is set. Otherwise you can specify a start and end o the queue. For example to split the parsing on several machines.")
