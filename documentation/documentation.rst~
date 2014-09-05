@@ -218,7 +218,7 @@ Installation with Docker
 
     - https://github.com/bgruening/docker-recipes/tree/master/pubmed2go
 
-- If you want to try the examples given in the section 5 and 6, copy the Xapian directory from the <folder_of_your_choice> into the folder "PubMed2Go/full_text_index/xapian/" from "https://github.com/KerstenDoering/PubMed2Go" and run the Docker container in background. You can completely skip section 4.
+- If you want to try the examples given in the section 5 and 6, copy the Xapian directory from the <folder_of_your_choice> into the folder "PubMed2Go/full_text_index/xapian/" from "https://github.com/KerstenDoering/PubMed2Go" and run the Docker container in background. 
 
 - You can connect to PostgreSQL and Xapian with the programming language of your choice or follow the Python examples given in this documentation. If you want to develop your own text mining pipelines based on your data set of choice, you will have to install the required libraries on your operation system.
 

@@ -585,7 +585,7 @@ if __name__ == "__main__":
     from optparse import OptionParser
 
     parser = OptionParser()
-    parser.add_option("-c", "--do_not_clean_db", dest="clean",
+    parser.add_option("-c", "--do_not_cleandb", dest="clean",
                       action="store_false", default=True,
                       help="Truncate the Database before running the parser (default: True).")
 #    #verbose parameter not yet used
