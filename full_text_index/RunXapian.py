@@ -12,6 +12,8 @@
 
 import xappy
 import os.path
+import sys
+import os
 
 from sqlalchemy import *
 from sqlalchemy.ext.declarative import declarative_base
@@ -23,7 +25,6 @@ from PubMedXapian import PubMedXapian
 if __name__=="__main__":
     #new Code Kersten 08.07.2014
     from optparse import OptionParser
-
 
     parser = OptionParser()
     parser.add_option("-b", "--b_year", dest="b", help="year of the index to begin parsing (default: 1809)", default=1809)
@@ -52,23 +53,15 @@ if __name__=="__main__":
         xapian_name = options.n + str(options.e)
     else:
         xapian_name = options.n
-        print xapian_name
 
     #set PSQL database name
     database = options.d
     #set synonym path
     synonymPath = options.s
 
-    ##debug:
-#    print "beginning with year:"
-#    print b_year
-#    print "ending with year:"
-#    print e_year
-
     #Synonym file to use
     if not (os.path.isfile(synonymPath)):
-        print "synonym file not existing - programme terminates"
-        exit(0)
+        sys.exit( "synonym file not existing - programme terminates" )
 
     if options.x:
         #import class Article from Article.py and connect to PostgreSQL database
@@ -76,8 +69,6 @@ if __name__=="__main__":
         Article.getConnection(database)
         #select all articles in a range of years x >= b_year and x <= e_year
         articles = Article.getArticlesByYear(b_year,e_year)
-        ### debug:
-#        print "###",len(articles),"###"
         Article.closeConnection()
         print "\n-------------"
         print "processing files from year " + str(b_year) + " to " + str(e_year)
@@ -91,17 +82,16 @@ if __name__=="__main__":
        print "now indexing articles in Xapian"
        indexer.buildIndexWithArticles(articles)
        print "\n-------------"
-    if not (os.path.isdir(options.xapian_database_path+"/"+xapian_name)):
-        print "xapian files are not existing"
+    if not ( os.path.isdir( os.path.join(options.xapian_database_path, xapian_name) ) ):
         parser.print_help()
-        exit(0)
+        exit("xapian files are not existing")
     if options.f:
         synonymParser = SynonymParser(synonymPath, indexer, filename)
         synonymParser.parseAndFind()
         if filename == "results":
-            print "\nquery results written to " + filename + ".csv"
+            print "\nquery results written to %s.csv" % filename
         else:
-            print "\nquery results written to " + filename
+            print "\nquery results written to %s" % filename
     else:
         print "no search of synonyms performed, use \"python RunXapian.py -h\" for parameter view"
 
