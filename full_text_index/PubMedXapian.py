@@ -6,21 +6,21 @@
 
 import xappy
 import sys
+import os
 
 from SynonymParser import SynonymParser
 from Article import Article
 
 class PubMedXapian():
-    
     __indexCount  = 0
     __indexMsg    = ""
 
     def __init__(   self,
                     directory_name,
                     #no absolut path
-                    xapianPath = "xapian/",                    
+                    xapianPath = "xapian",
                  ):
-        self.__xapianPath   = xapianPath+directory_name
+        self.__xapianPath   = os.path.join( xapianPath, directory_name )
         self.__pmids        = []
         self.__searchConn   = None 
 
@@ -36,20 +36,18 @@ class PubMedXapian():
         
         for chemical in [chemical for chemical in article.getChemicals() if len(chemical) < 3000]:
             doc.fields.append(xappy.Field("chemical_exact", chemical))
-        #new code Kersten 13.06.2014
+
         for keyword in article.getKeywords():
             doc.fields.append(xappy.Field("keyword", keyword))
 
-        #new code Kersten 08.07.2014
         for mesh in article.getMeSH():
             doc.fields.append(xappy.Field("mesh", mesh))
 
         doc.id = str(article.getPMID())
-            
         return doc
-    
+
     def buildIndexWithArticles(self, articles):
-        conn = xappy.IndexerConnection(self.__xapianPath)        
+        conn = xappy.IndexerConnection(self.__xapianPath)
 
         #add priority to title field in case of ranked matching (weight=5)- index all fields and store data
         conn.add_field_action('title', xappy.FieldActions.INDEX_FREETEXT, weight=5, language='en')
@@ -58,7 +56,6 @@ class PubMedXapian():
         conn.add_field_action('keyword', xappy.FieldActions.INDEX_FREETEXT, language='en')
         conn.add_field_action('mesh', xappy.FieldActions.INDEX_FREETEXT, language='en')
 
-        #new Code Kersten 06.06.2014
         conn.add_field_action('text', xappy.FieldActions.STORE_CONTENT)
         conn.add_field_action('title', xappy.FieldActions.STORE_CONTENT)
         conn.add_field_action('chemical_exact', xappy.FieldActions.STORE_CONTENT)
@@ -68,46 +65,38 @@ class PubMedXapian():
         for article in articles:
             doc = self.__buildDoc(article)
             if doc == None: continue
-            try:            
-                #Kersten code changed 06.06.2014
+            try:
                 #process doc to pdoc explicitly - not needed here
                 #pdoc = conn.process(doc)
                 conn.add(doc)
             except:
                 continue
-            
-            
-            PubMedXapian.__indexCount     += 1
-            nbs                 = len(PubMedXapian.__indexMsg)        
+
+            PubMedXapian.__indexCount += 1
+            nbs = len(PubMedXapian.__indexMsg)
             PubMedXapian.__indexMsg  = "article %s indexed" % (str(PubMedXapian.__indexCount))
             sys.stdout.write('\b' * nbs + PubMedXapian.__indexMsg)
-        
         conn.flush()
         conn.close()
-            
+
     def findPMIDsWithSynonyms(self, synonyms):
-        
         if self.__searchConn == None:
             self.__searchConn = xappy.SearchConnection(self.__xapianPath)
             self.__searchConn.reopen()
-        
+
         xapian_querys = []
 
         for querystring in synonyms:
-            
             title, text, keyword, chemical_exact, mesh = '"' + querystring + '"', '"' + querystring + '"', '"' + querystring + '"', '"' + querystring + '"', '"' + querystring + '"'
-            
-            #code changed Kersten 08.07.2014
+
             xapian_querys.append( self.__searchConn.query_field('title', title) )
             xapian_querys.append( self.__searchConn.query_field('text', text) )
             xapian_querys.append( self.__searchConn.query_field('keyword', keyword) )
             xapian_querys.append( self.__searchConn.query_field('chemical_exact', chemical_exact) )
             xapian_querys.append( self.__searchConn.query_field('mesh', mesh) )
-        
+
         merged_q = self.__searchConn.query_composite(self.__searchConn.OP_OR, xapian_querys)
-        
         results=self.__searchConn.search(merged_q, 0, self.__searchConn.get_doccount())
 
         return [r.id for r in results] 
-    
 
