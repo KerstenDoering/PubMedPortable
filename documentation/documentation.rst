@@ -91,8 +91,6 @@ Ubuntu
 
     - python-xappy>=0.5
 
-    - apt-xapian-index>=0.44
-
     - python-xapian>=1.2.8
 
     - python-sqlalchemy>=0.9.7
