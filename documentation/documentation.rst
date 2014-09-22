@@ -62,9 +62,9 @@ Download a Data Set
 
 - It is also possible to download the whole MEDLINE/PubMed via license:
 
-    - http://www.nlm.nih.gov/databases/license/license.html
+    - http://www.nlm.nih.gov/databases/journal.html
 
-    - http://www.nlm.nih.gov/bsd/licensee/2013_stats/baseline_doc.html
+    - http://www.nlm.nih.gov/bsd/licensee/2014_stats/baseline_doc.html
 
 - You can insert the XML files in an extra directory in your project folder "data" or somewhere else. The only important thing is to use only one type of topic or XML files in one folder, because the programme will insert all files of type XML in a directory into the database given (next step).
 
