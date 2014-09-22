@@ -13,7 +13,7 @@ Introduction
 
 - It is scalable to your system requirements using multiprocessing and can be modified easily to your personal needs.
 
-- This documentation refers to a text mining example using the disease pancreatic cancer. It contains many small examples how to use PostgreSQL and Xapian as well as connecting both with small Python programmes. The default values in the scripts refer to the parameters given here, but all of them can be changed by the user. 
+- This documentation refers to a text mining example using the disease pancreatic cancer. It contains many examples how to use PostgreSQL and Xapian as well as connecting both with small Python programmes. The default values in the scripts refer to the parameters given here, but all of them can be changed by the user. 
 
 - If the examples from this documentations are used, there will be around 670 MB of disk space needed. There are no other hardware requirements.
 
@@ -60,7 +60,7 @@ Download a Data Set
 
         - This will be faster than using the browser to download a single XML file and it has the advantage of using multiprocessing in the next step as the script generates XML files with 100 titles in each document. The command also works with blocks of 500 PubMed-IDs, but not 1000.
 
-- It is also possible to download the whole MEDLINE/PubMed via license:
+- It is also possible to download the whole PubMed via license:
 
     - http://www.nlm.nih.gov/databases/journal.html
 
@@ -74,10 +74,10 @@ Installation
 ************
 
 ----------------
-Operation System
+Operating System
 ----------------
 
-- PubMed2Go was tested on Ubuntu, Fedora, and Windows.
+- PubMed2Go was tested on Ubuntu and Fedora.
 
 ######
 Ubuntu
@@ -145,11 +145,6 @@ Fedora
 
         - If "trust" is used instead of "ident", you are allowed to use a password. "0.0.0.0" means that all machines are allowed to login. That means, if you want to customise which server has to reach the database, you can control it here.
 
-#######
-Windows
-#######
-
-- <will follow soon>
 
 --------------------------------
 Creation of PostgreSQL superuser
@@ -174,7 +169,7 @@ Creation of PostgreSQL superuser
 Installation with Docker
 ------------------------
 
-- Docker is similar to a virtual machine, but it can be configured to be much smaller. 
+- Docker is similar to a virtual machine,  but it is easier to deploy and more efficient. It was tested in Ubuntu and Windows.
 
 - You can use the PubMed2Go image to create a PostgreSQL relational database and a Xapian full text index without installing the packages mentioned above in basically two steps.
 
@@ -182,7 +177,7 @@ Installation with Docker
 
     - https://docs.docker.com/installation/ubuntulinux/#ubuntu-precise-1204-lts-64-bit
 
-    - There are many different operation systems supported:
+    - There are many different operating systems supported:
 
         - https://docs.docker.com/installation/#installation
 
@@ -204,13 +199,19 @@ Installation with Docker
 
         - Stopping Docker is possible by doing "sudo docker stop <name>".
 
-        - Docker maps your PosgreSQL port "5432" to the port "9999". Now, you can connect to your database with PGAdmin via "localhost", port "9999" and user "parser" with password "parser".
+        - Docker maps your PosgreSQL port "5432" to the port "9999". Now, you can connect to your database with PGAdmin via "localhost", port "9999" and user "parser" with password "parser". If you want to connect via command-line, use this command:
 
-        - If you have created another folder with a name <folder_of_your_choice> with the directory "import_data", you can create another database on port "9998" and another full text index with different data there.
+            - "psql -h localhost -U parser -p 9999 -d pubmed"
 
-- You do not have to have a PostgreSQL installation on your operation system if docker is running in background. Restart a session with this command:
+        - If you have created another folder with a name <folder_of_your_choice> and the directory "import_data", you can create another database on port "9998" and another full text index with different data there:
 
-    - "sudo docker run -d -v /home/kersten/docker/foo/:/export/ -p 9999:5432 bgruening/pubmed2go"
+            - "sudo docker run -d -v /home/<user_name>/<folder_of_your_choice>/:/export/ -p 9998:5432 bgruening/pubmed2go"
+
+        - In case of replacing or creating a database on a port that is already used, delete the complete directory <folder_of_your_choice> and repeat the configuration steps.
+
+- You do not have to have a PostgreSQL installation on your operating system if docker is running in background. Restart a closed session on port "9999" with the command:
+
+    - "sudo docker run -d -v /home/<user_name>/<folder_of_your_choice>/:/export/ -p 9999:5432 bgruening/pubmed2go"
 
 - It is not recommended to run the PubMed2Go examples or to develop new scripts within the Docker container. If you want to modify the image, use the Docker documentation and this repository:
 
@@ -218,7 +219,7 @@ Installation with Docker
 
 - If you want to try the examples given in the section 5 and 6, copy the Xapian directory from the <folder_of_your_choice> into the folder "PubMed2Go/full_text_index/xapian/" from "https://github.com/KerstenDoering/PubMed2Go" and run the Docker container in background. You can completely skip section 4.
 
-- You can connect to PostgreSQL and Xapian with the programming language of your choice or follow the Python examples given in this documentation. If you want to develop your own text mining pipelines based on your data set of choice, you will have to install the required libraries on your operation system.
+- You can connect to PostgreSQL and Xapian with the programming language of your choice or follow the Python examples given in this documentation. If you want to develop your own text mining pipelines based on your data set of choice, you will have to install the required libraries on your operating system.
 
 
 ********************************************
