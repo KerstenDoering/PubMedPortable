@@ -6,10 +6,10 @@ http://rst.ninjs.org/
 RST can also be used with some highlighting in gedit (Ubuntu) selecting "Markdown" mode.
 
 "Pandoc" can be used with command-line:
-pandoc -s -S --toc -N -c ~/.pandoc/format.css documentation.rst -o Readme.html
+pandoc -s -S --toc -N -c ~/.pandoc/format.css quick_install.rst -o Quick_Install.html
 
 The same works with PDF files (not done in this folder):
-pandoc -s -S --toc -N -c ~/.pandoc/format.css documentation.rst -o Reamde.pdf
+pandoc -s -S --toc -N -c ~/.pandoc/format.css quick_install.rst -o Quick_Install.pdf
 
 Sometimes lines are not properly ended because one headword that does not contain an empty line above and below the text block.
 
