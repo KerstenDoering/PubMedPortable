@@ -196,10 +196,10 @@
 <ul>
 <li><p>Docker is similar to a virtual machine, but it is easier to deploy and more efficient. It was tested in Ubuntu and Windows.</p></li>
 <li><p>You can use the PubMed2Go image to create a PostgreSQL relational database and a Xapian full text index without installing the packages mentioned above in basically two steps.</p></li>
-<li><p>Install Docker - it was tested on Ubuntu:</p>
+<li><p>Install Docker - it was tested on Ubuntu (64-bit required):</p>
 <blockquote>
 <ul>
-<li><p><a href="https://docs.docker.com/installation/ubuntulinux/#ubuntu-precise-1204-lts-64-bit">https://docs.docker.com/installation/ubuntulinux/#ubuntu-precise-1204-lts-64-bit</a></p></li>
+<li><p><a href="https://docs.docker.com/installation/ubuntulinux">https://docs.docker.com/installation/ubuntulinux</a>/</p></li>
 <li><p>There are many different operating systems supported:</p>
 <blockquote>
 <ul>
@@ -238,7 +238,8 @@
 </blockquote></li>
 </ul>
 </blockquote></li>
-<li><p>You do not have to have a PostgreSQL installation on your operating system if docker is running in background. Restart a closed session on port “9999” with the command:</p>
+<li><p>You can connect to PostgreSQL and Xapian with the programming language of your choice or follow the Python examples given in this documentation. If you want to develop your own text mining pipelines based on your data set of choice, you will have to install the required libraries on your operating system.</p></li>
+<li><p>This also means that you need a default PostgreSQL installation on your operating system. Restart a closed Docker session on port “9999” with the command:</p>
 <blockquote>
 <ul>
 <li>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9999:5432 bgruening/pubmed2go”</li>
@@ -251,7 +252,6 @@
 </ul>
 </blockquote></li>
 <li><p>If you want to try the examples given in the wiki, copy the Xapian directory from the &lt;folder_of_your_choice&gt; into the folder “PubMed2Go/full_text_index/xapian/” from “<a href="https://github.com/KerstenDoering/PubMed2Go">https://github.com/KerstenDoering/PubMed2Go</a>” and run the Docker container in background.</p></li>
-<li><p>You can connect to PostgreSQL and Xapian with the programming language of your choice or follow the Python examples given in this documentation. If you want to develop your own text mining pipelines based on your data set of choice, you will have to install the required libraries on your operating system.</p></li>
 <li><p>After successful installation, the rest of this documentation can be skipped.</p></li>
 </ul>
 <h1 id="build-up-a-relational-database-in-postgresql"><a href="#TOC"><span class="header-section-number">4</span> Build up a Relational Database in PostgreSQL</a></h1>
