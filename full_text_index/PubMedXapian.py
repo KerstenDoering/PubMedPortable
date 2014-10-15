@@ -34,7 +34,9 @@ class PubMedXapian():
         else:
             doc.fields.append(xappy.Field("text", article.getAbstract()))
         
-        for chemical in [chemical for chemical in article.getChemicals() if len(chemical) < 3000]:
+        #'INDEX_EXACT' - maximum length 220, but prefix "XA" is added to each term in the document 
+        #maximum length 218
+        for chemical in [chemical for chemical in article.getChemicals() if len(chemical) < 219]:
             doc.fields.append(xappy.Field("chemical_exact", chemical))
 
         for keyword in article.getKeywords():
