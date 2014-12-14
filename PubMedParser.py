@@ -30,6 +30,9 @@ PROCESSES = 4
 
 warnings.simplefilter(WARNING_LEVEL)
 
+#convert 3 letter code of months to digits for unique publication format
+month_code = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06","Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12"}
+
 class MedlineParser:
     #db is a global variable and given to MedlineParser(path,db) in _start_parser(path)
     def __init__(self, filepath,db):
@@ -129,27 +132,26 @@ class MedlineParser:
                     DBJournal = PubMedDB.Journal()
                     elem.clear()
 
-                #Kersten: some dates are given in 3-letter code, temporary solution: 
-                #give an absolutely wrong date that can be recognised in queries:
+                #Kersten: some dates are given in 3-letter code - use dictionary month_code for conversion to digits:
                 if elem.tag == "DateCreated":
                     try:
                         date = datetime.date(int(elem.find("Year").text), int(elem.find("Month").text), int(elem.find("Day").text))
                     except:
-                        date = datetime.date(1111,11,11)
+                        date = datetime.date(int(elem.find("Year").text), int(month_code[elem.find("Month").text]), int(elem.find("Day").text))
                     DBCitation.date_created = date
 
                 if elem.tag == "DateCompleted":
                     try:
                         date = datetime.date(int(elem.find("Year").text), int(elem.find("Month").text), int(elem.find("Day").text))
                     except:
-                        date = datetime.date(1111,11,11)
+                        date = datetime.date(int(elem.find("Year").text), int(month_code[elem.find("Month").text]), int(elem.find("Day").text))
                     DBCitation.date_completed = date
 
                 if elem.tag == "DateRevised":
                     try:
                         date = datetime.date(int(elem.find("Year").text), int(elem.find("Month").text), int(elem.find("Day").text))
                     except:
-                        date = datetime.date(1111,11,11)
+                        date = datetime.date(int(elem.find("Year").text), int(month_code[elem.find("Month").text]), int(elem.find("Day").text))
                     DBCitation.date_revised = date
 
                 if elem.tag == "NumberOfReferences":
@@ -163,39 +165,39 @@ class MedlineParser:
                     if elem.find("Volume") != None:         DBJournal.volume = elem.find("Volume").text
                     if elem.find("Issue") != None:          DBJournal.issue = elem.find("Issue").text
 
-                    pubdate = False
+                    #ensure pub_date_year with boolean year:
                     year = False
-                    #day = False
-                    #month = False
                     for subelem in elem.find("PubDate"):
                         if subelem.tag == "MedlineDate":
-                            pubdate = True
                             if len(subelem.text) > 40:
                                 DBJournal.medline_date = subelem.text[:37]
                             else:
                                 DBJournal.medline_date = subelem.text
                         elif subelem.tag == "Year":
-                            pubdate = True
                             year = True
                             DBJournal.pub_date_year = subelem.text
                         elif subelem.tag == "Month":
-                            pubdate = True
-                            #month = True
-                            DBJournal.pub_date_month = subelem.text
+                            if subelem.text in month_code:
+                                DBJournal.pub_date_month = month_code[subelem.text]
+                            else:
+                                DBJournal.pub_date_month = subelem.text
                         elif subelem.tag == "Day":
-                            pubdate = True
-                            #day = True
                             DBJournal.pub_date_day = subelem.text
 
-                    if pubdate == False:
-                        print "No Pubdate set!"
-                    else:
-                        if not year:
-                            try:
-                                temp_year = DBJournal.medline_date[0:4]
-                                DBJournal.pub_date_year = temp_year
-                            except:
-                                print _file, " not able to cast first 4 letters of medline_date ", temp_year 
+                    if not year:
+                        try:
+                            temp_year = DBJournal.medline_date[0:4]
+                            DBJournal.pub_date_year = temp_year
+                        except:
+                            print _file, " not able to cast first 4 letters of medline_date ", temp_year
+                
+                
+                #if there is the attribute ArticleDate, month and day are given
+                if elem.tag == "ArticleDate":
+                    DBJournal.pub_date_year = elem.find("Year").text
+                    DBJournal.pub_date_month = elem.find("Month").text
+                    DBJournal.pub_date_day = elem.find("Day").text
+
                 if elem.tag == "Title":
                     """ ToDo """
                     pass
