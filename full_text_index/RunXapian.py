@@ -4,11 +4,11 @@
     Copyright (c) 2014, Kersten Doering <kersten.doering@gmail.com>, Christian Senger <der.senger@googlemail.com>
 """
 
-#Kersten 13.06.2014:
+#Kersten HowTo:
 #"python RunXapian.py -x" for indexing and searching
 #"python RunXapian.py -f" for indexing
 #"python RunXapian.py" for searching
-#"python -h" for help
+#"python RunXapian.py -h" for help
 
 import xappy
 import os.path
@@ -22,10 +22,9 @@ from sqlalchemy.orm import sessionmaker
 from SynonymParser import SynonymParser
 from PubMedXapian import PubMedXapian
 
-if __name__=="__main__":
-    #new Code Kersten 08.07.2014
-    from optparse import OptionParser
+from optparse import OptionParser
 
+if __name__=="__main__":
     parser = OptionParser()
     parser.add_option("-b", "--b_year", dest="b", help="year of the index to begin parsing (default: 1809)", default=1809)
     parser.add_option("-p", "--xapian_database_path", dest="xapian_database_path", help="Specify the path to the Xapian full text index.", default="xapian")
