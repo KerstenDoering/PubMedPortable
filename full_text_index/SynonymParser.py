@@ -11,7 +11,7 @@ class SynonymParser():
 
     __msg       = ""
     __cidCount  = 0
-    #code changed Kersten 13.06.2014
+
     def __init__(self, path, pubMedXapian, filename):
         self.__path         = path
         self.__pubMedXapian = pubMedXapian
