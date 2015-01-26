@@ -19,7 +19,7 @@ import time
 import PubMedDB
 from sqlalchemy.orm import *
 from sqlalchemy import *
-from sqlalchemy.exc import *#Kersten: changed 07.01.2013 - https://bugs.launchpad.net/ibid/+bug/718381
+from sqlalchemy.exc import *
 import gzip
 from multiprocessing import Pool
 
