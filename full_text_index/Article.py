@@ -22,8 +22,7 @@ class Article():
     db            = ""
     con           = "postgresql://"+user+":"+password+"@"+host+":"+port+"/"
 
-    #code changed Kersten 13.06.2014
-    #set these attributes when calling static function getConnection(database)
+    #Kersten: set these attributes when calling static function getConnection(database)
     base          = None#declarative_base()
     engine        = None#create_engine(__con, pool_recycle = 900, echo=False)
     base          = None#__base.metadata.create_all(__engine)
@@ -46,7 +45,6 @@ class Article():
         
         self.__loadStub()
         self.__loadChemicals()
-        #new code Kersten 07.08.2014
         self.__loadKeywords()
         self.__loadMeSH()
     
@@ -55,7 +53,6 @@ class Article():
         Article.__countMsg  = "article %s created" % (str(Article.__count))
         sys.stdout.write('\b' * nbs + Article.__countMsg)
         
-    #new code Kersten 13.06.2014
     @staticmethod
     def getConnection(database):
         
@@ -84,7 +81,6 @@ class Article():
     def getMeSH(self):
         return self.__mesh
 
-#new code Kersten 06.06.2014:
     def __loadStub(self):
             pmid = str(self.__pmid)
             #print "####",pmid,"####"#in this case it is always one pmid - it is not a "complete" join
@@ -114,42 +110,6 @@ class Article():
                 self.__abstract = article.abstract
                 break;
 
-#old code:
-#    def __loadStub(self):
-#        pmid = str(self.__pmid)
-#        #print "####",pmid,"####"#this is only one pmid - it is not a "complete" join
-#        stmt = """
-#        SELECT 
-#            pmc.pmid,            
-#            pmc.article_title AS title,
-#            pa.abstract_text AS abstract
-#        FROM 
-#            pubmed.tbl_medline_citation pmc
-#                INNER JOIN
-#            pubmed.tbl_journal pj
-#                    ON pmc.pmid = pj.fk_pmid
-#                INNER JOIN
-#            pubmed.tbl_abstract pa
-#                    ON pmc.pmid = pa.fk_pmid
-#        WHERE
-#            pmid = '"""+pmid+"""'
-#        ORDER BY
-#            date_completed
-#        ;
-#        """
-#    
-#        articles = Article.__session.query(
-#                "pmid",
-#                "title",
-#                "abstract"
-#        ).from_statement(stmt)
-#        
-#        for article in articles:
-#            self.__title    = article.title
-#            self.__abstract = article.abstract
-#            break;
-
-#code changed Kersten 06.06.2014
     def __loadChemicals(self):
         pmid = str(self.__pmid)
         
@@ -172,7 +132,6 @@ class Article():
         for substance in substances:
             self.__chemicals.append(substance.substance)
 
-#code changed Kersten 07.08.2014
     def __loadKeywords(self):
         pmid = str(self.__pmid)
         
@@ -195,7 +154,6 @@ class Article():
         for keyword in keywords:
             self.__keywords.append(keyword.keyword)
 
-#new code Kersten 07.08.2014
     def __loadMeSH(self):
         pmid = str(self.__pmid)
         
