@@ -39,7 +39,7 @@ if __name__=="__main__":
     (options, args) = parser.parse_args()
     
     #in PubMed, first articles published are from 1809:
-    #http://www.nlm.nih.gov/bsd/licensee/2013_stats/baseline_med_filecount.html
+    #http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_med_filecount.html
     #set range of years
     b_year = options.b
     e_year = options.e
