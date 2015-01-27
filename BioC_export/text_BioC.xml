@@ -1,0 +1,52 @@
+<collection>
+	<source>PubMed</source>
+	<date>2015-January-27</date>
+	<key>Explanation.key</key>
+	<document>
+		<id>1000475</id>
+		<passage>
+			<infon key="type">title</infon>
+			<offset>0</offset>
+			<text>Carcinoembryonic antigen (CEA) activity in pancreatic juice of patients with pancreatic carcinoma and pancreatitis.</text>
+		</passage>
+		<passage>
+			<infon key="type">abstract</infon>
+			<offset>115</offset>
+			<text>Carcinoembryonic antigen (CEA) activity was assayed in plasma and in pure pancreatic juice from eight patients with carcinoma of the pancreas, 28 patients with pancreatitis, and 13 controls with no demonstrable pancreatic disease. Juice specimens were obtained via direct transduodenal cannulation of the pancreatic duct. The mean pancreatic juice CEA activities in controls, pancreatitis, and pancreatic carcinoma were 8.1 ng/ml, 18.6 ng/ml, and 309 ng/ml, respectively. Pancreatic juice CEA activity in patients with cancer of that organ was significantly higher than in those with pancreatitis or in controls. None of the 32 subjects with both pancreatic juice CEA activity less than 30 ng/ml and plasma CEA less than 2.5 ng/ml had pancreatic cancer. Three of the four patients with CEA elevations in both fluids above these levels harbored this malignancy. These findings suggest that combined measurement of CEA activity in plasma and pancreatic juice may help in diagnosing pancreatic disease.</text>
+		</passage>
+	</document>
+	<document>
+		<id>1019833</id>
+		<passage>
+			<infon key="type">title</infon>
+			<offset>0</offset>
+			<text>Unique features of serially transplanted human pancreatic cancer in nude mice.</text>
+		</passage>
+	</document>
+	<document>
+		<id>10064755</id>
+		<passage>
+			<infon key="type">title</infon>
+			<offset>0</offset>
+			<text>The use of diagnostic laparoscopy supported by laparoscopic ultrasonography in the assessment of pancreatic cancer.</text>
+		</passage>
+		<passage>
+			<infon key="type">abstract</infon>
+			<offset>115</offset>
+			<text>BACKGROUND: Pancreatic resection with curative intent is possible in a select minority of patients with carcinomas of the pancreatic head. Diagnostic laparoscopy supported by laparoscopic ultrasonography combines the proven benefits of staging laparoscopy with high-resolution intraoperative ultrasound, thus allowing the surgeon to perform a detailed assessment of the pancreatic cancer. METHODS: In a prospective study of 26 patients with obstructive jaundice from a carcinoma of the head of the pancreas, the curative resectability of tumors was assessed by ultrasound (26 cases), computerized tomography (26 cases), endoscopic ultrasound (16 cases), and a combination of diagnostic laparoscopy and laparoscopic ultrasound (26 cases). RESULTS: The findings of ultrasound and computerized tomography were comparable: 50% of patients were excluded from curative resection. Endoscopic ultrasound provided precise information on the primary tumors. The accuracy of the combined diagnostic laparoscopy and laparoscopic ultrasound, when compared with ultrasound, computerized tomography, and endoscopic ultrasound, was better with respect to minute peritoneal or hepatic metastasis: 80.7% (or a further 30.7%) of patients did not qualify for curative resection. CONCLUSIONS: Diagnostic laparoscopy supported by laparoscopic ultrasonography enables detection of previously unsuspected metastases; thus, needless laparotomy can be avoided. It should therefore be considered the first step in any potentially curative surgical procedure.</text>
+		</passage>
+	</document>
+	<document>
+		<id>10063743</id>
+		<passage>
+			<infon key="type">title</infon>
+			<offset>0</offset>
+			<text>Epidemiology of digestive tract cancers in India IV. Gall bladder and pancreas.</text>
+		</passage>
+		<passage>
+			<infon key="type">abstract</infon>
+			<offset>79</offset>
+			<text>Pancreatic cancer is a leading cause of cancer-related deaths in developed countries. Gall bladder cancer is very common in South American countries, around the Mediterranean and in Japan. A majority of patients with these cancers receive only palliative therapy in spite of recent advances in investigation and surgery. Their poor prognosis and increasing incidence in India necessitate a better epidemiologic approach towards their control. This review is based on epidemiological data, publications and abstracts from India. Population-based data reveal that the incidence of gall bladder cancer is very high in northern Indian cities (5-7 per 100,000 women) and low (0-0.7 per 100,000 women) in southern India. The distribution suggests a high-incidence region comprising Uttar Pradesh, Bihar, Orissa, West Bengal and Assam. The cancer is twice more common in women and is the leading cancer among digestive cancers in women in the northern Indian cities of Delhi and Bhopal. There are few analytical data to hypothesize why this geographical predisposition. The high incidence is also observed in north Indian immigrants to the United Kingdom. The incidence of pancreatic cancer is low (0.5-2.4 per 100,000 men and 0.2-1.8 per 100,000 women) in most parts of India. Somewhat higher rates are seen in the male urban populations of western and northern India. Studies from Kerala support an association between tropical pancreatitis and pancreatic cancer. Time trends reveal an increase in the incidence of gall bladder and pancreas cancers; the increase in the former is alarming. We estimate that the approximate annual cancer burden of India in 2001 would include 17,730 cases of gallbladder cancer and 14,230 of pancreatic cancer. Multi-center studies are needed to identify potentially preventable risk factors associated with gall bladder and pancreatic cancer in India.</text>
+		</passage>
+	</document>
+</collection>
