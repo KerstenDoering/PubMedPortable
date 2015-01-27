@@ -11,7 +11,7 @@ from psycopg2 import extras
 import sys
 from optparse import OptionParser
 
-#(dis)connection to mongo and psql database
+#(dis)connection to psql database
 def connect_postgresql():
     connection = psycopg2.connect("dbname='"+postgres_db+"' user='"+postgres_user+"' host='"+postgres_host+"' password='"+postgres_password+"'")
     #normal connection.cursor() gives back a list of tuples with fetchall(), DictCursor gives back a list of lists
