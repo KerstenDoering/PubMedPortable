@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 """
-    Copyright (c) 2014, Kersten Doering <kersten.doering@gmail.com>
+    Copyright (c) 2015, Kersten Doering <kersten.doering@gmail.com>
 """
 
 # Kersten Doering 27.01.2015
