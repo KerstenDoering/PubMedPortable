@@ -12,6 +12,8 @@ import psycopg2
 from psycopg2 import extras
 import time
 from optparse import OptionParser
+# to convert special characters in XML format, e.g. "<"
+from xml.sax.saxutils import escape
 
 # read PubMed-IDs
 def get_pmids(infile):
@@ -73,8 +75,9 @@ def get_BioC_format(triple):
         f_text += "\t\t\t<infon key=\"type\">abstract</infon>\n"
         #add offset
         f_text += "\t\t\t<offset>" + str(len(triple[1])) + "</offset>\n"
-        #add text, some texts contain line breaks
-        f_text += "\t\t\t<text>" + triple[2].replace("\n"," ").strip() + "</text>\n"
+        #add text, some texts contain line breaks that need to be replaced
+        #some texts contain special characters like "<", that need to be "escaped"
+        f_text += "\t\t\t<text>" + escape(triple[2].replace("\n"," ").strip()) + "</text>\n"
         #close passage tag
         f_text += "\t\t</passage>\n"
 
@@ -114,6 +117,7 @@ if __name__=="__main__":
 
     # write output file beginning
     f = open(outfile,"w")
+    f.write("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n")
     f.write("<collection>\n")
     f.write("\t<source>PubMed</source>\n")
     f.write("\t<date>" + time.strftime("%Y-%B-%d") + "</date>\n")
