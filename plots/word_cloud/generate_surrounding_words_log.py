@@ -152,7 +152,7 @@ if __name__=="__main__":
     for synonyms in total_sorted:
             if counter == 50:
                 break
-            #use logarithmic scaling
+            # use logarithmic scaling
             outfile.write(str(synonyms[0])+"\t"+str(int(math.log(synonyms[1],10)))+"\n")
             counter += 1
     outfile.close()
