@@ -94,25 +94,31 @@ class MedlineParser:
 
                     try:
                         same_pmid = self.session.query(PubMedDB.Citation).filter( PubMedDB.Citation.pmid == pubmed_id ).all()
+                        # The following condition is only for incremental updates. 
 
-                        # The following condition is only for incremental updates
-                        if same_pmid:
-                            DBCitation = PubMedDB.Citation()
-                            DBJournal = PubMedDB.Journal()
-                            elem.clear()
-                            self.session.commit()
-                            continue
-
+                        """
+                        # Implementation that replaces the database entry with the new article from the XML file.
                         if same_pmid: # -> evt. any()
                             same_pmid = same_pmid[0]
                             warnings.warn('\nDoubled Citation found (%s).' % pubmed_id)
-
                             if not same_pmid.date_revised or same_pmid.date_revised < DBCitation.date_revised:
                                 warnings.warn('\nReplace old Citation. Old Citation from %s, new citation from %s.' % (same_pmid.date_revised, DBCitation.date_revised) )
                                 self.session.delete( same_pmid )
                                 self.session.commit()
                                 DBCitation.xml_files = [DBXMLFile] # adds an implicit add()
                                 self.session.add( DBCitation )
+                        """
+
+                        # Keep database entry that is already saved in database and continue with the next PubMed-ID.
+                        # Manually deleting entries is possible (with PGAdmin3 or via command-line), e.g.:
+                        # DELETE FROM pubmed.tbl_medline_citation WHERE pmid = 25005691;
+                        if same_pmid:
+                            print "Article already in database - " + str(same_pmid[0]) + "Continuing with next PubMed-ID"
+                            DBCitation = PubMedDB.Citation()
+                            DBJournal = PubMedDB.Journal()
+                            elem.clear()
+                            self.session.commit()
+                            continue
                         else:
                             DBCitation.xml_files = [DBXMLFile] # adds an implicit add()
                             self.session.add(DBCitation)

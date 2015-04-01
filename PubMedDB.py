@@ -64,7 +64,8 @@ class Citation(Base):
         self.vernacular_title
 
     def __repr__(self):
-        return "Citations: \n\tPMID: %s\n\tArticle Title: %s\n\tCreated: %s\n\tCompleted: %s" % (self.pmid, self.article_title, self.date_created, self.date_completed)
+        #return "Citations: \n\tPMID: %s\n\tArticle Title: %s\n\tCreated: %s\n\tCompleted: %s" % (self.pmid, self.article_title, self.date_created, self.date_completed)
+        return "PubMed-ID: %s\n\tArticle Title: %s\n" % (self.pmid, self.article_title)
 
     __table_args__  = (
         CheckConstraint("keyword_list_owner IN ('NLM', 'NASA', 'PIP', 'KIE', 'HSR', 'HMD', 'SIS', 'NOTNLM')", name='ck1_medline_citation'),
@@ -666,7 +667,6 @@ class PublicationType(Base):
 #    session.commit()
 #    session.close()
 
-#code changed Kersten 13.06.2014
 def init(db):
     """
         initialize the database and return the db_engine and the Base-Class for further usage
@@ -678,8 +678,6 @@ def init(db):
 
     return engine, Base
 
-
-#code changed Kersten 13.06.2014
 def create_tables(db):
     """
         reset the whole DB
@@ -696,7 +694,6 @@ def create_tables(db):
 
 
 if __name__ == "__main__":
-    #code changed Kersten 13.06.2014
     from optparse import OptionParser
 
     parser = OptionParser()
