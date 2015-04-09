@@ -22,6 +22,8 @@ from bioc import BioCReader
 from bioc import BioCWriter
 from bioc import BioCAnnotation
 from bioc import BioCLocation
+# only PubMed-IDs without an abstract text will generate an error in case of merging annotated BioC XML files from PubTator
+import sys
 
 # get MeSH terms from PostgreSQL database
 def get_MeSH_terms(pmid):
@@ -66,9 +68,9 @@ def add_annotation(triple, annotation_id):
 # main
 if __name__=="__main__":
     parser = OptionParser()
-    parser.add_option("-i", "--infile", dest="i", help='name of the BioC XML input file containing PubMed abstracts', default="text_BioC.xml")
+    parser.add_option("-i", "--infile", dest="i", help='name of the BioC XML input file containing PubMed abstracts', default="text_BioC.xml")#text_PubTator.xml
     parser.add_option("-b", "--bioc", dest="b", help='name of the XML Document Type Definition file (DTD file) presenting BioC semantics', default="BioC.dtd")
-    parser.add_option("-o", "--outfile", dest="o", help='name of the output file with annotated MeSH terms in BioC XML format', default="annotated_text_BioC.xml")
+    parser.add_option("-o", "--outfile", dest="o", help='name of the output file with annotated MeSH terms in BioC XML format', default="annotated_text_BioC.xml")#annotated_text_PubTator.xml
     parser.add_option("-d", "--database", dest="d", help='name of the database to connect to', default="pancreatic_cancer_db")
     
     (options, args) = parser.parse_args()
@@ -88,15 +90,23 @@ if __name__=="__main__":
     output_file = options.o
 
     # open input files
-    bioc_reader = BioCReader(input_file, dtd_valid_file=dtd_file)
-    bioc_reader.read()
+    try:
+        bioc_reader = BioCReader(input_file, dtd_valid_file=dtd_file)
+        bioc_reader.read()
+    except:
+        ## debug:
+        #raise
+        sys.exit("Probably, your input file contains an empty passage. Maybe one of the PubMed-IDs does not have an abstract. Please, remove empty passage and document tags. No output file was written.")
 
+    # the elements <date> and <key> will not be changed or updated by this script (it only adds (MeSH) annotations)
     # define output file
     bioc_writer = BioCWriter(output_file)
     # initialization for reading input file
     bioc_writer.collection = bioc_reader.collection
     # get documents (one PubMed-ID with title and text equals one document)
     docs = bioc_writer.collection.documents
+    # different annotation IDs can be confusing - add a type to the iterating number
+    annotation_type = "_MeSH"
     # iteration over PubMed abstracts with ID, title, and text
     for doc in docs:
         # get MeSH terms from PostgreSQL database
@@ -120,8 +130,9 @@ if __name__=="__main__":
                 # sorted by start positions
                 occurrences.sort()
                 for triple in occurrences:
+                    # ToDo: add a condition for nested tags?
                     # add annotation with infon, location, and text
-                    bioc_annotation = add_annotation(triple,annotation_id)
+                    bioc_annotation = add_annotation(triple,str(annotation_id)+annotation_type)
                     passage.add_annotation(bioc_annotation)
                     # increment annotation_id
                     annotation_id += 1

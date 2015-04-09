@@ -127,6 +127,8 @@
     participates in the current relation. Has a default value so it
     can be left out if there is no meaningful value.
 
+    PubTator returns a second infon to the annotation element. Originial file:
+    https://github.com/2mh/PyBioC/blob/master/BioC.dtd
 -->
 
 <!ELEMENT collection ( source, date, key, infon*, document+ ) >
@@ -145,7 +147,7 @@
 
 <!ELEMENT sentence ( infon*, offset, text?, annotation*, relation* ) >
 
-<!ELEMENT annotation ( infon*, location*, text ) >
+<!ELEMENT annotation ( infon*, location*, text, infon* ) >
 <!ATTLIST annotation id CDATA #IMPLIED >
 <!ELEMENT location EMPTY>
 <!ATTLIST location offset CDATA #REQUIRED >

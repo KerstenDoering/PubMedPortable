@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8'?><!DOCTYPE collection SYSTEM 'BioC.dtd'>
+<collection>
+<source>PubTator</source>
+<date>2015/04/09 </date>
+<key>PubTator.key</key>
+<document>
+<id>1000475</id>
+<passage>
+<infon key="type">title</infon>
+<offset>0</offset>
+<text>Carcinoembryonic antigen (CEA) activity in pancreatic juice of patients with pancreatic carcinoma and pancreatitis.</text>
+<annotation id='0'>
+<infon key="type">Disease</infon>
+<location offset='77' length='20' />
+<text>pancreatic carcinoma</text>
+<infon key="MEDIC">D010190</infon>
+</annotation>
+<annotation id='1'>
+<infon key="type">Disease</infon>
+<location offset='102' length='12' />
+<text>pancreatitis</text>
+<infon key="MEDIC">D010195</infon>
+</annotation>
+</passage>
+<passage>
+<infon key="type">abstract</infon>
+<offset>115</offset>
+<text>Carcinoembryonic antigen (CEA) activity was assayed in plasma and in pure pancreatic juice from eight patients with carcinoma of the pancreas, 28 patients with pancreatitis, and 13 controls with no demonstrable pancreatic disease. Juice specimens were obtained via direct transduodenal cannulation of the pancreatic duct. The mean pancreatic juice CEA activities in controls, pancreatitis, and pancreatic carcinoma were 8.1 ng/ml, 18.6 ng/ml, and 309 ng/ml, respectively. Pancreatic juice CEA activity in patients with cancer of that organ was significantly higher than in those with pancreatitis or in controls. None of the 32 subjects with both pancreatic juice CEA activity less than 30 ng/ml and plasma CEA less than 2.5 ng/ml had pancreatic cancer. Three of the four patients with CEA elevations in both fluids above these levels harbored this malignancy. These findings suggest that combined measurement of CEA activity in plasma and pancreatic juice may help in diagnosing pancreatic disease.</text>
+<annotation id='2'>
+<infon key="type">Disease</infon>
+<location offset='232' length='25' />
+<text>carcinoma of the pancreas</text>
+<infon key="MEDIC">D021441</infon>
+</annotation>
+<annotation id='3'>
+<infon key="type">Disease</infon>
+<location offset='276' length='12' />
+<text>pancreatitis</text>
+<infon key="MEDIC">D010195</infon>
+</annotation>
+<annotation id='4'>
+<infon key="type">Disease</infon>
+<location offset='327' length='18' />
+<text>pancreatic disease</text>
+<infon key="MEDIC">D010182</infon>
+</annotation>
+<annotation id='5'>
+<infon key="type">Disease</infon>
+<location offset='492' length='12' />
+<text>pancreatitis</text>
+<infon key="MEDIC">D010195</infon>
+</annotation>
+<annotation id='6'>
+<infon key="type">Disease</infon>
+<location offset='510' length='20' />
+<text>pancreatic carcinoma</text>
+<infon key="MEDIC">D010190</infon>
+</annotation>
+<annotation id='7'>
+<infon key="type">Disease</infon>
+<location offset='635' length='6' />
+<text>cancer</text>
+<infon key="MEDIC">D009369</infon>
+</annotation>
+<annotation id='8'>
+<infon key="type">Disease</infon>
+<location offset='700' length='12' />
+<text>pancreatitis</text>
+<infon key="MEDIC">D010195</infon>
+</annotation>
+<annotation id='9'>
+<infon key="type">Disease</infon>
+<location offset='851' length='17' />
+<text>pancreatic cancer</text>
+<infon key="MEDIC">D010190</infon>
+</annotation>
+<annotation id='10'>
+<infon key="type">Disease</infon>
+<location offset='1096' length='18' />
+<text>pancreatic disease</text>
+<infon key="MEDIC">D010182</infon>
+</annotation>
+</passage>
+</document>
+
+<document>
+<id>1006519</id>
+<passage>
+<infon key="type">title</infon>
+<offset>0</offset>
+<text>Multiple sequential femoral tibial grafting for severe ischemia.</text>
+<annotation id='0'>
+<infon key="type">Disease</infon>
+<location offset='55' length='8' />
+<text>ischemia</text>
+<infon key="MEDIC">D007511</infon>
+</annotation>
+</passage>
+<passage>
+<infon key="type">abstract</infon>
+<offset>64</offset>
+<text>For the past decade a common procedure used to salvage severely ischemic limbs has been autogenous vein bypass grafting to the distal popliteal artery or, if the popliteal trifurcation is occluded, to one of the tibial-peroneal branches. Reported limb salvage rate and long-term graft function varies considerably but in most series is low. To increase graft flow and to decrease resistance in femoral-poplitical-tibial grafts and thereby to perfuse the ischemic foot more effectively, we have employed multiple sequential anastomoses of a single vein graft to distal branches--a technique similar to that used occasionally in aortocoronary bypass grafting. The autogenous vein graft alone, or in combination with bovine heterograft, has been used in six patients with gangrenous toes or far advanced ischemia and in one patient with severe claudication. Multiple anastomoses below the knee were carried out in each patient. Anastomosis has been to a blind popliteal segment, then to a tibial or peroneal in four patients, to both tibials in another two patients, and to both tibials and the peroneal in one patient. Flow rates measured on the operating table clearly demonstrated a significant increase in flow through the graft with each additional anastomosis. There has been a greater response to surgery with return of pulses, warmth of the foot, and rapid healing as compared with previous patients having single femoral-tibial anastomoses. One failure occurred acutely from a technical problem early in the series; one failed at 3 months in a patient with pancreatic cancer and another patient died 2 weeks after operation of a myocardial infarct.</text>
+<annotation id='1'>
+<infon key="type">Disease</infon>
+<location offset='866' length='8' />
+<text>ischemia</text>
+<infon key="MEDIC">D007511</infon>
+</annotation>
+<annotation id='2'>
+<infon key="type">Disease</infon>
+<location offset='906' length='12' />
+<text>claudication</text>
+<infon key="MEDIC">D007383</infon>
+</annotation>
+<annotation id='3'>
+<infon key="type">Disease</infon>
+<location offset='1628' length='17' />
+<text>pancreatic cancer</text>
+<infon key="MEDIC">D010190</infon>
+</annotation>
+<annotation id='4'>
+<infon key="type">Disease</infon>
+<location offset='1700' length='18' />
+<text>myocardial infarct</text>
+<infon key="MEDIC">D009203</infon>
+</annotation>
+</passage>
+</document>
+
+<document>
+<id>1010707</id>
+<passage>
+<infon key="type">title</infon>
+<offset>0</offset>
+<text>Diagnosis of pancreatic cancer.</text>
+<annotation id='0'>
+<infon key="type">Disease</infon>
+<location offset='13' length='17' />
+<text>pancreatic cancer</text>
+<infon key="MEDIC">D010190</infon>
+</annotation>
+</passage>
+<passage>
+<infon key="type">abstract</infon>
+<offset>31</offset>
+<text>Fifty-five patients underwent thorough laboratory and clinical investigations for pancreatic cancer. The disease was diagnosed in 32 patients. Thirty of these plus three others who did not undergo the sequence of tests underwent exploratory surgery. Pancreatic cancer was found in all. The high diagnostic accuracy was mainly due to the secretin test. We used Dreiling&apos;s technic for this test, which we think is the most popular and accurate technic.</text>
+<annotation id='1'>
+<infon key="type">Disease</infon>
+<location offset='114' length='17' />
+<text>pancreatic cancer</text>
+<infon key="MEDIC">D010190</infon>
+</annotation>
+<annotation id='2'>
+<infon key="type">Disease</infon>
+<location offset='282' length='17' />
+<text>Pancreatic cancer</text>
+<infon key="MEDIC">D010190</infon>
+</annotation>
+</passage>
+</document>
+</collection>
+
+
