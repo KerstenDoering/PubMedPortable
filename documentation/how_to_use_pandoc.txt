@@ -3,15 +3,15 @@ Copyright (c) 2014, Kersten Doering <kersten.doering@gmail.com>
 The documentation is written in RST format. A good online editor for this can be found here:
 http://rst.ninjs.org/
 
-RST can also be used with some highlighting in gedit (Ubuntu) selecting "Markdown" mode.
+RST can also be used with some highlighting in gedit (Ubuntu) selecting "Markdown" mode in Gedit.
 
 "Pandoc" can be used with command-line:
-pandoc -s -S --toc -N -c ~/.pandoc/format.css quick_install.rst -o Quick_Install.html
+pandoc -s -S --toc -N quick_install.rst -o Quick_Install.html
 
 The same works with PDF files (not done in this folder):
-pandoc -s -S --toc -N -c ~/.pandoc/format.css quick_install.rst -o Quick_Install.pdf
+pandoc -s -S --toc -N quick_install.rst -o Quick_Install.pdf
 
-Sometimes lines are not properly ended because one headword that does not contain an empty line above and below the text block.
+Sometimes lines are not properly ended because of one headword that does not contain an empty line above and below the text block.
 
 The example from a Ubuntu page shows the basic parameters (http://wiki.ubuntuusers.de/Pandoc):
 pandoc -s -S --toc -c ~/.pandoc/format.css readme_final.rst -o ausgabe.html

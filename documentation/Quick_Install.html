@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title>PubMed2Go</title>
-  <link rel="stylesheet" href="/home/kersten/.pandoc/format.css" type="text/css" />
+  <style type="text/css">code{white-space: pre;}</style>
 </head>
 <body>
 <div id="header">
@@ -34,74 +34,74 @@
 </ul></li>
 </ul>
 </div>
-<h1 id="introduction"><a href="#TOC"><span class="header-section-number">1</span> Introduction</a></h1>
+<h1 id="introduction"><a href="#introduction"><span class="header-section-number">1</span> Introduction</a></h1>
 <ul>
-<li><p>PubMed2Go processes XML files that can be downloaded from NCBI and builds up a PostgreSQL database containing all abstracts of the data set (no full texts).</p></li>
-<li><p>Furthermore, PubMed2Go generates a full text index with Xapian such that titles, abstracts, keywords, MeSH terms and substances can be queried with search terms.</p></li>
-<li><p>It is scalable to your system requirements using multiprocessing and can be modified easily to your personal needs.</p></li>
-<li><p>This documentation refers to a text mining example using the disease pancreatic cancer. The wiki contains many basic examples how to use PostgreSQL and Xapian as well as connecting both with small Python programmes. The default values in the scripts refer to the parameters given here, but all of them can be changed by the user.</p></li>
-<li><p>If the examples from this documentations are used, there will be around 670 MB of disk space needed. There are no other hardware requirements.</p></li>
-<li><p>Start by copying the whole project folder from GitHub to your local disk.</p></li>
+<li>PubMed2Go processes XML files that can be downloaded from NCBI and builds up a PostgreSQL database containing all abstracts of the data set (no full texts).</li>
+<li>Furthermore, PubMed2Go generates a full text index with Xapian such that titles, abstracts, keywords, MeSH terms, and substances can be queried with search terms.</li>
+<li>It is scalable to your system requirements using multiprocessing and can be modified easily to your personal needs.</li>
+<li>This documentation refers to a text mining example using the search term “pancreatic cancer”. The wiki contains many basic examples how to use PostgreSQL and Xapian as well as connecting both with small Python programmes. The default values in the scripts refer to the parameters given here, but all of them can be changed by the user.</li>
+<li>If the examples from this documentations are used, there will be around 745 MB of disk space needed. There are no other hardware requirements.</li>
+<li>Start by copying the whole project folder from GitHub to your local disk.</li>
 </ul>
-<h1 id="download-a-data-set"><a href="#TOC"><span class="header-section-number">2</span> Download a Data Set</a></h1>
+<h1 id="download-a-data-set"><a href="#download-a-data-set"><span class="header-section-number">2</span> Download a Data Set</a></h1>
 <ul>
 <li>After downloading your data set, you can insert the XML files in an extra directory in your project folder “data” or somewhere else. The only important thing is to use only one type of topic or XML files in one folder, because the programme will insert all files of type XML in a directory into the database given (next step: “Build up a Relational Database in PostgreSQL”).</li>
 </ul>
-<h2 id="download-with-a-web-browser"><a href="#TOC"><span class="header-section-number">2.1</span> Download with a Web Browser</a></h2>
+<h2 id="download-with-a-web-browser"><a href="#download-with-a-web-browser"><span class="header-section-number">2.1</span> Download with a Web Browser</a></h2>
 <ul>
 <li><p>Type in the following URL into your browser and search for “pancreatic cancer”:</p>
 <blockquote>
 <ul>
-<li><p><a href="http://www.ncbi.nlm.nih.gov/pubmed">http://www.ncbi.nlm.nih.gov/pubmed</a>/</p></li>
-<li><p>The quote signs are important for the exact search.</p></li>
-<li><p>Click on “Send to:” and “File” and select “XML”.</p></li>
-<li><p>10th July 2014: 21482 PubMed-IDs</p></li>
-<li><p>The download of around 230 MB can take up to one hour depending on the time of day and internet connection.</p></li>
+<li><a href="http://www.ncbi.nlm.nih.gov/pubmed/">http://www.ncbi.nlm.nih.gov/pubmed/</a></li>
+<li>The quote signs are important for the exact search.</li>
+<li>Click on “Send to:” and “File” and select “XML”.</li>
+<li>16th April 2015: 23258 PubMed-IDs</li>
+<li>The download of around 272 MB can take up to one hour depending on the time of day and internet connection.</li>
 </ul>
 </blockquote></li>
 </ul>
-<h2 id="download-with-a-web-browser-and-efetch"><a href="#TOC"><span class="header-section-number">2.2</span> Download with a Web Browser and EFetch</a></h2>
+<h2 id="download-with-a-web-browser-and-efetch"><a href="#download-with-a-web-browser-and-efetch"><span class="header-section-number">2.2</span> Download with a Web Browser and EFetch</a></h2>
 <blockquote>
 <ul>
 <li><p>You can also download only the PubMed-ID list from your browser by selecting “PMID List” instead of “XML” and then use EFetch (tested only on Ubuntu):</p>
 <blockquote>
 <ul>
-<li><p>Change into the directory “data” in your command-line and type in “python generate_efetch.py”. It will build the script “efetch.sh” which generates XML files with 100 PubMed-IDs in each document.</p></li>
-<li><p>The standard input filename is “pubmed_result.txt” and the block size of PubMed-IDs for one XML file is 100, but this can be changed. Type in “python generate_efetch.py -h” to show adjustable parameters.</p></li>
-<li><p>If you want to specify the name of the directory where the XML files should be saved, use parameter “-d” and create this folder manually before.</p></li>
-<li><p>The file “data/pubmed_result.txt” contains 21482 PubMed-IDs and the first 100 PubMed-IDs are saved in “data/pancreatic_cancer_example/medline_00000000.xml” as an example.</p></li>
-<li><p>Make “efetch.sh” executable with “chmod +x efetch.sh” in the command-line and run it in a folder of your choice by typing in “./efetch.sh”.</p></li>
-<li><p>This will be faster than using the browser to download a single XML file and it has the advantage of using multiprocessing in the next step as the script generates XML files with 100 titles in each document. The command also works with blocks of 500 PubMed-IDs, but not 1000.</p></li>
+<li>Change into the directory “data” in your command-line and type in “python generate_efetch.py”. It will build the script “efetch.sh” which generates XML files with 100 PubMed-IDs in each document.</li>
+<li>The standard input filename is “pubmed_result.txt” and the block size of PubMed-IDs for one XML file is 100, but this can be changed. Type in “python generate_efetch.py -h” to show adjustable parameters.</li>
+<li>If you want to specify the name of the directory where the XML files should be saved, use parameter “-d” and create this folder manually before.</li>
+<li>The file “data/pubmed_result.txt” contains 23258 PubMed-IDs and the first 100 PubMed-IDs are saved in “data/pancreatic_cancer_example/medline_00000000.xml” as an example.</li>
+<li>Make “efetch.sh” executable with “chmod +x efetch.sh” in the command-line and run it in a folder of your choice by typing in “./efetch.sh”.</li>
+<li>This will be faster than using the browser to download a single XML file and it has the advantage of using multiprocessing in the next step as the script generates XML files with 100 titles in each document. The command also works with blocks of 500 PubMed-IDs, but not 1000.</li>
 </ul>
 </blockquote></li>
 </ul>
 </blockquote>
-<h2 id="download-pubmed"><a href="#TOC"><span class="header-section-number">2.3</span> Download PubMed</a></h2>
+<h2 id="download-pubmed"><a href="#download-pubmed"><span class="header-section-number">2.3</span> Download PubMed</a></h2>
 <ul>
 <li><p>It is also possible to download the whole PubMed via license:</p>
 <blockquote>
 <ul>
-<li><p><a href="http://www.nlm.nih.gov/databases/journal.html">http://www.nlm.nih.gov/databases/journal.html</a></p></li>
-<li><p><a href="http://www.nlm.nih.gov/bsd/licensee/2014_stats/baseline_doc.html">http://www.nlm.nih.gov/bsd/licensee/2014_stats/baseline_doc.html</a></p></li>
+<li><a href="http://www.nlm.nih.gov/databases/journal.html">http://www.nlm.nih.gov/databases/journal.html</a></li>
+<li><a href="http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_doc.html">http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_doc.html</a></li>
 </ul>
 </blockquote></li>
 </ul>
-<h1 id="installation"><a href="#TOC"><span class="header-section-number">3</span> Installation</a></h1>
-<h2 id="operating-system"><a href="#TOC"><span class="header-section-number">3.1</span> Operating System</a></h2>
+<h1 id="installation"><a href="#installation"><span class="header-section-number">3</span> Installation</a></h1>
+<h2 id="operating-system"><a href="#operating-system"><span class="header-section-number">3.1</span> Operating System</a></h2>
 <ul>
 <li>PubMed2Go was tested on Ubuntu and Windows.</li>
 </ul>
-<h3 id="ubuntu"><a href="#TOC"><span class="header-section-number">3.1.1</span> Ubuntu</a></h3>
+<h3 id="ubuntu"><a href="#ubuntu"><span class="header-section-number">3.1.1</span> Ubuntu</a></h3>
 <ul>
 <li><p>These are the packages that need to be installed to use PubMed2Go:</p>
 <blockquote>
 <ul>
-<li><p>python&gt;=2.7.3</p></li>
-<li><p>postgresql&gt;=8.4</p></li>
-<li><p>python-xappy&gt;=0.5</p></li>
-<li><p>python-xapian&gt;=1.2.8</p></li>
-<li><p>python-sqlalchemy&gt;=0.9.7</p></li>
-<li><p>python-psycopg2&gt;=2.4.5 (dependency from SQLAlchemy)</p></li>
+<li>python&gt;=2.7.3</li>
+<li>postgresql&gt;=8.4</li>
+<li>python-xappy&gt;=0.5</li>
+<li>python-xapian&gt;=1.2.8</li>
+<li>python-sqlalchemy&gt;=0.9.7</li>
+<li>python-psycopg2&gt;=2.4.5 (dependency from SQLAlchemy)</li>
 <li><p>To install, the following command can be used in the Ubuntu terminal:</p>
 <blockquote>
 <ul>
@@ -117,9 +117,9 @@
 </ul>
 </blockquote></li>
 </ul>
-<h3 id="fedora"><a href="#TOC"><span class="header-section-number">3.1.2</span> Fedora</a></h3>
+<h3 id="fedora"><a href="#fedora"><span class="header-section-number">3.1.2</span> Fedora</a></h3>
 <ul>
-<li><p>This section describes how to install required packages and how to adjust PostgreSQL settings in Fedora.</p></li>
+<li>This section describes how to install required packages and how to adjust PostgreSQL settings in Fedora.</li>
 <li><p>To install the Fedora packages use the following command. It will install all required packages:</p>
 <blockquote>
 <ul>
@@ -129,7 +129,7 @@
 <li><p>To enable PostgreSQL in Fedora, use the following steps:</p>
 <blockquote>
 <ul>
-<li><p>“sudo systemctl enable postgresql”</p></li>
+<li>“sudo systemctl enable postgresql”</li>
 <li><p>To start postgresql use the following command</p>
 <blockquote>
 <ul>
@@ -163,24 +163,24 @@
 <li><p>Append this line in the file “pg_hba.conf” (default location: “/var/lib/pgsql/data/pg_hba.conf”):</p>
 <blockquote>
 <ul>
-<li><p>“host all all 0.0.0.0 0.0.0.0 trust”</p></li>
-<li><p>If “trust” is used instead of “ident”, you are allowed to use a password. “0.0.0.0” means that all machines are allowed to login. That means, if you want to customise which server has to reach the database, you can control it here.</p></li>
+<li>“host all all 0.0.0.0 0.0.0.0 trust”</li>
+<li>If “trust” is used instead of “ident”, you are allowed to use a password. “0.0.0.0” means that all machines are allowed to login. That means, if you want to customise which server has to reach the database, you can control it here.</li>
 </ul>
 </blockquote></li>
 </ul>
 </blockquote></li>
 </ul>
-<h2 id="creation-of-postgresql-superuser"><a href="#TOC"><span class="header-section-number">3.2</span> Creation of PostgreSQL superuser</a></h2>
+<h2 id="creation-of-postgresql-superuser"><a href="#creation-of-postgresql-superuser"><span class="header-section-number">3.2</span> Creation of PostgreSQL superuser</a></h2>
 <ul>
 <li><p>If there is not yet a superuser for the PostgreSQL database, create one with the name of your local account</p>
 <blockquote>
 <ul>
-<li><p>“sudo -u postgres createuser --superuser &lt;user_name&gt;”</p></li>
+<li>“sudo -u postgres createuser --superuser &lt;user_name&gt;”</li>
 <li><p>“sudo -u &lt;user_name&gt; psql template1”</p>
 <blockquote>
 <ul>
-<li><p>\password &lt;press enter, type in password, and press enter, again&gt;</p></li>
-<li><p>\q</p></li>
+<li>\password &lt;press enter, type in password, and press enter, again&gt;</li>
+<li>\q</li>
 </ul>
 </blockquote></li>
 </ul>
@@ -192,14 +192,14 @@
 </ul>
 </blockquote></li>
 </ul>
-<h2 id="installation-with-docker"><a href="#TOC"><span class="header-section-number">3.3</span> Installation with Docker</a></h2>
+<h2 id="installation-with-docker"><a href="#installation-with-docker"><span class="header-section-number">3.3</span> Installation with Docker</a></h2>
 <ul>
-<li><p>Docker is similar to a virtual machine, but it is easier to deploy and more efficient. It was tested in Ubuntu and Windows.</p></li>
-<li><p>You can use the PubMed2Go image to create a PostgreSQL relational database and a Xapian full text index without installing the packages mentioned above in basically two steps.</p></li>
+<li>Docker is similar to a virtual machine, but it is easier to deploy and more efficient. It was tested in Ubuntu and Windows.</li>
+<li>You can use the PubMed2Go image to create a PostgreSQL relational database and a Xapian full text index without installing the packages mentioned above in basically two steps.</li>
 <li><p>Install Docker - it was tested on Ubuntu (64-bit required):</p>
 <blockquote>
 <ul>
-<li><p><a href="https://docs.docker.com/installation/ubuntulinux">https://docs.docker.com/installation/ubuntulinux</a>/</p></li>
+<li><a href="https://docs.docker.com/installation/ubuntulinux/">https://docs.docker.com/installation/ubuntulinux/</a></li>
 <li><p>There are many different operating systems supported:</p>
 <blockquote>
 <ul>
@@ -211,16 +211,16 @@
 <li><p>Run Docker with the PubMed2Go image:</p>
 <blockquote>
 <ul>
-<li><p>Create a folder on your local disk with a name of your choice.</p></li>
-<li><p>Go into that folder and create a directory “import_data”.</p></li>
-<li><p>Copy you XML files downloaded from PubMed into the directory “import_data”.</p></li>
+<li>Create a folder on your local disk with a name of your choice.</li>
+<li>Go into that folder and create a directory “import_data”.</li>
+<li>Copy you XML files downloaded from PubMed into the directory “import_data”.</li>
 <li><p>Open a terminal and type in this command:</p>
 <blockquote>
 <ul>
-<li><p>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9999:5432 bgruening/pubmed2go”</p></li>
-<li><p>This will create the PostgreSQL folder as well as the full text index database folder within the &lt;folder_of_your_choice&gt;.</p></li>
-<li><p>You can see that Docker is running by typing in “sudo docker ps”. This will show a randomly generated name for your process.</p></li>
-<li><p>Stopping Docker is possible by doing “sudo docker stop &lt;name&gt;”.</p></li>
+<li>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9999:5432 bgruening/pubmed2go”</li>
+<li>This will create the PostgreSQL folder as well as the full text index database folder within the &lt;folder_of_your_choice&gt;.</li>
+<li>You can see that Docker is running by typing in “sudo docker ps”. This will show a randomly generated name for your process.</li>
+<li>Stopping Docker is possible by doing “sudo docker stop &lt;name&gt;”.</li>
 <li><p>Docker maps your PosgreSQL port “5432” to the port “9999”. Now, you can connect to your database with PGAdmin via “localhost”, port “9999” and user “parser” with password “parser”. If you want to connect via command-line, use this command:</p>
 <blockquote>
 <ul>
@@ -233,12 +233,12 @@
 <li>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9998:5432 bgruening/pubmed2go”</li>
 </ul>
 </blockquote></li>
-<li><p>In case of replacing or creating a database on a port that is already used, delete the complete directory &lt;folder_of_your_choice&gt; and repeat the configuration steps.</p></li>
+<li>In case of replacing or creating a database on a port that is already used, delete the complete directory &lt;folder_of_your_choice&gt; and repeat the configuration steps.</li>
 </ul>
 </blockquote></li>
 </ul>
 </blockquote></li>
-<li><p>You can connect to PostgreSQL and Xapian with the programming language of your choice or follow the Python examples given in this documentation. If you want to develop your own text mining pipelines based on your data set of choice, you will have to install the required libraries on your operating system.</p></li>
+<li>You can connect to PostgreSQL and Xapian with the programming language of your choice or follow the Python examples given in this documentation. If you want to develop your own text mining pipelines based on your data set of choice, you will have to install the required libraries on your operating system.</li>
 <li><p>This also means that you need a default PostgreSQL installation on your operating system. Restart a closed Docker session on port “9999” with the command:</p>
 <blockquote>
 <ul>
@@ -251,10 +251,10 @@
 <li><a href="https://github.com/bgruening/docker-recipes/tree/master/pubmed2go">https://github.com/bgruening/docker-recipes/tree/master/pubmed2go</a></li>
 </ul>
 </blockquote></li>
-<li><p>If you want to try the examples given in the wiki, copy the Xapian directory from the &lt;folder_of_your_choice&gt; into the folder “PubMed2Go/full_text_index/xapian/” from “<a href="https://github.com/KerstenDoering/PubMed2Go">https://github.com/KerstenDoering/PubMed2Go</a>” and run the Docker container in background.</p></li>
-<li><p>After successful installation, the rest of this documentation can be skipped.</p></li>
+<li>If you want to try the examples given in the wiki, copy the Xapian directory from the &lt;folder_of_your_choice&gt; into the folder “PubMed2Go/full_text_index/xapian/” from “<a href="https://github.com/KerstenDoering/PubMed2Go">https://github.com/KerstenDoering/PubMed2Go</a>” and run the Docker container in background.</li>
+<li>After successful installation, the rest of this documentation can be skipped.</li>
 </ul>
-<h1 id="build-up-a-relational-database-in-postgresql"><a href="#TOC"><span class="header-section-number">4</span> Build up a Relational Database in PostgreSQL</a></h1>
+<h1 id="build-up-a-relational-database-in-postgresql"><a href="#build-up-a-relational-database-in-postgresql"><span class="header-section-number">4</span> Build up a Relational Database in PostgreSQL</a></h1>
 <ul>
 <li><p>Open a Terminal and type in:</p>
 <blockquote>
@@ -265,10 +265,10 @@
 <li><p>Enter the following commands into psql prompt to create a database, the schema “pubmed”, and a standard user “parser”. It is important to write the user “parser” in single quotes in the creation step:</p>
 <blockquote>
 <ul>
-<li><p>CREATE USER parser WITH PASSWORD 'parser';</p></li>
-<li><p>CREATE DATABASE pancreatic_cancer_db;</p></li>
-<li><p>GRANT ALL PRIVILEGES ON DATABASE pancreatic_cancer_db to parser;</p></li>
-<li><p>\q</p></li>
+<li>CREATE USER parser WITH PASSWORD 'parser';</li>
+<li>CREATE DATABASE pancreatic_cancer_db;</li>
+<li>GRANT ALL PRIVILEGES ON DATABASE pancreatic_cancer_db to parser;</li>
+<li>\q</li>
 </ul>
 </blockquote></li>
 <li><p>Now you can create a schema “pubmed” as user “parser”. You will be asked to enter your password “parser” here:</p>
@@ -277,8 +277,8 @@
 <li>“psql -h localhost -d pancreatic_cancer_db -U parser -f create_schema.sql”</li>
 </ul>
 </blockquote></li>
-<li><p>If you want to use another database name, just change “pancreatic_cancer_db” in these commands and provide this name in all other scripts by choosing the right parameter.</p></li>
-<li><p>It is recommended to use the name “parser” with password “parser” and the schema “pubmed”, because this is hard coded in “PubMedDB.py” and “PubMedParser.py”</p></li>
+<li>If you want to use another database name, just change “pancreatic_cancer_db” in these commands and provide this name in all other scripts by choosing the right parameter.</li>
+<li>It is recommended to use the name “parser” with password “parser” and the schema “pubmed”, because this is hard coded in “PubMedDB.py” and “PubMedParser.py”</li>
 <li><p>Create the tables in your database schema “pubmed” like this:</p>
 <blockquote>
 <ul>
@@ -291,10 +291,10 @@
 <li><p>You can check “python PubMedParser.py -h” to get a help screen with all adjustable parameters. If you want to use the defaults, you can simply type in “python PubMedParser.py”.</p>
 <blockquote>
 <ul>
-<li><p>By default, previously in PostgreSQL inserted data will be deleted before loading the new XML files into the database. That means you just have to call “python PubMedParser.py”, again in case you want to load new data into your already created database.</p></li>
-<li><p>If you do not want to delete, but only add XML files to the data that is already inside your PostgreSQL database, use parameter “-c”.</p></li>
-<li><p>The default database name is “pancreatic_cancer_db” and the default number of processors is 2. For changing, use parameters “-d” and “-p”.</p></li>
-<li><p>If you want to process only part of your files, use the parameters “-s” and “-e” with numbers referring to your alphabetically sorted files, e.g. “-s 0 -e 20” for the first 20 XML files in the directory.</p></li>
+<li>By default, previously in PostgreSQL inserted data will be deleted before loading the new XML files into the database. That means you just have to call “python PubMedParser.py”, again in case you want to load new data into your already created database.</li>
+<li>If you do not want to delete, but only add XML files to the data that is already inside your PostgreSQL database, use parameter “-c”.</li>
+<li>The default database name is “pancreatic_cancer_db” and the default number of processors is 2. For changing, use parameters “-d” and “-p”.</li>
+<li>If you want to process only part of your files, use the parameters “-s” and “-e” with numbers referring to your alphabetically sorted files, e.g. “-s 0 -e 20” for the first 20 XML files in the directory.</li>
 </ul>
 </blockquote></li>
 <li><p>It is important that you only type in the name of the folder containing all XML files with parameter “-i”, but not the name of the file(s). You do not need to type in the absolute path. Suppose, you have saved your XML file(s) in the directory “data/pancreatic_cancer”, use this command to run it with 4 processors and the database “pancreatic_cancer_db”:</p>
@@ -303,41 +303,41 @@
 <li>“python PubMedParser.py -i data/pancreatic_cancer/ -d pancreatic_cancer_db -p 4”</li>
 </ul>
 </blockquote></li>
-<li><p>For one file with around 230 MB this takes around 10 min (only one processor can be used). For the same amount of data split into files with only 100 PubMed-IDs (use “generate_efetch.py”) it takes around 3 min with 4 processors (2,83 GHz and 8 GB RAM).</p></li>
+<li>For one file with around 272 MB this takes around 10 min (only one processor can be used). For the same amount of data split into files with only 100 PubMed-IDs (use “generate_efetch.py”) it takes around 4 min with 4 processors (2,83 GHz and 8 GB RAM).</li>
 </ul>
 </blockquote></li>
-<li><p>Now, a schema “pubmed” exists in your database “pancreatic_cancer_db” that contains all abstracts, titles, authors, etc. More information will be given in the wiki, containing SQL queries and small programming examples.</p></li>
+<li>Now, a schema “pubmed” exists in your database “pancreatic_cancer_db” that contains all abstracts, titles, authors, etc. More information will be given in the wiki, containing SQL queries and small programming examples.</li>
 </ul>
-<h1 id="build-up-a-full-text-index-with-xapian-and-search-it"><a href="#TOC"><span class="header-section-number">5</span> Build up a Full Text Index with Xapian and Search It</a></h1>
+<h1 id="build-up-a-full-text-index-with-xapian-and-search-it"><a href="#build-up-a-full-text-index-with-xapian-and-search-it"><span class="header-section-number">5</span> Build up a Full Text Index with Xapian and Search It</a></h1>
 <ul>
-<li><p>The results from this section can be found in “full_text_index/results/results_from_documentation/”.</p></li>
-<li><p>Change into the directory “full_text_index” in your terminal.</p></li>
-<li><p>Create two directories, “xapian” and “results”, if they do not yet exist.</p></li>
-<li><p>Type in “python RunXapian.py -h” to get a help screen with all adjustable parameters.</p></li>
+<li>The results from this section can be found in “full_text_index/results/results_from_documentation/”.</li>
+<li>Change into the directory “full_text_index” in your terminal.</li>
+<li>Create two directories, “xapian” and “results”, if they do not yet exist.</li>
+<li>Type in “python RunXapian.py -h” to get a help screen with all adjustable parameters.</li>
 <li><p>If you use all default values from this documentation, you will receive results in “results/results.csv” with “python RunXapian.py -x”.</p>
 <blockquote>
 <ul>
-<li><p>This command indexes all titles, abstracts, keywords, MeSH terms and substances from year 1809 to 2014, downloaded as XML files from PubMed (as described in section “Download a Data Set”).</p></li>
+<li>This command indexes all titles, abstracts, keywords, MeSH terms and substances from year 1809 to 2015, downloaded as XML files from PubMed (as described in section “Download a Data Set”).</li>
 <li><p>After completing the step of generating the full text index, the programme searches it with the synonyms given in “synonyms/pancreatic_cancer.txt”.</p>
 <blockquote>
 <ul>
 <li><p>This file contains manually chosen names of drugs, genes, proteins, and diseases related to pancreatic cancer, manually extracted from DrugBank (exact search with quotes for “pancreatic cancer”) and OMIM:</p>
 <blockquote>
 <ul>
-<li><p><a href="http://www.drugbank.ca">http://www.drugbank.ca</a>/</p></li>
-<li><p><a href="http://omim.org/entry/260350?search=%22pancreatic%20cancer%22">http://omim.org/entry/260350?search=%22pancreatic%20cancer%22</a></p></li>
+<li><a href="http://www.drugbank.ca/">http://www.drugbank.ca/</a></li>
+<li><a href="http://omim.org/entry/260350?search=%22pancreatic%20cancer%22">http://omim.org/entry/260350?search=%22pancreatic%20cancer%22</a></li>
 </ul>
 </blockquote></li>
 </ul>
 </blockquote></li>
-<li><p>If you just want to index your XML files, type in “python RunXapian.py -x -f”. (Parameter “-f” turns off the search function of the programme, default is “True”.)</p></li>
-<li><p>If you just want to search your synonyms, type in “python RunXapian.py” (Parameter “-x” turns on the indexing step, default is “False”.)</p></li>
-<li><p>The default location for your full text index database folder is “PubMed2Go/full_text_index/xapian/&lt;xapian2014&gt;”. You can change this location by using the parameter “-p”.</p></li>
+<li>If you just want to index your XML files, type in “python RunXapian.py -x -f”. (Parameter “-f” turns off the search function of the programme, default is “True”.)</li>
+<li>If you just want to search your synonyms, type in “python RunXapian.py” (Parameter “-x” turns on the indexing step, default is “False”.)</li>
+<li>The default location for your full text index database folder is “PubMed2Go/full_text_index/xapian/&lt;xapian2015&gt;”. You can change this location by using the parameter “-p”.</li>
 </ul>
 </blockquote></li>
-<li><p>For the given example, 9299 lines were generated in “results.csv”.</p></li>
+<li>For the given example, 10392 lines were generated in “results.csv”.</li>
 </ul>
-<h1 id="contact"><a href="#TOC"><span class="header-section-number">6</span> Contact</a></h1>
+<h1 id="contact"><a href="#contact"><span class="header-section-number">6</span> Contact</a></h1>
 <ul>
 <li><p>Please, write an e-mail, if you have questions, feedback, improvements, or new ideas:</p>
 <blockquote>
@@ -345,7 +345,7 @@
 <li><script type="text/javascript">
 <!--
 h='&#112;&#104;&#x61;&#114;&#x6d;&#x61;&#122;&#x69;&#x65;&#46;&#x75;&#110;&#x69;&#x2d;&#102;&#114;&#x65;&#x69;&#98;&#x75;&#114;&#x67;&#46;&#100;&#x65;';a='&#64;';n='&#x6b;&#x65;&#114;&#x73;&#116;&#x65;&#110;&#46;&#100;&#x6f;&#x65;&#114;&#x69;&#110;&#x67;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'<code>'+e+'</code>'+'<\/'+'a'+'>');
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 // -->
 </script><noscript>&#x6b;&#x65;&#114;&#x73;&#116;&#x65;&#110;&#46;&#100;&#x6f;&#x65;&#114;&#x69;&#110;&#x67;&#32;&#x61;&#116;&#32;&#112;&#104;&#x61;&#114;&#x6d;&#x61;&#122;&#x69;&#x65;&#32;&#100;&#x6f;&#116;&#32;&#x75;&#110;&#x69;&#x2d;&#102;&#114;&#x65;&#x69;&#98;&#x75;&#114;&#x67;&#32;&#100;&#x6f;&#116;&#32;&#100;&#x65;</noscript></li>
 </ul>
@@ -357,7 +357,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'<code>'+e+'</code>'+'<\/'+
 </ul>
 </blockquote></li>
 </ul>
-<h2 id="license"><a href="#TOC"><span class="header-section-number">6.1</span> License</a></h2>
+<h2 id="license"><a href="#license"><span class="header-section-number">6.1</span> License</a></h2>
 <ul>
 <li>PubMed2Go is published with an ISC license given in “license.txt”.</li>
 </ul>

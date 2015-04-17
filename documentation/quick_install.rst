@@ -7,17 +7,17 @@ PubMed2Go
 Introduction
 ************
 
-- PubMed2Go processes XML files that can be downloaded from NCBI and builds up a PostgreSQL database containing all abstracts of the data set (no full texts).
+- PubMed2Go processes XML files that can be downloaded from NCBI and builds up a PostgreSQL database containing all abstracts of the data set (no full texts).  
 
-- Furthermore, PubMed2Go generates a full text index with Xapian such that titles, abstracts, keywords, MeSH terms and substances can be queried with search terms.
+- Furthermore, PubMed2Go generates a full text index with Xapian such that titles, abstracts, keywords, MeSH terms, and substances can be queried with search terms.  
 
-- It is scalable to your system requirements using multiprocessing and can be modified easily to your personal needs.
+- It is scalable to your system requirements using multiprocessing and can be modified easily to your personal needs.  
 
-- This documentation refers to a text mining example using the disease pancreatic cancer. The wiki contains many basic examples how to use PostgreSQL and Xapian as well as connecting both with small Python programmes. The default values in the scripts refer to the parameters given here, but all of them can be changed by the user. 
+- This documentation refers to a text mining example using the search term "pancreatic cancer". The wiki contains many basic examples how to use PostgreSQL and Xapian as well as connecting both with small Python programmes. The default values in the scripts refer to the parameters given here, but all of them can be changed by the user.  
 
-- If the examples from this documentations are used, there will be around 670 MB of disk space needed. There are no other hardware requirements.
+- If the examples from this documentations are used, there will be around 745 MB of disk space needed. There are no other hardware requirements.  
 
-- Start by copying the whole project folder from GitHub to your local disk.
+- Start by copying the whole project folder from GitHub to your local disk.  
 
 
 *******************
@@ -38,9 +38,9 @@ Download with a Web Browser
 
     - Click on "Send to:" and "File" and select "XML".
 
-    - 10th July 2014: 21482 PubMed-IDs
+    - 16th April 2015: 23258 PubMed-IDs
 
-    - The download of around 230 MB can take up to one hour depending on the time of day and internet connection. 
+    - The download of around 272 MB can take up to one hour depending on the time of day and internet connection. 
 
 --------------------------------------
 Download with a Web Browser and EFetch
@@ -54,7 +54,7 @@ Download with a Web Browser and EFetch
 
         - If you want to specify the name of the directory where the XML files should be saved, use parameter "-d" and create this folder manually before.
 
-        - The file "data/pubmed_result.txt" contains 21482 PubMed-IDs and the first 100 PubMed-IDs are saved in "data/pancreatic_cancer_example/medline_00000000.xml" as an example.
+        - The file "data/pubmed_result.txt" contains 23258 PubMed-IDs and the first 100 PubMed-IDs are saved in "data/pancreatic_cancer_example/medline_00000000.xml" as an example.
 
         - Make "efetch.sh" executable with "chmod +x efetch.sh" in the command-line and run it in a folder of your choice by typing in "./efetch.sh".
 
@@ -68,7 +68,7 @@ Download PubMed
 
     - http://www.nlm.nih.gov/databases/journal.html
 
-    - http://www.nlm.nih.gov/bsd/licensee/2014_stats/baseline_doc.html
+    - http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_doc.html
 
 
 ************
@@ -272,7 +272,7 @@ Build up a Relational Database in PostgreSQL
 
         - "python PubMedParser.py -i data/pancreatic_cancer/ -d pancreatic_cancer_db -p 4"
 
-    - For one file with around 230 MB this takes around 10 min (only one processor can be used). For the same amount of data split into files with only 100 PubMed-IDs (use "generate_efetch.py") it takes around 3 min with 4 processors (2,83 GHz and 8 GB RAM).
+    - For one file with around 272 MB this takes around 10 min (only one processor can be used). For the same amount of data split into files with only 100 PubMed-IDs (use "generate_efetch.py") it takes around 4 min with 4 processors (2,83 GHz and 8 GB RAM).
 
 - Now, a schema "pubmed" exists in your database "pancreatic_cancer_db" that contains all abstracts, titles, authors, etc. More information will be given in the wiki, containing SQL queries and small programming examples.
 
@@ -291,7 +291,7 @@ Build up a Full Text Index with Xapian and Search It
 
 - If you use all default values from this documentation, you will receive results in "results/results.csv" with "python RunXapian.py -x".
 
-    - This command indexes all titles, abstracts, keywords, MeSH terms and substances from year 1809 to 2014, downloaded as XML files from PubMed (as described in section "Download a Data Set"). 
+    - This command indexes all titles, abstracts, keywords, MeSH terms and substances from year 1809 to 2015, downloaded as XML files from PubMed (as described in section "Download a Data Set"). 
 
     - After completing the step of generating the full text index, the programme searches it with the synonyms given in "synonyms/pancreatic_cancer.txt".
 
@@ -305,9 +305,9 @@ Build up a Full Text Index with Xapian and Search It
 
     - If you just want to search your synonyms, type in "python RunXapian.py" (Parameter "-x" turns on the indexing step, default is "False".)
 
-    - The default location for your full text index database folder is "PubMed2Go/full_text_index/xapian/<xapian2014>". You can change this location by using the parameter "-p".
+    - The default location for your full text index database folder is "PubMed2Go/full_text_index/xapian/<xapian2015>". You can change this location by using the parameter "-p".
 
-- For the given example, 9299 lines were generated in "results.csv".
+- For the given example, 10392 lines were generated in "results.csv".
 
 
 *******
