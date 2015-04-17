@@ -80,7 +80,7 @@ class Citation(Base):
 
 class PMID_File_Mapping(Base):
     __tablename__ = "tbl_pmids_in_file"
-
+    id_file = Column(Integer)
     xml_file_name   = Column(VARCHAR(50), nullable=False)
     fk_pmid            = Column(INTEGER, nullable=False)
 
@@ -94,9 +94,9 @@ class PMID_File_Mapping(Base):
         #return "PMID FIle Mapping (%s - %s)" % ()
 
     __table_args__  = (
-        ForeignKeyConstraint(['xml_file_name'], [SCHEMA+'.tbl_xml_file.xml_file_name'], onupdate="CASCADE", ondelete="CASCADE", name='fk1_pmids_in_file'),
+        ForeignKeyConstraint(['id_file','xml_file_name'], [SCHEMA+'.tbl_xml_file.id',SCHEMA+'.tbl_xml_file.xml_file_name'], onupdate="CASCADE", ondelete="CASCADE", name='fk3_pmids_in_file'),
         ForeignKeyConstraint(['fk_pmid'], [SCHEMA+'.tbl_medline_citation.pmid'], onupdate="CASCADE", ondelete="CASCADE", name="fk2_pmids_in_file"),
-        PrimaryKeyConstraint('xml_file_name', 'fk_pmid'),
+        PrimaryKeyConstraint( 'fk_pmid'),
         {'schema': SCHEMA} 
     )
 
@@ -104,13 +104,15 @@ class PMID_File_Mapping(Base):
 class XMLFile(Base):
     __tablename__ = "tbl_xml_file"
 
-    xml_file_name = Column(VARCHAR(50),    nullable=False, primary_key=True)
+    id = Column(Integer, nullable=False)
+    xml_file_name = Column(VARCHAR(50), nullable=False)
     doc_type_name = Column(VARCHAR(100))
     dtd_public_id = Column(VARCHAR(200))#,   nullable=False)
     dtd_system_id = Column(VARCHAR(200))#,   nullable=False)
     time_processed = Column(DateTime())
 
     def __init__(self):
+        self.id
         self.xml_file_name
         self.doc_type_name# = doc_type_name
         self.dtd_system_id# = dtd_system_id
@@ -122,6 +124,7 @@ class XMLFile(Base):
     citation = relation(Citation, secondary=PMID_File_Mapping.__table__, backref=backref('xml_files', order_by=xml_file_name))
 
     __table_args__  = (
+        PrimaryKeyConstraint('id','xml_file_name'),
         {'schema': SCHEMA} 
     )
 
