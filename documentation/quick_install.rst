@@ -79,7 +79,7 @@ Installation
 Operating System
 ----------------
 
-- PubMed2Go was tested on Ubuntu and Windows.
+- PubMed2Go was tested on Ubuntu and Fedora.
 
 ######
 Ubuntu
@@ -268,11 +268,11 @@ Build up a Relational Database in PostgreSQL
 
         - If you want to process only part of your files, use the parameters "-s" and "-e" with numbers referring to your alphabetically sorted files, e.g. "-s 0 -e 20" for the first 20 XML files in the directory.
 
-    - It is important that you only type in the name of the folder containing all XML files with parameter "-i", but not the name of the file(s). You do not need to type in the absolute path. Suppose, you have saved your XML file(s) in the directory "data/pancreatic_cancer", use this command to run it with 4 processors and the database "pancreatic_cancer_db":
+    - It is important that you only type in the name of the folder containing all XML files with parameter "-i", but not the name of the file(s). You do not need to type in the absolute path. Suppose, you have saved your XML file(s) in the directory "data/pancreatic_cancer", use this command to run it with 3 processors and the database "pancreatic_cancer_db":
 
-        - "python PubMedParser.py -i data/pancreatic_cancer/ -d pancreatic_cancer_db -p 4"
+        - "python PubMedParser.py -i data/pancreatic_cancer/ -d pancreatic_cancer_db -p 3"
 
-    - For one file with around 272 MB this takes around 10 min (only one processor can be used). For the same amount of data split into files with only 100 PubMed-IDs (use "generate_efetch.py") it takes around 4 min with 4 processors (2,83 GHz and 8 GB RAM).
+    - For one file with around 272 MB this takes around 10 min (only one processor can be used). For the same amount of data split into files with only 100 PubMed-IDs (use "generate_efetch.py") it takes around 4 min with 3 processors (2,83 GHz and 8 GB RAM).
 
 - Now, a schema "pubmed" exists in your database "pancreatic_cancer_db" that contains all abstracts, titles, authors, etc. More information will be given in the wiki, containing SQL queries and small programming examples.
 

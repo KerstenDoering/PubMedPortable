@@ -8,7 +8,7 @@
 #check https://github.com/miracle2k/xappy/blob/master/docs/introduction.rst for nice examples
 
 import xappy
-searchConn = xappy.SearchConnection("xapian/xapian2014")
+searchConn = xappy.SearchConnection("xapian/xapian2015")
 searchConn.reopen()
 
 

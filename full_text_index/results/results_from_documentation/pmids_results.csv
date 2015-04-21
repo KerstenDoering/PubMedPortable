@@ -4531,6 +4531,7 @@
 22700003	pancreatic ductal adenocarcinoma
 22700995	Gemcitabine
 22701803	Gemcitabine
+22706549	BRCA2
 22710569	pancreatic ductal adenocarcinoma
 22710732	Gemcitabine
 22710877	p53	Gemcitabine
@@ -5127,7 +5128,7 @@
 23497499	pancreatic ductal adenocarcinoma	Gemcitabine
 23497644	breast cancer	ovarian cancer
 23498362	pancreatic ductal adenocarcinoma
-23508375	Diabetes
+23508375	Diabetes	diabetes mellitus
 23511429	Gemcitabine
 23515366	pancreatic ductal adenocarcinoma
 23518243	pancreatic ductal adenocarcinoma
@@ -5135,6 +5136,7 @@
 23525071	p53	Gemcitabine
 23527856	pancreatic ductal adenocarcinoma
 23528347	Diabetes	diabetes mellitus
+23528452	breast cancer
 23532207	Gemcitabine
 23533808	Gemcitabine
 23534079	breast cancer
@@ -5352,7 +5354,7 @@
 23835106	Diabetes
 23835677	Gemcitabine
 23837479	Gemcitabine
-23837679	Diabetes
+23837679	Diabetes	diabetes mellitus
 23840665	KRAS	p53	Gemcitabine
 23842635	breast cancer
 23843038	Diabetes
@@ -5521,7 +5523,6 @@
 24048788	pancreatic ductal adenocarcinoma
 24049451	pancreatic ductal adenocarcinoma
 24051965	Diabetes	diabetes mellitus
-24052487	pancreatic ductal adenocarcinoma	CD40
 24058389	breast cancer
 24058443	Diabetes
 24058792	KRAS	pancreatic ductal adenocarcinoma
@@ -5574,9 +5575,9 @@
 24130864	KRAS
 24131140	Gemcitabine
 24133453	pancreatic ductal adenocarcinoma
-24136929	Diabetes
+24136929	Diabetes	diabetes mellitus
 24137477	TP53
-24138811	Diabetes
+24138811	Diabetes	diabetes mellitus
 24139211	pancreatic ductal adenocarcinoma
 24140233	Gemcitabine
 24141108	Gemcitabine
@@ -5585,7 +5586,6 @@
 24142531	Gemcitabine
 24143858	pancreatic ductal adenocarcinoma	Gemcitabine
 24146260	Gemcitabine
-24147222	Gemcitabine
 24147435	BRCA1	BRCA2
 24149173	Diabetes	diabetes mellitus
 24149179	Diabetes	diabetes mellitus
@@ -5637,7 +5637,7 @@
 24218335	Gemcitabine
 24218614	pancreatic ductal adenocarcinoma
 24222118	Gemcitabine
-24222349	Diabetes
+24222349	Diabetes	diabetes mellitus
 24222664	KRAS	pancreatic ductal adenocarcinoma
 24225187	Gemcitabine
 24231729	KRAS	mTOR
@@ -5649,6 +5649,7 @@
 24242859	PRSS1	hereditary pancreatitis
 24244714	pancreatic ductal adenocarcinoma
 24247204	p53
+24249323	Diabetes
 24250822	pancreatic ductal adenocarcinoma
 24253317	colon cancer	Diabetes
 24255576	Gemcitabine
@@ -5712,8 +5713,8 @@
 24325804	colon cancer	ovarian cancer
 24326363	Gemcitabine
 24326364	pancreatic ductal adenocarcinoma
-24326367	Diabetes	pancreatic ductal adenocarcinoma
-24326376	KRAS
+24326367	Diabetes	diabetes mellitus	pancreatic ductal adenocarcinoma
+24326376	KRAS	SMAD4	p53
 24326841	pancreatic ductal adenocarcinoma
 24327934	pancreatic ductal adenocarcinoma
 24328148	PRSS1
@@ -5796,6 +5797,7 @@
 24424498	Gemcitabine
 24432033	KRAS	p53	Erlotinib	Gemcitabine
 24433772	p53	pancreatic ductal adenocarcinoma
+24434269	Diabetes	diabetes mellitus
 24435915	Gemcitabine
 24444460	pancreatic ductal adenocarcinoma
 24445769	KRAS	CDKN2A	SMAD4	TP53	p53	pancreatic ductal adenocarcinoma
@@ -5847,7 +5849,7 @@
 24484175	p53	Gemcitabine
 24484537	KRAS	pancreatic ductal adenocarcinoma
 24485121	breast cancer
-24486587	ATM	TP53	ataxia-telangiectasia
+24486587	ATM	TP53	p53	ataxia-telangiectasia
 24488510	Diabetes	diabetes mellitus
 24489544	TP53	p53
 24491405	KRAS	Gemcitabine
@@ -5946,7 +5948,7 @@
 24605033	Peutz-Jeghers syndrome
 24605110	pancreatic ductal adenocarcinoma
 24606850	Gemcitabine
-24607009	colon cancer
+24607009	p53	colon cancer
 24607504	KRAS	p53	pancreatic ductal adenocarcinoma
 24608188	colon cancer
 24608432	KRAS	pancreatic ductal adenocarcinoma
@@ -5959,8 +5961,9 @@
 24618424	Gemcitabine
 24618427	Gemcitabine
 24618429	Gemcitabine
-24618431	KRAS	KRAS2	SMAD4	TP53
+24618431	KRAS	KRAS2	SMAD4	TP53	p53
 24618432	Diabetes	diabetes mellitus
+24618433	BRCA1	BRCA2
 24618440	pancreatic ductal adenocarcinoma	Erlotinib	Gemcitabine
 24618505	Diabetes
 24618665	pancreatic ductal adenocarcinoma	Gemcitabine
@@ -5976,17 +5979,17 @@
 24624459	PRSS1	Diabetes	diabetes mellitus	hereditary pancreatitis
 24625353	Gemcitabine
 24626090	pancreatic ductal adenocarcinoma	Gemcitabine
-24627972	Diabetes
+24627972	Diabetes	diabetes mellitus
 24629175	breast cancer
 24631943	Diabetes
 24631947	pancreatic ductal adenocarcinoma	Erlotinib	Gemcitabine
 24632547	Gemcitabine
 24633336	p53
-24633395	Diabetes
+24633395	Diabetes	diabetes mellitus
 24633933	Gemcitabine
 24634377	pancreatic ductal adenocarcinoma
 24635863	BRCA2	PALB2
-24637463	breast cancer	Diabetes
+24637463	breast cancer	Diabetes	diabetes mellitus
 24637492	Gemcitabine
 24638272	pancreatic ductal adenocarcinoma
 24639234	Gemcitabine
@@ -6013,11 +6016,11 @@
 24658609	Diabetes	diabetes mellitus
 24659675	breast cancer
 24662333	pancreatic ductal adenocarcinoma
-24662521	Diabetes
+24662521	Diabetes	diabetes mellitus
 24662981	pancreatic ductal adenocarcinoma
 24663812	Gemcitabine
 24665063	SMAD4
-24667573	breast cancer	Diabetes
+24667573	breast cancer	Diabetes	diabetes mellitus
 24667580	Gemcitabine
 24668219	pancreatic ductal adenocarcinoma
 24670043	SMAD4	mTOR
@@ -6042,12 +6045,12 @@
 24692710	Gemcitabine
 24693896	p53
 24694735	KRAS	pancreatic ductal adenocarcinoma
-24704294	KRAS	TP53
+24704294	KRAS	TP53	p53	Diabetes
 24708788	Diabetes
 24709776	SMAD4	pancreatic ductal adenocarcinoma
 24711649	pancreatic ductal adenocarcinoma
 24713671	p53
-24713674	Diabetes
+24713674	Diabetes	diabetes mellitus
 24713777	pancreatic ductal adenocarcinoma
 24714323	pancreatic ductal adenocarcinoma
 24716048	Gemcitabine
@@ -6057,7 +6060,7 @@
 24718282	ovarian cancer
 24719642	ovarian cancer
 24719952	pancreatic ductal adenocarcinoma	CD40
-24720336	Diabetes
+24720336	Diabetes	diabetes mellitus
 24720337	pancreatic ductal adenocarcinoma
 24721105	pancreatic ductal adenocarcinoma
 24721346	pancreatic ductal adenocarcinoma
@@ -6088,7 +6091,6 @@
 24746233	Diabetes	diabetes mellitus
 24746917	Diabetes
 24747429	ovarian cancer
-24747763	breast cancer	Diabetes
 24748867	Diabetes
 24749004	breast cancer	Diabetes	pancreatic ductal adenocarcinoma
 24751410	Gemcitabine
@@ -6110,7 +6112,6 @@
 24769074	Gemcitabine
 24769519	Gemcitabine
 24769899	pancreatic ductal adenocarcinoma
-24773234	Diabetes	diabetes mellitus
 24775809	BRCA1	BRCA2	p53	ovarian cancer
 24778046	Gemcitabine
 24778053	Gemcitabine
@@ -6119,7 +6120,7 @@
 24782507	ovarian cancer
 24784121	Diabetes	diabetes mellitus	Gemcitabine
 24785258	pancreatic ductal adenocarcinoma	Gemcitabine
-24786605	Diabetes
+24786605	Diabetes	diabetes mellitus
 24788257	KRAS	pancreatic ductal adenocarcinoma
 24790792	CD40
 24791855	KRAS	mTOR
@@ -6212,12 +6213,12 @@
 24914040	Gemcitabine
 24914341	colon cancer	pancreatic ductal adenocarcinoma
 24916038	Gemcitabine
-24916586	pancreatic ductal adenocarcinoma	Gemcitabine
 24917019	Gemcitabine
 24918133	colon cancer
 24918923	pancreatic ductal adenocarcinoma
 24919654	GV1001	Gemcitabine
 24920070	pancreatic ductal adenocarcinoma
+24921205	Diabetes	diabetes mellitus
 24921970	Erlotinib
 24922667	pancreatic ductal adenocarcinoma
 24923739	pancreatic ductal adenocarcinoma
@@ -6245,7 +6246,7 @@
 24950733	Gemcitabine
 24952679	Gemcitabine
 24953335	pancreatic ductal adenocarcinoma	Gemcitabine
-24953430	KRAS	pancreatic ductal adenocarcinoma	Gemcitabine
+24953430	KRAS	p53	pancreatic ductal adenocarcinoma	Gemcitabine
 24954535	KRAS	pancreatic ductal adenocarcinoma
 24954781	pancreatic ductal adenocarcinoma	GV1001	Gemcitabine
 24955709	pancreatic ductal adenocarcinoma
@@ -6277,12 +6278,11 @@
 24984010	Gemcitabine
 24984283	CDKN2A
 24986485	Gemcitabine
-24986497	breast cancer
 24987872	pancreatic ductal adenocarcinoma
 24989027	pancreatic ductal adenocarcinoma
 24991970	pancreatic ductal adenocarcinoma
 24995015	pancreatic ductal adenocarcinoma
-24998203	KRAS	mTOR	pancreatic ductal adenocarcinoma
+24998203	KRAS	pancreatic ductal adenocarcinoma
 24998655	Gemcitabine
 25000339	Diabetes	diabetes mellitus
 25000673	Diabetes	diabetes mellitus
@@ -6294,10 +6294,765 @@
 25004338	breast cancer	ovarian cancer
 25005174	breast cancer
 25005526	mTOR
+25010661	ROBO1
+25015789	pancreatic ductal adenocarcinoma	Gemcitabine
+25016056	Gemcitabine
+25016295	p53
+25017247	Diabetes
+25017478	KRAS
+25017900	pancreatic ductal adenocarcinoma
+25024225	KRAS	pancreatic ductal adenocarcinoma
+25024602	pancreatic ductal adenocarcinoma
+25024603	pancreatic ductal adenocarcinoma
+25024604	Gemcitabine
+25024609	Gemcitabine
+25024616	Diabetes	diabetes mellitus
+25027401	p53
+25029236	mTOR	Gemcitabine
+25030587	Gemcitabine
+25034035	pancreatic ductal adenocarcinoma
+25036236	BRCA1	BRCA2	STK11	Peutz-Jeghers syndrome	breast cancer
+25041791	Erlotinib	Gemcitabine
+25042860	Diabetes
+25042889	KRAS	p53	pancreatic ductal adenocarcinoma
+25046107	TP53
+25046147	Diabetes	diabetes mellitus
+25047399	colon cancer	breast cancer
+25047425	Diabetes	diabetes mellitus
+25048090	Diabetes	diabetes mellitus	pancreatic ductal adenocarcinoma
+25048167	breast cancer
+25050737	KRAS
+25053988	breast cancer
+25056373	pancreatic ductal adenocarcinoma	Gemcitabine
+25057164	Diabetes	diabetes mellitus
+25057901	pancreatic ductal adenocarcinoma
+25058882	KRAS
+25061297	pancreatic ductal adenocarcinoma
+25061491	Diabetes
+25062879	pancreatic ductal adenocarcinoma
+25062880	pancreatic ductal adenocarcinoma
+25064638	CDKN2A	colon cancer	breast cancer
+25065594	KRAS
+25069584	breast cancer
+25070053	Diabetes	diabetes mellitus
+25070540	p53
+25071014	p53
+25071330	Gemcitabine
+25071331	pancreatic ductal adenocarcinoma
+25071332	Gemcitabine
+25071333	Gemcitabine
+25072261	BRCA1	BRCA2	pancreatic ductal adenocarcinoma
+25075094	Gemcitabine
+25076320	pancreatic ductal adenocarcinoma
+25076321	Erlotinib	Gemcitabine
+25076326	KRAS
+25076330	mTOR
+25076332	Diabetes
+25076334	Gemcitabine
+25076337	Gemcitabine
+25076338	BRCA1	BRCA2	PALB2
+25076339	BRCA1	BRCA2	PALB2
+25076340	Gemcitabine
+25076342	breast cancer
+25076356	pancreatic ductal adenocarcinoma
+25076706	Diabetes	diabetes mellitus
+25076866	Gemcitabine
+25078674	pancreatic ductal adenocarcinoma	Gemcitabine
+25079376	mTOR	pancreatic ductal adenocarcinoma
+25082364	breast cancer
+25082815	pancreatic ductal adenocarcinoma
+25082960	pancreatic ductal adenocarcinoma	Gemcitabine
+25083302	Gemcitabine
+25083330	KRAS
+25084206	pancreatic ductal adenocarcinoma	Gemcitabine
+25084222	Gemcitabine
+25086665	TERT
+25086986	breast cancer
+25087471	Gemcitabine
+25090635	pancreatic ductal adenocarcinoma
+25091126	Diabetes
+25091263	KRAS	Erlotinib	Gemcitabine
+25091797	pancreatic ductal adenocarcinoma
+25092959	colon cancer
+25093005	Erlotinib	Gemcitabine
+25093849	Gemcitabine
+25098308	Diabetes
+25099012	colon cancer
+25099612	Gemcitabine
+25100121	KRAS	pancreatic ductal adenocarcinoma
+25100122	pancreatic ductal adenocarcinoma
+25100129	pancreatic ductal adenocarcinoma
+25104069	Gemcitabine
+25104358	KRAS
+25104544	Gemcitabine
+25106646	colon cancer
+25106741	pancreatic ductal adenocarcinoma
+25108345	pancreatic ductal adenocarcinoma	Gemcitabine
+25111947	Diabetes	diabetes mellitus
+25114549	breast cancer
+25114835	pancreatic ductal adenocarcinoma
+25117068	Erlotinib	Gemcitabine
+25117591	pancreatic ductal adenocarcinoma
+25117811	Gemcitabine
+25117978	KRAS	pancreatic ductal adenocarcinoma
+25119024	KRAS	p53	pancreatic ductal adenocarcinoma
+25120050	colon cancer
+25120674	Gemcitabine
+25120694	pancreatic ductal adenocarcinoma
+25121637	Gemcitabine
+25125675	breast cancer	ovarian cancer	Gemcitabine
+25127677	KRAS	p53	pancreatic ductal adenocarcinoma
+25128650	p53
+25129442	Gemcitabine
+25131881	Gemcitabine
+25132574	pancreatic ductal adenocarcinoma	Gemcitabine
+25134386	pancreatic ductal adenocarcinoma
+25135483	pancreatic ductal adenocarcinoma
+25136840	colon cancer
+25137017	pancreatic ductal adenocarcinoma
+25139314	Gemcitabine
+25143299	Gemcitabine
+25143389	mTOR
+25145842	Erlotinib	Gemcitabine
+25149530	Erlotinib	Gemcitabine
+25151971	Gemcitabine
+25152407	mTOR	Gemcitabine
+25152576	hereditary pancreatitis
+25152578	KRAS
+25152579	KRAS	pancreatic ductal adenocarcinoma
+25152580	KRAS	SMAD4	p53	pancreatic ductal adenocarcinoma	Erlotinib	Gemcitabine
+25152581	BRCA2	PALB2	CDKN2A	ATM
+25152585	KRAS	p53	Gemcitabine
+25152588	Peutz-Jeghers syndrome	breast cancer
+25154845	Gemcitabine
+25156106	Gemcitabine
+25156550	pancreatic ductal adenocarcinoma
+25156567	CDKN2A	mTOR	pancreatic ductal adenocarcinoma	Gemcitabine
+25164437	p53	Erlotinib
+25167228	KRAS
+25167946	Diabetes	diabetes mellitus
+25167989	KRAS
+25168367	p53
+25170201	pancreatic ductal adenocarcinoma
+25170202	pancreatic ductal adenocarcinoma
+25170203	PALB2	Peutz-Jeghers syndrome	ovarian cancer	ataxia-telangiectasia	Diabetes	diabetes mellitus	hereditary pancreatitis	pancreatic ductal adenocarcinoma
+25170205	pancreatic ductal adenocarcinoma
+25170208	Diabetes	diabetes mellitus	pancreatic ductal adenocarcinoma
+25170871	pancreatic ductal adenocarcinoma
+25172101	ovarian cancer
+25175624	Diabetes
+25176061	pancreatic ductal adenocarcinoma
+25178600	Diabetes
+25180611	Diabetes	diabetes mellitus
+25180633	pancreatic ductal adenocarcinoma
+25182632	breast cancer
+25183049	pancreatic ductal adenocarcinoma
+25184537	pancreatic ductal adenocarcinoma	Gemcitabine
+25187316	Gemcitabine
+25188109	pancreatic ductal adenocarcinoma
+25189999	Gemcitabine
+25191518	KRAS	SMAD4
+25195596	breast cancer	Erlotinib
+25197966	Gemcitabine
+25199993	KRAS
+25200207	ovarian cancer
+25200694	pancreatic ductal adenocarcinoma
+25202045	pancreatic ductal adenocarcinoma
+25202061	Gemcitabine
+25203595	breast cancer
+25204327	Erlotinib	Gemcitabine
+25205107	pancreatic ductal adenocarcinoma
+25209744	Diabetes	diabetes mellitus
+25210494	breast cancer
+25213764	pancreatic ductal adenocarcinoma
+25214781	pancreatic ductal adenocarcinoma	Gemcitabine
+25215932	pancreatic ductal adenocarcinoma
+25216700	p53
+25216706	Erlotinib	Gemcitabine
+25217324	pancreatic ductal adenocarcinoma
+25220893	breast cancer
+25223481	Diabetes
+25224030	BRCA1	BRCA2	ovarian cancer
+25225577	BRCA1	BRCA2	PALB2	breast cancer	ovarian cancer
+25227142	CDKN2A
+25227800	Gemcitabine
+25231686	pancreatic ductal adenocarcinoma
+25232128	Gemcitabine
+25232244	pancreatic ductal adenocarcinoma
+25232460	pancreatic ductal adenocarcinoma
+25233928	pancreatic ductal adenocarcinoma
+25236592	pancreatic ductal adenocarcinoma	Gemcitabine
+25237909	Gemcitabine
+25238546	pancreatic ductal adenocarcinoma
+25239611	pancreatic ductal adenocarcinoma
+25239644	CDKN2A	breast cancer
 2523987	Diabetes	diabetes mellitus
+25240403	Gemcitabine
+25240578	KRAS	CDKN2A	SMAD4	TP53	pancreatic ductal adenocarcinoma
+25242370	Gemcitabine
+25242509	breast cancer
+25245095	KRAS
+25247318	Erlotinib	Gemcitabine
+25248573	pancreatic ductal adenocarcinoma
+25248858	KRAS	pancreatic ductal adenocarcinoma
+25248901	Gemcitabine
+25250133	breast cancer
+25250326	pancreatic ductal adenocarcinoma
+25250570	KRAS	pancreatic ductal adenocarcinoma
+25250696	pancreatic ductal adenocarcinoma
+25250919	Gemcitabine
+25252098	pancreatic ductal adenocarcinoma
+25252602	Gemcitabine
+25253202	Gemcitabine
+25257100	Gemcitabine
+25257585	breast cancer	Diabetes
+25258022	Gemcitabine
+25258651	pancreatic ductal adenocarcinoma
+25259922	pancreatic ductal adenocarcinoma	Gemcitabine
+25260887	Gemcitabine
+25260978	Gemcitabine
+25261239	KRAS	pancreatic ductal adenocarcinoma
+25261994	KRAS	pancreatic ductal adenocarcinoma
+25262609	p53
+25264761	colon cancer
+25266049	Gemcitabine
+25267240	Diabetes
+25267700	Gemcitabine
+25268093	mTOR
+25268648	pancreatic ductal adenocarcinoma
+25270344	pancreatic ductal adenocarcinoma
+25270593	Diabetes	diabetes mellitus
+25271986	Gemcitabine
+25273077	Gemcitabine
+25275019	Gemcitabine
+25275365	Diabetes	diabetes mellitus
+25275457	breast cancer
+25277188	p53
+25277192	p53	pancreatic ductal adenocarcinoma	Gemcitabine
+25278454	Hedgehog pathway inhibitor	Gemcitabine
+25284078	CLPTM1L	TERT
+25285629	mTOR
+25285637	breast cancer
+25286060	Erlotinib	Gemcitabine
+25287821	breast cancer
+25288201	Diabetes	diabetes mellitus
+25294272	Diabetes	diabetes mellitus	Gemcitabine
+25294770	Diabetes	diabetes mellitus
+25294771	Diabetes	diabetes mellitus
+25295009	mTOR	Diabetes	diabetes mellitus	pancreatic ductal adenocarcinoma
+25299780	pancreatic ductal adenocarcinoma
+25300498	Diabetes	diabetes mellitus
+25300625	SMAD4
+25301264	pancreatic ductal adenocarcinoma
+25302302	Gemcitabine
+25304103	pancreatic ductal adenocarcinoma
+25304193	Gemcitabine
+25304374	KRAS
+25305448	colon cancer
+25306215	KRAS	pancreatic ductal adenocarcinoma
+25308364	Gemcitabine
+25309069	p53
+25310970	breast cancer
+25311989	KRAS	pancreatic ductal adenocarcinoma
+25312799	colon cancer
+25313458	Diabetes	diabetes mellitus	pancreatic ductal adenocarcinoma
+25313527	Gemcitabine
+25314063	Gemcitabine
+25316052	ovarian cancer	pancreatic ductal adenocarcinoma
+25316242	Diabetes
+25320359	pancreatic ductal adenocarcinoma
+25320520	pancreatic ductal adenocarcinoma
+25320537	Gemcitabine
+25322341	KRAS	pancreatic ductal adenocarcinoma
+25324001	colon cancer	breast cancer
+25326230	pancreatic ductal adenocarcinoma	Gemcitabine
+25327494	Erlotinib	Gemcitabine
+25327552	pancreatic ductal adenocarcinoma
+25331547	Gemcitabine
+25333034	breast cancer	Diabetes	diabetes mellitus
+25333036	breast cancer
+25333741	p53
+25335717	breast cancer	ovarian cancer
+25336113	pancreatic ductal adenocarcinoma
+25336517	pancreatic ductal adenocarcinoma
+25336636	colon cancer
+25336691	pancreatic ductal adenocarcinoma
+25337831	pancreatic ductal adenocarcinoma
+25341034	KRAS
+25341657	pancreatic ductal adenocarcinoma
+25341901	colon cancer
+25341938	Gemcitabine
+25342148	Diabetes
+25344362	mTOR
+25344582	Gemcitabine
+25344906	mTOR	Gemcitabine
+25347153	p53	pancreatic ductal adenocarcinoma
+25347530	pancreatic ductal adenocarcinoma	Gemcitabine
+25348515	Erlotinib	Gemcitabine
+25348516	KRAS	pancreatic ductal adenocarcinoma
+25350767	pancreatic ductal adenocarcinoma
+25351917	pancreatic ductal adenocarcinoma
+25352950	KRAS	mTOR
+25354901	pancreatic ductal adenocarcinoma
+25355928	Diabetes
+25356034	Diabetes
+25356036	Gemcitabine
+25356582	Diabetes
+25356972	BRCA1	BRCA2	PALB2	CDKN2A
+25358667	Gemcitabine
+25361845	KRAS
+25363547	Diabetes
+25364765	MEN1	TP53	ACVR1B	breast cancer	Diabetes
+25366685	BRCA1	BRCA2	breast cancer	ovarian cancer	Gemcitabine
+25368022	pancreatic ductal adenocarcinoma
+25368287	Gemcitabine
+25369293	breast cancer
+25372771	pancreatic ductal adenocarcinoma
+25373319	Diabetes
+25373377	Gemcitabine
+25373768	pancreatic ductal adenocarcinoma
+25376606	KRAS	pancreatic ductal adenocarcinoma	Erlotinib	Gemcitabine
 2537715	Diabetes
+25379860	colon cancer
+25380065	KRAS
+25384963	pancreatic ductal adenocarcinoma
+25385028	pancreatic ductal adenocarcinoma
+25385424	TERT	pancreatic ductal adenocarcinoma
+25386059	Gemcitabine
+25388820	pancreatic ductal adenocarcinoma
+25391858	Diabetes	diabetes mellitus
+25392106	pancreatic ductal adenocarcinoma
+25393586	KRAS
+25393849	pancreatic ductal adenocarcinoma
+25394368	Gemcitabine
+25394408	breast cancer	Gemcitabine
 2539553	colon cancer
+25398651	Gemcitabine
+25398812	Gemcitabine
+25398821	Gemcitabine
+25400441	breast cancer
+25401107	Diabetes
+25402324	Gemcitabine
+25402820	pancreatic ductal adenocarcinoma	Gemcitabine
+25403204	Diabetes	diabetes mellitus
+25405166	Gemcitabine
+25407487	colon cancer
+25408262	Erlotinib
+25408659	Gemcitabine
+25410529	pancreatic ductal adenocarcinoma
+25410780	p53	pancreatic ductal adenocarcinoma
+25414939	colon cancer	Diabetes	diabetes mellitus
+25415223	pancreatic ductal adenocarcinoma
+25415283	pancreatic ductal adenocarcinoma
+25416148	KRAS
+25416195	p53
+25421660	pancreatic ductal adenocarcinoma
+25422915	pancreatic ductal adenocarcinoma
+25424858	SF3B1	breast cancer
+25425728	Gemcitabine
+25426078	mTOR	Diabetes
+25426613	pancreatic ductal adenocarcinoma
+25426614	pancreatic ductal adenocarcinoma
+25427073	Gemcitabine
+25428385	TP53	pancreatic ductal adenocarcinoma
+25429712	pancreatic ductal adenocarcinoma	Erlotinib	Gemcitabine
+25431135	Gemcitabine
+25431952	pancreatic ductal adenocarcinoma
+25432408	Gemcitabine
+25435574	KRAS	pancreatic ductal adenocarcinoma
+25435581	Erlotinib	Gemcitabine
+25435983	pancreatic ductal adenocarcinoma
+25436122	Gemcitabine
+25436129	Diabetes
+25436319	Gemcitabine
+25438071	hereditary pancreatitis
+25440603	pancreatic ductal adenocarcinoma
+25441058	Erlotinib	Gemcitabine
+25441307	KRAS	SMAD4	TP53
+25448549	Gemcitabine
+25449434	pancreatic ductal adenocarcinoma
+25450371	pancreatic ductal adenocarcinoma	Gemcitabine
+25451846	colon cancer
+25451896	Diabetes
+25452936	colon cancer
+25453266	KRAS	SMAD4	p53
+25454414	Gemcitabine
+25454978	KRAS	pancreatic ductal adenocarcinoma
+25458961	ovarian cancer
+25459392	pancreatic ductal adenocarcinoma	Gemcitabine
+25461770	KRAS	CDKN2A	p53	pancreatic ductal adenocarcinoma
+25463150	Gemcitabine
+25463614	pancreatic ductal adenocarcinoma
+25464861	SMAD4
+25464936	KRAS
+25469510	Gemcitabine
+25472885	breast cancer
+25473891	KRAS	pancreatic ductal adenocarcinoma
+25473894	Gemcitabine
+25476893	mTOR	Gemcitabine
+25477616	Gemcitabine
+25479140	BRCA1	BRCA2	PALB2	CDKN2A	ATM	TP53	STK11	PRSS1	breast cancer	ovarian cancer
+25479588	Diabetes
+25479908	Diabetes	hereditary pancreatitis
+25481712	KRAS
+25482337	SMAD4	pancreatic ductal adenocarcinoma
+25483688	Gemcitabine
+25485268	pancreatic ductal adenocarcinoma
+25485836	CDKN2A
+25485960	Gemcitabine
+25488684	breast cancer	ovarian cancer
+25489989	pancreatic ductal adenocarcinoma
+25492104	Gemcitabine
+25492170	Gemcitabine
+25493001	pancreatic ductal adenocarcinoma
+25493084	Gemcitabine
+25493642	pancreatic ductal adenocarcinoma
+25496056	breast cancer
+25497091	KRAS	pancreatic ductal adenocarcinoma
+25498501	mTOR
+25499121	Gemcitabine
+25500057	KRAS	mTOR	ovarian cancer
+25500542	KRAS	pancreatic ductal adenocarcinoma
+25501061	breast cancer
+25501129	pancreatic ductal adenocarcinoma
+25502147	pancreatic ductal adenocarcinoma
+25503159	Gemcitabine
+25503169	Erlotinib	Gemcitabine
+25505613	PALB2	mTOR
+25505750	ovarian cancer
+25506892	pancreatic ductal adenocarcinoma
+25511698	pancreatic ductal adenocarcinoma	Gemcitabine
+25512461	Gemcitabine
+25513104	Gemcitabine
+25515552	Diabetes
+25516264	mTOR	colon cancer
+25516658	Diabetes
+25516680	Gemcitabine
+25516800	pancreatic ductal adenocarcinoma	Gemcitabine
+25517919	Gemcitabine
+25518923	pancreatic ductal adenocarcinoma	Gemcitabine
+25519702	Erlotinib	Gemcitabine
+25521572	pancreatic ductal adenocarcinoma
+25522282	pancreatic ductal adenocarcinoma
+25524484	pancreatic ductal adenocarcinoma
+25526569	pancreatic ductal adenocarcinoma
+25527450	pancreatic ductal adenocarcinoma	Gemcitabine
+25527634	pancreatic ductal adenocarcinoma	Gemcitabine
+25527756	Diabetes
+25528826	Diabetes
+25529011	pancreatic ductal adenocarcinoma
+25529117	pancreatic ductal adenocarcinoma
+25530442	Diabetes
+25530587	Gemcitabine
+25532007	colon cancer
+25532534	Gemcitabine
+25533084	mTOR	Gemcitabine
+25535299	CD40
+25537776	Gemcitabine
+25538019	Gemcitabine
+25538623	KRAS
+25542327	PALB2	breast cancer
+25543955	breast cancer	ovarian cancer
+25544749	pancreatic ductal adenocarcinoma
+25544770	pancreatic ductal adenocarcinoma	Gemcitabine
+25545012	ovarian cancer
+25547205	pancreatic ductal adenocarcinoma	Gemcitabine
+25547407	Gemcitabine
+25550550	Gemcitabine
 2555388	Diabetes	diabetes mellitus
+25556126	Diabetes
+25558828	Gemcitabine
+25560450	pancreatic ductal adenocarcinoma
+25560641	pancreatic ductal adenocarcinoma
+25561726	mTOR
+25564970	Gemcitabine
+25566081	mTOR
+25566685	pancreatic ductal adenocarcinoma
+25568667	p53
+25572768	Diabetes	diabetes mellitus
+25573220	pancreatic ductal adenocarcinoma
+25573380	Gemcitabine
+25573533	Gemcitabine
+25575964	Diabetes
+25576058	mTOR	Diabetes
+25579086	ATM
+25581261	TERT
+25581782	colon cancer
+25582141	Gemcitabine
+25582328	KRAS
+25585100	Gemcitabine
+25586376	p53	pancreatic ductal adenocarcinoma
+25586458	Gemcitabine
+25586689	Gemcitabine
+25589454	pancreatic ductal adenocarcinoma	Gemcitabine
+25590802	ROBO	pancreatic ductal adenocarcinoma
+25595307	pancreatic ductal adenocarcinoma
+25595893	pancreatic ductal adenocarcinoma	Gemcitabine
+25596178	KRAS	pancreatic ductal adenocarcinoma
+25598952	p53
+25599121	breast cancer
+25600792	CDKN2A
+25601637	KRAS	mTOR	pancreatic ductal adenocarcinoma
+25604005	Diabetes	diabetes mellitus
+25604078	KRAS
+25604508	pancreatic ductal adenocarcinoma	Gemcitabine
+25608822	Gemcitabine
+25609167	breast cancer
+25609203	Gemcitabine
+25609246	Gemcitabine
+25610733	pancreatic ductal adenocarcinoma
+25611381	Gemcitabine
+25614082	Gemcitabine
+25614389	Gemcitabine
+25615626	Gemcitabine
+25616434	ovarian cancer
+25616942	KRAS
+25617800	pancreatic ductal adenocarcinoma
+25618415	Gemcitabine
+25620067	pancreatic ductal adenocarcinoma	Gemcitabine
+25621293	breast cancer
+25623042	KRAS	pancreatic ductal adenocarcinoma
+25623049	breast cancer
+25623214	KRAS	CDKN2A	SMAD4	TP53	pancreatic ductal adenocarcinoma
+25623216	KRAS	breast cancer
+25624908	breast cancer
+25628787	CD40
+25629724	KRAS	pancreatic ductal adenocarcinoma
+25630605	Diabetes	diabetes mellitus
+25632222	p53	mTOR
+25632225	p53	mTOR
+25634994	pancreatic ductal adenocarcinoma
+25635161	pancreatic ductal adenocarcinoma
+25635223	pancreatic ductal adenocarcinoma
+25636470	pancreatic ductal adenocarcinoma
+25636698	pancreatic ductal adenocarcinoma
+25637565	breast cancer
+25637792	pancreatic ductal adenocarcinoma
+25638153	Gemcitabine
+25638248	Gemcitabine
+25639200	Diabetes
+25639539	Gemcitabine
+25640779	pancreatic ductal adenocarcinoma
+25640787	Gemcitabine
+25641178	Diabetes
+25641673	pancreatic ductal adenocarcinoma
+25644265	KRAS	pancreatic ductal adenocarcinoma
+25645574	Peutz-Jeghers syndrome	juvenile polyposis syndrome
+25645860	Diabetes
+25646691	pancreatic ductal adenocarcinoma	Gemcitabine
+25647781	Gemcitabine
+25649538	pancreatic ductal adenocarcinoma
+25651847	p53
+25652574	colon cancer
+25653220	breast cancer	Gemcitabine
+25653724	pancreatic ductal adenocarcinoma
+25654224	mTOR	Erlotinib
+25655299	Diabetes	diabetes mellitus
+25655308	mTOR
+25658847	Diabetes	diabetes mellitus
+25660211	p53
+25666743	BRCA1	BRCA2	PALB2	breast cancer	ovarian cancer
+25668599	pancreatic ductal adenocarcinoma
+25669977	Gemcitabine
+25669980	breast cancer
+25670260	ovarian cancer	Erlotinib	Gemcitabine
+25672256	pancreatic ductal adenocarcinoma
+25672581	Gemcitabine
+25672620	Gemcitabine
+25672829	Gemcitabine
+25673055	Gemcitabine
+25673820	mTOR	pancreatic ductal adenocarcinoma
+25673969	Diabetes
+25674740	Gemcitabine
+25675507	pancreatic ductal adenocarcinoma	Gemcitabine
+25678112	Gemcitabine
+25679067	pancreatic ductal adenocarcinoma	Gemcitabine
+25679326	pancreatic ductal adenocarcinoma
+25679523	Diabetes	pancreatic ductal adenocarcinoma
+25681441	breast cancer
+25683115	KRAS
+25683757	breast cancer
+25684468	Gemcitabine
+25684935	pancreatic ductal adenocarcinoma
+25684992	pancreatic ductal adenocarcinoma
+25685272	pancreatic ductal adenocarcinoma
+25686370	Gemcitabine
+25687689	Erlotinib	Gemcitabine
+25687883	KRAS	CDKN2A	SMAD4	TP53
+25687986	breast cancer
+25688740	Erlotinib	Gemcitabine
+25689151	colon cancer
+25690319	Gemcitabine
+25690786	Erlotinib
+25692432	Gemcitabine
+25693729	Gemcitabine
+25694262	Gemcitabine
+25695692	pancreatic ductal adenocarcinoma
+25696872	Gemcitabine
+25698580	KRAS
+25698618	breast cancer
+25699241	KRAS
+25699385	pancreatic ductal adenocarcinoma
+25701319	colon cancer
+25701323	pancreatic ductal adenocarcinoma
+25701462	pancreatic ductal adenocarcinoma
+25702263	pancreatic ductal adenocarcinoma
+25703296	breast cancer
+25707849	Gemcitabine
+25708930	breast cancer	pancreatic ductal adenocarcinoma
+25711924	p53	Gemcitabine
+25714017	KRAS	CDKN2A	SMAD4	ARID1A	TP53	STK11
+25717063	pancreatic ductal adenocarcinoma	Gemcitabine
+25717220	breast cancer
+25719198	GLUD1	GOT1
+25719666	BRCA1	BRCA2	PALB2	CDKN2A	SMAD4	ARID1A	TP53
+25721177	pancreatic ductal adenocarcinoma
+25721343	Gemcitabine
+25722110	Gemcitabine
+25723399	pancreatic ductal adenocarcinoma
+25724428	KRAS	CDKN2A	TP53	p53
+25724625	pancreatic ductal adenocarcinoma
+25725418	Gemcitabine
+25726048	Diabetes	pancreatic ductal adenocarcinoma
+25726054	pancreatic ductal adenocarcinoma
+25726055	pancreatic ductal adenocarcinoma
+25726061	SMAD4	pancreatic ductal adenocarcinoma
+25727340	pancreatic ductal adenocarcinoma
+25727631	Diabetes
+25729247	pancreatic ductal adenocarcinoma
+25731236	Gemcitabine
+25731455	Diabetes
+25731458	Gemcitabine
+25731464	Gemcitabine
+25731465	Gemcitabine
+25731466	Gemcitabine
+25731467	Gemcitabine
+25731471	Gemcitabine
+25731473	Gemcitabine
+25731873	pancreatic ductal adenocarcinoma
+25732227	pancreatic ductal adenocarcinoma
+25734801	Diabetes	diabetes mellitus
+25736685	KRAS	mTOR
+25737417	Diabetes	diabetes mellitus
+25741134	pancreatic ductal adenocarcinoma	Gemcitabine
+25742737	SMAD4	colon cancer
+25743134	Gemcitabine
+25744922	Gemcitabine
+25746328	Gemcitabine
+25748236	KRAS	pancreatic ductal adenocarcinoma
+25749932	pancreatic ductal adenocarcinoma
+25750521	pancreatic ductal adenocarcinoma
+25751501	Gemcitabine
+25753158	KRAS	pancreatic ductal adenocarcinoma
+25755309	Erlotinib
+25755691	Gemcitabine
+25755849	pancreatic ductal adenocarcinoma
+25756513	pancreatic ductal adenocarcinoma
+25758333	breast cancer
+25759555	pancreatic ductal adenocarcinoma
+25760059	Gemcitabine
+25760429	SMAD4
+25762644	KRAS
+25766398	Diabetes	diabetes mellitus
+25766633	KRAS	mTOR
+25767396	Gemcitabine
+25769430	SMAD4
+25770187	Gemcitabine
+25770192	Gemcitabine
+25773342	Erlotinib	Gemcitabine
+25773908	pancreatic ductal adenocarcinoma
+25776964	pancreatic ductal adenocarcinoma	Gemcitabine
+25777349	KRAS
+25779362	Diabetes	diabetes mellitus
+25779664	Gemcitabine
+25780901	pancreatic ductal adenocarcinoma
+25781710	breast cancer	ovarian cancer	Diabetes
+25782589	Gemcitabine
+25788034	Gemcitabine
+25788227	BRCA1	BRCA2	breast cancer
+25789530	ovarian cancer
+25790948	Gemcitabine
+25791160	TGFBR2	pancreatic ductal adenocarcinoma
+25792600	KRAS	pancreatic ductal adenocarcinoma
+25793983	mTOR	pancreatic ductal adenocarcinoma
+25795433	breast cancer	ovarian cancer
+25797243	KRAS	pancreatic ductal adenocarcinoma
+25798214	breast cancer
+25798752	pancreatic ductal adenocarcinoma
+25799022	pancreatic ductal adenocarcinoma
+25799412	pancreatic ductal adenocarcinoma
+25799539	breast cancer
+25800041	pancreatic ductal adenocarcinoma
+25800066	Gemcitabine
+25800176	Gemcitabine
+25803032	SMAD4	pancreatic ductal adenocarcinoma
+25803196	Diabetes	diabetes mellitus
+25803818	pancreatic ductal adenocarcinoma
+25804119	pancreatic ductal adenocarcinoma
+25804872	Gemcitabine
+25805799	breast cancer
+25805920	pancreatic ductal adenocarcinoma
+25805958	Gemcitabine
+25809274	Gemcitabine
+25809563	pancreatic ductal adenocarcinoma
+25812499	Gemcitabine
+25818643	breast cancer
+25819575	pancreatic ductal adenocarcinoma	Gemcitabine
+25822154	KRAS	pancreatic ductal adenocarcinoma
+25822310	mTOR
+25824121	Gemcitabine
+25824606	Gemcitabine
+25824785	p53
+25826035	pancreatic ductal adenocarcinoma
+25826507	pancreatic ductal adenocarcinoma
+25826687	breast cancer	pancreatic ductal adenocarcinoma
+25827621	pancreatic ductal adenocarcinoma
+25827809	pancreatic ductal adenocarcinoma
+25830309	Diabetes	pancreatic ductal adenocarcinoma
+25833230	Gemcitabine
+25834145	mTOR	pancreatic ductal adenocarcinoma	Gemcitabine
+25835095	breast cancer	ovarian cancer
+25837263	ovarian cancer
+25837499	Gemcitabine
+25837929	Gemcitabine
+25839130	colon cancer
+25840689	pancreatic ductal adenocarcinoma
+25840973	breast cancer
+25840985	pancreatic ductal adenocarcinoma	Gemcitabine
+25841238	pancreatic ductal adenocarcinoma
+25841339	Gemcitabine
+25841682	Gemcitabine
+25842732	Gemcitabine
+25843411	Gemcitabine
+25843513	TERT
+25844823	Gemcitabine
+25845046	Diabetes
+25845856	pancreatic ductal adenocarcinoma
+25846727	pancreatic ductal adenocarcinoma	Gemcitabine
+25846752	pancreatic ductal adenocarcinoma	Gemcitabine
+25847529	Gemcitabine
+25848268	Gemcitabine
+25848351	Diabetes	diabetes mellitus
+25849939	Gemcitabine
+25852272	Gemcitabine
+25853369	BRCA1	BRCA2	pancreatic ductal adenocarcinoma
+25855536	KRAS	pancreatic ductal adenocarcinoma
+25856297	pancreatic ductal adenocarcinoma
+25858497	pancreatic ductal adenocarcinoma	Gemcitabine
+25859886	Gemcitabine
+25860938	pancreatic ductal adenocarcinoma
+25862846	mTOR	Gemcitabine
+25864590	BRCA2	pancreatic ductal adenocarcinoma
+25864651	Erlotinib
+25865228	BRCA1	BRCA2	breast cancer	ovarian cancer
+25865683	Gemcitabine
+25867139	Gemcitabine
+25867271	pancreatic ductal adenocarcinoma
+25867419	pancreatic ductal adenocarcinoma
+25875794	Gemcitabine
+25875797	KRAS
+25875800	p53	Gemcitabine
+25875801	KRAS
 2598535	breast cancer
 2672606	breast cancer	ovarian cancer
 2691590	Diabetes

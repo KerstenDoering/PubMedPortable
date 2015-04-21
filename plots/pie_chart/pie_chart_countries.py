@@ -11,7 +11,7 @@
 import matplotlib.pyplot as plt
 
 """
-SQL command to get data (this entry is not set for every PubMed-ID) - this data set is based on the download of XML files from 10th July 2014 (21482 PubMed-IDs):
+SQL command to get data (this entry is not set for every PubMed-ID) - this data set is based on the download of XML files from 16th April 2015 (23258 PubMed-IDs):
 \copy (select fk_pmid, lower(country) from pubmed.tbl_medline_journal_info where country is not null order by country asc) to 'countries_pancreatic_cancer.csv' delimiter ','
 """
 

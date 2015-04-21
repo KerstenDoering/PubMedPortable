@@ -9,7 +9,7 @@
 
 import xappy
 
-conn = xappy.SearchConnection("xapian/xapian2014")
+conn = xappy.SearchConnection("xapian/xapian2015")
 conn.reopen()
 
 

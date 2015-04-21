@@ -8,7 +8,7 @@
 #check http://xapian.org/docs/queryparser.html for syntax and functions
 
 import xappy
-searchConn = xappy.SearchConnection("xapian/xapian2014")
+searchConn = xappy.SearchConnection("xapian/xapian2015")
 searchConn.reopen()
 
 #########################

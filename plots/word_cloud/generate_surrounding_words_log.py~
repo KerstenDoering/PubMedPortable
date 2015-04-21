@@ -54,7 +54,7 @@ if __name__=="__main__":
     parser.add_option("-p", "--pmids_input", dest="p", help='name of the input file that contains all PubMed-IDs for the search term', default="results/results.csv")
     parser.add_option("-t", "--terms_input", dest="t", help='name of the input file that contains all search terms that should not be written to the output file', default="synonyms/pancreatic_cancer.txt")
     parser.add_option("-s", "--stop_words_input", dest="s", help='name of the input file with all stop words that should not be written to the output file', default="blacklist/stop_words.txt")
-    parser.add_option("-o", "--output", dest="o", help='name of the output file with the most frequently co-occurring words in texts that contain the search term gemcitabine', default="counts_surrounding_words_log.csv")
+    parser.add_option("-o", "--output", dest="o", help='name of the output file with the most frequently co-occurring words in texts that contain the word gemcitabine', default="counts_surrounding_words_log.csv")
     (options, args) = parser.parse_args()
 
     # settings for psql connection
