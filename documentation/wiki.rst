@@ -15,7 +15,7 @@ Introduction
 
 - This documentation refers to a text mining example referring to the disease pancreatic cancer. It contains many examples how to use PostgreSQL and Xapian as well as connecting both with small Python programmes. The default values in the scripts refer to the parameters given here, but all of them can be changed by the user. 
 
-- Pancreatic cancer is one of the most dangerous cancer types, because the only way to cure a patient is a surgery beside several therapeutic strategies that could not significantly increase survival rates [Pancreatic cancer: from state-of-the-art treatments to promising novel therapies. [Garrido-Laguna I, Hidalgo M. Nat Rev Clin Oncol. 2015 Mar 31. doi: 10.1038/nrclinonc.2015.53.]. 
+- Pancreatic cancer is one of the most dangerous cancer types, because the only way to cure a patient is a surgery beside several therapeutic strategies that could not significantly increase survival rates [Pancreatic cancer: from state-of-the-art treatments to promising novel therapies. Garrido-Laguna I, Hidalgo M. Nat Rev Clin Oncol. 2015 Mar 31. doi: 10.1038/nrclinonc.2015.53.]. 
 
 - Considering text mining as an approach to have a closer look at related genes/proteins, chemical compounds, and diseases in documents that are relevant for pancreatic cancer shows a need for an easy-to-use software bridging the gap between processing data sets from PubMed effectively on a local machine and using the range of tools offered for natural language processing, e.g. by the BioCreative community. PubMed2Go offers such a solution.
 
@@ -314,7 +314,7 @@ Build up a Full Text Index with Xapian and Search It
 
     - If you just want to search your synonyms, type in "python RunXapian.py" (Parameter "-x" turns on the indexing step, default is "False".)
 
-    - The default location for your full text index database folder is "PubMed2Go/full_text_index/xapian/<xapian2014>". You can change this location by using the parameter "-p".
+    - The default location for your full text index database folder is "PubMed2Go/full_text_index/xapian/<xapian2015>". You can change this location by using the parameter "-p".
 
 - For the given example, 10392 lines were generated in "results.csv". Run "python summary.py" to get two CSV files in directory "results". If you have chosen another filename as output from "RunXapian.py", you can do "python summary.py -f <name_of_input_file.csv>":
 
