@@ -33,6 +33,7 @@
 <li><a href="#examples-for-generating-plots"><span class="toc-section-number">7</span> Examples for Generating Plots</a><ul>
 <li><a href="#word-cloud"><span class="toc-section-number">7.1</span> Word Cloud</a></li>
 <li><a href="#pie-chart"><span class="toc-section-number">7.2</span> Pie Chart</a></li>
+<li><a href="#bar-chart"><span class="toc-section-number">7.3</span> Bar Chart</a></li>
 </ul></li>
 <li><a href="#examples-for-using-bioc-and-pubtator"><span class="toc-section-number">8</span> Examples for Using BioC and PubTator</a></li>
 <li><a href="#contact"><span class="toc-section-number">9</span> Contact</a><ul>
@@ -566,6 +567,26 @@
 <li>The plot was inspired by an example given in the Matplotlib documentation (<a href="http://matplotlib.org/examples/pie_and_polar_charts/pie_demo_features.html">http://matplotlib.org/examples/pie_and_polar_charts/pie_demo_features.html</a>).</li>
 </ul>
 <p><img src="pie_chart_countries_publications_700_w.png" alt="image" /></p>
+</blockquote>
+<h2 id="bar-chart"><a href="#bar-chart"><span class="header-section-number">7.3</span> Bar Chart</a></h2>
+<blockquote>
+<ul>
+<li>In this subsection, the library “matplotlib” is needed, too.</li>
+<li>Three timelines for the publications of the genes KRAS, BRCA2, and CDKN2A are shown in one bar chart.</li>
+<li>Running “create_bar_chart.py -p” generates the figure “KRAS_BRCA2_CDKN2A_pubmed.png”. The year 2015 cannot be considered as a complete year. Therefore, it is removed by this script before plotting.</li>
+<li>The CSV files processed by this script can be downloaded from PubMed by clicking on the bar chart appearing on <a href="http://www.ncbi.nlm.nih.gov/pubmed">http://www.ncbi.nlm.nih.gov/pubmed</a> after entering the query (15th June 2015). The title lines in these CSV files were removed manually.</li>
+<li>All CSV files used in this subsection are written in comma-separated format.</li>
+</ul>
+<p><img src="../plots/bar_chart/KRAS_BRCA2_CDKN2A_pubmed.png" alt="image" /></p>
+<ul>
+<li>Running “python get_years.py” generates the same kind of CSV files as provided by the browser search, but it uses the pancreatic cancer data set from this documentation by sending a query to the PubMed2Go PostgreSQL database.</li>
+<li>Based on this, “create_bar_chart.py” without the parameter “-p” generates the bar chart “KRAS_BRCA2_CDKN2A.png”.</li>
+</ul>
+<p><img src="../plots/bar_chart/KRAS_BRCA2_CDKN2A.png" alt="image" /></p>
+<ul>
+<li>The slopes of the BRCA2 and CDKN2A timelines are rather low compared to KRAS, but start much earlier in both plots. There is even a decrease shown for the last three years in the pancreatic cancer data set. The timeline of the gene KRAS shows an exponential growth. One reason for this is its role in the regulation of cell proliferation [Small molecule inhibition of the KRAS-PDEδ interaction impairs oncogenic KRAS signalling. Zimmermann et al. Nature. 2013 May 30;497(7451):638-42. doi: 10.1038/nature12205. Epub 2013 May 22.].</li>
+<li>The review on OMIM mentioned in section 5 (<a href="http://omim.org/entry/260350?search=%22pancreatic%20cancer%22">http://omim.org/entry/260350?search=%22pancreatic%20cancer%22</a>) provides more information with references showing why and how specific these genes are related to pancreatic cancer.</li>
+</ul>
 </blockquote>
 <h1 id="examples-for-using-bioc-and-pubtator"><a href="#examples-for-using-bioc-and-pubtator"><span class="header-section-number">8</span> Examples for Using BioC and PubTator</a></h1>
 <ul>

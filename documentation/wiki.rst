@@ -514,6 +514,32 @@ Pie Chart
     .. image:: pie_chart_countries_publications_700_w.png
 
 
+---------
+Bar Chart
+---------
+
+    - In this subsection, the library "matplotlib" is needed, too. 
+
+    - Three timelines for the publications of the genes KRAS, BRCA2, and CDKN2A are shown in one bar chart. 
+
+    - Running "create_bar_chart.py -p" generates the figure "KRAS_BRCA2_CDKN2A_pubmed.png". The year 2015 cannot be considered as a complete year. Therefore, it is removed by this script before plotting.
+
+    - The CSV files processed by this script can be downloaded from PubMed by clicking on the bar chart appearing on http://www.ncbi.nlm.nih.gov/pubmed after entering the query (15th June 2015). The title lines in these CSV files were removed manually.
+
+    - All CSV files used in this subsection are written in comma-separated format.
+
+    .. image:: ../plots/bar_chart/KRAS_BRCA2_CDKN2A_pubmed.png
+
+    - Running "python get_years.py" generates the same kind of CSV files as provided by the browser search, but it uses the pancreatic cancer data set from this documentation by sending a query to the PubMed2Go PostgreSQL database.
+
+    - Based on this, "create_bar_chart.py" without the parameter "-p" generates the bar chart "KRAS_BRCA2_CDKN2A.png".
+
+    .. image:: ../plots/bar_chart/KRAS_BRCA2_CDKN2A.png
+
+    - The slopes of the BRCA2 and CDKN2A timelines are rather low compared to KRAS, but start much earlier in both plots. There is even a decrease shown for the last three years in the pancreatic cancer data set. The timeline of the gene KRAS shows an exponential growth. One reason for this is its role in the regulation of cell proliferation [Small molecule inhibition of the KRAS-PDEδ interaction impairs oncogenic KRAS signalling. Zimmermann et al. Nature. 2013 May 30;497(7451):638-42. doi: 10.1038/nature12205. Epub 2013 May 22.].
+
+    - The review on OMIM mentioned in section 5 (http://omim.org/entry/260350?search=%22pancreatic%20cancer%22) provides more information with references showing why and how specific these genes are related to pancreatic cancer.
+
 ************************************
 Examples for Using BioC and PubTator
 ************************************
