@@ -277,6 +277,8 @@ Build up a Relational Database in PostgreSQL
 
 - Now, a schema "pubmed" exists in your database "pancreatic_cancer_db" that contains all abstracts, titles, authors, etc. More information will be given in section 5, containing SQL queries and small programming examples.
 
+- The schema is described in the file "documentation/PostgreSQL_database_schema.html" which was generated with DbSchema (http://www.dbschema.com/download.html).
+
 
 ****************************************************
 Build up a Full Text Index with Xapian and Search It
