@@ -232,11 +232,14 @@ class MedlineParser:
 
                         if author.find("LastName") != None:
                             DBAuthor.last_name = author.find("LastName").text
-                        # Forname is restricted to max 99 characters
-                        if author.find("ForeName") != None and not len(author.find("ForeName").text) > 100:
-                            DBAuthor.fore_name = author.find("ForeName").text
-                        elif author.find("ForeName") != None and len(author.find("ForeName").text) > 100:
-                            DBAuthor.fore_name = author.find("ForeName").text[0:100]
+                        # Forname is restricted to max 99 characters, but it seems like the None query did not always work - try-except-block
+                        try:
+                            if author.find("ForeName") != None and not len(author.find("ForeName").text) > 100:
+                                DBAuthor.fore_name = author.find("ForeName").text
+                            elif author.find("ForeName") != None and len(author.find("ForeName").text) > 100:
+                                DBAuthor.fore_name = author.find("ForeName").text[0:100]
+                        except:
+                            pass
                         if author.find("Initials") != None:
                             DBAuthor.initials = author.find("Initials").text
                         if author.find("Suffix") != None:
@@ -517,7 +520,13 @@ class MedlineParser:
                     except:
                         pass
                     DBCitation.keywords = []
+                    all_keywords = []
                     for subelem in elem:
+                        #some documents contain duplicate keywords which would lead to a key error - if-clause
+                        if not subelem.text in all_keywords:
+                            all_keywords.append(subelem.text)
+                        else:
+                            continue
                         DBKeyword = PubMedDB.Keyword()
                         DBKeyword.keyword = subelem.text
                         #catch KeyError in case there is no MajorTopicYN attribute before committing DBCitation
