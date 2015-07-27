@@ -65,7 +65,7 @@ class Citation(Base):
 
     def __repr__(self):
         #return "Citations: \n\tPMID: %s\n\tArticle Title: %s\n\tCreated: %s\n\tCompleted: %s" % (self.pmid, self.article_title, self.date_created, self.date_completed)
-        return "PubMed-ID: %s\n\tArticle Title: %s\n" % (self.pmid, self.article_title)
+        return "PubMed-ID: %s\n\tArticle Title: %s\n" % (self.pmid, self.article_title.encode("utf-8"))
 
     __table_args__  = (
         CheckConstraint("keyword_list_owner IN ('NLM', 'NASA', 'PIP', 'KIE', 'HSR', 'HMD', 'SIS', 'NOTNLM')", name='ck1_medline_citation'),
