@@ -306,6 +306,8 @@ Build up a Full Text Index with Xapian and Search It
 
         - This file contains manually chosen names of drugs, genes, proteins, and diseases related to pancreatic cancer.
 
+        - User-provided synonyms can be directly stored in this file or saved in a new text document in the folder "synonyms". Subsequently, the parameter "-s" can be used to process this file.
+
     - The output in the command-line shows how many PubMed-IDs are indexed (23258) and how many synonyms are searched (86).
 
     - This takes around 2-3 min on a 2,83 GHz machine with 8 GB RAM.
@@ -359,7 +361,9 @@ Xapian
 
     - "python search_title.py" shows that only a few lines of code are required to search only publication titles. This can be important as searching especially in publication titles puts more emphasis on the queried synonyms.
 
-        - While "RunXapian.py" searches only the exact phrase "pancreatic cancer", "search_title.py" searches for the stem "pancreat" and also finds the word "pancreatitis".
+        - While "RunXapian.py" searches only the exact phrase "pancreatic cancer", "search_title.py" searches for the stem "pancreat" and also finds the word "pancreatitis". 
+
+    - The search terms in the scripts described in this subsection are hard-coded and have to be changed manually by the user.
 
         - It generates "Xapian_query_results.html" which shows the first 1000 of 18085 titles. Like this, many associated words are shown, e.g. "pancreatic ductal adenocarcinoma", "pancreatic juice", or "pancreatic diseases".
 
@@ -484,6 +488,8 @@ Word Cloud
 
     - The second step in this example is to find the 50 most frequently co-occurring words in texts that contain the search term gemcitabine. This can be done by running the command "python generate_surrounding_words_log.py". The stop word list that is used by this script was referenced by Hettne et al. [A dictionary to identify small molecules and drugs in free text. Bioinformatics. 2009 Nov 15;25(22):2983-91. doi: 10.1093/bioinformatics/btp535.]. It is provided in the folder "blacklist". Have a look at the links given in "stop_words.txt". These stop words were used to filter out terms with a very high frequency that have no substantial meaning for the content analysed. The numbers in the ouput file "counts_surrounding_words_log.csv" are given in logarithmic scale, too. 
 
+    - The search term "Gemcitabine" is hard-coded and needs to be changed directly in the script.
+
     - The plot can be genrated with the package "PyTagCloud". Please, follow the installation instructions on this GitHub page:
 
         - https://github.com/atizo/PyTagCloud
@@ -498,12 +504,19 @@ Word Cloud
 
     - The word clouds will look different every time the script is used.
 
+    - The figure area can be enlarged by changing the value of the parameter "size" in the function "create_tag_image()".
+
+
 
 ---------
 Pie Chart
 ---------
 
-    - In this subsection, the library "matplotlib" is needed to generate a pie chart. You can install it with the command "sudo apt-get install python-matplotlib".
+    - In this subsection, the library "matplotlib" is needed to generate a pie chart. 
+
+        - In Ubuntu, this library can be installed with the command "sudo apt-get install python-matplotlib".
+
+        - In Fedora 22, the command "dnf install python-matplotlib" can be used and in case of older Fedora versions, the command "yum install python-matplotlib".
 
     - By running "python pie_chart_countries.py", the picture "pie_chart_countries_publications.png" is produced from the input file "countries_pancreatic_cancer.csv".
 
@@ -558,6 +571,10 @@ Examples for Using BioC and PubTator
 
 - The file "pmid_list.txt" contains 21 PubMed-IDs that were taken from "PubMed2Go/data/pubmed_result.txt". It is used as default by the script "write_BioC_XML.py".
 
+    - The user can store his own list of PubMed-IDs in "pmid_list.txt" or create a new file. This user-provided list of PubMed-IDs can be loaded with the parameter "-i".
+
+    - New PubMed-IDs can be selected from the PubMed2Go PostgreSQL tables, e.g. pubmed.tbl_abstract, pubmed.tbl_medline_citation, or pubmed.tbl_mesh_heading.
+
 - This script also uses the file "BioC.dtd", which defines the structure of the XML file (taken from https://github.com/2mh/PyBioC).  Additionally, the file "Explanation.key" describes the semantics used for the annotations. In this example, MeSH terms are added as annotation XML elements to the basic BioC XML structure.
 
 - For the list of PubMed-IDs, the command "python write_BioC_XML.py" generates the BioC XML file "text_BioC.xml".
@@ -602,7 +619,7 @@ Examples for Using BioC and PubTator
 
 - They are described in the following PDF file as well as other software packages in chapter "TRACK 1 (BioC: Interoperability)":
 
-    - http://www.biocreative.org/media/store/files/2013/ProceedingsBioCreativeIV_vol1_.pdf 
+    - http://www.biocreative.org/media/store/files/2013/ProceedingsBioCreativeIV_vol1_.pdf
 
     - There are also other webservices included as well as BioC natural language preprocessing pipelines in C++ and Java (http://bioc.sourceforge.net).
 

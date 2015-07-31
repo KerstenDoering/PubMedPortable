@@ -345,6 +345,7 @@
 <blockquote>
 <ul>
 <li>This file contains manually chosen names of drugs, genes, proteins, and diseases related to pancreatic cancer.</li>
+<li>User-provided synonyms can be directly stored in this file or saved in a new text document in the folder “synonyms”. Subsequently, the parameter “-s” can be used to process this file.</li>
 </ul>
 </blockquote></li>
 <li>The output in the command-line shows how many PubMed-IDs are indexed (23258) and how many synonyms are searched (86).</li>
@@ -400,6 +401,11 @@
 <blockquote>
 <ul>
 <li>While “RunXapian.py” searches only the exact phrase “pancreatic cancer”, “search_title.py” searches for the stem “pancreat” and also finds the word “pancreatitis”.</li>
+</ul>
+</blockquote></li>
+<li><p>The search terms in the scripts described in this subsection are hard-coded and have to be changed manually by the user.</p>
+<blockquote>
+<ul>
 <li>It generates “Xapian_query_results.html” which shows the first 1000 of 18085 titles. Like this, many associated words are shown, e.g. “pancreatic ductal adenocarcinoma”, “pancreatic juice”, or “pancreatic diseases”.</li>
 </ul>
 </blockquote></li>
@@ -541,6 +547,7 @@
 <li>The word clouds generated here are based on the modified Xapian full text version searching only PubMed titles and abstract texts. Therefore, the files “RunXapian.py” and “SynonymParser.py” as well as the folder “synonyms” need to be copied from the folder “full_text_index” to the folder “full_text_index_title_text”. The directories “xapian” and “results” have to be created, too. Afterwards, the command “python RunXapian.py -x” can be used, again. The numbers described in the last sections can differ slightly from the results generated here. The command “python summary.py” also has to executed.</li>
 <li>At first, the list of the 50 most frequently occurring words that were generated with “python summary.py” needs to be extracted in logarithmic scale to visualise the search terms appropriately. In the directory “PubMed2Go/plots/word_cloud”, run the script “get_search_terms_log.py” to get the output file “counts_search_terms_log.csv”. The highest frequency is shown by the small molecule gemcitabine. The parameter “-h” shows available parameters.</li>
 <li>The second step in this example is to find the 50 most frequently co-occurring words in texts that contain the search term gemcitabine. This can be done by running the command “python generate_surrounding_words_log.py”. The stop word list that is used by this script was referenced by Hettne et al. [A dictionary to identify small molecules and drugs in free text. Bioinformatics. 2009 Nov 15;25(22):2983-91. doi: 10.1093/bioinformatics/btp535.]. It is provided in the folder “blacklist”. Have a look at the links given in “stop_words.txt”. These stop words were used to filter out terms with a very high frequency that have no substantial meaning for the content analysed. The numbers in the ouput file “counts_surrounding_words_log.csv” are given in logarithmic scale, too.</li>
+<li>The search term “Gemcitabine” is hard-coded and needs to be changed directly in the script.</li>
 <li><p>The plot can be genrated with the package “PyTagCloud”. Please, follow the installation instructions on this GitHub page:</p>
 <blockquote>
 <ul>
@@ -556,12 +563,19 @@
 <p><img src="cloud_surrounding_words_500_w.png" alt="image" /></p>
 </blockquote></li>
 <li>The word clouds will look different every time the script is used.</li>
+<li>The figure area can be enlarged by changing the value of the parameter “size” in the function “create_tag_image()”.</li>
 </ul>
 </blockquote>
 <h2 id="pie-chart"><a href="#pie-chart"><span class="header-section-number">7.2</span> Pie Chart</a></h2>
 <blockquote>
 <ul>
-<li>In this subsection, the library “matplotlib” is needed to generate a pie chart. You can install it with the command “sudo apt-get install python-matplotlib”.</li>
+<li><p>In this subsection, the library “matplotlib” is needed to generate a pie chart.</p>
+<blockquote>
+<ul>
+<li>In Ubuntu, this library can be installed with the command “sudo apt-get install python-matplotlib”.</li>
+<li>In Fedora 22, the command “dnf install python-matplotlib” can be used and in case of older Fedora versions, the command “yum install python-matplotlib”.</li>
+</ul>
+</blockquote></li>
 <li>By running “python pie_chart_countries.py”, the picture “pie_chart_countries_publications.png” is produced from the input file “countries_pancreatic_cancer.csv”.</li>
 <li>To get the CSV file, you need to connect to your database, e.g. with “psql -h localhost -d pancreatic_cancer_db -U parser” and type in “\COPY (SELECT fk_pmid, LOWER(country) FROM pubmed.tbl_medline_journal_info WHERE country IS NOT NULL ORDER BY country ASC) TO 'countries_pancreatic_cancer.csv' DELIMITER ','”.</li>
 <li>The script calculates the percentages of country names in which the journals given in the PostgreSQL database are published. Fractions below 2 % are summarised to “Others”.</li>
@@ -600,7 +614,13 @@
 <li>Copy the project folder “PyBioC/src/bioc” into your folder “PubMed2Go/BioC_export”. This PyBioC directory is needed for the script “add_BioC_annotation.py”, because it contains the Python source code for the BioC interface.</li>
 <li>The idea of BioC is to use a standardised XML format that can be shared by the community to add annotations to scientific texts. Therefore, these documents can be exchanged and modified by anybody who uses the BioC interface.</li>
 <li>The BioC XML format was introduced at BioCreative (<a href="http://www.biocreative.org/events/BCBioCuration2014/biocreative-text-mining-worksh">http://www.biocreative.org/events/BCBioCuration2014/biocreative-text-mining-worksh</a>) and also used at BioNLP (<a href="http://2013.bionlp-st.org/supporting-resources">http://2013.bionlp-st.org/supporting-resources</a>). The BioC project homepage contains several related software packages (<a href="http://bioc.sourceforge.net">http://bioc.sourceforge.net</a>).</li>
-<li>The file “pmid_list.txt” contains 21 PubMed-IDs that were taken from “PubMed2Go/data/pubmed_result.txt”. It is used as default by the script “write_BioC_XML.py”.</li>
+<li><p>The file “pmid_list.txt” contains 21 PubMed-IDs that were taken from “PubMed2Go/data/pubmed_result.txt”. It is used as default by the script “write_BioC_XML.py”.</p>
+<blockquote>
+<ul>
+<li>The user can store his own list of PubMed-IDs in “pmid_list.txt” or create a new file. This user-provided list of PubMed-IDs can be loaded with the parameter “-i”.</li>
+<li>New PubMed-IDs can be selected from the PubMed2Go PostgreSQL tables, e.g. pubmed.tbl_abstract, pubmed.tbl_medline_citation, or pubmed.tbl_mesh_heading.</li>
+</ul>
+</blockquote></li>
 <li>This script also uses the file “BioC.dtd”, which defines the structure of the XML file (taken from <a href="https://github.com/2mh/PyBioC">https://github.com/2mh/PyBioC</a>). Additionally, the file “Explanation.key” describes the semantics used for the annotations. In this example, MeSH terms are added as annotation XML elements to the basic BioC XML structure.</li>
 <li>For the list of PubMed-IDs, the command “python write_BioC_XML.py” generates the BioC XML file “text_BioC.xml”.</li>
 <li>If you run “python add_BioC_annotation.py” with default values, it adds the MeSH terms provided by the PostgreSQL database to the file “text_BioC.xml”. It does not change the basic structure, but it writes annotation XML elements for the text elements given. The output file is called “annotated_text_BioC.xml”. This is an example for an XML file that did not contain annotation elements before.</li>
