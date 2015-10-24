@@ -547,11 +547,15 @@ Bar Chart
 
     - Running "python get_years.py" generates the same kind of CSV files as provided by the browser search, but it uses the pancreatic cancer data set from this documentation by sending a query to the PubMed2Go PostgreSQL database.
 
+        - Running this script with default parameters selects the user-based Xapian folder "full_text_index_title_text", but it can also be used with the results file in this documentation to reproduce the plot shown here:
+
+        - python get_years.py -x ../../full_text_index/results/results_from_documentation/ -p results.csv
+
     - Based on this, "create_bar_chart.py" without the parameter "-p" generates the bar chart "KRAS_BRCA2_CDKN2A.png".
 
     .. image:: ../plots/bar_chart/KRAS_BRCA2_CDKN2A.png
 
-    - The slopes of the BRCA2 and CDKN2A timelines are rather low compared to KRAS, but start much earlier in both plots. There is even a decrease shown for the last three years in the pancreatic cancer data set. The timeline of the gene KRAS shows an exponential growth. One reason for this is its role in the regulation of cell proliferation [Small molecule inhibition of the KRAS-PDEδ interaction impairs oncogenic KRAS signalling. Zimmermann et al. Nature. 2013 May 30;497(7451):638-42. doi: 10.1038/nature12205. Epub 2013 May 22.].
+    - The slopes of the BRCA2 and CDKN2A timelines are rather low compared to KRAS, but start earlier in both plots. The timeline of the gene KRAS shows an exponential growth. One reason for this is its role in the regulation of cell proliferation [Small molecule inhibition of the KRAS-PDEδ interaction impairs oncogenic KRAS signalling. Zimmermann et al. Nature. 2013 May 30;497(7451):638-42. doi: 10.1038/nature12205. Epub 2013 May 22.].
 
     - The review on OMIM mentioned in section 5 (http://omim.org/entry/260350?search=%22pancreatic%20cancer%22) provides more information with references showing why and how specific these genes are related to pancreatic cancer.
 
@@ -622,6 +626,44 @@ Examples for Using BioC and PubTator
     - http://www.biocreative.org/media/store/files/2013/ProceedingsBioCreativeIV_vol1_.pdf
 
     - There are also other webservices included as well as BioC natural language preprocessing pipelines in C++ and Java (http://bioc.sourceforge.net).
+
+- PubTator can be used to completly extract genes, diseases, and chemicals from the pancreatic cancer data set. In the case of diseases and chemicals, there are not always identifiers provided for the recognised synonyms. The following commands lead to a new word cloud based on the 150 most frequently occurring entities:
+
+    - Gene and protein NER: python call_PubTator.py -i pubmed_result_complete.txt -o gene_complete.csv -t Gene -f PubTator
+
+    - Disease NER: python call_PubTator.py -i pubmed_result_complete.txt -o disease_complete.csv -t Disease -f PubTator
+
+    - Chemical NER: python call_PubTator.py -i pubmed_result_complete.txt -o chemical_complete.csv -t Chemical -f PubTator
+
+    - File concatenation: cat gene_complete.csv disease_complete.csv chemical_complete.csv > entities_complete.csv
+
+    - Get PubMed IDs, synonyms, and identifieres: python results_PubTator_format.py -i entities_complete.csv -o entities_formatted_identifiers.csv
+
+    - Count entities, summarised by their identifiers: python unify.py -i entities_formatted_identifiers.csv -o entities_formatted_identifiers_unified.csv
+
+    - Generate logarithmic values (first 150 entities): python get_search_terms_log.py -x ../../BioC_export/results_from_documentation -i entities_formatted_identifiers_unified.csv -o counts_entities_identifiers_log.csv
+
+    - Create word cloud: python create_word_cloud.py -i counts_entities_identifiers_log.csv -o cloud_entities_identifiers.png
+
+    .. image:: cloud_entities_identifiers_800.png
+
+    - This example is based on selecting one synonym per identifier. The script "results_PubTator_format.py" can be used with the parameter "-s" to extend the selection to all synonyms without using the identifiers. In this case, the step of using the script "unify.py" needs to be replaced with the script "summary.py" in the Xapian folder "full_text_index".
+
+- The bar chart shown with manually selected search terms can also be produced with the automatically identified entities from PubTator introduced in this section:
+
+    python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_KRAS.txt -o KRAS
+
+    python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_BRCA2.txt -o BRCA2
+
+    python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_CDKN2A.txt -o CDKN2A
+
+    python merge.py
+
+    python create_bar_chart.py 
+
+    .. image:: ../plots/bar_chart/KRAS_CDKN2A_BRCA2.png
+
+    - Based on the search for a larger vocabulary from PubTator using Entrez GeneID numbers, CDKN2A shows more hits than BRCA2 and the identified numbers of abstracts are generally higher.
 
 
 *******
