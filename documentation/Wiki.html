@@ -702,11 +702,13 @@
 </blockquote></li>
 <li><p>The bar chart shown with manually selected search terms can also be produced with the automatically identified entities from PubTator introduced in this section:</p>
 <blockquote>
-<p>python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_KRAS.txt -o KRAS</p>
-<p>python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_BRCA2.txt -o BRCA2</p>
-<p>python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_CDKN2A.txt -o CDKN2A</p>
-<p>python merge.py</p>
-<p>python create_bar_chart.py</p>
+<ul>
+<li>python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_KRAS.txt -o KRAS</li>
+<li>python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_BRCA2.txt -o BRCA2</li>
+<li>python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_CDKN2A.txt -o CDKN2A</li>
+<li>python merge.py</li>
+<li>python create_bar_chart.py</li>
+</ul>
 <p><img src="../plots/bar_chart/KRAS_CDKN2A_BRCA2.png" alt="image" /></p>
 <ul>
 <li>Based on the search for a larger vocabulary from PubTator using Entrez GeneID numbers, CDKN2A shows more hits than BRCA2 and the identified numbers of abstracts are generally higher.</li>

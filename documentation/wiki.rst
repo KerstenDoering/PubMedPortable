@@ -651,15 +651,15 @@ Examples for Using BioC and PubTator
 
 - The bar chart shown with manually selected search terms can also be produced with the automatically identified entities from PubTator introduced in this section:
 
-    python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_KRAS.txt -o KRAS
+    - python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_KRAS.txt -o KRAS
 
-    python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_BRCA2.txt -o BRCA2
+    - python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_BRCA2.txt -o BRCA2
 
-    python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_CDKN2A.txt -o CDKN2A
+    - python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_CDKN2A.txt -o CDKN2A
 
-    python merge.py
+    - python merge.py
 
-    python create_bar_chart.py 
+    - python create_bar_chart.py 
 
     .. image:: ../plots/bar_chart/KRAS_CDKN2A_BRCA2.png
 
