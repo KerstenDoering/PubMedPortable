@@ -42,6 +42,7 @@ if __name__=="__main__":
     parser.add_option("-x", "--xapian_path", dest="x", help='path to the directory containing the PubMed2Go scripts for generating the Xapian full text index',default="../../full_text_index_title_text")
     parser.add_option("-p", "--pmids_input", dest="p", help='name of the input file that contains all PubMed-IDs for the search term', default="results/results.csv")
     parser.add_option("-t", "--terms_input", dest="t", help='name of the input file that contains all search terms that should be shown in the bar chart', default="search_terms.txt")
+    parser.add_option("-o", "--output_folder",dest="o",help='name of the output directory (optional, default: ""', default="")
     (options, args) = parser.parse_args()
 
     # settings for psql connection
@@ -57,6 +58,7 @@ if __name__=="__main__":
     pmids_input         = options.p
     terms_input         = options.t
     xapian_path         = options.x
+    output_path         = options.o
 
     # search terms for RunXapian.py - save in dictionary search_terms, prepare the dictionary for the publication years:
     search_terms = {}
@@ -71,8 +73,8 @@ if __name__=="__main__":
     infile = open(os.path.join(xapian_path, pmids_input),"r")
     for line in infile:
         temp_line = line.strip().split("\t")
-        if temp_line[1] in search_terms:
-            search_terms[temp_line[1]].append(temp_line[0])
+        if temp_line[-1] in search_terms:
+            search_terms[temp_line[-1]].append(temp_line[0])
     infile.close()
 
     # get all years for each search term
@@ -90,7 +92,7 @@ if __name__=="__main__":
         temp_years = counts.keys()
         temp_years.sort(reverse=True)
         # save lists of years in a CSV file with search_term as name
-        outfile = open(search_term + ".csv","w")
+        outfile = open(os.path.join(output_path,search_term) + ".csv","w")
         for year in temp_years:
             outfile.write(str(year) + "," + str(counts[year]) + "\n")
         outfile.close()

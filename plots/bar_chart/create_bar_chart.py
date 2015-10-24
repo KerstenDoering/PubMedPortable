@@ -31,8 +31,8 @@ if __name__=="__main__":
         infile3 = open("CDKN2A_pubmed.csv","r")
     else:
         infile = open("KRAS.csv","r")
-        infile2 = open("BRCA2.csv","r")
-        infile3 = open("CDKN2A.csv","r")
+        infile2 = open("CDKN2A.csv","r")
+        infile3 = open("BRCA2.csv","r")
 
 
     # prepare data for the first search term (KRAS) 
@@ -68,7 +68,7 @@ if __name__=="__main__":
 
     # limit range of x-axis and y-axis
     #plt.ylim(0,100)
-    plt.xlim(1990,2015)
+    plt.xlim(1985,2015)
 
     # year 2015 cannot be considered as a complete year - delete this bar
     # all three cases refer to the year 2015
@@ -90,7 +90,7 @@ if __name__=="__main__":
     p1 = ax.bar(data, bins,width=w, color='orange',align='center')
     p2 = ax.bar(data_2, bins_2 ,width=w, color='green',align='center')
     p3 = ax.bar(data_3, bins_3 ,width=w, color='blue',align='center')
-    ax.legend((p1[0],p2[2],p3[0]),("KRAS","BRCA2","CDKN2A"),loc=2)
+    ax.legend((p1[0],p2[2],p3[0]),("KRAS","CDKN2A","BRCA2"),loc=2)
 
     # add lables for x-axis and y-axis
     plt.ylabel("No. of Publications")
@@ -106,7 +106,7 @@ if __name__=="__main__":
     if pubmed:
         plt.savefig("KRAS_BRCA2_CDKN2A_pubmed.png")
     else:
-        plt.savefig("KRAS_BRCA2_CDKN2A.png")
+        plt.savefig("KRAS_CDKN2A_BRCA2.png")
 
     # show plot on screen
     #plt.show()
