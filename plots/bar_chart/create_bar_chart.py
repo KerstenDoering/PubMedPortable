@@ -3,7 +3,7 @@
 """
     Copyright (c) 2015, Kersten Doering <kersten.doering@gmail.com>
 
-    This script generates a bar chart with three columns showing the timelines from the files provided by the script get_years.py (default). The script get_years.py sends a query to the PubMed2Go PostgreSQL database. Using the parameter "-p" replaces the processing of the input from get_years.py with a data set based on the whole PubMed. The provided CSV files can be downloaded by clicking on the bar chart appearing after browser search on http://www.ncbi.nlm.nih.gov/pubmed (15th June 2015).
+    This script generates a bar chart with three columns showing the timelines from the files provided by the script get_years.py (default). The script get_years.py sends a query to the PubMedPortable PostgreSQL database. Using the parameter "-p" replaces the processing of the input from get_years.py with a data set based on the whole PubMed. The provided CSV files can be downloaded by clicking on the bar chart appearing after browser search on http://www.ncbi.nlm.nih.gov/pubmed (15th June 2015).
 """
 
 #show multiple bars?

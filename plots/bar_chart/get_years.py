@@ -39,7 +39,7 @@ def get_year(pmid):
 if __name__=="__main__":
     parser = OptionParser()
     parser.add_option("-d", "--database", dest="d", help='name of the database to connect to', default="pancreatic_cancer_db")
-    parser.add_option("-x", "--xapian_path", dest="x", help='path to the directory containing the PubMed2Go scripts for generating the Xapian full text index',default="../../full_text_index_title_text")
+    parser.add_option("-x", "--xapian_path", dest="x", help='path to the directory containing the PubMedPortable scripts for generating the Xapian full text index',default="../../full_text_index_title_text")
     parser.add_option("-p", "--pmids_input", dest="p", help='name of the input file that contains all PubMed-IDs for the search term', default="results/results.csv")
     parser.add_option("-t", "--terms_input", dest="t", help='name of the input file that contains all search terms that should be shown in the bar chart', default="search_terms.txt")
     parser.add_option("-o", "--output_folder",dest="o",help='name of the output directory (optional, default: ""', default="")

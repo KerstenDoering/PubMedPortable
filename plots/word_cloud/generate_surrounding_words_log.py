@@ -3,7 +3,7 @@
 """
     Copyright (c) 2015, Kersten Doering <kersten.doering@gmail.com>
 
-    This script connects to a PostgreSQL database and selects all abstracts that contain the term "gemcitabine". It splits the texts into single words with a whitespace tokenizer and saves the 50 most frequently occurring terms in CSV file. The path to the PubMed2Go directory containing the scripts for generating the Xapian full text index has to be given, because all important files are located there by default, although the Xapian index itself is not used. The modified version only indexing PubMed abstract titles and texts can be used as well as the standard full text index version.
+    This script connects to a PostgreSQL database and selects all abstracts that contain the term "gemcitabine". It splits the texts into single words with a whitespace tokenizer and saves the 50 most frequently occurring terms in CSV file. The path to the PubMedPortable directory containing the scripts for generating the Xapian full text index has to be given, because all important files are located there by default, although the Xapian index itself is not used. The modified version only indexing PubMed abstract titles and texts can be used as well as the standard full text index version.
 """
 
 #Kersten Doering 29.11.2014, major change 03.02.2015
@@ -50,7 +50,7 @@ def get_title_text(pmid):
 if __name__=="__main__":
     parser = OptionParser()
     parser.add_option("-d", "--database", dest="d", help='name of the database to connect to', default="pancreatic_cancer_db")
-    parser.add_option("-x", "--xapian_path", dest="x", help='path to the directory containing the PubMed2Go scripts for generating the Xapian full text index',default="../../full_text_index_title_text")
+    parser.add_option("-x", "--xapian_path", dest="x", help='path to the directory containing the PubMedPortable scripts for generating the Xapian full text index',default="../../full_text_index_title_text")
     parser.add_option("-p", "--pmids_input", dest="p", help='name of the input file that contains all PubMed-IDs for the search term', default="results/results.csv")
     parser.add_option("-t", "--terms_input", dest="t", help='name of the input file that contains all search terms that should not be written to the output file', default="synonyms/pancreatic_cancer.txt")
     parser.add_option("-s", "--stop_words_input", dest="s", help='name of the input file with all stop words that should not be written to the output file', default="blacklist/stop_words.txt")
@@ -128,7 +128,7 @@ if __name__=="__main__":
                 #r emove punctuation that appears most frequently: 
                 if elem[-1] == "," or elem[-1] == "." or elem[-1] == ":":
                     elem = elem[:-1]
-                # exclude terms that were searched for in the PubMed2Go documentation
+                # exclude terms that were searched for in the PubMedPortable documentation
                 if not elem.lower() in search_terms:
                     temp_list.append(elem.lower()) 
         # add temp_list to the complete list of splitted terms
