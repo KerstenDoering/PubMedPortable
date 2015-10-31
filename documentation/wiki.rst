@@ -665,6 +665,50 @@ Examples for Using BioC and PubTator
 
     - Based on the search for a larger vocabulary from PubTator using Entrez GeneID numbers, CDKN2A shows more hits than BRCA2 and the identified numbers of abstracts are generally higher.
 
+- The same steps as performed with PubTator can be performed with other tools, too.
+
+    - The disease annotation step can be replaced by the stand-alone application DNorm from the tmBioC package (http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/ - link to DNorm):
+
+        - Write BioC document from pancreatic cancer data set (BioC directory): "python write_BioC_XML.py -i pubmed_result.txt -o pancreatic_cancer_BioC.xml"
+
+        - Add DNorm annotatons (in download directory): ./RunDNorm_BioC.sh config/banner_NCBIDisease_TEST.xml data/CTD_diseases.tsv output/simmatrix_NCBIDisease_e4.bin pancreatic_cancer_BioC.xml pancreatic_cancer_BioC_DNorm.xml 
+
+        - This command can be used to create the "file pancreatic_cancer_BioC_DNorm.xml" (not uploaded).
+
+        - The script "read_BioC_annotations.py" shows the basic commands how to iterate over MeSH term annotations in BioC format from the example mentioned earlier, using PubMed2Go and PubTator.
+
+        - The script "BioC_to_CSV.py" is based on the code in "read_BioC_annotations.py" and extracts the DNorm annotations in "file pancreatic_cancer_BioC_DNorm.xml" to a CSV file "DNorm_formatted.csv (not uploaded). The script needs the DNorm DTD file (in the DNorm download directory). Copy it to you execution folder and rename it to "BioC_DNorm.dtd". If this file causes an error in the PyBioC API, replace the raise command in bioc/bioc_reader.py by a print command.
+
+    - Genes and proteins can be annotated with GeneTUKit, a software for gene normalisation which was ranked among the best-performing tools in the BioCreative III challenge in 2010.
+
+    - Unfortunately, the source code is not available, but there is a GitHub repository wrapping PubMed2Go articles into a pseudo XML format used by the software (https://github.com/ElhamAbbasian/GeneTUKit-Pipeline).
+
+    - Using the list of PubMed IDs from the PubMed2Go documentation and following the first three steps in the GeneTUKit pipeline generates a file pmid_geneid_syn.csv.
+
+    - For the output format used to generate the word cloud, the orginal line to write the output in the script filter_out_genetukit_output.py can be changed to 'outfile.write(pmid + "\t" + temp[1].split("|")[0] + "\t" + temp[0] + "\n")'. Multiple synonyms with the same Entrez Gene-ID number are separeted with a pipe ("|") and only the first synonym is needed for the task here. Furthermore, the order from the file name "PubMed-ID-GeneID-Synonym" is changed to "PubMed-ID-Synonym-GeneID" by exchanging the elements temp[0] and temp[1].
+
+    - After file concatenation (single files not uploaded: cat GeneTUKit_formatted.csv DNorm_formatted.csv chemical_formatted.csv > entities_complete_3tools.csv), the steps to generate the word cloud can be executed as already described in the PubTator example. 
+
+        - python unify.py -i entities_complete_3tools.csv -o entities_complete_3tools_unified.csv
+
+        - get_search_terms_log.py -x ../../BioC_export/results_from_documentation -i entities_complete_3tools_unified.csv -o counts_entities_identifiers_log_3tools.csv
+
+        - create_word_cloud.py -i counts_entities_identifiers_log_3tools.csv -o cloud_3tools.png
+
+        .. image:: cloud_3tools_800.png
+
+    - The same is possible for the bar chart example.
+
+        - The Entrez GeneID numbers were extracted from the file GeneTUKit_formatted.csv with the script get_search_term_identifiers.py (KRAS gene example hard-coded).
+
+        - This has to be done with the other two genes CDKN2A and BRCA2, too. The steps "python merge.py" and "python create_bar_chart.py" lead to the new bar chart "KRAS_CDKN2A_BRCA2.png", manually renamed to "KRAS_CDKN2A_BRCA2_3tools.png" to be distinguishable from the PubTator example. 
+
+        .. image:: ../plots/bar_chart/KRAS_CDKN2A_BRCA2_3tools.png
+
+        - This approach leads to a higher number of publications for each gene, but shows basically the same tendencies as in the PubTator example.
+
+    - The example of using PubTator, DNorm, and GeneTUKit illustrates, that the infrastructure of PubMed2Go can be easily extended to combine different data formats (PubTator, BioC, and pseudo XML format), being independent from a Web service, but making use of it, if desired.
+
 
 *******
 Contact
