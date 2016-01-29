@@ -1,15 +1,15 @@
-=========
-PubMed2Go
-=========
+==============
+PubMedPortable
+==============
 
 
 ************
 Introduction
 ************
 
-- PubMed2Go processes XML files that can be downloaded from NCBI and builds up a PostgreSQL database containing all abstracts of the data set (no full texts).  
+- PubMedPortable processes XML files that can be downloaded from NCBI and builds up a PostgreSQL database containing all abstracts of the data set (no full texts).  
 
-- Furthermore, PubMed2Go generates a full text index with Xapian such that titles, abstracts, keywords, MeSH terms, and substances can be queried with search terms.  
+- Furthermore, PubMedPortable generates a full text index with Xapian such that titles, abstracts, keywords, MeSH terms, and substances can be queried with search terms.  
 
 - It is scalable to your system requirements using multiprocessing and can be modified easily to your personal needs.  
 
@@ -79,13 +79,13 @@ Installation
 Operating System
 ----------------
 
-- PubMed2Go was tested on Ubuntu and Fedora.
+- PubMedPortable was tested on Ubuntu and Fedora.
 
 ######
 Ubuntu
 ######
 
-- These are the packages that need to be installed to use PubMed2Go:
+- These are the packages that need to be installed to use PubMedPortable:
 
     - python>=2.7.3
 
@@ -173,7 +173,7 @@ Installation with Docker
 
 - Docker is similar to a virtual machine,  but it is easier to deploy and more efficient. It was tested in Ubuntu and Windows.
 
-- You can use the PubMed2Go image to create a PostgreSQL relational database and a Xapian full text index without installing the packages mentioned above in basically two steps.
+- You can use the PubMedPortable image to create a PostgreSQL relational database and a Xapian full text index without installing the packages mentioned above in basically two steps.
 
 - Install Docker - it was tested on Ubuntu (64-bit required):
 
@@ -183,7 +183,7 @@ Installation with Docker
 
         - https://docs.docker.com/installation/#installation
 
-- Run Docker with the PubMed2Go image:
+- Run Docker with the PubMedPortable image:
 
     - Create a folder on your local disk with a name of your choice.
 
@@ -217,11 +217,11 @@ Installation with Docker
 
     - "sudo docker run -d -v /home/<user_name>/<folder_of_your_choice>/:/export/ -p 9999:5432 bgruening/pubmed2go"
 
-- It is not recommended to run the PubMed2Go examples or to develop new scripts within the Docker container. If you want to modify the image, use the Docker documentation and this repository:
+- It is not recommended to run the PubMedPortable examples or to develop new scripts within the Docker container. If you want to modify the image, use the Docker documentation and this repository:
 
     - https://github.com/bgruening/docker-recipes/tree/master/pubmed2go
 
-- If you want to try the examples given in the wiki, copy the Xapian directory from the <folder_of_your_choice> into the folder "PubMed2Go/full_text_index/xapian/" from "https://github.com/KerstenDoering/PubMed2Go" and run the Docker container in background.
+- If you want to try the examples given in the wiki, copy the Xapian directory from the <folder_of_your_choice> into the folder "PubMedPortable/full_text_index/xapian/" from "https://github.com/KerstenDoering/PubMedPortable" and run the Docker container in background.
 
 - After successful installation, the rest of this documentation can be skipped.
 
@@ -305,7 +305,7 @@ Build up a Full Text Index with Xapian and Search It
 
     - If you just want to search your synonyms, type in "python RunXapian.py" (Parameter "-x" turns on the indexing step, default is "False".)
 
-    - The default location for your full text index database folder is "PubMed2Go/full_text_index/xapian/<xapian2015>". You can change this location by using the parameter "-p".
+    - The default location for your full text index database folder is "PubMedPortable/full_text_index/xapian/<xapian2015>". You can change this location by using the parameter "-p".
 
 - For the given example, 10392 lines were generated in "results.csv".
 
@@ -316,7 +316,7 @@ Contact
 
 - Please, write an e-mail, if you have questions, feedback, improvements, or new ideas:
 
-    - kersten.doering@pharmazie.uni-freiburg.de
+    - kersten.doering@gmail.com
 
 - If you are interested in related projects, visit our working group's homepage:
 
@@ -326,4 +326,4 @@ Contact
 License
 -------
 
-- PubMed2Go is published with an ISC license given in "license.txt".
+- PubMedPortable is published with an ISC license given in "license.txt".

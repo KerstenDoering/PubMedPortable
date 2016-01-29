@@ -111,7 +111,7 @@ if __name__=="__main__":
     # get PubMed-IDs
     pmids = get_pmids(infile)
 
-    # updloaded test case for PubMed XML document with 3 PubMed-IDs from PubMed2Go documentation (pancreatic cancer)
+    # updloaded test case for PubMed XML document with 3 PubMed-IDs from PubMedPortable documentation (pancreatic cancer)
     # (only PubMed-IDs without an abstract text will generate an error in case of merging annotated BioC XML files from PubTator)
 #    pmids = [pmids[0],pmids[1],pmids[2]]
 #    print "test case - processed PubMed-IDs:", pmids

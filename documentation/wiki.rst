@@ -1,15 +1,15 @@
-=========
-PubMed2Go
-=========
+==============
+PubMedPortable
+==============
 
 
 ************
 Introduction
 ************
 
-- PubMed2Go processes XML files that can be downloaded from NCBI and builds up a PostgreSQL database containing all abstracts of the data set (no full texts).
+- PubMedPortable processes XML files that can be downloaded from NCBI and builds up a PostgreSQL database containing all abstracts of the data set (no full texts).
 
-- Furthermore, PubMed2Go generates a full text index with Xapian such that titles, abstracts, keywords, MeSH terms and substances can be queried with search terms.
+- Furthermore, PubMedPortable generates a full text index with Xapian such that titles, abstracts, keywords, MeSH terms and substances can be queried with search terms.
 
 - It is scalable to your system requirements using multiprocessing and can be modified easily to your personal needs.
 
@@ -17,7 +17,7 @@ Introduction
 
 - Pancreatic cancer is one of the most dangerous cancer types, because the only way to cure a patient is a surgery beside several therapeutic strategies that could not significantly increase survival rates [Pancreatic cancer: from state-of-the-art treatments to promising novel therapies. Garrido-Laguna I, Hidalgo M. Nat Rev Clin Oncol. 2015 Mar 31. doi: 10.1038/nrclinonc.2015.53.]. 
 
-- Considering text mining as an approach to have a closer look at related genes/proteins, chemical compounds, and diseases in documents that are relevant for pancreatic cancer shows a need for an easy-to-use software bridging the gap between processing data sets from PubMed effectively on a local machine and using the range of tools offered for natural language processing, e.g. by the BioCreative community. PubMed2Go offers such a solution.
+- Considering text mining as an approach to have a closer look at related genes/proteins, chemical compounds, and diseases in documents that are relevant for pancreatic cancer shows a need for an easy-to-use software bridging the gap between processing data sets from PubMed effectively on a local machine and using the range of tools offered for natural language processing, e.g. by the BioCreative community. PubMedPortable offers such a solution.
 
 - If the examples from this documentations are used, there will be around 745 MB of disk space needed. There are no other hardware requirements.
 
@@ -80,13 +80,13 @@ Installation
 Operating System
 ----------------
 
-- PubMed2Go was tested on Ubuntu and Fedora.
+- PubMedPortable was tested on Ubuntu and Fedora.
 
 ######
 Ubuntu
 ######
 
-- These are the packages that need to be installed to use PubMed2Go:
+- These are the packages that need to be installed to use PubMedPortable:
 
     - python>=2.7.3
 
@@ -174,7 +174,7 @@ Installation with Docker
 
 - Docker is similar to a virtual machine,  but it is easier to deploy and more efficient. It was tested in Ubuntu and Windows.
 
-- You can use the PubMed2Go image to create a PostgreSQL relational database and a Xapian full text index without installing the packages mentioned above in basically two steps.
+- You can use the PubMedPortable image to create a PostgreSQL relational database and a Xapian full text index without installing the packages mentioned above in basically two steps.
 
 - Install Docker - it was tested on Ubuntu (64-bit required):
 
@@ -184,7 +184,7 @@ Installation with Docker
 
         - https://docs.docker.com/installation/#installation
 
-- Run Docker with the PubMed2Go image:
+- Run Docker with the PubMedPortable image:
 
     - Create a folder on your local disk with a name of your choice.
 
@@ -218,11 +218,11 @@ Installation with Docker
 
     - "sudo docker run -d -v /home/<user_name>/<folder_of_your_choice>/:/export/ -p 9999:5432 bgruening/pubmed2go"
 
-- It is not recommended to run the PubMed2Go examples or to develop new scripts within the Docker container. If you want to modify the image, use the Docker documentation and this repository:
+- It is not recommended to run the PubMedPortable examples or to develop new scripts within the Docker container. If you want to modify the image, use the Docker documentation and this repository:
 
     - https://github.com/bgruening/docker-recipes/tree/master/pubmed2go
 
-- If you want to try the examples given in the sections 5 to 8, copy the Xapian directory from the <folder_of_your_choice> into the folder "PubMed2Go/full_text_index/xapian/" from "https://github.com/KerstenDoering/PubMed2Go" and run the Docker container in background. In case of using Docker, you can completely skip section 4.
+- If you want to try the examples given in the sections 5 to 8, copy the Xapian directory from the <folder_of_your_choice> into the folder "PubMedPortable/full_text_index/xapian/" from "https://github.com/KerstenDoering/PubMedPortable" and run the Docker container in background. In case of using Docker, you can completely skip section 4.
 
 
 ********************************************
@@ -318,7 +318,7 @@ Build up a Full Text Index with Xapian and Search It
 
     - If you just want to search your synonyms, type in "python RunXapian.py" (Parameter "-x" turns on the indexing step, default is "False".)
 
-    - The default location for your full text index database folder is "PubMed2Go/full_text_index/xapian/<xapian2015>". You can change this location by using the parameter "-p".
+    - The default location for your full text index database folder is "PubMedPortable/full_text_index/xapian/<xapian2015>". You can change this location by using the parameter "-p".
 
 - For the given example, 10392 lines were generated in "results.csv". Run "python summary.py" to get two CSV files in directory "results". If you have chosen another filename as output from "RunXapian.py", you can do "python summary.py -f <name_of_input_file.csv>":
 
@@ -484,7 +484,7 @@ Word Cloud
 
     - The word clouds generated here are based on the modified Xapian full text version searching only PubMed titles and abstract texts. Therefore, the files "RunXapian.py" and "SynonymParser.py" as well as the folder "synonyms" need to be copied from the folder "full_text_index" to the folder "full_text_index_title_text". The directories "xapian" and "results" have to be created, too. Afterwards, the command "python RunXapian.py -x" can be used, again. The numbers described in the last sections can differ slightly from the results generated here. The command "python summary.py" also has to executed.
 
-    - At first, the list of the 50 most frequently occurring words that were generated with "python summary.py" needs to be extracted in logarithmic scale to visualise the search terms appropriately. In the directory "PubMed2Go/plots/word_cloud", run the script "get_search_terms_log.py" to get the output file "counts_search_terms_log.csv". The highest frequency is shown by the small molecule gemcitabine. The parameter "-h" shows available parameters.
+    - At first, the list of the 50 most frequently occurring words that were generated with "python summary.py" needs to be extracted in logarithmic scale to visualise the search terms appropriately. In the directory "PubMedPortable/plots/word_cloud", run the script "get_search_terms_log.py" to get the output file "counts_search_terms_log.csv". The highest frequency is shown by the small molecule gemcitabine. The parameter "-h" shows available parameters.
 
     - The second step in this example is to find the 50 most frequently co-occurring words in texts that contain the search term gemcitabine. This can be done by running the command "python generate_surrounding_words_log.py". The stop word list that is used by this script was referenced by Hettne et al. [A dictionary to identify small molecules and drugs in free text. Bioinformatics. 2009 Nov 15;25(22):2983-91. doi: 10.1093/bioinformatics/btp535.]. It is provided in the folder "blacklist". Have a look at the links given in "stop_words.txt". These stop words were used to filter out terms with a very high frequency that have no substantial meaning for the content analysed. The numbers in the ouput file "counts_surrounding_words_log.csv" are given in logarithmic scale, too. 
 
@@ -545,7 +545,7 @@ Bar Chart
 
     .. image:: ../plots/bar_chart/KRAS_BRCA2_CDKN2A_pubmed.png
 
-    - Running "python get_years.py" generates the same kind of CSV files as provided by the browser search, but it uses the pancreatic cancer data set from this documentation by sending a query to the PubMed2Go PostgreSQL database.
+    - Running "python get_years.py" generates the same kind of CSV files as provided by the browser search, but it uses the pancreatic cancer data set from this documentation by sending a query to the PubMedPortable PostgreSQL database.
 
         - Running this script with default parameters selects the user-based Xapian folder "full_text_index_title_text", but it can also be used with the results file in this documentation to reproduce the plot shown here:
 
@@ -567,17 +567,17 @@ Examples for Using BioC and PubTator
 
     - https://github.com/2mh/PyBioC.
 
-- Copy the project folder "PyBioC/src/bioc" into your folder "PubMed2Go/BioC_export". This PyBioC directory is needed for the script "add_BioC_annotation.py", because it contains the Python source code for the BioC interface. 
+- Copy the project folder "PyBioC/src/bioc" into your folder "PubMedPortable/BioC_export". This PyBioC directory is needed for the script "add_BioC_annotation.py", because it contains the Python source code for the BioC interface. 
 
 - The idea of BioC is to use a standardised XML format that can be shared by the community to add annotations to scientific texts. Therefore, these documents can be exchanged and modified by anybody who uses the BioC interface.
 
 - The BioC XML format was introduced at BioCreative (http://www.biocreative.org/events/BCBioCuration2014/biocreative-text-mining-worksh) and also used at BioNLP (http://2013.bionlp-st.org/supporting-resources). The BioC project homepage contains several related software packages (http://bioc.sourceforge.net).
 
-- The file "pmid_list.txt" contains 21 PubMed-IDs that were taken from "PubMed2Go/data/pubmed_result.txt". It is used as default by the script "write_BioC_XML.py".
+- The file "pmid_list.txt" contains 21 PubMed-IDs that were taken from "PubMedPortable/data/pubmed_result.txt". It is used as default by the script "write_BioC_XML.py".
 
     - The user can store his own list of PubMed-IDs in "pmid_list.txt" or create a new file. This user-provided list of PubMed-IDs can be loaded with the parameter "-i".
 
-    - New PubMed-IDs can be selected from the PubMed2Go PostgreSQL tables, e.g. pubmed.tbl_abstract, pubmed.tbl_medline_citation, or pubmed.tbl_mesh_heading.
+    - New PubMed-IDs can be selected from the PubMedPortable PostgreSQL tables, e.g. pubmed.tbl_abstract, pubmed.tbl_medline_citation, or pubmed.tbl_mesh_heading.
 
 - This script also uses the file "BioC.dtd", which defines the structure of the XML file (taken from https://github.com/2mh/PyBioC).  Additionally, the file "Explanation.key" describes the semantics used for the annotations. In this example, MeSH terms are added as annotation XML elements to the basic BioC XML structure.
 
@@ -675,15 +675,15 @@ Examples for Using BioC and PubTator
 
         - This command can be used to create the "file pancreatic_cancer_BioC_DNorm.xml" (not uploaded).
 
-        - The script "read_BioC_annotations.py" shows the basic commands how to iterate over MeSH term annotations in BioC format from the example mentioned earlier, using PubMed2Go and PubTator.
+        - The script "read_BioC_annotations.py" shows the basic commands how to iterate over MeSH term annotations in BioC format from the example mentioned earlier, using PubMedPortable and PubTator.
 
         - The script "BioC_to_CSV.py" is based on the code in "read_BioC_annotations.py" and extracts the DNorm annotations in "file pancreatic_cancer_BioC_DNorm.xml" to a CSV file "DNorm_formatted.csv (not uploaded). The script needs the DNorm DTD file (in the DNorm download directory). Copy it to you execution folder and rename it to "BioC_DNorm.dtd". If this file causes an error in the PyBioC API, replace the raise command in bioc/bioc_reader.py by a print command.
 
     - Genes and proteins can be annotated with GeneTUKit, a software for gene normalisation which was ranked among the best-performing tools in the BioCreative III challenge in 2010.
 
-    - Unfortunately, the source code is not available, but there is a GitHub repository wrapping PubMed2Go articles into a pseudo XML format used by the software (https://github.com/ElhamAbbasian/GeneTUKit-Pipeline).
+    - Unfortunately, the source code is not available, but there is a GitHub repository wrapping PubMedPortable articles into a pseudo XML format used by the software (https://github.com/ElhamAbbasian/GeneTUKit-Pipeline).
 
-    - Using the list of PubMed IDs from the PubMed2Go documentation and following the first three steps in the GeneTUKit pipeline generates a file pmid_geneid_syn.csv.
+    - Using the list of PubMed IDs from the PubMedPortable documentation and following the first three steps in the GeneTUKit pipeline generates a file pmid_geneid_syn.csv.
 
     - For the output format used to generate the word cloud, the orginal line to write the output in the script filter_out_genetukit_output.py can be changed to 'outfile.write(pmid + "\t" + temp[1].split("|")[0] + "\t" + temp[0] + "\n")'. Multiple synonyms with the same Entrez Gene-ID number are separeted with a pipe ("|") and only the first synonym is needed for the task here. Furthermore, the order from the file name "PubMed-ID-GeneID-Synonym" is changed to "PubMed-ID-Synonym-GeneID" by exchanging the elements temp[0] and temp[1].
 
@@ -707,7 +707,7 @@ Examples for Using BioC and PubTator
 
         - This approach leads to a higher number of publications for each gene, but shows basically the same tendencies as in the PubTator example.
 
-    - The example of using PubTator, DNorm, and GeneTUKit illustrates, that the infrastructure of PubMed2Go can be easily extended to combine different data formats (PubTator, BioC, and pseudo XML format), being independent from a Web service, but making use of it, if desired.
+    - The example of using PubTator, DNorm, and GeneTUKit illustrates, that the infrastructure of PubMedPortable can be easily extended to combine different data formats (PubTator, BioC, and pseudo XML format), being independent from a Web service, but making use of it, if desired.
 
 
 *******
@@ -716,7 +716,7 @@ Contact
 
 - Please, write an e-mail, if you have questions, feedback, improvements, or new ideas:
 
-    - kersten.doering@pharmazie.uni-freiburg.de
+    - kersten.doering@gmail.com
 
 - If you are interested in related projects, visit our working group's homepage:
 
@@ -726,4 +726,4 @@ Contact
 License
 -------
 
-- PubMed2Go is published with an ISC license given in "license.txt".
+- PubMedPortable is published with an ISC license given in "license.txt".

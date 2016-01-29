@@ -4,12 +4,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>PubMed2Go</title>
+  <title>PubMedPortable</title>
   <style type="text/css">code{white-space: pre;}</style>
 </head>
 <body>
 <div id="header">
-<h1 class="title">PubMed2Go</h1>
+<h1 class="title">PubMedPortable</h1>
 </div>
 <div id="TOC">
 <ul>
@@ -36,8 +36,8 @@
 </div>
 <h1 id="introduction"><a href="#introduction"><span class="header-section-number">1</span> Introduction</a></h1>
 <ul>
-<li>PubMed2Go processes XML files that can be downloaded from NCBI and builds up a PostgreSQL database containing all abstracts of the data set (no full texts).</li>
-<li>Furthermore, PubMed2Go generates a full text index with Xapian such that titles, abstracts, keywords, MeSH terms, and substances can be queried with search terms.</li>
+<li>PubMedPortable processes XML files that can be downloaded from NCBI and builds up a PostgreSQL database containing all abstracts of the data set (no full texts).</li>
+<li>Furthermore, PubMedPortable generates a full text index with Xapian such that titles, abstracts, keywords, MeSH terms, and substances can be queried with search terms.</li>
 <li>It is scalable to your system requirements using multiprocessing and can be modified easily to your personal needs.</li>
 <li>This documentation refers to a text mining example using the search term “pancreatic cancer”. The wiki contains many basic examples how to use PostgreSQL and Xapian as well as connecting both with small Python programmes. The default values in the scripts refer to the parameters given here, but all of them can be changed by the user.</li>
 <li>If the examples from this documentations are used, there will be around 745 MB of disk space needed. There are no other hardware requirements.</li>
@@ -89,11 +89,11 @@
 <h1 id="installation"><a href="#installation"><span class="header-section-number">3</span> Installation</a></h1>
 <h2 id="operating-system"><a href="#operating-system"><span class="header-section-number">3.1</span> Operating System</a></h2>
 <ul>
-<li>PubMed2Go was tested on Ubuntu and Fedora.</li>
+<li>PubMedPortable was tested on Ubuntu and Fedora.</li>
 </ul>
 <h3 id="ubuntu"><a href="#ubuntu"><span class="header-section-number">3.1.1</span> Ubuntu</a></h3>
 <ul>
-<li><p>These are the packages that need to be installed to use PubMed2Go:</p>
+<li><p>These are the packages that need to be installed to use PubMedPortable:</p>
 <blockquote>
 <ul>
 <li>python&gt;=2.7.3</li>
@@ -195,7 +195,7 @@
 <h2 id="installation-with-docker"><a href="#installation-with-docker"><span class="header-section-number">3.3</span> Installation with Docker</a></h2>
 <ul>
 <li>Docker is similar to a virtual machine, but it is easier to deploy and more efficient. It was tested in Ubuntu and Windows.</li>
-<li>You can use the PubMed2Go image to create a PostgreSQL relational database and a Xapian full text index without installing the packages mentioned above in basically two steps.</li>
+<li>You can use the PubMedPortable image to create a PostgreSQL relational database and a Xapian full text index without installing the packages mentioned above in basically two steps.</li>
 <li><p>Install Docker - it was tested on Ubuntu (64-bit required):</p>
 <blockquote>
 <ul>
@@ -208,7 +208,7 @@
 </blockquote></li>
 </ul>
 </blockquote></li>
-<li><p>Run Docker with the PubMed2Go image:</p>
+<li><p>Run Docker with the PubMedPortable image:</p>
 <blockquote>
 <ul>
 <li>Create a folder on your local disk with a name of your choice.</li>
@@ -245,13 +245,13 @@
 <li>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9999:5432 bgruening/pubmed2go”</li>
 </ul>
 </blockquote></li>
-<li><p>It is not recommended to run the PubMed2Go examples or to develop new scripts within the Docker container. If you want to modify the image, use the Docker documentation and this repository:</p>
+<li><p>It is not recommended to run the PubMedPortable examples or to develop new scripts within the Docker container. If you want to modify the image, use the Docker documentation and this repository:</p>
 <blockquote>
 <ul>
 <li><a href="https://github.com/bgruening/docker-recipes/tree/master/pubmed2go">https://github.com/bgruening/docker-recipes/tree/master/pubmed2go</a></li>
 </ul>
 </blockquote></li>
-<li>If you want to try the examples given in the wiki, copy the Xapian directory from the &lt;folder_of_your_choice&gt; into the folder “PubMed2Go/full_text_index/xapian/” from “<a href="https://github.com/KerstenDoering/PubMed2Go">https://github.com/KerstenDoering/PubMed2Go</a>” and run the Docker container in background.</li>
+<li>If you want to try the examples given in the wiki, copy the Xapian directory from the &lt;folder_of_your_choice&gt; into the folder “PubMedPortable/full_text_index/xapian/” from “<a href="https://github.com/KerstenDoering/PubMedPortable">https://github.com/KerstenDoering/PubMedPortable</a>” and run the Docker container in background.</li>
 <li>After successful installation, the rest of this documentation can be skipped.</li>
 </ul>
 <h1 id="build-up-a-relational-database-in-postgresql"><a href="#build-up-a-relational-database-in-postgresql"><span class="header-section-number">4</span> Build up a Relational Database in PostgreSQL</a></h1>
@@ -332,7 +332,7 @@
 </blockquote></li>
 <li>If you just want to index your XML files, type in “python RunXapian.py -x -f”. (Parameter “-f” turns off the search function of the programme, default is “True”.)</li>
 <li>If you just want to search your synonyms, type in “python RunXapian.py” (Parameter “-x” turns on the indexing step, default is “False”.)</li>
-<li>The default location for your full text index database folder is “PubMed2Go/full_text_index/xapian/&lt;xapian2015&gt;”. You can change this location by using the parameter “-p”.</li>
+<li>The default location for your full text index database folder is “PubMedPortable/full_text_index/xapian/&lt;xapian2015&gt;”. You can change this location by using the parameter “-p”.</li>
 </ul>
 </blockquote></li>
 <li>For the given example, 10392 lines were generated in “results.csv”.</li>
@@ -344,10 +344,10 @@
 <ul>
 <li><script type="text/javascript">
 <!--
-h='&#112;&#104;&#x61;&#114;&#x6d;&#x61;&#122;&#x69;&#x65;&#46;&#x75;&#110;&#x69;&#x2d;&#102;&#114;&#x65;&#x69;&#98;&#x75;&#114;&#x67;&#46;&#100;&#x65;';a='&#64;';n='&#x6b;&#x65;&#114;&#x73;&#116;&#x65;&#110;&#46;&#100;&#x6f;&#x65;&#114;&#x69;&#110;&#x67;';e=n+a+h;
+h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x6b;&#x65;&#114;&#x73;&#116;&#x65;&#110;&#46;&#100;&#x6f;&#x65;&#114;&#x69;&#110;&#x67;';e=n+a+h;
 document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 // -->
-</script><noscript>&#x6b;&#x65;&#114;&#x73;&#116;&#x65;&#110;&#46;&#100;&#x6f;&#x65;&#114;&#x69;&#110;&#x67;&#32;&#x61;&#116;&#32;&#112;&#104;&#x61;&#114;&#x6d;&#x61;&#122;&#x69;&#x65;&#32;&#100;&#x6f;&#116;&#32;&#x75;&#110;&#x69;&#x2d;&#102;&#114;&#x65;&#x69;&#98;&#x75;&#114;&#x67;&#32;&#100;&#x6f;&#116;&#32;&#100;&#x65;</noscript></li>
+</script><noscript>&#x6b;&#x65;&#114;&#x73;&#116;&#x65;&#110;&#46;&#100;&#x6f;&#x65;&#114;&#x69;&#110;&#x67;&#32;&#x61;&#116;&#32;&#x67;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript></li>
 </ul>
 </blockquote></li>
 <li><p>If you are interested in related projects, visit our working group’s homepage:</p>
@@ -359,7 +359,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 </ul>
 <h2 id="license"><a href="#license"><span class="header-section-number">6.1</span> License</a></h2>
 <ul>
-<li>PubMed2Go is published with an ISC license given in “license.txt”.</li>
+<li>PubMedPortable is published with an ISC license given in “license.txt”.</li>
 </ul>
 </body>
 </html>
