@@ -313,7 +313,7 @@ class MedlineParser:
                     DBCitation.gene_symbols = []
                     for genes in elem:
                         DBGeneSymbol = PubMedDB.GeneSymbol()
-                        if genes.text < 40:
+                        if len(genes.text) < 40:
                             DBGeneSymbol.gene_symbol = genes.text
                         else:
                             DBGeneSymbol.gene_symbol = genes.text[:36] + '...'
