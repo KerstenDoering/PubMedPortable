@@ -37,7 +37,7 @@ Download a Data Set
 
     - 16th April 2015: 23258 PubMed-IDs
 
-        - Some PubMed-IDs might change over time. Even for the given example list of PubMed-IDs for this documentation in "data/pubmed_result.txt" it is possible, that you receive another number of downloaded publications in your XML files as well as different outcomes in the ongoing analyes.
+        - Some PubMed-IDs might change over time. Even for the given example list of PubMed-IDs for this documentation in "data/pubmed_result.txt" it is possible, that you receive another number of downloaded publications in your XML files as well as different outcomes in the ongoing analyses.
 
     - The download of around 272 MB can take up to one hour depending on the time of day and internet connection. 
 

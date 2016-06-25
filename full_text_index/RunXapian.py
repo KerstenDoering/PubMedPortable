@@ -28,7 +28,7 @@ if __name__=="__main__":
     parser = OptionParser()
     parser.add_option("-b", "--b_year", dest="b", help="year of the index to begin parsing (default: 1809)", default=1809)
     parser.add_option("-p", "--xapian_database_path", dest="xapian_database_path", help="Specify the path to the Xapian full text index.", default="xapian")
-    parser.add_option("-e", "--e_year", dest="e", help="year of the index to end parsing (default: 2015)", default=2015)
+    parser.add_option("-e", "--e_year", dest="e", help="year of the index to end parsing (default: 2016)", default=2016)
     parser.add_option("-x", "--index", dest="x", action="store_true", default=False, help="Create Xapian index first (default: False)")
     parser.add_option("-s", "--synoynm_path", dest="s", help="relative path to synonym list (default: synonyms/pancreatic_cancer.txt)", default = "synonyms/pancreatic_cancer.txt")
     parser.add_option("-d", "--db_psql", dest="d", help="database in PostgreSQL to connect to (default: pancreatic_cancer_db)", default = "pancreatic_cancer_db")
