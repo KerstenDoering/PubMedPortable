@@ -217,10 +217,12 @@ class Chemical(Base):
     fk_pmid                    = Column(INTEGER, nullable=False)
     registry_number         = Column(VARCHAR(20), nullable=False)
     name_of_substance       = Column(VARCHAR(3000), nullable=False, index=True)
+    substance_ui               = Column(CHAR(10), index=True)
 
     def __init__(self):
         self.registry_number
         self.name_of_substance
+        self.substance_ui
 
     def __repr__(self):
         return "Chemical (%s, %s)" % (self.registry_number, self.name_of_substance)
@@ -257,27 +259,21 @@ class Comment(Base):
     __tablename__ = "tbl_comments_correction"
 
     id                      = Column(Integer, primary_key=True)
-    fk_pmid                    = Column(INTEGER, nullable=False)
-    ref_source              = Column(VARCHAR(4000))
-    ref_pmid                = Column(INTEGER)
-    note                    = Column(VARCHAR(4000))
-    type                    = Column(VARCHAR(30), nullable=False)
-
+    fk_pmid                 = Column(INTEGER, nullable=False, index = True)
+    ref_type                = Column(VARCHAR(10), nullable=False)
+    ref_source              = Column(VARCHAR(255), nullable=False)
+    pmid_version            = Column(INTEGER, index = True)
 
     def __init__(self):
+        self.ref_type
         self.ref_source
-        self.ref_pmid
-        self.note
-        self.type = type
-
+        self.pmid_version
 
     def __repr__(self):
-        return "Comment (%s, %s, %s, %s, %s, %s)" % (self.ref_source, self.ref_pmid_or_medlineid, self.ref_pmid, self.ref_medlineid, self.note, self.type)
+        return "Comment (%s, %s, %s, %s)" % (self.fk_pmid, self.ref_type, self.ref_source, self.pmid_version)
 
     __table_args__  = (
         ForeignKeyConstraint(['fk_pmid'], [SCHEMA+'.tbl_medline_citation.pmid'], onupdate="CASCADE", ondelete="CASCADE", name="fk_comments_corrections"),
-        CheckConstraint("type IN ('ErratumIn', 'CommentOn', 'CommentIn', 'ErratumFor', 'PartialRetractionIn', 'PartialRetractionOf', 'RepublishedFrom', 'RepublishedIn', 'RetractionOf', 'RetractionIn', 'UpdateIn', 'UpdateOf', 'SummaryForPatientsIn', 'OriginalReportIn', 'ReprintIn', 'ReprintOf')", name='ck1_comments_correction'),
-        #CheckConstraint("ref_pmid_or_medlineid IN ('p', 'm', 'P', 'M')", name='ck2_comments_correction'),
         {'schema': SCHEMA}
     )
     citation = relation(Citation, backref=backref('comments', order_by=ref_source, cascade="all, delete-orphan"))
@@ -307,13 +303,15 @@ class GeneSymbol(Base):
 class MeSHHeading(Base):
     __tablename__ = "tbl_mesh_heading"
 
-    fk_pmid                        = Column(INTEGER, nullable=False)
+    fk_pmid                     = Column(INTEGER, nullable=False)
     descriptor_name             = Column(VARCHAR(500))
     descriptor_name_major_yn    = Column(CHAR(1), default='N')
+    descriptor_ui               = Column(CHAR(10), index=True)
 
     def __init__(self):
         self.descriptor_name
         self.descriptor_name_major_yn
+        self.descriptor_ui
 
     def __repr__(self):
         return "MESH_Headings (%s, %s)" % (self.descriptor_name, self.descriptor_name_major_yn,)
@@ -334,11 +332,13 @@ class Qualifier(Base):
     descriptor_name             = Column(VARCHAR(500), index=True)
     qualifier_name              = Column(VARCHAR(500), index=True)
     qualifier_name_major_yn     = Column(CHAR(1), default='N')
+    qualifier_ui               = Column(CHAR(10), index=True)
 
     def __init__(self):
         self.descriptor_name
         self.qualifier_name
         self.qualifier_name_major_yn
+        self.qualifier_ui
 
     def __repr__(self):
         return "Qualifier (%s, %s, %s)" % (self.descriptor_name, self.qualifier_name, self.qualifier_name_major_yn)
@@ -378,27 +378,50 @@ class PersonalName(Base):
     citation = relation(Citation, backref=backref('personal_names', order_by=last_name, cascade="all, delete-orphan"))
 
 
-class Other(Base):
-    __tablename__ = "tbl_other_id"
+class OtherAbstract(Base):
+    __tablename__ = "tbl_other_abstract"
 
     fk_pmid                = Column(INTEGER, nullable=False)
-    other_id            = Column(VARCHAR(30), nullable=False)
-    other_id_source     = Column(VARCHAR(20), nullable=False)
+#    other_abstract_id            = Column(VARCHAR(30), nullable=False)
+#    other_abstract_source     = Column(VARCHAR(20), nullable=False)
+    other_abstract         = Column(Text)
+
+    def __init__(self):
+#        self.other_abstract_id
+#        self.other_abstract_source
+        self.other_abstract
+
+    def __repr__(self):
+        return "OtherAbstract (%s, %s)" % (self.fk_pmid, self.other_abstract)
+
+    __table_args__  = (
+        ForeignKeyConstraint(['fk_pmid'], [SCHEMA+'.tbl_medline_citation.pmid'], onupdate="CASCADE", ondelete="CASCADE", name="fk_other_abstracts"),
+        PrimaryKeyConstraint('fk_pmid'),#, 'other_id', 'other_id_source'),
+#        CheckConstraint("other_id_source IN ('NASA', 'KIE', 'PIP', 'POP', 'ARPL', 'CPC', 'IND', 'CPFH', 'CLML', 'IM', 'SGC', 'NLM', 'NRCBL', 'QCIM', 'QCICL')", name='ck1_other_ids'),
+        {'schema': SCHEMA}
+    )
+    citation = relation(Citation, backref=backref('other_abstracts', order_by=fk_pmid, cascade="all, delete-orphan"))
+
+class OtherID(Base):
+    __tablename__ = "tbl_other_id"
+
+    fk_pmid             = Column(INTEGER, nullable=False)
+    other_id            = Column(VARCHAR(15), nullable=False, index=True)
+    other_id_source     = Column(VARCHAR(10), nullable=False)
 
     def __init__(self):
         self.other_id
         self.other_id_source
 
     def __repr__(self):
-        return "Other (%s, %s)" % (self.other_id, self.other_id_source)
+        return "OtherID (%s, %s)" % (self.fk_pmid, self.other_id)
 
     __table_args__  = (
         ForeignKeyConstraint(['fk_pmid'], [SCHEMA+'.tbl_medline_citation.pmid'], onupdate="CASCADE", ondelete="CASCADE", name="fk_other_ids"),
-        PrimaryKeyConstraint('fk_pmid', 'other_id', 'other_id_source'),
-        CheckConstraint("other_id_source IN ('NASA', 'KIE', 'PIP', 'POP', 'ARPL', 'CPC', 'IND', 'CPFH', 'CLML', 'IM', 'SGC', 'NLM', 'NRCBL', 'QCIM', 'QCICL')", name='ck1_other_ids'),
+        PrimaryKeyConstraint('fk_pmid','other_id'),
         {'schema': SCHEMA}
     )
-    citation = relation(Citation, backref=backref('others', order_by=other_id, cascade="all, delete-orphan"))
+    citation = relation(Citation, backref=backref('other_ids', order_by=fk_pmid, cascade="all, delete-orphan"))
 
 
 class Keyword(Base):
@@ -654,6 +677,28 @@ class PublicationType(Base):
     )
     citation = relation(Citation, backref=backref('publication_types', order_by=publication_type, cascade="all, delete-orphan"))
 
+class SupplMeshName(Base):
+    __tablename__ = "tbl_suppl_mesh_name"
+
+    fk_pmid                 = Column(INTEGER, nullable=False)
+    suppl_mesh_name         = Column(VARCHAR(40), nullable=False, index=True)
+    suppl_mesh_name_ui      = Column(VARCHAR(10), nullable=False, index=True)
+    suppl_mesh_name_type    = Column(VARCHAR(8), nullable=False)
+
+    def __init__(self):
+        self.suppl_mesh_name
+        self.suppl_mesh_name_ui
+        self.suppl_mesh_name_type
+
+    def __repr__(self):
+        return "SupplMeshName (%s)" % (self.suppl_mesh_name)
+
+    __table_args__  = (
+        ForeignKeyConstraint(['fk_pmid'], [SCHEMA+'.tbl_medline_citation.pmid'], onupdate="CASCADE", ondelete="CASCADE", name="fk_suppl_mesh_name_list"),
+        PrimaryKeyConstraint('fk_pmid', 'suppl_mesh_name', 'suppl_mesh_name_ui'),
+        {'schema': SCHEMA}
+    )
+    citation = relation(Citation, backref=backref('suppl_mesh_names', order_by=suppl_mesh_name, cascade="all, delete-orphan"))
 
 ##old code not used:
 #def create_tssearch(engine):
