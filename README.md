@@ -11,3 +11,4 @@ Please, have a look at our [Wiki](https://github.com/KerstenDoering/PubMedPortab
 * [Creating a full-text index](https://github.com/KerstenDoering/PubMedPortable/wiki#build-up-a-full-text-index-with-xapian-and-search-it)
 * [Querying a database](https://github.com/KerstenDoering/PubMedPortable/wiki#examples-for-connecting-full-text-search-and-selection-of-data-from-postgresql)
 * [Examples for using BioC and PubTator](https://github.com/KerstenDoering/PubMedPortable/wiki#examples-for-using-bioc-and-pubtator)
+* [Indexing of PMC Articles](https://github.com/KerstenDoering/PubMedPortable/wiki#indexing-of-pmc-articles)

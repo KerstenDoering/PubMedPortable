@@ -39,6 +39,8 @@ Download a Data Set
 
         - Some PubMed-IDs might change over time. Even for the given example list of PubMed-IDs for this documentation in "data/pubmed_result.txt" it is possible, that you receive another number of downloaded publications in your XML files as well as different outcomes in the ongoing analyses.
 
+        - You can also use PubMedPortable for daily updates, but the parser will not include PubMed IDs which are already contained in the database. Therefore, we recommend to generate a completely new database and a new full text index once a year.
+
     - The download of around 272 MB can take up to one hour depending on the time of day and internet connection. 
 
 - Another possibility is to download PubMed articles with EFetch:
@@ -279,6 +281,15 @@ Build up a Relational Database in PostgreSQL
 
 - The schema is described in the file "documentation/PostgreSQL_database_schema.html" which was generated with DbSchema (http://www.dbschema.com/download.html).
 
+- If you want to extend the database schema in terms of additional columns or tables, you can have a look at this diff in the GitHub repository:
+
+    - https://github.com/KerstenDoering/PubMedPortable/commit/99f39f385c83d121422d1c48694c7fb2e6e421b3
+
+    - Consider the example of UI fields (MeSH IDs) for chemical substances. 
+
+    - The column needs to be initialised (line 220 and 225 in PubMedDB.py) and the parser needs to get this XML field (line 309 in PubMedParser.py).
+
+    - The steps how to create a new table with adapted columns can be seen in the example of creating a class OtherID and OtherAbstract from the earlier existing class Other.
 
 ****************************************************
 Build up a Full Text Index with Xapian and Search It
@@ -347,6 +358,8 @@ Build up a Full Text Index with Xapian and Search It
     - http://xapian.org/docs/admin_notes.html#merging-databases
 
     - xapian-compact -m  <all input directories to be compressed, separated by space> <name of outcoming folder with complete database>
+
+    - Using Ubuntu, this tool might have to be installed additionally with "sudo apt install xapian-tools".
 
 
 **********************************************************************
@@ -708,6 +721,115 @@ Examples for Using BioC and PubTator
         - This approach leads to a higher number of publications for each gene, but shows basically the same tendencies as in the PubTator example.
 
     - The example of using PubTator, DNorm, and GeneTUKit illustrates, that the infrastructure of PubMedPortable can be easily extended to combine different data formats (PubTator, BioC, and pseudo XML format), being independent from a Web service, but making use of it, if desired.
+
+
+************************
+Indexing of PMC Articles
+************************
+
+------------
+Introduction
+------------
+
+- The page ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/ contains all downloadable files used in this section. 
+
+- Explanations for the PMC FTP service can be found here:
+
+    http://www.ncbi.nlm.nih.gov/pmc/tools/ftp/
+
+- The four files articles.txt.0-9A-B.tar.gz, articles.txt.C-H.tar.gz, articles.txt.I-N.tar.gz, and articles.txt.O-Z.tar.gz contain all available PMC full text articles in plain text format.
+
+- In more than half of all PMC articles, the authors did not allow a download of their article in text format. This is also true for the available XML downloads and the ID Converter API (http://www.ncbi.nlm.nih.gov/pmc/tools/id-converter-api/).
+
+- This section considers the insertion of a PMC-PubMed-ID mapping of all available IDs in PostgreSQL, the indexing of all downloaded PMC articles in Xapian, and the insertion of the articles without further formatting in PostgreSQL.
+
+- The approach can be extended with a PMC XML parser, e.g. this one:
+
+    - https://sourceforge.net/projects/pmcparser
+
+- If the user does not need the texts in PostgreSQL, they can also be stored directly in a text field in the Xapian index.
+
+- The file file_list.txt contains a mapping of the downloaded article names to PMC IDs (http://www.ncbi.nlm.nih.gov/pmc/tools/ftp/), which is also stored in PostgreSQL.
+
+
+-------------
+Get PMC Files
+-------------
+
+- Create a directory files in your PMC folder in the GitHub project and download the 4 PMC article archives, if you want to index all of them as shown here for the first gzip file:
+
+    - wget ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/articles.txt.0-9A-B.tar.gz
+
+- Unzip the files and remove the source files:
+
+    - gunzip articles.txt.0-9A-B.tar.gz 
+
+    - tar -xf articles.txt.0-9A-B.tar
+
+    - rm articles.txt.0-9A-B.tar 
+
+- Each gzip file will have an approximate size of 4.2 GB [2015-04-22]
+
+- Download the mapping of PMC IDs to PubMed IDs in your PMC folder:
+
+    - wget ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/PMC-ids.csv.gz
+
+    - gunzip PMC-ids.csv.gz
+
+------------------------------
+Create Tables and Xapian Index
+------------------------------
+
+- Create a table tbl_pmcid_name_pmid in your PostgreSQL schema public:
+
+    - psql -h localhost -d pancreatic_cancer_db -U parser -f create_pmcid_pmid_table.sql 
+
+
+- Insert PMC ID mapping in your PostgreSQL database with PubMed IDs, if contained (not all PMC IDs will contain a PubMed ID mapping - nevertheless, it can be checked whether the PubMed ID is referenced to a PMC ID with this table):
+
+    - python insert_PMC_ID_PubMed_ID_mapping.py
+
+- If you want to count the number of uploaded PMC IDs, use the following command, e.g. in PGAdmin:
+
+    - select count(*) from tbl_pmcid_pmid;
+
+- Insert PMC ID mapping from file_list.txt, which also contains the file names from the downloaded archives:
+
+    - psql -h localhost -d pancreatic_cancer_db -U parser -f create_pmcid_name_pmid_table.sql 
+
+    - python insert_PMC_ID_Name_PubMed_ID_mapping.py 
+
+- Check the total number of downloaded text files from the archives. This number will be much smaller than the number of PMC IDs in tbl_pmicid_pmid:
+ 
+    - select count(*) from tbl_pmcid_name_pmid;
+
+- Build the Xapian index - this might take a few hours in total, depending on the following options. Create a folder xapian first:
+
+    - mkdir xapian
+
+    - Set the boolean flag of the variable use_psql to True in line 35 in index.py (default is True) if you want to store your PMC texts in the PostgreSQL table tbl_pmcid_text, otherwise an extra Xapian data field will be used to save the file content, e.g. to read it after receiving search results.
+
+    - If you want to use the PostgreSQL database, create the table tbl_pmcid_text first:
+
+        - psql -h localhost -d pancreatic_cancer_db -U parser -f create_pmcid_text_table.sql
+
+        - The indexing process for the first of four files took over an hour with one CPU core (2,83 GHz and 8 GB RAM). Setting use_psql to True or False resulted in a similar runtime.
+
+    - python index.py
+
+- Before the index can be used completely, it has to be merged with the compact-tool already mentioned earlier in this documentation. The following command will generate a folder xapian_PMC_complete in your PMC directory:
+
+    - python generate_xapian_compact_command.py
+
+    - It is also possible to include only some selected journals in the search by using the IDs generated during the indexing process (ids.txt).
+
+- To search in the index with showing identified texts, run the following script with the parameter use_psql set to True (default case, line 24) and verbose set to True (default False, line 22). Create a result directory first. Similar to the already described search procedure in the Xapian chapter of this documentation, a list of synonyms can be used (synonyms/synonyms.txt):
+
+    - search.py
+
+    - This script rather serves as a guidline how to get the search results and should be adapted to the methods already described.
+
+- The scripts which generated the results described in the other chapters can be adapted to be used with the data processed in this section.
 
 
 *******
