@@ -484,7 +484,7 @@ class Investigator(Base):
     last_name                   = Column(VARCHAR(300), index=True)
     fore_name                   = Column(VARCHAR(100))
     initials                    = Column(VARCHAR(10))
-    suffix                      = Column(VARCHAR(10))
+    suffix                      = Column(VARCHAR(20))
     investigator_affiliation    = Column(VARCHAR(200))
 
     def __init__(self):
@@ -537,7 +537,7 @@ class Author(Base):
     last_name                   = Column(VARCHAR(300), index=True)
     fore_name                   = Column(VARCHAR(100))
     initials                    = Column(VARCHAR(10))
-    suffix                      = Column(VARCHAR(10))
+    suffix                      = Column(VARCHAR(20))
     collective_name             = Column(VARCHAR(2000), index=True)
 
     """

@@ -242,8 +242,10 @@ class MedlineParser:
                             pass
                         if author.find("Initials") != None:
                             DBAuthor.initials = author.find("Initials").text
-                        if author.find("Suffix") != None:
+                        if author.find("Suffix") != None and not len(author.find("Suffix").text) > 20:
                             DBAuthor.suffix = author.find("Suffix").text
+                        elif author.find("Suffix") != None and len(author.find("Suffix").text) > 20:
+                            DBAuthor.suffix = author.find("Suffix").text[0:20]
                         if author.find("CollectiveName") != None:
                             DBAuthor.collective_name = author.find("CollectiveName").text
 
