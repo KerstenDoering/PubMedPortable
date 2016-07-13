@@ -406,7 +406,7 @@ class OtherID(Base):
     __tablename__ = "tbl_other_id"
 
     fk_pmid             = Column(INTEGER, nullable=False)
-    other_id            = Column(VARCHAR(15), nullable=False, index=True)
+    other_id            = Column(VARCHAR(25), nullable=False, index=True)
     other_id_source     = Column(VARCHAR(10), nullable=False)
 
     def __init__(self):
