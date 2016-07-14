@@ -681,7 +681,7 @@ class SupplMeshName(Base):
     __tablename__ = "tbl_suppl_mesh_name"
 
     fk_pmid                 = Column(INTEGER, nullable=False)
-    suppl_mesh_name         = Column(VARCHAR(60), nullable=False, index=True)
+    suppl_mesh_name         = Column(VARCHAR(80), nullable=False, index=True)
     suppl_mesh_name_ui      = Column(VARCHAR(10), nullable=False, index=True)
     suppl_mesh_name_type    = Column(VARCHAR(8), nullable=False)
 
