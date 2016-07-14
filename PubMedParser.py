@@ -176,7 +176,7 @@ class MedlineParser:
                     for subelem in elem.find("PubDate"):
                         if subelem.tag == "MedlineDate":
                             if len(subelem.text) > 40:
-                                DBJournal.medline_date = subelem.text[:37]
+                                DBJournal.medline_date = subelem.text[:37] + "..."
                             else:
                                 DBJournal.medline_date = subelem.text
                         elif subelem.tag == "Year":
@@ -237,7 +237,7 @@ class MedlineParser:
                             if author.find("ForeName") != None and not len(author.find("ForeName").text) > 100:
                                 DBAuthor.fore_name = author.find("ForeName").text
                             elif author.find("ForeName") != None and len(author.find("ForeName").text) > 100:
-                                DBAuthor.fore_name = author.find("ForeName").text[0:100]
+                                DBAuthor.fore_name = author.find("ForeName").text[0:97] + "..."
                         except:
                             pass
                         if author.find("Initials") != None:
@@ -245,7 +245,7 @@ class MedlineParser:
                         if author.find("Suffix") != None and not len(author.find("Suffix").text) > 20:
                             DBAuthor.suffix = author.find("Suffix").text
                         elif author.find("Suffix") != None and len(author.find("Suffix").text) > 20:
-                            DBAuthor.suffix = author.find("Suffix").text[0:20]
+                            DBAuthor.suffix = author.find("Suffix").text[0:17] + "..."
                         if author.find("CollectiveName") != None:
                             DBAuthor.collective_name = author.find("CollectiveName").text
 
@@ -318,7 +318,7 @@ class MedlineParser:
                         if len(genes.text) < 40:
                             DBGeneSymbol.gene_symbol = genes.text
                         else:
-                            DBGeneSymbol.gene_symbol = genes.text[:36] + '...'
+                            DBGeneSymbol.gene_symbol = genes.text[:37] + '...'
                         DBCitation.gene_symbols.append(DBGeneSymbol)
 
                 if elem.tag == "CommentsCorrectionsList":
@@ -461,6 +461,10 @@ class MedlineParser:
                 if elem.tag == "OtherID":
                     DBCitation.other_ids = []
                     DBOtherID = PubMedDB.OtherID()
+                    if len(elem.text) < 80:
+                        DBOtherID.other_id = elem.text
+                    else:
+                        DBOtherID.other_id = elem.text[0:77] + "..."
                     DBOtherID.other_id = elem.text
                     DBOtherID.other_id_source = elem.attrib['Source']
                     DBCitation.other_ids.append(DBOtherID)
