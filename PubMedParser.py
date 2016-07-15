@@ -465,7 +465,6 @@ class MedlineParser:
                         DBOtherID.other_id = elem.text
                     else:
                         DBOtherID.other_id = elem.text[0:77] + "..."
-                    DBOtherID.other_id = elem.text
                     DBOtherID.other_id_source = elem.attrib['Source']
                     DBCitation.other_ids.append(DBOtherID)
 
