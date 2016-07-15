@@ -550,7 +550,10 @@ class MedlineParser:
                     DBCitation.suppl_mesh_names = []
                     for suppl_mesh in elem:
                         DBSupplMeshName = PubMedDB.SupplMeshName()
-                        DBSupplMeshName.suppl_mesh_name = suppl_mesh.text
+                        if len(elem.text) < 80:
+                            DBSupplMeshName.suppl_mesh_name = suppl_mesh.text
+                        else:
+                            DBSupplMeshName.suppl_mesh_name = suppl_mesh.text[0:76] + "..."
                         DBSupplMeshName.suppl_mesh_name_ui = suppl_mesh.attrib['UI']
                         DBSupplMeshName.suppl_mesh_name_type = suppl_mesh.attrib['Type']
                         DBCitation.suppl_mesh_names.append(DBSupplMeshName)
