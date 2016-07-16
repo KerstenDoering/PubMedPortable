@@ -328,7 +328,10 @@ class MedlineParser:
                         DBComment.ref_type = comment.attrib['RefType']
                         comment_ref_source = comment.find('RefSource')
                         if comment_ref_source != None:
-                            DBComment.ref_source = comment_ref_source.text
+                            if len(comment_ref_source.text) < 255:
+                                DBComment.ref_source = comment_ref_source.text
+                            else:
+                                DBComment.ref_source = comment_ref_source.text[0:251] + "..."                            
                         comment_pmid_version = comment.find('PMID')
                         if comment_pmid_version != None:
                             DBComment.pmid_version = comment_pmid_version.text
