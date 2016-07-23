@@ -547,7 +547,10 @@ class MedlineParser:
                         DBCitation.keywords.append(DBKeyword)
 
                 if elem.tag == "Affiliation":
-                    DBCitation.article_affiliation = elem.text
+                    if len(elem.text) < 2000:
+                        DBCitation.article_affiliation = elem.text
+                    else:
+                        DBCitation.article_affiliation = elem.text[0:1996] + "..."
 
                 if elem.tag == "SupplMeshList":
                     DBCitation.suppl_mesh_names = []

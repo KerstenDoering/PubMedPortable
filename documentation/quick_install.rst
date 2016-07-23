@@ -115,7 +115,7 @@ Fedora
 
 - To install the Fedora packages use the following command. It will install all required packages:
 
-    - "sudo -E yum install python python-xappy python-sqlalchemy python-psycopg2 postgresql postgresql-server postgresql-contrib"
+    - "sudo -E dnf install python python-xappy python-sqlalchemy python-psycopg2 postgresql postgresql-server postgresql-contrib"
 
 - To enable PostgreSQL in Fedora, use the following steps: 
 
@@ -133,11 +133,11 @@ Fedora
 
         - "sudo postgresql-setup initdb"
 
-    - To allow read access to postgres, SELinux should be modified. This can be done with the following command:
+    - To allow read access to postgres, SELinux should be modified. The SELinux is required upto Fedora 23. This can be done with the following command:
 
         - "grep postgres /var/log/audit/audit.log | audit2allow -M mypol"
 
-    - Then you can do this:
+    - Then you can do this (this is also required upto Fedora 23):
 
         - "sudo semodule -i mypol.pp"
 
