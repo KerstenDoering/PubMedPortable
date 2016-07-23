@@ -836,45 +836,63 @@ Create Tables and Xapian Index
 NER
 ***
 
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Author                    |  Name                 |   Availability                                |    Entities               |
-+===========================+=======================+===============================================+===========================+
-| Hakenberg, J. et al. 2010 | GNAT                  | Standalone tool and web service               | genes/proteins            |
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Gerner et al., 2010       | LINNAEUS              | Standalone tool and can be made as web service| species/taxonomy          |
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Moritz et al., 2005       | TaxonGrab             | Standalone tool                               | species/taxonomy          |
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Jimeno et al., 2008       | Whatizit              | Standalone tool and can be made as web service| species/taxonomy          |
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Leaman et al., 2013       | DNorm                 | Standalone tool                               | diseases/species/taxonomy |
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Leaman et al., 2014       | tmChem                | Standalone tool                               | drugs/chemical            |
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Wei et al., 2013          | tmVar                 | Standalone tool                               | mutations/diseases        |
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Wei et al., 2012          | SR4GN                 | Standalone tool                               | species/genes             |
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Caporaso et al., 2007     | MutationFinder(BioNLP)| Standalone tool                               | mutations                 |
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Wiegers et al., 2014      | CTD                   | Webservice                                    | gene/protein/chemical     |
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Pafilis et al., 2009      | Reflect               | Standalone tool and web service               | protein                   |
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Leanman et al., 2016      | TaggerOne             | Webservice                                    | mention/concept           |
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Xu et al., 2016           | CD-REST               | Webservice                                    | chemical/diseases         |
-+---------------------------+-----------------------+-----------------------------------------------+---------------------------+
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
+| Tool Name                 | Entities                                      | Availability                     | Authors                      |
++===========================+===============================================+==================================+==============================+
+| `GNAT`_                   | genes/proteins                                | stand-alone tool and web service | `Hakenberg, J. et al. 2010`_ |
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
+| `LINNAEUS`_               | species/taxonomy                              | stand-alone tool and web service | `Gerner et al., 2010`_       |
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
+| `TaxonGrab`_              | species/taxonomy                              | stand-alone tool                 | `Moritz et al., 2005`_       |
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
+| `Whatizit`_               | species/taxonomy                              | stand-alone tool and web service | `Jimeno et al., 2008`_       |
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
+| `DNorm`_                  | diseases/species/taxonomy                     | stand-alone tool                 | `Leaman et al., 2013`_       |
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
+| `tmChem`_                 | drugs/chemicals                               | stand-alone tool                 | `Leaman et al., 2014`_       |
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
+| `tmVar`_                  | mutations/diseases                            | stand-alone tool                 | `Wei et al., 2013`_          |
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
+| `SR4GN`_                  | species/genes                                 | standalone tool                  | `Wei et al., 2012`_          |
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
+| `MutationFinder(BioNLP)`_ | mutations                                     | standalone tool                  | `Caporaso et al., 2007`_     |
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
+| `CTD`_                    | genes/proteins/chemicals/protein interactions | web service                      | `Wiegers et al., 2014`_      |
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
+| `Reflect`_                | proteins                                      | stand alone tool and web service | `Pafilis et al., 2009`_      |
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
+| `TaggerOne`_              | diseases/chemicals                            | web service                      | `Leanman et al., 2016`_      |
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
+| `CD-REST`_                | chemicals/diseases                            | web service                      | `Xu et al., 2016`_           |
++---------------------------+-----------------------------------------------+----------------------------------+------------------------------+
 
-
-
-+------------------------------+-----------------------+-----------------------------------------------+---------------------------+
-| Author                       |  Name                 |   Availability                                |    Entities               |
-+==============================+=======================+===============================================+===========================+
-| `Hakenberg, J. et al. 2010`_ | GNAT                  | Standalone tool and web service               | genes/proteins            |
-+------------------------------+-----------------------+-----------------------------------------------+---------------------------+
-
+.. _GNAT: http://gnat.sourceforge.net/
+.. _LINNAEUS: http://linnaeus.sourceforge.net/
+.. _TaxonGrab: https://sourceforge.net/projects/taxongrab/
+.. _Whatizit: http://www.ebi.ac.uk/webservices/whatizit/helpws.jsp;jsessionid=9243A71262F8873CA40FE4DD4DDB18A0
+.. _DNorm: http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/#DNorm
+.. _tmChem: http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/#
+.. _tmVar: http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/#tmVar
+.. _SR4GN: http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/#SR4GN
+.. _MutationFinder(BioNLP): http://bionlp.sourceforge.net/
+.. _CTD: http://ctdbase.org/
+.. _Reflect: http://gnat.sourceforge.net/
+.. _TaggerOne: http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/demo/TaggerOne/demo.cgi
+.. _CD-REST: http://clinicalnlptool.com/cdr/cdr.html
 .. _Hakenberg, J. et al. 2010: https://dx.doi.org/10.1093/bioinformatics/btr455
+.. _Gerner et al., 2010: https://dx.doi.org/10.1186/1471-2105-11-85
+.. _Moritz et al., 2005: http://dx.doi.org/10.17161/bi.v2i0.17
+.. _Jimeno et al., 2008: https://dx.doi.org/10.1093/bioinformatics/btm557
+.. _Leaman et al., 2013: https://dx.doi.org/10.1093/bioinformatics/btt474
+.. _Leaman et al., 2014: https://dx.doi.org/10.1186/1758-2946-7-S1-S3
+.. _Wei et al., 2013: https://dx.doi.org/10.1093/bioinformatics/btt156
+.. _Wei et al., 2012: http://dx.doi.org/10.1371/journal.pone.0038460
+.. _Caporaso et al., 2007: https://dx.doi.org/10.1093/bioinformatics/btm235
+.. _Wiegers et al., 2014: https://dx.doi.org/10.1093/database/bau050
+.. _Pafilis et al., 2009: https://dx.doi.org/doi:10.1038/nbt0609-508
+.. _Leanman et al., 2016: https://dx.doi.org/10.1093/bioinformatics/btw343
+.. _Xu et al., 2016: https://dx.doi.org/10.1093/database/baw036
+
 
 *******
 Contact
