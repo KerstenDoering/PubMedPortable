@@ -118,7 +118,7 @@ Fedora
 
 - To install the Fedora packages use the following command. It will install all required packages:
 
-    - "sudo -E yum install python python-xappy python-sqlalchemy python-psycopg2 postgresql postgresql-server postgresql-contrib"
+    - "sudo -E dnf install python python-xappy python-sqlalchemy python-psycopg2 postgresql postgresql-server postgresql-contrib"
 
 - To enable PostgreSQL in Fedora, use the following steps: 
 
@@ -636,7 +636,7 @@ Examples for Using BioC and PubTator
 
 - They are described in the following PDF file as well as other software packages in chapter "TRACK 1 (BioC: Interoperability)":
 
-    - http://www.biocreative.org/media/store/files/2013/ProceedingsBioCreativeIV_vol1_.pdf
+    - http://www.biocreative.org/media/store/files/2013/ProceedingsBioCreativeIV\_vol1\_.pdf
 
     - There are also other webservices included as well as BioC natural language preprocessing pipelines in C++ and Java (http://bioc.sourceforge.net).
 
@@ -831,6 +831,50 @@ Create Tables and Xapian Index
 
 - The scripts which generated the results described in the other chapters can be adapted to be used with the data processed in this section.
 
+
+***
+NER
+***
+
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Author                    |  Name                 |   Availability                                |    Entities               |
++===========================+=======================+===============================================+===========================+
+| Hakenberg, J. et al. 2010 | GNAT                  | Standalone tool and web service               | genes/proteins            |
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Gerner et al., 2010       | LINNAEUS              | Standalone tool and can be made as web service| species/taxonomy          |
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Moritz et al., 2005       | TaxonGrab             | Standalone tool                               | species/taxonomy          |
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Jimeno et al., 2008       | Whatizit              | Standalone tool and can be made as web service| species/taxonomy          |
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Leaman et al., 2013       | DNorm                 | Standalone tool                               | diseases/species/taxonomy |
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Leaman et al., 2014       | tmChem                | Standalone tool                               | drugs/chemical            |
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Wei et al., 2013          | tmVar                 | Standalone tool                               | mutations/diseases        |
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Wei et al., 2012          | SR4GN                 | Standalone tool                               | species/genes             |
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Caporaso et al., 2007     | MutationFinder(BioNLP)| Standalone tool                               | mutations                 |
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Wiegers et al., 2014      | CTD                   | Webservice                                    | gene/protein/chemical     |
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Pafilis et al., 2009      | Reflect               | Standalone tool and web service               | protein                   |
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Leanman et al., 2016      | TaggerOne             | Webservice                                    | mention/concept           |
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Xu et al., 2016           | CD-REST               | Webservice                                    | chemical/diseases         |
++---------------------------+-----------------------+-----------------------------------------------+---------------------------+
+
+
+
++------------------------------+-----------------------+-----------------------------------------------+---------------------------+
+| Author                       |  Name                 |   Availability                                |    Entities               |
++==============================+=======================+===============================================+===========================+
+| `Hakenberg, J. et al. 2010`_ | GNAT                  | Standalone tool and web service               | genes/proteins            |
++------------------------------+-----------------------+-----------------------------------------------+---------------------------+
+
+.. _Hakenberg, J. et al. 2010: https://dx.doi.org/10.1093/bioinformatics/btr455
 
 *******
 Contact
