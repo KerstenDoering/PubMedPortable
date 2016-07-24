@@ -42,8 +42,12 @@
 <li><a href="#create-tables-and-xapian-index"><span class="toc-section-number">9.3</span> Create Tables and Xapian Index</a></li>
 </ul></li>
 <li><a href="#named-entity-recognition-tools"><span class="toc-section-number">10</span> Named Entity Recognition Tools</a></li>
-<li><a href="#contact"><span class="toc-section-number">11</span> Contact</a><ul>
-<li><a href="#license"><span class="toc-section-number">11.1</span> License</a></li>
+<li><a href="#lucene-as-an-alternative-to-xapian"><span class="toc-section-number">11</span> Lucene as an Alternative to Xapian</a><ul>
+<li><a href="#installation-1"><span class="toc-section-number">11.1</span> Installation</a></li>
+<li><a href="#usage"><span class="toc-section-number">11.2</span> Usage</a></li>
+</ul></li>
+<li><a href="#contact"><span class="toc-section-number">12</span> Contact</a><ul>
+<li><a href="#license"><span class="toc-section-number">12.1</span> License</a></li>
 </ul></li>
 </ul>
 </div>
@@ -991,7 +995,89 @@
 </tr>
 </tbody>
 </table>
-<h1 id="contact"><span class="header-section-number">11</span> Contact</h1>
+<h1 id="lucene-as-an-alternative-to-xapian"><span class="header-section-number">11</span> Lucene as an Alternative to Xapian</h1>
+<ul>
+<li>There is no contradiction in using Xapian or Lucene. We wanted to build a full text index with only a few lines of code in Python, based on an easy installation. Therefore, we chose Xapian.</li>
+<li>Our workflows and use cases were generated with Python code. Lucene can also be called in Python via PyLucene.</li>
+<li><p>To illustrate this modularity, we created a minimalistic indexing and searching example. The examples were inspired by the following sources:</p>
+<blockquote>
+<ul>
+<li>IndexFiles.py, SearchFiles.py, and FacetExample.py in <a href="http://svn.apache.org/viewvc/lucene/pylucene/trunk/samples" class="uri">http://svn.apache.org/viewvc/lucene/pylucene/trunk/samples</a></li>
+<li><a href="http://graus.co/blog/pylucene-4-0-in-60-seconds-tutorial" class="uri">http://graus.co/blog/pylucene-4-0-in-60-seconds-tutorial</a></li>
+<li><a href="http://blog.intelligencecomputing.io/tags/pylucene" class="uri">http://blog.intelligencecomputing.io/tags/pylucene</a></li>
+</ul>
+</blockquote></li>
+<li>Of course, you are free to use Lucene completely in Java - this is just a basic tutorial to simplify the first steps in indexing and searching with PyLucene.</li>
+</ul>
+<h2 id="installation-1"><span class="header-section-number">11.1</span> Installation</h2>
+<ul>
+<li>The installation steps on the official PyLucene page (<a href="http://lucene.apache.org/pylucene/install.html" class="uri">http://lucene.apache.org/pylucene/install.html</a>) did not work straigt forward in Ubuntu 16 LTS.</li>
+<li>This section is considered as an alternative to Xapian. Therefore, the installation steps are not part of the general introduction to installation requirements of PubMedPortable.</li>
+<li><p>Install the following packages using the official Ubuntu sources (“apt-get install” or “sudo synaptic”).</p>
+<blockquote>
+<ul>
+<li>jcc</li>
+<li>python-all-dev</li>
+</ul>
+</blockquote></li>
+<li>The official PyLucene instruction state that you should use the JCC SVN version (<a href="http://lucene.apache.org/pylucene/jcc/install.html" class="uri">http://lucene.apache.org/pylucene/jcc/install.html</a>).</li>
+<li><p>If the Ubuntu default package “jcc” does not work, try the following steps (as described in the official documentation).</p>
+<blockquote>
+<ul>
+<li>svn jcc</li>
+<li>pushd jcc (changes into your jcc directory)</li>
+<li>edit your java path if your receive an error (e.g. ‘linux2’: ‘/usr/lib/jvm/java-8-openjdk-amd64’,)</li>
+<li>python setup.py build</li>
+<li>sudo python setup.py install</li>
+<li>popd</li>
+</ul>
+</blockquote></li>
+<li>Download PyLucene, e.g. from <a href="http://apache.lauf-forum.at/lucene/pylucene" class="uri">http://apache.lauf-forum.at/lucene/pylucene</a> (version 4.9.0.0 used in this section).</li>
+<li><p>Change into unzipped directory and edit Makefile by deleting the comment characters in lines 93-97:</p>
+<blockquote>
+<p>PREFIX_PYTHON=/usr</p>
+<p>ANT=JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 /usr/bin/ant</p>
+<p>PYTHON=$(PREFIX_PYTHON)/bin/python</p>
+<p>JCC=$(PYTHON) -m jcc –shared</p>
+<p>NUM_FILES=8</p>
+</blockquote></li>
+<li><p>Execute the following commands in your terminal (in the PyLucene folder):</p>
+<blockquote>
+<ul>
+<li>make</li>
+<li>make test (any errors?)</li>
+<li>sudo make install</li>
+</ul>
+</blockquote></li>
+<li>You should be able to do “import lucene” now, e.g. in IPython.</li>
+</ul>
+<h2 id="usage"><span class="header-section-number">11.2</span> Usage</h2>
+<ul>
+<li>The PubMedPortable examples index.py and search.py can be modified to be included in the script “PubMedXapian.py” using Xapian with the functions “buildIndexWithArticles(articles)” and “findPMIDsWithSynonyms(synonyms)”.</li>
+<li>The script index.py creates a Lucene folder “lucene_index.Index” and adds two documents with the fields “Title” and “Abstract”.</li>
+<li>If your installation worked fine, you will see the output “Indexed 2 documents.”.</li>
+<li><p>The option “Field.Store.YES” can be considered analogously to the Xapian option “xappy.FieldActions.STORE_CONTENT” in PubMedXapian.py.</p>
+<blockquote>
+<ul>
+<li>Enabling this option means, that you can inspect the source of your matching document directly.</li>
+<li>This increases your index size. Alternatively, you can query the sources from your PostgreSQL database.</li>
+</ul>
+</blockquote></li>
+<li>The script search.py shows two queries. The first query matches both documents, because it searches with “OR” in the fields “Title” and “Abstract”.</li>
+<li>The second query in search.py matches only the first document because of the condition “AND”.</li>
+<li><p>You should see the following output:</p>
+<blockquote>
+<p>Searching for ‘text’ with OR two match both documents:</p>
+<p>2 total matching documents.</p>
+<p>title: text of title1 , abstract: abstract1 has many words, e.g. hellow world can be the text</p>
+<p>title: title2 , abstract: text of abstract2</p>
+<p>Searching for ‘text’ with OR two match only the first document:</p>
+<p>1 total matching documents.</p>
+<p>title: text of title1 , abstract: abstract1 has many words, e.g. hellow world can be the text</p>
+</blockquote></li>
+<li>The usage of PyLucene seems to be simple as well, but the installation can be more difficult. Considering advanced tasks in PyLucene, Java knowledge is clearly an advantage to find and make use of the range of packages and functions.</li>
+</ul>
+<h1 id="contact"><span class="header-section-number">12</span> Contact</h1>
 <ul>
 <li><p>Please, write an e-mail, if you have questions, feedback, improvements, or new ideas:</p>
 <blockquote>
@@ -1011,7 +1097,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 </ul>
 </blockquote></li>
 </ul>
-<h2 id="license"><span class="header-section-number">11.1</span> License</h2>
+<h2 id="license"><span class="header-section-number">12.1</span> License</h2>
 <ul>
 <li>PubMedPortable is published with an ISC license given in “license.txt”.</li>
 </ul>

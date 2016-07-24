@@ -908,6 +908,120 @@ Named Entity Recognition Tools
 .. _Xu et al., 2016: https://dx.doi.org/10.1093/database/baw036
 
 
+**********************************
+Lucene as an Alternative to Xapian
+**********************************
+
+- There is no contradiction in using Xapian or Lucene. We wanted to build a full text index with only a few lines of code in Python, based on an easy installation. Therefore, we chose Xapian.
+
+- Our workflows and use cases were generated with Python code. Lucene can also be called in Python via PyLucene.
+
+- To illustrate this modularity, we created a minimalistic indexing and searching example. The examples were inspired by the following sources:
+
+    - IndexFiles.py, SearchFiles.py, and FacetExample.py in http://svn.apache.org/viewvc/lucene/pylucene/trunk/samples
+
+    - http://graus.co/blog/pylucene-4-0-in-60-seconds-tutorial
+
+    - http://blog.intelligencecomputing.io/tags/pylucene
+
+- Of course, you are free to use Lucene completely in Java - this is just a basic tutorial to simplify the first steps in indexing and searching with PyLucene.
+
+
+------------
+Installation
+------------
+
+- The installation steps on the official PyLucene page (http://lucene.apache.org/pylucene/install.html) did not work straigt forward in Ubuntu 16 LTS.
+
+- This section is considered as an alternative to Xapian. Therefore, the installation steps are not part of the general introduction to installation requirements of PubMedPortable.
+
+- Install the following packages using the official Ubuntu sources ("apt-get install" or "sudo synaptic").
+
+    - jcc 
+
+    - python-all-dev
+
+- The official PyLucene instruction state that you should use the JCC SVN version (http://lucene.apache.org/pylucene/jcc/install.html).
+
+- If the Ubuntu default package "jcc" does not work, try the following steps (as described in the official documentation).
+
+    - svn jcc
+
+    - pushd jcc (changes into your jcc directory)
+
+    - edit your java path if your receive an error (e.g. 'linux2': '/usr/lib/jvm/java-8-openjdk-amd64',)
+
+    - python setup.py build
+
+    - sudo python setup.py install
+
+    - popd
+
+- Download PyLucene, e.g. from http://apache.lauf-forum.at/lucene/pylucene (version 4.9.0.0 used in this section).
+
+- Change into unzipped directory and edit Makefile by deleting the comment characters in lines 93-97:
+
+    PREFIX_PYTHON=/usr
+
+    ANT=JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 /usr/bin/ant
+
+    PYTHON=$(PREFIX_PYTHON)/bin/python
+
+    JCC=$(PYTHON) -m jcc --shared
+
+    NUM_FILES=8
+
+
+- Execute the following commands in your terminal (in the PyLucene folder):
+
+    - make
+
+    - make test (any errors?)
+
+    - sudo make install
+
+- You should be able to do "import lucene" now, e.g. in IPython.
+
+
+-----
+Usage
+-----
+
+- The PubMedPortable examples index.py and search.py can be modified to be included in the script "PubMedXapian.py" using Xapian with the functions "buildIndexWithArticles(articles)" and "findPMIDsWithSynonyms(synonyms)".
+
+- The script index.py creates a Lucene folder "lucene_index.Index" and adds two documents with the fields "Title" and "Abstract".
+
+- If your installation worked fine, you will see the output "Indexed 2 documents.".
+
+- The option "Field.Store.YES" can be considered analogously to the Xapian option "xappy.FieldActions.STORE_CONTENT" in PubMedXapian.py. 
+
+    - Enabling this option means, that you can inspect the source of your matching document directly.
+
+    - This increases your index size. Alternatively, you can query the sources from your PostgreSQL database.
+
+- The script search.py shows two queries. The first query matches both documents, because it searches with "OR" in the fields "Title" and "Abstract".
+
+- The second query in search.py matches only the first document because of the condition "AND".
+
+- You should see the following output:
+
+    Searching for 'text' with OR two match both documents:
+
+    2 total matching documents.
+
+    title: text of title1 , abstract: abstract1 has many words, e.g. hellow world can be the text
+
+    title: title2 , abstract: text of abstract2
+
+    Searching for 'text' with OR two match only the first document:
+
+    1 total matching documents.
+
+    title: text of title1 , abstract: abstract1 has many words, e.g. hellow world can be the text
+
+- The usage of PyLucene seems to be simple as well, but the installation can be more difficult. Considering advanced tasks in PyLucene, Java knowledge is clearly an advantage to find and make use of the range of packages and functions.
+
+
 *******
 Contact
 *******

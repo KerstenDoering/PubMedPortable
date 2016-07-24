@@ -12,3 +12,5 @@ Please, have a look at our [Wiki](https://github.com/KerstenDoering/PubMedPortab
 * [Querying a database](https://github.com/KerstenDoering/PubMedPortable/wiki#examples-for-connecting-full-text-search-and-selection-of-data-from-postgresql)
 * [Examples for using BioC and PubTator](https://github.com/KerstenDoering/PubMedPortable/wiki#examples-for-using-bioc-and-pubtator)
 * [Indexing of PMC Articles](https://github.com/KerstenDoering/PubMedPortable/wiki#indexing-of-pmc-articles)
+* [Named Entity Recognition Tools](https://github.com/KerstenDoering/PubMedPortable/wiki#named-entity-recognition-tools)
+* [Lucene as an Alternative to Xapian](https://github.com/KerstenDoering/PubMedPortable/wiki#lucene-as-an-alternative-to-xapian)
