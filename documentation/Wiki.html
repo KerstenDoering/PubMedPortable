@@ -1,349 +1,54 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.12: http://docutils.sourceforge.net/" />
-<title>PubMedPortable</title>
-<style type="text/css">
-
-/*
-:Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7614 2013-02-21 15:55:51Z milde $
-:Copyright: This stylesheet has been placed in the public domain.
-
-Default cascading style sheet for the HTML output of Docutils.
-
-See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
-customize this style sheet.
-*/
-
-/* used to remove borders from tables and images */
-.borderless, table.borderless td, table.borderless th {
-  border: 0 }
-
-table.borderless td, table.borderless th {
-  /* Override padding for "table.docutils td" with "! important".
-     The right padding separates the table cells. */
-  padding: 0 0.5em 0 0 ! important }
-
-.first {
-  /* Override more specific margin styles with "! important". */
-  margin-top: 0 ! important }
-
-.last, .with-subtitle {
-  margin-bottom: 0 ! important }
-
-.hidden {
-  display: none }
-
-a.toc-backref {
-  text-decoration: none ;
-  color: black }
-
-blockquote.epigraph {
-  margin: 2em 5em ; }
-
-dl.docutils dd {
-  margin-bottom: 0.5em }
-
-object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
-  overflow: hidden;
-}
-
-/* Uncomment (and remove this text!) to get bold-faced definition list terms
-dl.docutils dt {
-  font-weight: bold }
-*/
-
-div.abstract {
-  margin: 2em 5em }
-
-div.abstract p.topic-title {
-  font-weight: bold ;
-  text-align: center }
-
-div.admonition, div.attention, div.caution, div.danger, div.error,
-div.hint, div.important, div.note, div.tip, div.warning {
-  margin: 2em ;
-  border: medium outset ;
-  padding: 1em }
-
-div.admonition p.admonition-title, div.hint p.admonition-title,
-div.important p.admonition-title, div.note p.admonition-title,
-div.tip p.admonition-title {
-  font-weight: bold ;
-  font-family: sans-serif }
-
-div.attention p.admonition-title, div.caution p.admonition-title,
-div.danger p.admonition-title, div.error p.admonition-title,
-div.warning p.admonition-title, .code .error {
-  color: red ;
-  font-weight: bold ;
-  font-family: sans-serif }
-
-/* Uncomment (and remove this text!) to get reduced vertical space in
-   compound paragraphs.
-div.compound .compound-first, div.compound .compound-middle {
-  margin-bottom: 0.5em }
-
-div.compound .compound-last, div.compound .compound-middle {
-  margin-top: 0.5em }
-*/
-
-div.dedication {
-  margin: 2em 5em ;
-  text-align: center ;
-  font-style: italic }
-
-div.dedication p.topic-title {
-  font-weight: bold ;
-  font-style: normal }
-
-div.figure {
-  margin-left: 2em ;
-  margin-right: 2em }
-
-div.footer, div.header {
-  clear: both;
-  font-size: smaller }
-
-div.line-block {
-  display: block ;
-  margin-top: 1em ;
-  margin-bottom: 1em }
-
-div.line-block div.line-block {
-  margin-top: 0 ;
-  margin-bottom: 0 ;
-  margin-left: 1.5em }
-
-div.sidebar {
-  margin: 0 0 0.5em 1em ;
-  border: medium outset ;
-  padding: 1em ;
-  background-color: #ffffee ;
-  width: 40% ;
-  float: right ;
-  clear: right }
-
-div.sidebar p.rubric {
-  font-family: sans-serif ;
-  font-size: medium }
-
-div.system-messages {
-  margin: 5em }
-
-div.system-messages h1 {
-  color: red }
-
-div.system-message {
-  border: medium outset ;
-  padding: 1em }
-
-div.system-message p.system-message-title {
-  color: red ;
-  font-weight: bold }
-
-div.topic {
-  margin: 2em }
-
-h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
-h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
-  margin-top: 0.4em }
-
-h1.title {
-  text-align: center }
-
-h2.subtitle {
-  text-align: center }
-
-hr.docutils {
-  width: 75% }
-
-img.align-left, .figure.align-left, object.align-left {
-  clear: left ;
-  float: left ;
-  margin-right: 1em }
-
-img.align-right, .figure.align-right, object.align-right {
-  clear: right ;
-  float: right ;
-  margin-left: 1em }
-
-img.align-center, .figure.align-center, object.align-center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.align-left {
-  text-align: left }
-
-.align-center {
-  clear: both ;
-  text-align: center }
-
-.align-right {
-  text-align: right }
-
-/* reset inner alignment in figures */
-div.align-right {
-  text-align: inherit }
-
-/* div.align-center * { */
-/*   text-align: left } */
-
-ol.simple, ul.simple {
-  margin-bottom: 1em }
-
-ol.arabic {
-  list-style: decimal }
-
-ol.loweralpha {
-  list-style: lower-alpha }
-
-ol.upperalpha {
-  list-style: upper-alpha }
-
-ol.lowerroman {
-  list-style: lower-roman }
-
-ol.upperroman {
-  list-style: upper-roman }
-
-p.attribution {
-  text-align: right ;
-  margin-left: 50% }
-
-p.caption {
-  font-style: italic }
-
-p.credits {
-  font-style: italic ;
-  font-size: smaller }
-
-p.label {
-  white-space: nowrap }
-
-p.rubric {
-  font-weight: bold ;
-  font-size: larger ;
-  color: maroon ;
-  text-align: center }
-
-p.sidebar-title {
-  font-family: sans-serif ;
-  font-weight: bold ;
-  font-size: larger }
-
-p.sidebar-subtitle {
-  font-family: sans-serif ;
-  font-weight: bold }
-
-p.topic-title {
-  font-weight: bold }
-
-pre.address {
-  margin-bottom: 0 ;
-  margin-top: 0 ;
-  font: inherit }
-
-pre.literal-block, pre.doctest-block, pre.math, pre.code {
-  margin-left: 2em ;
-  margin-right: 2em }
-
-pre.code .ln { color: grey; } /* line numbers */
-pre.code, code { background-color: #eeeeee }
-pre.code .comment, code .comment { color: #5C6576 }
-pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
-pre.code .literal.string, code .literal.string { color: #0C5404 }
-pre.code .name.builtin, code .name.builtin { color: #352B84 }
-pre.code .deleted, code .deleted { background-color: #DEB0A1}
-pre.code .inserted, code .inserted { background-color: #A3D289}
-
-span.classifier {
-  font-family: sans-serif ;
-  font-style: oblique }
-
-span.classifier-delimiter {
-  font-family: sans-serif ;
-  font-weight: bold }
-
-span.interpreted {
-  font-family: sans-serif }
-
-span.option {
-  white-space: nowrap }
-
-span.pre {
-  white-space: pre }
-
-span.problematic {
-  color: red }
-
-span.section-subtitle {
-  /* font-size relative to parent (h1..h6 element) */
-  font-size: 80% }
-
-table.citation {
-  border-left: solid 1px gray;
-  margin-left: 1px }
-
-table.docinfo {
-  margin: 2em 4em }
-
-table.docutils {
-  margin-top: 0.5em ;
-  margin-bottom: 0.5em }
-
-table.footnote {
-  border-left: solid 1px black;
-  margin-left: 1px }
-
-table.docutils td, table.docutils th,
-table.docinfo td, table.docinfo th {
-  padding-left: 0.5em ;
-  padding-right: 0.5em ;
-  vertical-align: top }
-
-table.docutils th.field-name, table.docinfo th.docinfo-name {
-  font-weight: bold ;
-  text-align: left ;
-  white-space: nowrap ;
-  padding-left: 0 }
-
-/* "booktabs" style (no vertical lines) */
-table.docutils.booktabs {
-  border: 0px;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-collapse: collapse;
-}
-table.docutils.booktabs * {
-  border: 0px;
-}
-table.docutils.booktabs th {
-  border-bottom: thin solid;
-  text-align: left;
-}
-
-h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
-h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
-  font-size: 100% }
-
-ul.auto-toc {
-  list-style-type: none }
-
-</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>PubMedPortable</title>
+  <style type="text/css">code{white-space: pre;}</style>
 </head>
 <body>
-<div class="document" id="pubmedportable">
+<div id="header">
 <h1 class="title">PubMedPortable</h1>
-
-<div class="section" id="introduction">
-<h1>Introduction</h1>
-<ul class="simple">
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#download-a-data-set"><span class="toc-section-number">2</span> Download a Data Set</a></li>
+<li><a href="#installation"><span class="toc-section-number">3</span> Installation</a><ul>
+<li><a href="#operating-system"><span class="toc-section-number">3.1</span> Operating System</a><ul>
+<li><a href="#ubuntu"><span class="toc-section-number">3.1.1</span> Ubuntu</a></li>
+<li><a href="#fedora"><span class="toc-section-number">3.1.2</span> Fedora</a></li>
+</ul></li>
+<li><a href="#creation-of-postgresql-superuser"><span class="toc-section-number">3.2</span> Creation of PostgreSQL superuser</a></li>
+<li><a href="#installation-with-docker"><span class="toc-section-number">3.3</span> Installation with Docker</a></li>
+</ul></li>
+<li><a href="#build-up-a-relational-database-in-postgresql"><span class="toc-section-number">4</span> Build up a Relational Database in PostgreSQL</a></li>
+<li><a href="#build-up-a-full-text-index-with-xapian-and-search-it"><span class="toc-section-number">5</span> Build up a Full Text Index with Xapian and Search It</a></li>
+<li><a href="#examples-for-using-full-text-search-and-selecting-data-from-postgresql"><span class="toc-section-number">6</span> Examples for Using Full Text Search and Selecting Data from PostgreSQL</a><ul>
+<li><a href="#xapian"><span class="toc-section-number">6.1</span> Xapian</a></li>
+<li><a href="#postgresql"><span class="toc-section-number">6.2</span> PostgreSQL</a></li>
+<li><a href="#postgresql-and-xapian"><span class="toc-section-number">6.3</span> PostgreSQL and Xapian</a></li>
+</ul></li>
+<li><a href="#examples-for-generating-plots"><span class="toc-section-number">7</span> Examples for Generating Plots</a><ul>
+<li><a href="#word-cloud"><span class="toc-section-number">7.1</span> Word Cloud</a></li>
+<li><a href="#pie-chart"><span class="toc-section-number">7.2</span> Pie Chart</a></li>
+<li><a href="#bar-chart"><span class="toc-section-number">7.3</span> Bar Chart</a></li>
+</ul></li>
+<li><a href="#examples-for-using-bioc-and-pubtator"><span class="toc-section-number">8</span> Examples for Using BioC and PubTator</a></li>
+<li><a href="#indexing-of-pmc-articles"><span class="toc-section-number">9</span> Indexing of PMC Articles</a><ul>
+<li><a href="#introduction-1"><span class="toc-section-number">9.1</span> Introduction</a></li>
+<li><a href="#get-pmc-files"><span class="toc-section-number">9.2</span> Get PMC Files</a></li>
+<li><a href="#create-tables-and-xapian-index"><span class="toc-section-number">9.3</span> Create Tables and Xapian Index</a></li>
+</ul></li>
+<li><a href="#named-entity-recognition-tools"><span class="toc-section-number">10</span> Named Entity Recognition Tools</a></li>
+<li><a href="#contact"><span class="toc-section-number">11</span> Contact</a><ul>
+<li><a href="#license"><span class="toc-section-number">11.1</span> License</a></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="introduction"><span class="header-section-number">1</span> Introduction</h1>
+<ul>
 <li>PubMedPortable processes XML files that can be downloaded from NCBI and builds up a PostgreSQL database containing all abstracts of the data set (no full texts).</li>
 <li>Furthermore, PubMedPortable generates a full text index with Xapian such that titles, abstracts, keywords, MeSH terms and substances can be queried with search terms.</li>
 <li>It is scalable to your system requirements using multiprocessing and can be modified easily to your personal needs.</li>
@@ -353,838 +58,651 @@ ul.auto-toc {
 <li>If the examples from this documentations are used, there will be around 745 MB of disk space needed. There are no other hardware requirements.</li>
 <li>Start by copying the whole project folder from GitHub to your local disk.</li>
 </ul>
-</div>
-<div class="section" id="download-a-data-set">
-<h1>Download a Data Set</h1>
+<h1 id="download-a-data-set"><span class="header-section-number">2</span> Download a Data Set</h1>
 <ul>
-<li><p class="first">Type in the following URL into your browser and search for &quot;pancreatic cancer&quot;:</p>
+<li><p>Type in the following URL into your browser and search for “pancreatic cancer”:</p>
 <blockquote>
 <ul>
-<li><p class="first"><a class="reference external" href="http://www.ncbi.nlm.nih.gov/pubmed/">http://www.ncbi.nlm.nih.gov/pubmed/</a></p>
-</li>
-<li><p class="first">The quote signs are important for the exact search.</p>
-</li>
-<li><p class="first">Click on &quot;Send to:&quot; and &quot;File&quot; and select &quot;XML&quot;.</p>
-</li>
-<li><p class="first">16th April 2015: 23258 PubMed-IDs</p>
+<li><a href="http://www.ncbi.nlm.nih.gov/pubmed/" class="uri">http://www.ncbi.nlm.nih.gov/pubmed/</a></li>
+<li>The quote signs are important for the exact search.</li>
+<li>Click on “Send to:” and “File” and select “XML”.</li>
+<li><p>16th April 2015: 23258 PubMed-IDs</p>
 <blockquote>
-<ul class="simple">
-<li>Some PubMed-IDs might change over time. Even for the given example list of PubMed-IDs for this documentation in &quot;data/pubmed_result.txt&quot; it is possible, that you receive another number of downloaded publications in your XML files as well as different outcomes in the ongoing analyses.</li>
+<ul>
+<li>Some PubMed-IDs might change over time. Even for the given example list of PubMed-IDs for this documentation in “data/pubmed_result.txt” it is possible, that you receive another number of downloaded publications in your XML files as well as different outcomes in the ongoing analyses.</li>
 <li>You can also use PubMedPortable for daily updates, but the parser will not include PubMed IDs which are already contained in the database. Therefore, we recommend to generate a completely new database and a new full text index once a year.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">The download of around 272 MB can take up to one hour depending on the time of day and internet connection.</p>
-</li>
+</blockquote></li>
+<li>The download of around 272 MB can take up to one hour depending on the time of day and internet connection.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Another possibility is to download PubMed articles with EFetch:</p>
+</blockquote></li>
+<li><p>Another possibility is to download PubMed articles with EFetch:</p>
 <blockquote>
 <ul>
-<li><p class="first">How to build a query:</p>
+<li><p>How to build a query:</p>
 <blockquote>
-<ul class="simple">
-<li><a class="reference external" href="http://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.EFetch">http://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.EFetch</a></li>
-<li><a class="reference external" href="http://www.ncbi.nlm.nih.gov/books/NBK25501/">http://www.ncbi.nlm.nih.gov/books/NBK25501/</a></li>
+<ul>
+<li><a href="http://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.EFetch" class="uri">http://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.EFetch</a></li>
+<li><a href="http://www.ncbi.nlm.nih.gov/books/NBK25501/" class="uri">http://www.ncbi.nlm.nih.gov/books/NBK25501/</a></li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">You can also download only the PubMed-ID list from your browser by selecting &quot;PMID List&quot; instead of &quot;XML&quot; and then use EFetch (tested only on Ubuntu):</p>
+</blockquote></li>
+<li><p>You can also download only the PubMed-ID list from your browser by selecting “PMID List” instead of “XML” and then use EFetch (tested only on Ubuntu):</p>
 <blockquote>
-<ul class="simple">
-<li>Change into the directory &quot;data&quot; in your command-line and type in &quot;python generate_efetch.py&quot;. It will build the script &quot;efetch.sh&quot; which generates XML files with 100 PubMed-IDs in each document.</li>
-<li>The standard input filename is &quot;pubmed_result.txt&quot; and the block size of PubMed-IDs for one XML file is 100, but this can be changed. Type in &quot;python generate_efetch.py -h&quot; to show adjustable parameters.</li>
-<li>If you want to specify the name of the directory where the XML files should be saved, use parameter &quot;-d&quot; and create this folder manually before.</li>
-<li>The file &quot;data/pubmed_result.txt&quot; contains 23258 PubMed-IDs and the first 100 PubMed-IDs are saved in &quot;data/pancreatic_cancer_example/medline_00000000.xml&quot; as an example.</li>
-<li>Make &quot;efetch.sh&quot; executable with &quot;chmod +x efetch.sh&quot; in the command-line and run it in a folder of your choice by typing in &quot;./efetch.sh&quot;.</li>
+<ul>
+<li>Change into the directory “data” in your command-line and type in “python generate_efetch.py”. It will build the script “efetch.sh” which generates XML files with 100 PubMed-IDs in each document.</li>
+<li>The standard input filename is “pubmed_result.txt” and the block size of PubMed-IDs for one XML file is 100, but this can be changed. Type in “python generate_efetch.py -h” to show adjustable parameters.</li>
+<li>If you want to specify the name of the directory where the XML files should be saved, use parameter “-d” and create this folder manually before.</li>
+<li>The file “data/pubmed_result.txt” contains 23258 PubMed-IDs and the first 100 PubMed-IDs are saved in “data/pancreatic_cancer_example/medline_00000000.xml” as an example.</li>
+<li>Make “efetch.sh” executable with “chmod +x efetch.sh” in the command-line and run it in a folder of your choice by typing in “./efetch.sh”.</li>
 <li>This will be faster than using the browser to download a single XML file and it has the advantage of using multiprocessing in the next step as the script generates XML files with 100 titles in each document. The command also works with blocks of 500 PubMed-IDs, but not 1000.</li>
 </ul>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">It is also possible to download the whole PubMed via license:</p>
+</blockquote></li>
+<li><p>It is also possible to download the whole PubMed via license:</p>
 <blockquote>
-<ul class="simple">
-<li><a class="reference external" href="http://www.nlm.nih.gov/databases/journal.html">http://www.nlm.nih.gov/databases/journal.html</a></li>
-<li><a class="reference external" href="http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_doc.html">http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_doc.html</a></li>
+<ul>
+<li><a href="http://www.nlm.nih.gov/databases/journal.html" class="uri">http://www.nlm.nih.gov/databases/journal.html</a></li>
+<li><a href="http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_doc.html" class="uri">http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_doc.html</a></li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">You can insert the XML files in an extra directory in your project folder &quot;data&quot; or somewhere else. The only important thing is to use only one type of topic or XML files in one folder, because the programme will insert all files of type XML in a directory into the database given (next step).</p>
-</li>
+</blockquote></li>
+<li>You can insert the XML files in an extra directory in your project folder “data” or somewhere else. The only important thing is to use only one type of topic or XML files in one folder, because the programme will insert all files of type XML in a directory into the database given (next step).</li>
 </ul>
-</div>
-<div class="section" id="installation">
-<h1>Installation</h1>
-<div class="section" id="operating-system">
-<h2>Operating System</h2>
-<ul class="simple">
+<h1 id="installation"><span class="header-section-number">3</span> Installation</h1>
+<h2 id="operating-system"><span class="header-section-number">3.1</span> Operating System</h2>
+<ul>
 <li>PubMedPortable was tested on Ubuntu and Fedora.</li>
 </ul>
-<div class="section" id="ubuntu">
-<h3>Ubuntu</h3>
+<h3 id="ubuntu"><span class="header-section-number">3.1.1</span> Ubuntu</h3>
 <ul>
-<li><p class="first">These are the packages that need to be installed to use PubMedPortable:</p>
-<blockquote>
-<ul>
-<li><p class="first">python&gt;=2.7.3</p>
-</li>
-<li><p class="first">postgresql&gt;=8.4</p>
-</li>
-<li><p class="first">python-xappy&gt;=0.5</p>
-</li>
-<li><p class="first">python-xapian&gt;=1.2.8</p>
-</li>
-<li><p class="first">python-sqlalchemy&gt;=0.9.7</p>
-</li>
-<li><p class="first">python-psycopg2&gt;=2.4.5 (dependency from SQLAlchemy)</p>
-</li>
-<li><p class="first">To install, the following command can be used in the Ubuntu terminal:</p>
-<blockquote>
-<ul class="simple">
-<li>&quot;sudo apt-get install&quot;</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">If you use an older Ubuntu version, you can use &quot;pip&quot; to upgrade your package versions specifically for your user name, e.g.:</p>
-<blockquote>
-<ul class="simple">
-<li>&quot;sudo pip install sqlalchemy --upgrade&quot;</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="fedora">
-<h3>Fedora</h3>
-<ul>
-<li><p class="first">This section describes how to install required packages and how to adjust PostgreSQL settings in Fedora.</p>
-</li>
-<li><p class="first">To install the Fedora packages use the following command. It will install all required packages:</p>
-<blockquote>
-<ul class="simple">
-<li>&quot;sudo -E dnf install python python-xappy python-sqlalchemy python-psycopg2 postgresql postgresql-server postgresql-contrib&quot;</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">To enable PostgreSQL in Fedora, use the following steps:</p>
+<li><p>These are the packages that need to be installed to use PubMedPortable:</p>
 <blockquote>
 <ul>
-<li><p class="first">&quot;sudo systemctl enable postgresql&quot;</p>
-</li>
-<li><p class="first">To start postgresql use the following command</p>
-<blockquote>
-<ul class="simple">
-<li>&quot;sudo systemctl start postgresql&quot;</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">To populate initial data, the following command is required:</p>
-<blockquote>
-<ul class="simple">
-<li>&quot;journalctl -xn&quot;</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">To initialise database, use the following command:</p>
-<blockquote>
-<ul class="simple">
-<li>&quot;sudo postgresql-setup initdb&quot;</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">To allow read access to postgres, SELinux should be modified. This can be done with the following command:</p>
-<blockquote>
-<ul class="simple">
-<li>&quot;grep postgres /var/log/audit/audit.log | audit2allow -M mypol&quot;</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">Then you can do this:</p>
-<blockquote>
-<ul class="simple">
-<li>&quot;sudo semodule -i mypol.pp&quot;</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">Append this line in the file &quot;pg_hba.conf&quot; (default location: &quot;/var/lib/pgsql/data/pg_hba.conf&quot;):</p>
-<blockquote>
-<ul class="simple">
-<li>&quot;host    all             all             0.0.0.0         0.0.0.0         trust&quot;</li>
-<li>If &quot;trust&quot; is used instead of &quot;ident&quot;, you are allowed to use a password. &quot;0.0.0.0&quot; means that all machines are allowed to login. That means, if you want to customise which server has to reach the database, you can control it here.</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="creation-of-postgresql-superuser">
-<h2>Creation of PostgreSQL superuser</h2>
-<ul>
-<li><p class="first">If there is not yet a superuser for the PostgreSQL database, create one with the name of your local account</p>
+<li>python&gt;=2.7.3</li>
+<li>postgresql&gt;=8.4</li>
+<li>python-xappy&gt;=0.5</li>
+<li>python-xapian&gt;=1.2.8</li>
+<li>python-sqlalchemy&gt;=0.9.7</li>
+<li>python-psycopg2&gt;=2.4.5 (dependency from SQLAlchemy)</li>
+<li><p>To install, the following command can be used in the Ubuntu terminal:</p>
 <blockquote>
 <ul>
-<li><p class="first">&quot;sudo -u postgres createuser --superuser &lt;user_name&gt;&quot;</p>
-</li>
-<li><p class="first">&quot;sudo -u &lt;user_name&gt; psql template1&quot;</p>
+<li>“sudo apt-get install”</li>
+</ul>
+</blockquote></li>
+</ul>
+</blockquote></li>
+<li><p>If you use an older Ubuntu version, you can use “pip” to upgrade your package versions specifically for your user name, e.g.:</p>
 <blockquote>
-<ul class="simple">
+<ul>
+<li>“sudo pip install sqlalchemy –upgrade”</li>
+</ul>
+</blockquote></li>
+</ul>
+<h3 id="fedora"><span class="header-section-number">3.1.2</span> Fedora</h3>
+<ul>
+<li>This section describes how to install required packages and how to adjust PostgreSQL settings in Fedora.</li>
+<li><p>To install the Fedora packages use the following command. It will install all required packages:</p>
+<blockquote>
+<ul>
+<li>“sudo -E dnf install python python-xappy python-sqlalchemy python-psycopg2 postgresql postgresql-server postgresql-contrib”</li>
+</ul>
+</blockquote></li>
+<li><p>To enable PostgreSQL in Fedora, use the following steps:</p>
+<blockquote>
+<ul>
+<li>“sudo systemctl enable postgresql”</li>
+<li><p>To start postgresql use the following command</p>
+<blockquote>
+<ul>
+<li>“sudo systemctl start postgresql”</li>
+</ul>
+</blockquote></li>
+<li><p>To populate initial data, the following command is required:</p>
+<blockquote>
+<ul>
+<li>“journalctl -xn”</li>
+</ul>
+</blockquote></li>
+<li><p>To initialise database, use the following command:</p>
+<blockquote>
+<ul>
+<li>“sudo postgresql-setup initdb”</li>
+</ul>
+</blockquote></li>
+<li><p>To allow read access to postgres, SELinux should be modified. This can be done with the following command:</p>
+<blockquote>
+<ul>
+<li>“grep postgres /var/log/audit/audit.log | audit2allow -M mypol”</li>
+</ul>
+</blockquote></li>
+<li><p>Then you can do this (this is also required upto Fedora 23):</p>
+<blockquote>
+<ul>
+<li>“sudo semodule -i mypol.pp”</li>
+</ul>
+</blockquote></li>
+<li><p>Append this line in the file “pg_hba.conf” (default location: “/var/lib/pgsql/data/pg_hba.conf”):</p>
+<blockquote>
+<ul>
+<li>“host all all 0.0.0.0 0.0.0.0 trust”</li>
+<li>If “trust” is used instead of “ident”, you are allowed to use a password. “0.0.0.0” means that all machines are allowed to login. That means, if you want to customise which server has to reach the database, you can control it here.</li>
+</ul>
+</blockquote></li>
+</ul>
+</blockquote></li>
+</ul>
+<h2 id="creation-of-postgresql-superuser"><span class="header-section-number">3.2</span> Creation of PostgreSQL superuser</h2>
+<ul>
+<li><p>If there is not yet a superuser for the PostgreSQL database, create one with the name of your local account</p>
+<blockquote>
+<ul>
+<li>“sudo -u postgres createuser --superuser &lt;user_name&gt;”</li>
+<li><p>“sudo -u &lt;user_name&gt; psql template1”</p>
+<blockquote>
+<ul>
 <li>\password &lt;press enter, type in password, and press enter, again&gt;</li>
 <li>\q</li>
 </ul>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Now, you can connect to the standard PostgreSQL database &quot;postgres&quot; with PGAdmin3 or via command-line:</p>
-<blockquote>
-<ul class="simple">
-<li>&quot;psql -h localhost -d postgres -U &lt;user_name&gt;&quot;</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="installation-with-docker">
-<h2>Installation with Docker</h2>
-<ul>
-<li><p class="first">Docker is similar to a virtual machine,  but it is easier to deploy and more efficient. It was tested in Ubuntu and Windows.</p>
-</li>
-<li><p class="first">You can use the PubMedPortable image to create a PostgreSQL relational database and a Xapian full text index without installing the packages mentioned above in basically two steps.</p>
-</li>
-<li><p class="first">Install Docker - it was tested on Ubuntu (64-bit required):</p>
+</blockquote></li>
+<li><p>Now, you can connect to the standard PostgreSQL database “postgres” with PGAdmin3 or via command-line:</p>
 <blockquote>
 <ul>
-<li><p class="first"><a class="reference external" href="https://docs.docker.com/installation/ubuntulinux/">https://docs.docker.com/installation/ubuntulinux/</a></p>
-</li>
-<li><p class="first">There are many different operating systems supported:</p>
-<blockquote>
-<ul class="simple">
-<li><a class="reference external" href="https://docs.docker.com/installation/#installation">https://docs.docker.com/installation/#installation</a></li>
+<li>“psql -h localhost -d postgres -U &lt;user_name&gt;”</li>
 </ul>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Run Docker with the PubMedPortable image:</p>
+<h2 id="installation-with-docker"><span class="header-section-number">3.3</span> Installation with Docker</h2>
+<ul>
+<li>Docker is similar to a virtual machine, but it is easier to deploy and more efficient. It was tested in Ubuntu and Windows.</li>
+<li>You can use the PubMedPortable image to create a PostgreSQL relational database and a Xapian full text index without installing the packages mentioned above in basically two steps.</li>
+<li><p>Install Docker - it was tested on Ubuntu (64-bit required):</p>
 <blockquote>
 <ul>
-<li><p class="first">Create a folder on your local disk with a name of your choice.</p>
-</li>
-<li><p class="first">Go into that folder and create a directory &quot;import_data&quot;.</p>
-</li>
-<li><p class="first">Copy you XML files downloaded from PubMed into the directory &quot;import_data&quot;.</p>
-</li>
-<li><p class="first">Open a terminal and type in this command:</p>
+<li><a href="https://docs.docker.com/installation/ubuntulinux/" class="uri">https://docs.docker.com/installation/ubuntulinux/</a></li>
+<li><p>There are many different operating systems supported:</p>
 <blockquote>
 <ul>
-<li><p class="first">&quot;sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9999:5432 bgruening/pubmed2go&quot;</p>
-</li>
-<li><p class="first">This will create the PostgreSQL folder as well as the full text index database folder within the &lt;folder_of_your_choice&gt;.</p>
-</li>
-<li><p class="first">You can see that Docker is running by typing in &quot;sudo docker ps&quot;. This will show a randomly generated name for your process.</p>
-</li>
-<li><p class="first">Stopping Docker is possible by doing &quot;sudo docker stop &lt;name&gt;&quot;.</p>
-</li>
-<li><p class="first">Docker maps your PosgreSQL port &quot;5432&quot; to the port &quot;9999&quot;. Now, you can connect to your database with PGAdmin via &quot;localhost&quot;, port &quot;9999&quot; and user &quot;parser&quot; with password &quot;parser&quot;. If you want to connect via command-line, use this command:</p>
+<li><a href="https://docs.docker.com/installation/#installation" class="uri">https://docs.docker.com/installation/#installation</a></li>
+</ul>
+</blockquote></li>
+</ul>
+</blockquote></li>
+<li><p>Run Docker with the PubMedPortable image:</p>
 <blockquote>
-<ul class="simple">
-<li>&quot;psql -h localhost -U parser -p 9999 -d pubmed&quot;</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">If you have created another folder with a name &lt;folder_of_your_choice&gt; and the directory &quot;import_data&quot;, you can create another database on port &quot;9998&quot; and another full text index with different data there:</p>
-<blockquote>
-<ul class="simple">
-<li>&quot;sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9998:5432 bgruening/pubmed2go&quot;</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">In case of replacing or creating a database on a port that is already used, delete the complete directory &lt;folder_of_your_choice&gt; and repeat the configuration steps.</p>
-</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">You can connect to PostgreSQL and Xapian with the programming language of your choice or follow the Python examples given in this documentation. If you want to develop your own text mining pipelines based on your data set of choice, you will have to install the required libraries on your operating system.</p>
-</li>
-<li><p class="first">This also means that you need a default PostgreSQL installation on your operating system. Restart a closed Docker session on port &quot;9999&quot; with the command:</p>
-<blockquote>
-<ul class="simple">
-<li>&quot;sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9999:5432 bgruening/pubmed2go&quot;</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">It is not recommended to run the PubMedPortable examples or to develop new scripts within the Docker container. If you want to modify the image, use the Docker documentation and this repository:</p>
-<blockquote>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/bgruening/docker-recipes/tree/master/pubmed2go">https://github.com/bgruening/docker-recipes/tree/master/pubmed2go</a></li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">If you want to try the examples given in the sections 5 to 8, copy the Xapian directory from the &lt;folder_of_your_choice&gt; into the folder &quot;PubMedPortable/full_text_index/xapian/&quot; from &quot;<a class="reference external" href="https://github.com/KerstenDoering/PubMedPortable">https://github.com/KerstenDoering/PubMedPortable</a>&quot; and run the Docker container in background. In case of using Docker, you can completely skip section 4.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="build-up-a-relational-database-in-postgresql">
-<h1>Build up a Relational Database in PostgreSQL</h1>
 <ul>
-<li><p class="first">Open a Terminal and type in:</p>
+<li>Create a folder on your local disk with a name of your choice.</li>
+<li>Go into that folder and create a directory “import_data”.</li>
+<li>Copy you XML files downloaded from PubMed into the directory “import_data”.</li>
+<li><p>Open a terminal and type in this command:</p>
 <blockquote>
-<ul class="simple">
-<li>&quot;psql template1&quot;</li>
+<ul>
+<li>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9999:5432 bgruening/pubmed2go”</li>
+<li>This will create the PostgreSQL folder as well as the full text index database folder within the &lt;folder_of_your_choice&gt;.</li>
+<li>You can see that Docker is running by typing in “sudo docker ps”. This will show a randomly generated name for your process.</li>
+<li>Stopping Docker is possible by doing “sudo docker stop &lt;name&gt;”.</li>
+<li><p>Docker maps your PosgreSQL port “5432” to the port “9999”. Now, you can connect to your database with PGAdmin via “localhost”, port “9999” and user “parser” with password “parser”. If you want to connect via command-line, use this command:</p>
+<blockquote>
+<ul>
+<li>“psql -h localhost -U parser -p 9999 -d pubmed”</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Enter the following commands into psql prompt to create a database, the schema &quot;pubmed&quot;, and a standard user &quot;parser&quot;. It is important to write the user &quot;parser&quot; in single quotes in the creation step:</p>
+</blockquote></li>
+<li><p>If you have created another folder with a name &lt;folder_of_your_choice&gt; and the directory “import_data”, you can create another database on port “9998” and another full text index with different data there:</p>
 <blockquote>
-<ul class="simple">
+<ul>
+<li>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9998:5432 bgruening/pubmed2go”</li>
+</ul>
+</blockquote></li>
+<li>In case of replacing or creating a database on a port that is already used, delete the complete directory &lt;folder_of_your_choice&gt; and repeat the configuration steps.</li>
+</ul>
+</blockquote></li>
+</ul>
+</blockquote></li>
+<li>You can connect to PostgreSQL and Xapian with the programming language of your choice or follow the Python examples given in this documentation. If you want to develop your own text mining pipelines based on your data set of choice, you will have to install the required libraries on your operating system.</li>
+<li><p>This also means that you need a default PostgreSQL installation on your operating system. Restart a closed Docker session on port “9999” with the command:</p>
+<blockquote>
+<ul>
+<li>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9999:5432 bgruening/pubmed2go”</li>
+</ul>
+</blockquote></li>
+<li><p>It is not recommended to run the PubMedPortable examples or to develop new scripts within the Docker container. If you want to modify the image, use the Docker documentation and this repository:</p>
+<blockquote>
+<ul>
+<li><a href="https://github.com/bgruening/docker-recipes/tree/master/pubmed2go" class="uri">https://github.com/bgruening/docker-recipes/tree/master/pubmed2go</a></li>
+</ul>
+</blockquote></li>
+<li>If you want to try the examples given in the sections 5 to 8, copy the Xapian directory from the &lt;folder_of_your_choice&gt; into the folder “PubMedPortable/full_text_index/xapian/” from “<a href="https://github.com/KerstenDoering/PubMedPortable" class="uri">https://github.com/KerstenDoering/PubMedPortable</a>” and run the Docker container in background. In case of using Docker, you can completely skip section 4.</li>
+</ul>
+<h1 id="build-up-a-relational-database-in-postgresql"><span class="header-section-number">4</span> Build up a Relational Database in PostgreSQL</h1>
+<ul>
+<li><p>Open a Terminal and type in:</p>
+<blockquote>
+<ul>
+<li>“psql template1”</li>
+</ul>
+</blockquote></li>
+<li><p>Enter the following commands into psql prompt to create a database, the schema “pubmed”, and a standard user “parser”. It is important to write the user “parser” in single quotes in the creation step:</p>
+<blockquote>
+<ul>
 <li>CREATE USER parser WITH PASSWORD 'parser';</li>
 <li>CREATE DATABASE pancreatic_cancer_db;</li>
 <li>GRANT ALL PRIVILEGES ON DATABASE pancreatic_cancer_db to parser;</li>
 <li>\q</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Now you can create a schema &quot;pubmed&quot; as user &quot;parser&quot;. You will be asked to enter your password &quot;parser&quot; here:</p>
-<blockquote>
-<ul class="simple">
-<li>&quot;psql -h localhost -d pancreatic_cancer_db -U parser -f create_schema.sql&quot;</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">If you want to use another database name, just change &quot;pancreatic_cancer_db&quot; in these commands and provide this name in all other scripts by choosing the right parameter.</p>
-</li>
-<li><p class="first">It is recommended to use the name &quot;parser&quot; with password &quot;parser&quot; and the schema &quot;pubmed&quot;, because this is hard coded in &quot;PubMedDB.py&quot; and &quot;PubMedParser.py&quot;</p>
-</li>
-<li><p class="first">Create the tables in your database schema &quot;pubmed&quot; like this:</p>
-<blockquote>
-<ul class="simple">
-<li>Use the command &quot;python PubMedDB.py -d pancreatic_cancer_db&quot; in your terminal. There are no other parameters that can be set.</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">Load the data from PubMed into your PostgreSQL database:</p>
+</blockquote></li>
+<li><p>Now you can create a schema “pubmed” as user “parser”. You will be asked to enter your password “parser” here:</p>
 <blockquote>
 <ul>
-<li><p class="first">You can check &quot;python PubMedParser.py -h&quot; to get a help screen with all adjustable parameters. If you want to use the defaults, you can simply type in &quot;python PubMedParser.py&quot;.</p>
-<blockquote>
-<ul class="simple">
-<li>By default, previously in PostgreSQL inserted data will be deleted before loading the new XML files into the database. That means you just have to call &quot;python PubMedParser.py&quot;, again in case you want to load new data into your already created database.</li>
-<li>If you do not want to delete, but only add XML files to the data that is already inside your PostgreSQL database, use parameter &quot;-c&quot;.</li>
-<li>The default database name is &quot;pancreatic_cancer_db&quot; and the default number of processors is 2. For changing, use parameters &quot;-d&quot; and &quot;-p&quot;.</li>
-<li>If you want to process only part of your files, use the parameters &quot;-s&quot; and &quot;-e&quot; with numbers referring to your alphabetically sorted files, e.g. &quot;-s 0 -e 20&quot; for the first 20 XML files in the directory.</li>
+<li>“psql -h localhost -d pancreatic_cancer_db -U parser -f create_schema.sql”</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">It is important that you only type in the name of the folder containing all XML files with parameter &quot;-i&quot;, but not the name of the file(s). You do not need to type in the absolute path. Suppose, you have saved your XML file(s) in the directory &quot;data/pancreatic_cancer&quot;, use this command to run it with 3 processors and the database &quot;pancreatic_cancer_db&quot;:</p>
+</blockquote></li>
+<li>If you want to use another database name, just change “pancreatic_cancer_db” in these commands and provide this name in all other scripts by choosing the right parameter.</li>
+<li>It is recommended to use the name “parser” with password “parser” and the schema “pubmed”, because this is hard coded in “PubMedDB.py” and “PubMedParser.py”</li>
+<li><p>Create the tables in your database schema “pubmed” like this:</p>
 <blockquote>
-<ul class="simple">
-<li>&quot;python PubMedParser.py -i data/pancreatic_cancer/ -d pancreatic_cancer_db -p 3&quot;</li>
+<ul>
+<li>Use the command “python PubMedDB.py -d pancreatic_cancer_db” in your terminal. There are no other parameters that can be set.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">If you receive an error concerning too many database connections, make sure that you use the latest version of SQLAlchemy. In earlier versions, sometimes the database connections were closed by the programme, but still remained open for some seconds, preventing the new programme to open a new connection. You can also increase the number of possible connections to your PostgreSQL server that can be opened (Ubuntu: &quot;max_connections = &lt;type in number&gt;&quot; in &quot;/etc/postgresql/&lt;version number&gt;/main/postgresql.conf&quot;).</p>
-</li>
-<li><p class="first">For one file with around 272 MB this takes around 10 min (only one processor can be used). For the same amount of data split into files with only 100 PubMed-IDs (use &quot;generate_efetch.py&quot;) it takes around 4 min with 3 processors (2,83 GHz and 8 GB RAM).</p>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">Now, a schema &quot;pubmed&quot; exists in your database &quot;pancreatic_cancer_db&quot; that contains all abstracts, titles, authors, etc. More information will be given in section 5, containing SQL queries and small programming examples.</p>
-</li>
-<li><p class="first">The schema is described in the file &quot;documentation/PostgreSQL_database_schema.html&quot; which was generated with DbSchema (<a class="reference external" href="http://www.dbschema.com/download.html">http://www.dbschema.com/download.html</a>).</p>
-</li>
-<li><p class="first">If you want to extend the database schema in terms of additional columns or tables, you can have a look at this diff in the GitHub repository:</p>
+</blockquote></li>
+<li><p>Load the data from PubMed into your PostgreSQL database:</p>
 <blockquote>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/KerstenDoering/PubMedPortable/commit/99f39f385c83d121422d1c48694c7fb2e6e421b3">https://github.com/KerstenDoering/PubMedPortable/commit/99f39f385c83d121422d1c48694c7fb2e6e421b3</a></li>
+<ul>
+<li><p>You can check “python PubMedParser.py -h” to get a help screen with all adjustable parameters. If you want to use the defaults, you can simply type in “python PubMedParser.py”.</p>
+<blockquote>
+<ul>
+<li>By default, previously in PostgreSQL inserted data will be deleted before loading the new XML files into the database. That means you just have to call “python PubMedParser.py”, again in case you want to load new data into your already created database.</li>
+<li>If you do not want to delete, but only add XML files to the data that is already inside your PostgreSQL database, use parameter “-c”.</li>
+<li>The default database name is “pancreatic_cancer_db” and the default number of processors is 2. For changing, use parameters “-d” and “-p”.</li>
+<li>If you want to process only part of your files, use the parameters “-s” and “-e” with numbers referring to your alphabetically sorted files, e.g. “-s 0 -e 20” for the first 20 XML files in the directory.</li>
+</ul>
+</blockquote></li>
+<li><p>It is important that you only type in the name of the folder containing all XML files with parameter “-i”, but not the name of the file(s). You do not need to type in the absolute path. Suppose, you have saved your XML file(s) in the directory “data/pancreatic_cancer”, use this command to run it with 3 processors and the database “pancreatic_cancer_db”:</p>
+<blockquote>
+<ul>
+<li>“python PubMedParser.py -i data/pancreatic_cancer/ -d pancreatic_cancer_db -p 3”</li>
+</ul>
+</blockquote></li>
+<li>If you receive an error concerning too many database connections, make sure that you use the latest version of SQLAlchemy. In earlier versions, sometimes the database connections were closed by the programme, but still remained open for some seconds, preventing the new programme to open a new connection. You can also increase the number of possible connections to your PostgreSQL server that can be opened (Ubuntu: “max_connections = &lt;type in number&gt;” in “/etc/postgresql/&lt;version number&gt;/main/postgresql.conf”).</li>
+<li>For one file with around 272 MB this takes around 10 min (only one processor can be used). For the same amount of data split into files with only 100 PubMed-IDs (use “generate_efetch.py”) it takes around 4 min with 3 processors (2,83 GHz and 8 GB RAM).</li>
+</ul>
+</blockquote></li>
+<li>Now, a schema “pubmed” exists in your database “pancreatic_cancer_db” that contains all abstracts, titles, authors, etc. More information will be given in section 5, containing SQL queries and small programming examples.</li>
+<li>The schema is described in the file “documentation/PostgreSQL_database_schema.html” which was generated with DbSchema (<a href="http://www.dbschema.com/download.html" class="uri">http://www.dbschema.com/download.html</a>).</li>
+<li><p>If you want to extend the database schema in terms of additional columns or tables, you can have a look at this diff in the GitHub repository:</p>
+<blockquote>
+<ul>
+<li><a href="https://github.com/KerstenDoering/PubMedPortable/commit/99f39f385c83d121422d1c48694c7fb2e6e421b3" class="uri">https://github.com/KerstenDoering/PubMedPortable/commit/99f39f385c83d121422d1c48694c7fb2e6e421b3</a></li>
 <li>Consider the example of UI fields (MeSH IDs) for chemical substances.</li>
 <li>The column needs to be initialised (line 220 and 225 in PubMedDB.py) and the parser needs to get this XML field (line 309 in PubMedParser.py).</li>
 <li>The steps how to create a new table with adapted columns can be seen in the example of creating a class OtherID and OtherAbstract from the earlier existing class Other.</li>
 </ul>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-</div>
-<div class="section" id="build-up-a-full-text-index-with-xapian-and-search-it">
-<h1>Build up a Full Text Index with Xapian and Search It</h1>
+<h1 id="build-up-a-full-text-index-with-xapian-and-search-it"><span class="header-section-number">5</span> Build up a Full Text Index with Xapian and Search It</h1>
 <ul>
-<li><p class="first">The results from this section can be found in &quot;full_text_index/results/results_from_documentation/&quot;.</p>
-</li>
-<li><p class="first">Change into the directory &quot;full_text_index&quot; in your terminal.</p>
-</li>
-<li><p class="first">Create two directories, &quot;xapian&quot; and &quot;results&quot;, if they do not yet exist.</p>
-</li>
-<li><p class="first">Type in &quot;python RunXapian.py -h&quot; to get a help screen with all adjustable parameters.</p>
-</li>
-<li><p class="first">If you use all default values from this documentation, you will receive results in &quot;results/results.csv&quot; with &quot;python RunXapian.py -x&quot;.</p>
+<li>The results from this section can be found in “full_text_index/results/results_from_documentation/”.</li>
+<li>Change into the directory “full_text_index” in your terminal.</li>
+<li>Create two directories, “xapian” and “results”, if they do not yet exist.</li>
+<li>Type in “python RunXapian.py -h” to get a help screen with all adjustable parameters.</li>
+<li><p>If you use all default values from this documentation, you will receive results in “results/results.csv” with “python RunXapian.py -x”.</p>
 <blockquote>
 <ul>
-<li><p class="first">If you want to use the PostgreSQL database generated with Docker, change the port in the script &quot;Article.py&quot; in line 21 from &quot;5432&quot; to &quot;9999&quot; (the port you selected in Docker) and use the parameter &quot;-d&quot; with the database &quot;pubmed&quot; for the script &quot;RunXapian.py&quot;.</p>
-</li>
-<li><p class="first">This command indexes all titles, abstracts, keywords, MeSH terms and substances from year 1809 to 2015, downloaded as XML files from PubMed (as described in section &quot;Download a Data Set&quot;).</p>
+<li>If you want to use the PostgreSQL database generated with Docker, change the port in the script “Article.py” in line 21 from “5432” to “9999” (the port you selected in Docker) and use the parameter “-d” with the database “pubmed” for the script “RunXapian.py”.</li>
+<li><p>This command indexes all titles, abstracts, keywords, MeSH terms and substances from year 1809 to 2015, downloaded as XML files from PubMed (as described in section “Download a Data Set”).</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>There are no abstracts with a publication date before 1809:</li>
-<li><a class="reference external" href="http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_med_filecount.html">http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_med_filecount.html</a></li>
+<li><a href="http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_med_filecount.html" class="uri">http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_med_filecount.html</a></li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">After completing the step of generating the full text index, the programme searches it with the synonyms given in &quot;synonyms/pancreatic_cancer.txt&quot;.</p>
-<blockquote>
-<ul class="simple">
-<li>This file contains manually chosen names of drugs, genes, proteins, and diseases related to pancreatic cancer.</li>
-<li>User-provided synonyms can be directly stored in this file or saved in a new text document in the folder &quot;synonyms&quot;. Subsequently, the parameter &quot;-s&quot; can be used to process this file.</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">The output in the command-line shows how many PubMed-IDs are indexed (23258) and how many synonyms are searched (86).</p>
-</li>
-<li><p class="first">This takes around 2-3 min on a 2,83 GHz machine with 8 GB RAM.</p>
-</li>
-<li><p class="first">You can also select single years for indexing and searching.</p>
-</li>
-<li><p class="first">If you just want to index your XML files, type in &quot;python RunXapian.py -x -f&quot;. (Parameter &quot;-f&quot; turns off the search function of the programme, default is &quot;True&quot;.)</p>
-</li>
-<li><p class="first">If you just want to search your synonyms, type in &quot;python RunXapian.py&quot; (Parameter &quot;-x&quot; turns on the indexing step, default is &quot;False&quot;.)</p>
-</li>
-<li><p class="first">The default location for your full text index database folder is &quot;PubMedPortable/full_text_index/xapian/&lt;xapian2015&gt;&quot;. You can change this location by using the parameter &quot;-p&quot;.</p>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">For the given example, 10392 lines were generated in &quot;results.csv&quot;. Run &quot;python summary.py&quot; to get two CSV files in directory &quot;results&quot;. If you have chosen another filename as output from &quot;RunXapian.py&quot;, you can do &quot;python summary.py -f &lt;name_of_input_file.csv&gt;&quot;:</p>
+</blockquote></li>
+<li><p>After completing the step of generating the full text index, the programme searches it with the synonyms given in “synonyms/pancreatic_cancer.txt”.</p>
 <blockquote>
 <ul>
-<li><p class="first">Drug synonyms were taken from DrugBank using the exact search query &quot;pancreatic cancer&quot;:</p>
-<blockquote>
-<ul class="simple">
-<li><a class="reference external" href="http://www.drugbank.ca/">http://www.drugbank.ca/</a></li>
+<li>This file contains manually chosen names of drugs, genes, proteins, and diseases related to pancreatic cancer.</li>
+<li>User-provided synonyms can be directly stored in this file or saved in a new text document in the folder “synonyms”. Subsequently, the parameter “-s” can be used to process this file.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Protein and gene synonyms have been extracted manually from OMIM also performing an exact search:</p>
-<blockquote>
-<ul class="simple">
-<li><a class="reference external" href="http://omim.org/entry/260350?search=%22pancreatic%20cancer%22">http://omim.org/entry/260350?search=%22pancreatic%20cancer%22</a></li>
+</blockquote></li>
+<li>The output in the command-line shows how many PubMed-IDs are indexed (23258) and how many synonyms are searched (86).</li>
+<li>This takes around 2-3 min on a 2,83 GHz machine with 8 GB RAM.</li>
+<li>You can also select single years for indexing and searching.</li>
+<li>If you just want to index your XML files, type in “python RunXapian.py -x -f”. (Parameter “-f” turns off the search function of the programme, default is “True”.)</li>
+<li>If you just want to search your synonyms, type in “python RunXapian.py” (Parameter “-x” turns on the indexing step, default is “False”.)</li>
+<li>The default location for your full text index database folder is “PubMedPortable/full_text_index/xapian/&lt;xapian2015&gt;”. You can change this location by using the parameter “-p”.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Diseases related to pancreatic cancer have been taken the text given on OMIM, too.</p>
-</li>
-<li><p class="first">&quot;counts_results.csv&quot; shows how many synonyms were found (descending - 64 lines, meaning 64 from a total of 86 search terms). The alternative input filename will be &quot;counts_&lt;input_file.csv&gt;&quot;.</p>
+</blockquote></li>
+<li><p>For the given example, 10392 lines were generated in “results.csv”. Run “python summary.py” to get two CSV files in directory “results”. If you have chosen another filename as output from “RunXapian.py”, you can do “python summary.py -f &lt;name_of_input_file.csv&gt;”:</p>
 <blockquote>
-<ul class="simple">
+<ul>
+<li><p>Drug synonyms were taken from DrugBank using the exact search query “pancreatic cancer”:</p>
+<blockquote>
+<ul>
+<li><a href="http://www.drugbank.ca/" class="uri">http://www.drugbank.ca/</a></li>
+</ul>
+</blockquote></li>
+<li><p>Protein and gene synonyms have been extracted manually from OMIM also performing an exact search:</p>
+<blockquote>
+<ul>
+<li><a href="http://omim.org/entry/260350?search=%22pancreatic%20cancer%22">http://omim.org/entry/260350?search=%22pancreatic%20cancer%22</a></li>
+</ul>
+</blockquote></li>
+<li>Diseases related to pancreatic cancer have been taken the text given on OMIM, too.</li>
+<li><p>“counts_results.csv” shows how many synonyms were found (descending - 64 lines, meaning 64 from a total of 86 search terms). The alternative input filename will be “counts_&lt;input_file.csv&gt;”.</p>
+<blockquote>
+<ul>
 <li>Taking into account the drugs, gemcitabine shows the most hits (2907). Erlotinib was found in 311 publications. Other approved drugs like WF10 and hydroxocobalamin were not found. Many investigational drugs were found 1-10 times: R115777, G17DT, hedgehog pathway inhibitor, imexon, GV1001, RP101, MGI-114, and PX-12. No other substances given on DrugBank were identified in this data set.</li>
-<li>Pancreatic ductal adenocarcinoma is the most common type of pancreatic cancer ( <a class="reference external" href="http://www.cancer.gov/aboutnci/budget_planning_leg/plan-2013/profiles/pancreatic">http://www.cancer.gov/aboutnci/budget_planning_leg/plan-2013/profiles/pancreatic</a> ), which is shown by the 1598 hits. The tumor suppressor protein p53 was found 660 times, but also associated genes like KRAS, SMAD4, BRCA2, mTOR and CDKN2A were found (138-424 times). Many other genes were identified with a number below 10 hits and can be further analysed in &quot;pmids_results.csv&quot;.</li>
+<li>Pancreatic ductal adenocarcinoma is the most common type of pancreatic cancer ( <a href="http://www.cancer.gov/aboutnci/budget_planning_leg/plan-2013/profiles/pancreatic" class="uri">http://www.cancer.gov/aboutnci/budget_planning_leg/plan-2013/profiles/pancreatic</a> ), which is shown by the 1598 hits. The tumor suppressor protein p53 was found 660 times, but also associated genes like KRAS, SMAD4, BRCA2, mTOR and CDKN2A were found (138-424 times). Many other genes were identified with a number below 10 hits and can be further analysed in “pmids_results.csv”.</li>
 <li>Associated diseases like breast cancer, colon cancer, ovarian cancer and diabetes were found 255-919 times.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">&quot;pmids_results.csv&quot; shows which synonyms co-occur in the same abstract or title, sorted by PubMed-IDs (7500 lines). In case of an alternative input filename, there will be the resulting file &quot;pmids_&lt;input_file.csv&gt;&quot;.</p>
-</li>
+</blockquote></li>
+<li>“pmids_results.csv” shows which synonyms co-occur in the same abstract or title, sorted by PubMed-IDs (7500 lines). In case of an alternative input filename, there will be the resulting file “pmids_&lt;input_file.csv&gt;”.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">In case, you want to index the whole PubMed, it can be useful to index blocks of years or every year as a single directory. Like this, it is possible to use multiprocessing and decrease RAM usage. Just run the programme in different shells or on different machines and copy all resulting index folders to the same main directory. The tool &quot;xapian-compact&quot; summarises all generated directories to one full text index:</p>
-<blockquote>
-<ul class="simple">
-<li><a class="reference external" href="http://xapian.org/docs/admin_notes.html#merging-databases">http://xapian.org/docs/admin_notes.html#merging-databases</a></li>
-<li>xapian-compact -m  &lt;all input directories to be compressed, separated by space&gt; &lt;name of outcoming folder with complete database&gt;</li>
-<li>Using Ubuntu, this tool might have to be installed additionally with &quot;sudo apt install xapian-tools&quot;.</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="examples-for-using-full-text-search-and-selecting-data-from-postgresql">
-<h1>Examples for Using Full Text Search and Selecting Data from PostgreSQL</h1>
-<div class="section" id="xapian">
-<h2>Xapian</h2>
-<ul>
-<li><p class="first">Use the following scripts to work with the functions OR, AND, NEAR, ADJ, NOT, and phrase search in Xapian and have a look at the HTML output files. As the number of PubMed-IDs increases continuously, the resulting numbers in this documentation can be seen as a reference point for the given query &quot;pancreatic cancer&quot;. Having a look at these scripts as well as &quot;RunXapian.py&quot; can be useful to build your own modified queries. There is also a small note in &quot;full_text_index/xapian/readme.txt&quot;.</p>
+</blockquote></li>
+<li><p>In case, you want to index the whole PubMed, it can be useful to index blocks of years or every year as a single directory. Like this, it is possible to use multiprocessing and decrease RAM usage. Just run the programme in different shells or on different machines and copy all resulting index folders to the same main directory. The tool “xapian-compact” summarises all generated directories to one full text index:</p>
 <blockquote>
 <ul>
-<li><p class="first">&quot;python search_title.py&quot; shows that only a few lines of code are required to search only publication titles. This can be important as searching especially in publication titles puts more emphasis on the queried synonyms.</p>
-<blockquote>
-<ul class="simple">
-<li>While &quot;RunXapian.py&quot; searches only the exact phrase &quot;pancreatic cancer&quot;, &quot;search_title.py&quot; searches for the stem &quot;pancreat&quot; and also finds the word &quot;pancreatitis&quot;.</li>
+<li><a href="http://xapian.org/docs/admin_notes.html#merging-databases" class="uri">http://xapian.org/docs/admin_notes.html#merging-databases</a></li>
+<li>xapian-compact -m &lt;all input directories to be compressed, separated by space&gt; &lt;name of outcoming folder with complete database&gt;</li>
+<li>Using Ubuntu, this tool might have to be installed additionally with “sudo apt install xapian-tools”.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">The search terms in the scripts described in this subsection are hard-coded and have to be changed manually by the user.</p>
-<blockquote>
-<ul class="simple">
-<li>It generates &quot;Xapian_query_results.html&quot; which shows the first 1000 of 18085 titles. Like this, many associated words are shown, e.g. &quot;pancreatic ductal adenocarcinoma&quot;, &quot;pancreatic juice&quot;, or &quot;pancreatic diseases&quot;.</li>
+</blockquote></li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">To further specify your search, you can query titles containing &quot;pancreatic cancer&quot; and the drug &quot;erlotinib&quot; with &quot;python search_near_title.py&quot;.</p>
+<h1 id="examples-for-using-full-text-search-and-selecting-data-from-postgresql"><span class="header-section-number">6</span> Examples for Using Full Text Search and Selecting Data from PostgreSQL</h1>
+<h2 id="xapian"><span class="header-section-number">6.1</span> Xapian</h2>
+<ul>
+<li><p>Use the following scripts to work with the functions OR, AND, NEAR, ADJ, NOT, and phrase search in Xapian and have a look at the HTML output files. As the number of PubMed-IDs increases continuously, the resulting numbers in this documentation can be seen as a reference point for the given query “pancreatic cancer”. Having a look at these scripts as well as “RunXapian.py” can be useful to build your own modified queries. There is also a small note in “full_text_index/xapian/readme.txt”.</p>
 <blockquote>
-<ul class="simple">
-<li>This generates 38 results in &quot;Xapian_query_results_NEAR.html&quot;.</li>
-<li>In this case &quot;NEAR/5&quot; is used as a Xapian function. In this case, a maximum of 4 words is allowed to be between the two search terms.</li>
-<li>An alternative would be the query with &quot;ADJ/5&quot;, which reduces the number of 38 hits to 4 hits, because with this function, the order of search terms is fixed.</li>
+<ul>
+<li><p>“python search_title.py” shows that only a few lines of code are required to search only publication titles. This can be important as searching especially in publication titles puts more emphasis on the queried synonyms.</p>
+<blockquote>
+<ul>
+<li>While “RunXapian.py” searches only the exact phrase “pancreatic cancer”, “search_title.py” searches for the stem “pancreat” and also finds the word “pancreatitis”.</li>
+</ul>
+</blockquote></li>
+<li><p>The search terms in the scripts described in this subsection are hard-coded and have to be changed manually by the user.</p>
+<blockquote>
+<ul>
+<li>It generates “Xapian_query_results.html” which shows the first 1000 of 18085 titles. Like this, many associated words are shown, e.g. “pancreatic ductal adenocarcinoma”, “pancreatic juice”, or “pancreatic diseases”.</li>
+</ul>
+</blockquote></li>
+<li><p>To further specify your search, you can query titles containing “pancreatic cancer” and the drug “erlotinib” with “python search_near_title.py”.</p>
+<blockquote>
+<ul>
+<li>This generates 38 results in “Xapian_query_results_NEAR.html”.</li>
+<li>In this case “NEAR/5” is used as a Xapian function. In this case, a maximum of 4 words is allowed to be between the two search terms.</li>
+<li>An alternative would be the query with “ADJ/5”, which reduces the number of 38 hits to 4 hits, because with this function, the order of search terms is fixed.</li>
 <li>Here, the exact search is performed, again.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">As it was done in &quot;RunXapian.py&quot; different index fields can be searched.</p>
+</blockquote></li>
+<li><p>As it was done in “RunXapian.py” different index fields can be searched.</p>
 <blockquote>
-<ul class="simple">
-<li>&quot;python search_title_or_text.py&quot; searches documents in which the drug &quot;R115777&quot; occurs in the title or the text.</li>
-<li>As shown in &quot;counts_results.csv&quot;, only 10 hits can be found. The matching titles and abstracts can be seen in &quot;Xapian_query_results_OR.html&quot;.</li>
+<ul>
+<li>“python search_title_or_text.py” searches documents in which the drug “R115777” occurs in the title or the text.</li>
+<li>As shown in “counts_results.csv”, only 10 hits can be found. The matching titles and abstracts can be seen in “Xapian_query_results_OR.html”.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">The script &quot;python search_not_title_or_text.py&quot; specifies the query to documents not containing the terms &quot;colon&quot;, &quot;lung&quot;, or &quot;ovarian&quot;, but the word &quot;pancreatic&quot;.</p>
+</blockquote></li>
+<li><p>The script “python search_not_title_or_text.py” specifies the query to documents not containing the terms “colon”, “lung”, or “ovarian”, but the word “pancreatic”.</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>This reduces the number of results to 9 hits, as no publications are considered that contain these other types of cancer.</li>
-<li>The result is shown in &quot;Xapian_query_results_NOT.html&quot;.</li>
+<li>The result is shown in “Xapian_query_results_NOT.html”.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">In this way, different search queries can be combined with a few lines of code.</p>
-</li>
+</blockquote></li>
+<li>In this way, different search queries can be combined with a few lines of code.</li>
 </ul>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-</div>
-<div class="section" id="postgresql">
-<h2>PostgreSQL</h2>
+<h2 id="postgresql"><span class="header-section-number">6.2</span> PostgreSQL</h2>
 <ul>
-<li><p class="first">Type in these SQL queries in PGAdmin3 or in the PostgreSQL shell to get familiar with the schema &quot;pubmed&quot;:</p>
+<li><p>Type in these SQL queries in PGAdmin3 or in the PostgreSQL shell to get familiar with the schema “pubmed”:</p>
 <blockquote>
 <ul>
-<li><p class="first">Find all substances related to pancreatic cancer, pancreatitis, etc.</p>
+<li><p>Find all substances related to pancreatic cancer, pancreatitis, etc.</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>select * from pubmed.tbl_chemical where lower(name_of_substance) LIKE 'pancreati%'; -- 180 lines</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Find all MeSH terms with the substring &quot;ancreat&quot; and prefixes as well as suffixes.</p>
+</blockquote></li>
+<li><p>Find all MeSH terms with the substring “ancreat” and prefixes as well as suffixes.</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>select distinct on (descriptor_name) * from pubmed.tbl_mesh_heading where lower(descriptor_name) LIKE '%ancreat%'; -- 29 lines</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">What is the number of published titles in our database?</p>
+</blockquote></li>
+<li><p>What is the number of published titles in our database?</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>select count(*) from pubmed.tbl_medline_citation; -- 23258</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">How many publications contain an abstract?</p>
+</blockquote></li>
+<li><p>How many publications contain an abstract?</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>select count(*) from pubmed.tbl_abstract; -- 21387</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Show me all different journals and abbreviations referring to our topic.</p>
+</blockquote></li>
+<li><p>Show me all different journals and abbreviations referring to our topic.</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>select distinct on (title, iso_abbreviation) title, iso_abbreviation from pubmed.tbl_journal; -- 2209 lines</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">What is the number of publications since 1990?</p>
+</blockquote></li>
+<li><p>What is the number of publications since 1990?</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>select count(*) from pubmed.tbl_journal where pub_date_year &lt;=2000 and pub_date_year &gt;=1990; -- between 1990 and 2000: 3736 publications</li>
 <li>select count(*) from pubmed.tbl_journal where pub_date_year &lt;=2010 and pub_date_year &gt;2000; -- after 2000 until 2010: 9497 publications</li>
 <li>select count(*) from pubmed.tbl_journal where pub_date_year &gt;2010; -- after 2010: 8461 publications</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">What is the number of publications in USA referring to our topic?</p>
+</blockquote></li>
+<li><p>What is the number of publications in USA referring to our topic?</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>select count(*) from pubmed.tbl_medline_journal_info where lower(country) = 'united states'; -- 10010 publications</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Take one of the first publications for the query &quot;pancreatic cancer&quot; in the browser on NCBI and check whether this author has other publications, e.g. Bobustuc et al., 2015.</p>
+</blockquote></li>
+<li><p>Take one of the first publications for the query “pancreatic cancer” in the browser on NCBI and check whether this author has other publications, e.g. Bobustuc et al., 2015.</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>select count (*) from pubmed.tbl_author where last_name = 'Bobustuc'; -- 2</li>
 </ul>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-</div>
-<div class="section" id="postgresql-and-xapian">
-<h2>PostgreSQL and Xapian</h2>
+<h2 id="postgresql-and-xapian"><span class="header-section-number">6.3</span> PostgreSQL and Xapian</h2>
 <ul>
-<li><p class="first">The results of this subsection can be found in &quot;full_text_index/results/results_from_documentation/&quot;.</p>
-</li>
-<li><p class="first">Try &quot;python find_authors.py&quot; to see an example for processing a PostgreSQL query in Python. Use &quot;python find_authors.py -f &lt;output_filename&gt; -d &lt;name_of_database&gt;&quot; to specify the name of the output file and the database to connect to. &quot;python find_authors.py -h&quot; shows all adjustable parameters.</p>
+<li>The results of this subsection can be found in “full_text_index/results/results_from_documentation/”.</li>
+<li><p>Try “python find_authors.py” to see an example for processing a PostgreSQL query in Python. Use “python find_authors.py -f &lt;output_filename&gt; -d &lt;name_of_database&gt;” to specify the name of the output file and the database to connect to. “python find_authors.py -h” shows all adjustable parameters.</p>
 <blockquote>
 <ul>
-<li><p class="first">Considering the output file &quot;results/authors.csv&quot;, Ralph H. Hruban has published the most articles with a number of 258 PubMed-IDs.</p>
+<li><p>Considering the output file “results/authors.csv”, Ralph H. Hruban has published the most articles with a number of 258 PubMed-IDs.</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>The other authors and their number of publications can be found in descending order.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">You can check the amount of publications from similiarly written author names in PGAdmin3 and then Helmut Friess is shown as the one with the most publications:</p>
+</blockquote></li>
+<li><p>You can check the amount of publications from similiarly written author names in PGAdmin3 and then Helmut Friess is shown as the one with the most publications:</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>select distinct on(fk_pmid) * from pubmed.tbl_author where last_name = 'Friess' and (fore_name = 'H' or fore_name = 'Helmut') order by fk_pmid; -- 375</li>
 <li>select distinct on(fk_pmid) * from pubmed.tbl_author where last_name = 'Büchler' and (fore_name = 'Markus W' or fore_name = 'M W') order by fk_pmid; -- 310</li>
 <li>select distinct on(fk_pmid) * from pubmed.tbl_author where last_name = 'Hruban' and fore_name = 'Ralph H'; -- 258</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">It is possible that an author name exists twice although different persons are meant. This is not considered here.</p>
-</li>
-<li><p class="first">There are examples in which you can only find a collective name:</p>
+</blockquote></li>
+<li>It is possible that an author name exists twice although different persons are meant. This is not considered here.</li>
+<li><p>There are examples in which you can only find a collective name:</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>select * from pubmed.tbl_author where last_name is NULL and fore_name is NULL; -- 273</li>
 </ul>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Based on this, it is possible to consider whether the author Helmut Friess has published something containing the query terms from the list in &quot;synonyms/pancreatic_cancer.txt&quot;:</p>
+</blockquote></li>
+<li><p>Based on this, it is possible to consider whether the author Helmut Friess has published something containing the query terms from the list in “synonyms/pancreatic_cancer.txt”:</p>
 <blockquote>
 <ul>
-<li><p class="first">Type in &quot;python find_topics.py&quot;. You can try &quot;python find_topics.py -h&quot;, to see which parameters can be varied, e.g. if your input filename is not &quot;pmids_results.csv&quot; or if you want to specify your output filename, which default is &quot;pmids_results_from_author.csv&quot;.</p>
+<li><p>Type in “python find_topics.py”. You can try “python find_topics.py -h”, to see which parameters can be varied, e.g. if your input filename is not “pmids_results.csv” or if you want to specify your output filename, which default is “pmids_results_from_author.csv”.</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>127 publications were found for the given list of synonyms and this author.</li>
-<li>The main research topic seems to be pancreatic ductal adenocarcinoma. This result can be compared with the outputs using other author names (hard coded in &quot;find_topics.py&quot;) and running &quot;find_topics.py&quot; with another filename, again.</li>
+<li>The main research topic seems to be pancreatic ductal adenocarcinoma. This result can be compared with the outputs using other author names (hard coded in “find_topics.py”) and running “find_topics.py” with another filename, again.</li>
 </ul>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Next steps can be to select the abstracts that were identified with Xapian from PostgreSQL and to apply software for named entity recognition (section &quot;Examples for Using BioC and PubTator&quot;) or to visualise data (next section). There are many possibilities to develop customised pipelines, e.g. selecting sentences, applying part-of-speech tagging, and train machine learning models to extract semantic relationships.</p>
-</li>
+</blockquote></li>
+<li>Next steps can be to select the abstracts that were identified with Xapian from PostgreSQL and to apply software for named entity recognition (section “Examples for Using BioC and PubTator”) or to visualise data (next section). There are many possibilities to develop customised pipelines, e.g. selecting sentences, applying part-of-speech tagging, and train machine learning models to extract semantic relationships.</li>
 </ul>
-</div>
-</div>
-<div class="section" id="examples-for-generating-plots">
-<h1>Examples for Generating Plots</h1>
-<ul class="simple">
+<h1 id="examples-for-generating-plots"><span class="header-section-number">7</span> Examples for Generating Plots</h1>
+<ul>
 <li>This section covers the generation of word clouds and pie charts, for which special software packages are needed.</li>
 </ul>
-<div class="section" id="word-cloud">
-<h2>Word Cloud</h2>
+<h2 id="word-cloud"><span class="header-section-number">7.1</span> Word Cloud</h2>
 <blockquote>
 <ul>
-<li><p class="first">The word clouds generated here are based on the modified Xapian full text version searching only PubMed titles and abstract texts. Therefore, the files &quot;RunXapian.py&quot; and &quot;SynonymParser.py&quot; as well as the folder &quot;synonyms&quot; need to be copied from the folder &quot;full_text_index&quot; to the folder &quot;full_text_index_title_text&quot;. The directories &quot;xapian&quot; and &quot;results&quot; have to be created, too. Afterwards, the command &quot;python RunXapian.py -x&quot; can be used, again. The numbers described in the last sections can differ slightly from the results generated here. The command &quot;python summary.py&quot; also has to executed.</p>
-</li>
-<li><p class="first">At first, the list of the 50 most frequently occurring words that were generated with &quot;python summary.py&quot; needs to be extracted in logarithmic scale to visualise the search terms appropriately. In the directory &quot;PubMedPortable/plots/word_cloud&quot;, run the script &quot;get_search_terms_log.py&quot; to get the output file &quot;counts_search_terms_log.csv&quot;. The highest frequency is shown by the small molecule gemcitabine. The parameter &quot;-h&quot; shows available parameters.</p>
-</li>
-<li><p class="first">The second step in this example is to find the 50 most frequently co-occurring words in texts that contain the search term gemcitabine. This can be done by running the command &quot;python generate_surrounding_words_log.py&quot;. The stop word list that is used by this script was referenced by Hettne et al. [A dictionary to identify small molecules and drugs in free text. Bioinformatics. 2009 Nov 15;25(22):2983-91. doi: 10.1093/bioinformatics/btp535.]. It is provided in the folder &quot;blacklist&quot;. Have a look at the links given in &quot;stop_words.txt&quot;. These stop words were used to filter out terms with a very high frequency that have no substantial meaning for the content analysed. The numbers in the ouput file &quot;counts_surrounding_words_log.csv&quot; are given in logarithmic scale, too.</p>
-</li>
-<li><p class="first">The search term &quot;Gemcitabine&quot; is hard-coded and needs to be changed directly in the script.</p>
-</li>
-<li><p class="first">The plot can be genrated with the package &quot;PyTagCloud&quot;. Please, follow the installation instructions on this GitHub page:</p>
-<blockquote>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/atizo/PyTagCloud">https://github.com/atizo/PyTagCloud</a></li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">For the first plot given here, use the command &quot;python create_word_cloud.py -i counts_search_terms_log.csv -o cloud_search_terms.png&quot;.</p>
-</li>
-</ul>
-<img alt="cloud_search_terms_700_w.png" src="cloud_search_terms_700_w.png" />
-<ul>
-<li><p class="first">For the next figure, run &quot;python create_word_cloud.py -i counts_surrounding_words_log.csv -o cloud_surrounding_words.png&quot;.</p>
-<blockquote>
-<img alt="cloud_surrounding_words_500_w.png" src="cloud_surrounding_words_500_w.png" />
-</blockquote>
-</li>
-<li><p class="first">The word clouds will look different every time the script is used.</p>
-</li>
-<li><p class="first">The figure area can be enlarged by changing the value of the parameter &quot;size&quot; in the function &quot;create_tag_image()&quot;.</p>
-</li>
-</ul>
-</blockquote>
-</div>
-<div class="section" id="pie-chart">
-<h2>Pie Chart</h2>
+<li>The word clouds generated here are based on the modified Xapian full text version searching only PubMed titles and abstract texts. Therefore, the files “RunXapian.py” and “SynonymParser.py” as well as the folder “synonyms” need to be copied from the folder “full_text_index” to the folder “full_text_index_title_text”. The directories “xapian” and “results” have to be created, too. Afterwards, the command “python RunXapian.py -x” can be used, again. The numbers described in the last sections can differ slightly from the results generated here. The command “python summary.py” also has to executed.</li>
+<li>At first, the list of the 50 most frequently occurring words that were generated with “python summary.py” needs to be extracted in logarithmic scale to visualise the search terms appropriately. In the directory “PubMedPortable/plots/word_cloud”, run the script “get_search_terms_log.py” to get the output file “counts_search_terms_log.csv”. The highest frequency is shown by the small molecule gemcitabine. The parameter “-h” shows available parameters.</li>
+<li>The second step in this example is to find the 50 most frequently co-occurring words in texts that contain the search term gemcitabine. This can be done by running the command “python generate_surrounding_words_log.py”. The stop word list that is used by this script was referenced by Hettne et al. [A dictionary to identify small molecules and drugs in free text. Bioinformatics. 2009 Nov 15;25(22):2983-91. doi: 10.1093/bioinformatics/btp535.]. It is provided in the folder “blacklist”. Have a look at the links given in “stop_words.txt”. These stop words were used to filter out terms with a very high frequency that have no substantial meaning for the content analysed. The numbers in the ouput file “counts_surrounding_words_log.csv” are given in logarithmic scale, too.</li>
+<li>The search term “Gemcitabine” is hard-coded and needs to be changed directly in the script.</li>
+<li><p>The plot can be genrated with the package “PyTagCloud”. Please, follow the installation instructions on this GitHub page:</p>
 <blockquote>
 <ul>
-<li><p class="first">In this subsection, the library &quot;matplotlib&quot; is needed to generate a pie chart.</p>
+<li><a href="https://github.com/atizo/PyTagCloud" class="uri">https://github.com/atizo/PyTagCloud</a></li>
+</ul>
+</blockquote></li>
+<li>For the first plot given here, use the command “python create_word_cloud.py -i counts_search_terms_log.csv -o cloud_search_terms.png”.</li>
+</ul>
+<p><img src="cloud_search_terms_700_w.png" alt="image" /></p>
+<ul>
+<li><p>For the next figure, run “python create_word_cloud.py -i counts_surrounding_words_log.csv -o cloud_surrounding_words.png”.</p>
 <blockquote>
-<ul class="simple">
-<li>In Ubuntu, this library can be installed with the command &quot;sudo apt-get install python-matplotlib&quot;.</li>
-<li>In Fedora 22, the command &quot;dnf install python-matplotlib&quot; can be used and in case of older Fedora versions, the command &quot;yum install python-matplotlib&quot;.</li>
+<p><img src="cloud_surrounding_words_500_w.png" alt="image" /></p>
+</blockquote></li>
+<li>The word clouds will look different every time the script is used.</li>
+<li>The figure area can be enlarged by changing the value of the parameter “size” in the function “create_tag_image()”.</li>
 </ul>
 </blockquote>
-</li>
-<li><p class="first">By running &quot;python pie_chart_countries.py&quot;, the picture &quot;pie_chart_countries_publications.png&quot; is produced from the input file &quot;countries_pancreatic_cancer.csv&quot;.</p>
-</li>
-<li><p class="first">To get the CSV file, you need to connect to your database, e.g. with &quot;psql -h localhost -d pancreatic_cancer_db -U parser&quot; and type in &quot;\COPY (SELECT fk_pmid, LOWER(country) FROM pubmed.tbl_medline_journal_info WHERE country IS NOT NULL ORDER BY country ASC) TO 'countries_pancreatic_cancer.csv' DELIMITER ','&quot;.</p>
-</li>
-<li><p class="first">The script calculates the percentages of country names in which the journals given in the PostgreSQL database are published. Fractions below 2 % are summarised to &quot;Others&quot;.</p>
-</li>
-<li><p class="first">The plot was inspired by an example given in the Matplotlib documentation (<a class="reference external" href="http://matplotlib.org/examples/pie_and_polar_charts/pie_demo_features.html">http://matplotlib.org/examples/pie_and_polar_charts/pie_demo_features.html</a>).</p>
-</li>
-</ul>
-<img alt="pie_chart_countries_publications_700_w.png" src="pie_chart_countries_publications_700_w.png" />
-</blockquote>
-</div>
-<div class="section" id="bar-chart">
-<h2>Bar Chart</h2>
+<h2 id="pie-chart"><span class="header-section-number">7.2</span> Pie Chart</h2>
 <blockquote>
-<ul class="simple">
-<li>In this subsection, the library &quot;matplotlib&quot; is needed, too.</li>
+<ul>
+<li><p>In this subsection, the library “matplotlib” is needed to generate a pie chart.</p>
+<blockquote>
+<ul>
+<li>In Ubuntu, this library can be installed with the command “sudo apt-get install python-matplotlib”.</li>
+<li>In Fedora 22, the command “dnf install python-matplotlib” can be used and in case of older Fedora versions, the command “yum install python-matplotlib”.</li>
+</ul>
+</blockquote></li>
+<li>By running “python pie_chart_countries.py”, the picture “pie_chart_countries_publications.png” is produced from the input file “countries_pancreatic_cancer.csv”.</li>
+<li>To get the CSV file, you need to connect to your database, e.g. with “psql -h localhost -d pancreatic_cancer_db -U parser” and type in “\COPY (SELECT fk_pmid, LOWER(country) FROM pubmed.tbl_medline_journal_info WHERE country IS NOT NULL ORDER BY country ASC) TO 'countries_pancreatic_cancer.csv' DELIMITER ','”.</li>
+<li>The script calculates the percentages of country names in which the journals given in the PostgreSQL database are published. Fractions below 2 % are summarised to “Others”.</li>
+<li>The plot was inspired by an example given in the Matplotlib documentation (<a href="http://matplotlib.org/examples/pie_and_polar_charts/pie_demo_features.html" class="uri">http://matplotlib.org/examples/pie_and_polar_charts/pie_demo_features.html</a>).</li>
+</ul>
+<p><img src="pie_chart_countries_publications_700_w.png" alt="image" /></p>
+</blockquote>
+<h2 id="bar-chart"><span class="header-section-number">7.3</span> Bar Chart</h2>
+<blockquote>
+<ul>
+<li>In this subsection, the library “matplotlib” is needed, too.</li>
 <li>Three timelines for the publications of the genes KRAS, BRCA2, and CDKN2A are shown in one bar chart.</li>
-<li>Running &quot;create_bar_chart.py -p&quot; generates the figure &quot;KRAS_BRCA2_CDKN2A_pubmed.png&quot;. The year 2015 cannot be considered as a complete year. Therefore, it is removed by this script before plotting.</li>
-<li>The CSV files processed by this script can be downloaded from PubMed by clicking on the bar chart appearing on <a class="reference external" href="http://www.ncbi.nlm.nih.gov/pubmed">http://www.ncbi.nlm.nih.gov/pubmed</a> after entering the query (15th June 2015). The title lines in these CSV files were removed manually.</li>
+<li>Running “create_bar_chart.py -p” generates the figure “KRAS_BRCA2_CDKN2A_pubmed.png”. The year 2015 cannot be considered as a complete year. Therefore, it is removed by this script before plotting.</li>
+<li>The CSV files processed by this script can be downloaded from PubMed by clicking on the bar chart appearing on <a href="http://www.ncbi.nlm.nih.gov/pubmed" class="uri">http://www.ncbi.nlm.nih.gov/pubmed</a> after entering the query (15th June 2015). The title lines in these CSV files were removed manually.</li>
 <li>All CSV files used in this subsection are written in comma-separated format.</li>
 </ul>
-<img alt="../plots/bar_chart/KRAS_BRCA2_CDKN2A_pubmed.png" src="../plots/bar_chart/KRAS_BRCA2_CDKN2A_pubmed.png" />
+<p><img src="../plots/bar_chart/KRAS_BRCA2_CDKN2A_pubmed.png" alt="image" /></p>
 <ul>
-<li><p class="first">Running &quot;python get_years.py&quot; generates the same kind of CSV files as provided by the browser search, but it uses the pancreatic cancer data set from this documentation by sending a query to the PubMedPortable PostgreSQL database.</p>
+<li><p>Running “python get_years.py” generates the same kind of CSV files as provided by the browser search, but it uses the pancreatic cancer data set from this documentation by sending a query to the PubMedPortable PostgreSQL database.</p>
 <blockquote>
-<ul class="simple">
-<li>Running this script with default parameters selects the user-based Xapian folder &quot;full_text_index_title_text&quot;, but it can also be used with the results file in this documentation to reproduce the plot shown here:</li>
+<ul>
+<li>Running this script with default parameters selects the user-based Xapian folder “full_text_index_title_text”, but it can also be used with the results file in this documentation to reproduce the plot shown here:</li>
 <li>python get_years.py -x ../../full_text_index/results/results_from_documentation/ -p results.csv</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Based on this, &quot;create_bar_chart.py&quot; without the parameter &quot;-p&quot; generates the bar chart &quot;KRAS_BRCA2_CDKN2A.png&quot;.</p>
-</li>
+</blockquote></li>
+<li>Based on this, “create_bar_chart.py” without the parameter “-p” generates the bar chart “KRAS_BRCA2_CDKN2A.png”.</li>
 </ul>
-<img alt="../plots/bar_chart/KRAS_BRCA2_CDKN2A.png" src="../plots/bar_chart/KRAS_BRCA2_CDKN2A.png" />
-<ul class="simple">
-<li>The slopes of the BRCA2 and CDKN2A timelines are rather low compared to KRAS, but start earlier in both plots. The timeline of the gene KRAS shows an exponential growth. One reason for this is its role in the regulation of cell proliferation [Small molecule inhibition of the KRAS-PDEδ interaction impairs oncogenic KRAS signalling. Zimmermann et al. Nature. 2013 May 30;497(7451):638-42. doi: 10.1038/nature12205. Epub 2013 May 22.].</li>
-<li>The review on OMIM mentioned in section 5 (<a class="reference external" href="http://omim.org/entry/260350?search=%22pancreatic%20cancer%22">http://omim.org/entry/260350?search=%22pancreatic%20cancer%22</a>) provides more information with references showing why and how specific these genes are related to pancreatic cancer.</li>
-</ul>
-</blockquote>
-</div>
-</div>
-<div class="section" id="examples-for-using-bioc-and-pubtator">
-<h1>Examples for Using BioC and PubTator</h1>
+<p><img src="../plots/bar_chart/KRAS_BRCA2_CDKN2A.png" alt="image" /></p>
 <ul>
-<li><p class="first">Follow the installation instructions on this GitHub page:</p>
-<blockquote>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/2mh/PyBioC">https://github.com/2mh/PyBioC</a>.</li>
+<li>The slopes of the BRCA2 and CDKN2A timelines are rather low compared to KRAS, but start earlier in both plots. The timeline of the gene KRAS shows an exponential growth. One reason for this is its role in the regulation of cell proliferation [Small molecule inhibition of the KRAS-PDEδ interaction impairs oncogenic KRAS signalling. Zimmermann et al. Nature. 2013 May 30;497(7451):638-42. doi: 10.1038/nature12205. Epub 2013 May 22.].</li>
+<li>The review on OMIM mentioned in section 5 (<a href="http://omim.org/entry/260350?search=%22pancreatic%20cancer%22">http://omim.org/entry/260350?search=%22pancreatic%20cancer%22</a>) provides more information with references showing why and how specific these genes are related to pancreatic cancer.</li>
 </ul>
 </blockquote>
-</li>
-<li><p class="first">Copy the project folder &quot;PyBioC/src/bioc&quot; into your folder &quot;PubMedPortable/BioC_export&quot;. This PyBioC directory is needed for the script &quot;add_BioC_annotation.py&quot;, because it contains the Python source code for the BioC interface.</p>
-</li>
-<li><p class="first">The idea of BioC is to use a standardised XML format that can be shared by the community to add annotations to scientific texts. Therefore, these documents can be exchanged and modified by anybody who uses the BioC interface.</p>
-</li>
-<li><p class="first">The BioC XML format was introduced at BioCreative (<a class="reference external" href="http://www.biocreative.org/events/BCBioCuration2014/biocreative-text-mining-worksh">http://www.biocreative.org/events/BCBioCuration2014/biocreative-text-mining-worksh</a>) and also used at BioNLP (<a class="reference external" href="http://2013.bionlp-st.org/supporting-resources">http://2013.bionlp-st.org/supporting-resources</a>). The BioC project homepage contains several related software packages (<a class="reference external" href="http://bioc.sourceforge.net">http://bioc.sourceforge.net</a>).</p>
-</li>
-<li><p class="first">The file &quot;pmid_list.txt&quot; contains 21 PubMed-IDs that were taken from &quot;PubMedPortable/data/pubmed_result.txt&quot;. It is used as default by the script &quot;write_BioC_XML.py&quot;.</p>
+<h1 id="examples-for-using-bioc-and-pubtator"><span class="header-section-number">8</span> Examples for Using BioC and PubTator</h1>
+<ul>
+<li><p>Follow the installation instructions on this GitHub page:</p>
 <blockquote>
-<ul class="simple">
-<li>The user can store his own list of PubMed-IDs in &quot;pmid_list.txt&quot; or create a new file. This user-provided list of PubMed-IDs can be loaded with the parameter &quot;-i&quot;.</li>
+<ul>
+<li><a href="https://github.com/2mh/PyBioC" class="uri">https://github.com/2mh/PyBioC</a>.</li>
+</ul>
+</blockquote></li>
+<li>Copy the project folder “PyBioC/src/bioc” into your folder “PubMedPortable/BioC_export”. This PyBioC directory is needed for the script “add_BioC_annotation.py”, because it contains the Python source code for the BioC interface.</li>
+<li>The idea of BioC is to use a standardised XML format that can be shared by the community to add annotations to scientific texts. Therefore, these documents can be exchanged and modified by anybody who uses the BioC interface.</li>
+<li>The BioC XML format was introduced at BioCreative (<a href="http://www.biocreative.org/events/BCBioCuration2014/biocreative-text-mining-worksh" class="uri">http://www.biocreative.org/events/BCBioCuration2014/biocreative-text-mining-worksh</a>) and also used at BioNLP (<a href="http://2013.bionlp-st.org/supporting-resources" class="uri">http://2013.bionlp-st.org/supporting-resources</a>). The BioC project homepage contains several related software packages (<a href="http://bioc.sourceforge.net" class="uri">http://bioc.sourceforge.net</a>).</li>
+<li><p>The file “pmid_list.txt” contains 21 PubMed-IDs that were taken from “PubMedPortable/data/pubmed_result.txt”. It is used as default by the script “write_BioC_XML.py”.</p>
+<blockquote>
+<ul>
+<li>The user can store his own list of PubMed-IDs in “pmid_list.txt” or create a new file. This user-provided list of PubMed-IDs can be loaded with the parameter “-i”.</li>
 <li>New PubMed-IDs can be selected from the PubMedPortable PostgreSQL tables, e.g. pubmed.tbl_abstract, pubmed.tbl_medline_citation, or pubmed.tbl_mesh_heading.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">This script also uses the file &quot;BioC.dtd&quot;, which defines the structure of the XML file (taken from <a class="reference external" href="https://github.com/2mh/PyBioC">https://github.com/2mh/PyBioC</a>).  Additionally, the file &quot;Explanation.key&quot; describes the semantics used for the annotations. In this example, MeSH terms are added as annotation XML elements to the basic BioC XML structure.</p>
-</li>
-<li><p class="first">For the list of PubMed-IDs, the command &quot;python write_BioC_XML.py&quot; generates the BioC XML file &quot;text_BioC.xml&quot;.</p>
-</li>
-<li><p class="first">If you run &quot;python add_BioC_annotation.py&quot; with default values, it adds the MeSH terms provided by the PostgreSQL database to the file &quot;text_BioC.xml&quot;. It does not change the basic structure, but it writes annotation XML elements for the text elements given. The output file is called &quot;annotated_text_BioC.xml&quot;. This is an example for an XML file that did not contain annotation elements before.</p>
-</li>
-<li><p class="first">You can use the same script for adding the MeSH annotation elements to an XML document that already contains other annotation elements as shown in the next example.</p>
-</li>
-<li><p class="first">PubTator can be used as a webservice in several ways. There is a website highlighting entities like genes/proteins, chemical compounds, diseases, mutations, and species. This website can be used for text curation:</p>
-<blockquote>
-<ul class="simple">
-<li><a class="reference external" href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/PubTator">http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/PubTator</a></li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">There is also a RESTful API:</p>
-<blockquote>
-<ul class="simple">
-<li><a class="reference external" href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/curl.html">http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/curl.html</a></li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">How to use this API is shown by the following command executed via command-line:</p>
-<blockquote>
-<p>curl -H &quot;content-type:application/json&quot; http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/RESTful/tmTool.cgi/Disease/1000475,1006519,1010707/BioC/ &gt; text_PubTator.xml</p>
-<ul class="simple">
-<li>All output files in this section refer to these three PubMed-IDs. The maximum number of PubMed-IDs to send to PubTator in this case was 21. This is the reason why &quot;pmid_list.txt&quot; contains exactly 21 PubMed-IDs.</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">The script &quot;call_PubTator.py&quot; wraps this command with the Python module &quot;subprocess&quot; and downloads PubMed BioC XML annotated abstracts from PubTator.</p>
+</blockquote></li>
+<li>This script also uses the file “BioC.dtd”, which defines the structure of the XML file (taken from <a href="https://github.com/2mh/PyBioC" class="uri">https://github.com/2mh/PyBioC</a>). Additionally, the file “Explanation.key” describes the semantics used for the annotations. In this example, MeSH terms are added as annotation XML elements to the basic BioC XML structure.</li>
+<li>For the list of PubMed-IDs, the command “python write_BioC_XML.py” generates the BioC XML file “text_BioC.xml”.</li>
+<li>If you run “python add_BioC_annotation.py” with default values, it adds the MeSH terms provided by the PostgreSQL database to the file “text_BioC.xml”. It does not change the basic structure, but it writes annotation XML elements for the text elements given. The output file is called “annotated_text_BioC.xml”. This is an example for an XML file that did not contain annotation elements before.</li>
+<li>You can use the same script for adding the MeSH annotation elements to an XML document that already contains other annotation elements as shown in the next example.</li>
+<li><p>PubTator can be used as a webservice in several ways. There is a website highlighting entities like genes/proteins, chemical compounds, diseases, mutations, and species. This website can be used for text curation:</p>
 <blockquote>
 <ul>
-<li><p class="first">It contains the parameter &quot;-t&quot; (trigger) that selects the type of entity to be tagged (default: Disease) for a list of PubMed-IDs (default: pmid_list.txt).</p>
-</li>
-<li><p class="first">All parameters of this script can be shown with &quot;python call_PubTator.py -h&quot;.</p>
-</li>
-<li><p class="first">The default output file &quot;text_PubTator.xml&quot; also shows the MeSH IDs for the extracted diseases, e.g. &quot;pancreatic carcinoma&quot;, the first one in the example file:</p>
-<blockquote>
-<ul class="simple">
-<li><a class="reference external" href="http://www.nlm.nih.gov/cgi/mesh/2011/MB_cgi?field=uid&amp;term=D010190">http://www.nlm.nih.gov/cgi/mesh/2011/MB_cgi?field=uid&amp;term=D010190</a></li>
+<li><a href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/PubTator" class="uri">http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/PubTator</a></li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">PubTator returns two types of infon elements. Therefore, the line &quot;&lt;!ELEMENT annotation ( infon*, location*, text ) &gt;&quot; had to be changed to &quot;&lt;!ELEMENT annotation ( infon*, location*, text, infon* ) &gt;&quot;.</p>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">If you want to add MeSH term annotations from the PostgreSQL to the file &quot;text_PubTator.xml&quot;, you can run the command &quot;python add_BioC_annotation.py -i text_PubTator.xml -o annotated_text_PubTator.xml&quot;.</p>
+</blockquote></li>
+<li><p>There is also a RESTful API:</p>
 <blockquote>
-<ul class="simple">
+<ul>
+<li><a href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/curl.html" class="uri">http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/curl.html</a></li>
+</ul>
+</blockquote></li>
+<li><p>How to use this API is shown by the following command executed via command-line:</p>
+<blockquote>
+<p>curl -H “content-type:application/json” <a href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/RESTful/tmTool.cgi/Disease/1000475,1006519,1010707/BioC/" class="uri">http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/RESTful/tmTool.cgi/Disease/1000475,1006519,1010707/BioC/</a> &gt; text_PubTator.xml</p>
+<ul>
+<li>All output files in this section refer to these three PubMed-IDs. The maximum number of PubMed-IDs to send to PubTator in this case was 21. This is the reason why “pmid_list.txt” contains exactly 21 PubMed-IDs.</li>
+</ul>
+</blockquote></li>
+<li><p>The script “call_PubTator.py” wraps this command with the Python module “subprocess” and downloads PubMed BioC XML annotated abstracts from PubTator.</p>
+<blockquote>
+<ul>
+<li>It contains the parameter “-t” (trigger) that selects the type of entity to be tagged (default: Disease) for a list of PubMed-IDs (default: pmid_list.txt).</li>
+<li>All parameters of this script can be shown with “python call_PubTator.py -h”.</li>
+<li><p>The default output file “text_PubTator.xml” also shows the MeSH IDs for the extracted diseases, e.g. “pancreatic carcinoma”, the first one in the example file:</p>
+<blockquote>
+<ul>
+<li><a href="http://www.nlm.nih.gov/cgi/mesh/2011/MB_cgi?field=uid&amp;term=D010190" class="uri">http://www.nlm.nih.gov/cgi/mesh/2011/MB_cgi?field=uid&amp;term=D010190</a></li>
+</ul>
+</blockquote></li>
+<li>PubTator returns two types of infon elements. Therefore, the line “&lt;!ELEMENT annotation ( infon*, location*, text ) &gt;” had to be changed to “&lt;!ELEMENT annotation ( infon*, location*, text, infon* ) &gt;”.</li>
+</ul>
+</blockquote></li>
+<li><p>If you want to add MeSH term annotations from the PostgreSQL to the file “text_PubTator.xml”, you can run the command “python add_BioC_annotation.py -i text_PubTator.xml -o annotated_text_PubTator.xml”.</p>
+<blockquote>
+<ul>
 <li>MeSH terms refer to several types of entities. In this case, some of the MeSH terms will show duplicate disease annotation elements.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">All these entities can also be tagged in BioC XML format from plain text input via the single software packages referenced here below &quot;Quick Links&quot;:</p>
+</blockquote></li>
+<li><p>All these entities can also be tagged in BioC XML format from plain text input via the single software packages referenced here below “Quick Links”:</p>
 <blockquote>
-<ul class="simple">
-<li><a class="reference external" href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools">http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools</a></li>
+<ul>
+<li><a href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools" class="uri">http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools</a></li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">They are described in the following PDF file as well as other software packages in chapter &quot;TRACK 1 (BioC: Interoperability)&quot;:</p>
+</blockquote></li>
+<li><p>They are described in the following PDF file as well as other software packages in chapter “TRACK 1 (BioC: Interoperability)”:</p>
 <blockquote>
-<ul class="simple">
-<li><a class="reference external" href="http://www.biocreative.org/media/store/files/2013/ProceedingsBioCreativeIV_vol1_.pdf">http://www.biocreative.org/media/store/files/2013/ProceedingsBioCreativeIV_vol1_.pdf</a></li>
-<li>There are also other webservices included as well as BioC natural language preprocessing pipelines in C++ and Java (<a class="reference external" href="http://bioc.sourceforge.net">http://bioc.sourceforge.net</a>).</li>
+<ul>
+<li><a href="http://www.biocreative.org/media/store/files/2013/ProceedingsBioCreativeIV\_vol1\_.pdf" class="uri">http://www.biocreative.org/media/store/files/2013/ProceedingsBioCreativeIV\_vol1\_.pdf</a></li>
+<li>There are also other webservices included as well as BioC natural language preprocessing pipelines in C++ and Java (<a href="http://bioc.sourceforge.net" class="uri">http://bioc.sourceforge.net</a>).</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">PubTator can be used to completly extract genes, diseases, and chemicals from the pancreatic cancer data set. In the case of diseases and chemicals, there are not always identifiers provided for the recognised synonyms. The following commands lead to a new word cloud based on the 150 most frequently occurring entities:</p>
+</blockquote></li>
+<li><p>PubTator can be used to completly extract genes, diseases, and chemicals from the pancreatic cancer data set. In the case of diseases and chemicals, there are not always identifiers provided for the recognised synonyms. The following commands lead to a new word cloud based on the 150 most frequently occurring entities:</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>Gene and protein NER: python call_PubTator.py -i pubmed_result_complete.txt -o gene_complete.csv -t Gene -f PubTator</li>
 <li>Disease NER: python call_PubTator.py -i pubmed_result_complete.txt -o disease_complete.csv -t Disease -f PubTator</li>
 <li>Chemical NER: python call_PubTator.py -i pubmed_result_complete.txt -o chemical_complete.csv -t Chemical -f PubTator</li>
@@ -1194,330 +712,308 @@ ul.auto-toc {
 <li>Generate logarithmic values (first 150 entities): python get_search_terms_log.py -x ../../BioC_export/results_from_documentation -i entities_formatted_identifiers_unified.csv -o counts_entities_identifiers_log.csv</li>
 <li>Create word cloud: python create_word_cloud.py -i counts_entities_identifiers_log.csv -o cloud_entities_identifiers.png</li>
 </ul>
-<img alt="cloud_entities_identifiers_800.png" src="cloud_entities_identifiers_800.png" />
-<ul class="simple">
-<li>This example is based on selecting one synonym per identifier. The script &quot;results_PubTator_format.py&quot; can be used with the parameter &quot;-s&quot; to extend the selection to all synonyms without using the identifiers. In this case, the step of using the script &quot;unify.py&quot; needs to be replaced with the script &quot;summary.py&quot; in the Xapian folder &quot;full_text_index&quot;.</li>
+<p><img src="cloud_entities_identifiers_800.png" alt="image" /></p>
+<ul>
+<li>This example is based on selecting one synonym per identifier. The script “results_PubTator_format.py” can be used with the parameter “-s” to extend the selection to all synonyms without using the identifiers. In this case, the step of using the script “unify.py” needs to be replaced with the script “summary.py” in the Xapian folder “full_text_index”.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">The bar chart shown with manually selected search terms can also be produced with the automatically identified entities from PubTator introduced in this section:</p>
+</blockquote></li>
+<li><p>The bar chart shown with manually selected search terms can also be produced with the automatically identified entities from PubTator introduced in this section:</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_KRAS.txt -o KRAS</li>
 <li>python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_BRCA2.txt -o BRCA2</li>
 <li>python get_years.py -x ../../BioC_export/results_from_documentation/ -p entities_formatted_identifiers.csv -t Entrez_GeneID/search_terms_CDKN2A.txt -o CDKN2A</li>
 <li>python merge.py</li>
 <li>python create_bar_chart.py</li>
 </ul>
-<img alt="../plots/bar_chart/KRAS_CDKN2A_BRCA2.png" src="../plots/bar_chart/KRAS_CDKN2A_BRCA2.png" />
-<ul class="simple">
+<p><img src="../plots/bar_chart/KRAS_CDKN2A_BRCA2.png" alt="image" /></p>
+<ul>
 <li>Based on the search for a larger vocabulary from PubTator using Entrez GeneID numbers, CDKN2A shows more hits than BRCA2 and the identified numbers of abstracts are generally higher.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">The same steps as performed with PubTator can be performed with other tools, too.</p>
+</blockquote></li>
+<li><p>The same steps as performed with PubTator can be performed with other tools, too.</p>
 <blockquote>
 <ul>
-<li><p class="first">The disease annotation step can be replaced by the stand-alone application DNorm from the tmBioC package (<a class="reference external" href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/">http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/</a> - link to DNorm):</p>
+<li><p>The disease annotation step can be replaced by the stand-alone application DNorm from the tmBioC package (<a href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/" class="uri">http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/</a> - link to DNorm):</p>
 <blockquote>
-<ul class="simple">
-<li>Write BioC document from pancreatic cancer data set (BioC directory): &quot;python write_BioC_XML.py -i pubmed_result.txt -o pancreatic_cancer_BioC.xml&quot;</li>
+<ul>
+<li>Write BioC document from pancreatic cancer data set (BioC directory): “python write_BioC_XML.py -i pubmed_result.txt -o pancreatic_cancer_BioC.xml”</li>
 <li>Add DNorm annotatons (in download directory): ./RunDNorm_BioC.sh config/banner_NCBIDisease_TEST.xml data/CTD_diseases.tsv output/simmatrix_NCBIDisease_e4.bin pancreatic_cancer_BioC.xml pancreatic_cancer_BioC_DNorm.xml</li>
-<li>This command can be used to create the &quot;file pancreatic_cancer_BioC_DNorm.xml&quot; (not uploaded).</li>
-<li>The script &quot;read_BioC_annotations.py&quot; shows the basic commands how to iterate over MeSH term annotations in BioC format from the example mentioned earlier, using PubMedPortable and PubTator.</li>
-<li>The script &quot;BioC_to_CSV.py&quot; is based on the code in &quot;read_BioC_annotations.py&quot; and extracts the DNorm annotations in &quot;file pancreatic_cancer_BioC_DNorm.xml&quot; to a CSV file &quot;DNorm_formatted.csv (not uploaded). The script needs the DNorm DTD file (in the DNorm download directory). Copy it to you execution folder and rename it to &quot;BioC_DNorm.dtd&quot;. If this file causes an error in the PyBioC API, replace the raise command in bioc/bioc_reader.py by a print command.</li>
+<li>This command can be used to create the “file pancreatic_cancer_BioC_DNorm.xml” (not uploaded).</li>
+<li>The script “read_BioC_annotations.py” shows the basic commands how to iterate over MeSH term annotations in BioC format from the example mentioned earlier, using PubMedPortable and PubTator.</li>
+<li>The script “BioC_to_CSV.py” is based on the code in “read_BioC_annotations.py” and extracts the DNorm annotations in “file pancreatic_cancer_BioC_DNorm.xml” to a CSV file “DNorm_formatted.csv (not uploaded). The script needs the DNorm DTD file (in the DNorm download directory). Copy it to you execution folder and rename it to”BioC_DNorm.dtd&quot;. If this file causes an error in the PyBioC API, replace the raise command in bioc/bioc_reader.py by a print command.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Genes and proteins can be annotated with GeneTUKit, a software for gene normalisation which was ranked among the best-performing tools in the BioCreative III challenge in 2010.</p>
-</li>
-<li><p class="first">Unfortunately, the source code is not available, but there is a GitHub repository wrapping PubMedPortable articles into a pseudo XML format used by the software (<a class="reference external" href="https://github.com/ElhamAbbasian/GeneTUKit-Pipeline">https://github.com/ElhamAbbasian/GeneTUKit-Pipeline</a>).</p>
-</li>
-<li><p class="first">Using the list of PubMed IDs from the PubMedPortable documentation and following the first three steps in the GeneTUKit pipeline generates a file pmid_geneid_syn.csv.</p>
-</li>
-<li><p class="first">For the output format used to generate the word cloud, the orginal line to write the output in the script filter_out_genetukit_output.py can be changed to 'outfile.write(pmid + &quot;t&quot; + temp[1].split(&quot;|&quot;)[0] + &quot;t&quot; + temp[0] + &quot;n&quot;)'. Multiple synonyms with the same Entrez Gene-ID number are separeted with a pipe (&quot;|&quot;) and only the first synonym is needed for the task here. Furthermore, the order from the file name &quot;PubMed-ID-GeneID-Synonym&quot; is changed to &quot;PubMed-ID-Synonym-GeneID&quot; by exchanging the elements temp[0] and temp[1].</p>
-</li>
-<li><p class="first">After file concatenation (single files not uploaded: cat GeneTUKit_formatted.csv DNorm_formatted.csv chemical_formatted.csv &gt; entities_complete_3tools.csv), the steps to generate the word cloud can be executed as already described in the PubTator example.</p>
+</blockquote></li>
+<li>Genes and proteins can be annotated with GeneTUKit, a software for gene normalisation which was ranked among the best-performing tools in the BioCreative III challenge in 2010.</li>
+<li>Unfortunately, the source code is not available, but there is a GitHub repository wrapping PubMedPortable articles into a pseudo XML format used by the software (<a href="https://github.com/ElhamAbbasian/GeneTUKit-Pipeline" class="uri">https://github.com/ElhamAbbasian/GeneTUKit-Pipeline</a>).</li>
+<li>Using the list of PubMed IDs from the PubMedPortable documentation and following the first three steps in the GeneTUKit pipeline generates a file pmid_geneid_syn.csv.</li>
+<li>For the output format used to generate the word cloud, the orginal line to write the output in the script filter_out_genetukit_output.py can be changed to ‘outfile.write(pmid + “t” + temp[1].split(“|”)[0] + “t” + temp[0] + “n”)’. Multiple synonyms with the same Entrez Gene-ID number are separeted with a pipe (“|”) and only the first synonym is needed for the task here. Furthermore, the order from the file name “PubMed-ID-GeneID-Synonym” is changed to “PubMed-ID-Synonym-GeneID” by exchanging the elements temp[0] and temp[1].</li>
+<li><p>After file concatenation (single files not uploaded: cat GeneTUKit_formatted.csv DNorm_formatted.csv chemical_formatted.csv &gt; entities_complete_3tools.csv), the steps to generate the word cloud can be executed as already described in the PubTator example.</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>python unify.py -i entities_complete_3tools.csv -o entities_complete_3tools_unified.csv</li>
 <li>get_search_terms_log.py -x ../../BioC_export/results_from_documentation -i entities_complete_3tools_unified.csv -o counts_entities_identifiers_log_3tools.csv</li>
 <li>create_word_cloud.py -i counts_entities_identifiers_log_3tools.csv -o cloud_3tools.png</li>
 </ul>
-<img alt="cloud_3tools_800.png" src="cloud_3tools_800.png" />
-</blockquote>
-</li>
-<li><p class="first">The same is possible for the bar chart example.</p>
+<p><img src="cloud_3tools_800.png" alt="image" /></p>
+</blockquote></li>
+<li><p>The same is possible for the bar chart example.</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>The Entrez GeneID numbers were extracted from the file GeneTUKit_formatted.csv with the script get_search_term_identifiers.py (KRAS gene example hard-coded).</li>
-<li>This has to be done with the other two genes CDKN2A and BRCA2, too. The steps &quot;python merge.py&quot; and &quot;python create_bar_chart.py&quot; lead to the new bar chart &quot;KRAS_CDKN2A_BRCA2.png&quot;, manually renamed to &quot;KRAS_CDKN2A_BRCA2_3tools.png&quot; to be distinguishable from the PubTator example.</li>
+<li>This has to be done with the other two genes CDKN2A and BRCA2, too. The steps “python merge.py” and “python create_bar_chart.py” lead to the new bar chart “KRAS_CDKN2A_BRCA2.png”, manually renamed to “KRAS_CDKN2A_BRCA2_3tools.png” to be distinguishable from the PubTator example.</li>
 </ul>
-<img alt="../plots/bar_chart/KRAS_CDKN2A_BRCA2_3tools.png" src="../plots/bar_chart/KRAS_CDKN2A_BRCA2_3tools.png" />
-<ul class="simple">
+<p><img src="../plots/bar_chart/KRAS_CDKN2A_BRCA2_3tools.png" alt="image" /></p>
+<ul>
 <li>This approach leads to a higher number of publications for each gene, but shows basically the same tendencies as in the PubTator example.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">The example of using PubTator, DNorm, and GeneTUKit illustrates, that the infrastructure of PubMedPortable can be easily extended to combine different data formats (PubTator, BioC, and pseudo XML format), being independent from a Web service, but making use of it, if desired.</p>
-</li>
+</blockquote></li>
+<li>The example of using PubTator, DNorm, and GeneTUKit illustrates, that the infrastructure of PubMedPortable can be easily extended to combine different data formats (PubTator, BioC, and pseudo XML format), being independent from a Web service, but making use of it, if desired.</li>
 </ul>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-</div>
-<div class="section" id="indexing-of-pmc-articles">
-<h1>Indexing of PMC Articles</h1>
-<div class="section" id="id1">
-<h2>Introduction</h2>
+<h1 id="indexing-of-pmc-articles"><span class="header-section-number">9</span> Indexing of PMC Articles</h1>
+<h2 id="introduction-1"><span class="header-section-number">9.1</span> Introduction</h2>
 <ul>
-<li><p class="first">The page <a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/">ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/</a> contains all downloadable files used in this section.</p>
-</li>
-<li><p class="first">Explanations for the PMC FTP service can be found here:</p>
+<li>The page <a href="ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/" class="uri">ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/</a> contains all downloadable files used in this section.</li>
+<li><p>Explanations for the PMC FTP service can be found here:</p>
 <blockquote>
-<p><a class="reference external" href="http://www.ncbi.nlm.nih.gov/pmc/tools/ftp/">http://www.ncbi.nlm.nih.gov/pmc/tools/ftp/</a></p>
-</blockquote>
-</li>
-<li><p class="first">The four files articles.txt.0-9A-B.tar.gz, articles.txt.C-H.tar.gz, articles.txt.I-N.tar.gz, and articles.txt.O-Z.tar.gz contain all available PMC full text articles in plain text format.</p>
-</li>
-<li><p class="first">In more than half of all PMC articles, the authors did not allow a download of their article in text format. This is also true for the available XML downloads and the ID Converter API (<a class="reference external" href="http://www.ncbi.nlm.nih.gov/pmc/tools/id-converter-api/">http://www.ncbi.nlm.nih.gov/pmc/tools/id-converter-api/</a>).</p>
-</li>
-<li><p class="first">This section considers the insertion of a PMC-PubMed-ID mapping of all available IDs in PostgreSQL, the indexing of all downloaded PMC articles in Xapian, and the insertion of the articles without further formatting in PostgreSQL.</p>
-</li>
-<li><p class="first">The approach can be extended with a PMC XML parser, e.g. this one:</p>
+<p><a href="http://www.ncbi.nlm.nih.gov/pmc/tools/ftp/" class="uri">http://www.ncbi.nlm.nih.gov/pmc/tools/ftp/</a></p>
+</blockquote></li>
+<li>The four files articles.txt.0-9A-B.tar.gz, articles.txt.C-H.tar.gz, articles.txt.I-N.tar.gz, and articles.txt.O-Z.tar.gz contain all available PMC full text articles in plain text format.</li>
+<li>In more than half of all PMC articles, the authors did not allow a download of their article in text format. This is also true for the available XML downloads and the ID Converter API (<a href="http://www.ncbi.nlm.nih.gov/pmc/tools/id-converter-api/" class="uri">http://www.ncbi.nlm.nih.gov/pmc/tools/id-converter-api/</a>).</li>
+<li>This section considers the insertion of a PMC-PubMed-ID mapping of all available IDs in PostgreSQL, the indexing of all downloaded PMC articles in Xapian, and the insertion of the articles without further formatting in PostgreSQL.</li>
+<li><p>The approach can be extended with a PMC XML parser, e.g. this one:</p>
 <blockquote>
-<ul class="simple">
-<li><a class="reference external" href="https://sourceforge.net/projects/pmcparser">https://sourceforge.net/projects/pmcparser</a></li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">If the user does not need the texts in PostgreSQL, they can also be stored directly in a text field in the Xapian index.</p>
-</li>
-<li><p class="first">The file file_list.txt contains a mapping of the downloaded article names to PMC IDs (<a class="reference external" href="http://www.ncbi.nlm.nih.gov/pmc/tools/ftp/">http://www.ncbi.nlm.nih.gov/pmc/tools/ftp/</a>), which is also stored in PostgreSQL.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="get-pmc-files">
-<h2>Get PMC Files</h2>
 <ul>
-<li><p class="first">Create a directory files in your PMC folder in the GitHub project and download the 4 PMC article archives, if you want to index all of them as shown here for the first gzip file:</p>
-<blockquote>
-<ul class="simple">
-<li>wget <a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/articles.txt.0-9A-B.tar.gz">ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/articles.txt.0-9A-B.tar.gz</a></li>
+<li><a href="https://sourceforge.net/projects/pmcparser" class="uri">https://sourceforge.net/projects/pmcparser</a></li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Unzip the files and remove the source files:</p>
+</blockquote></li>
+<li>If the user does not need the texts in PostgreSQL, they can also be stored directly in a text field in the Xapian index.</li>
+<li>The file file_list.txt contains a mapping of the downloaded article names to PMC IDs (<a href="http://www.ncbi.nlm.nih.gov/pmc/tools/ftp/" class="uri">http://www.ncbi.nlm.nih.gov/pmc/tools/ftp/</a>), which is also stored in PostgreSQL.</li>
+</ul>
+<h2 id="get-pmc-files"><span class="header-section-number">9.2</span> Get PMC Files</h2>
+<ul>
+<li><p>Create a directory files in your PMC folder in the GitHub project and download the 4 PMC article archives, if you want to index all of them as shown here for the first gzip file:</p>
 <blockquote>
-<ul class="simple">
+<ul>
+<li>wget <a href="ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/articles.txt.0-9A-B.tar.gz" class="uri">ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/articles.txt.0-9A-B.tar.gz</a></li>
+</ul>
+</blockquote></li>
+<li><p>Unzip the files and remove the source files:</p>
+<blockquote>
+<ul>
 <li>gunzip articles.txt.0-9A-B.tar.gz</li>
 <li>tar -xf articles.txt.0-9A-B.tar</li>
 <li>rm articles.txt.0-9A-B.tar</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Each gzip file will have an approximate size of 4.2 GB [2015-04-22]</p>
-</li>
-<li><p class="first">Download the mapping of PMC IDs to PubMed IDs in your PMC folder:</p>
+</blockquote></li>
+<li>Each gzip file will have an approximate size of 4.2 GB [2015-04-22]</li>
+<li><p>Download the mapping of PMC IDs to PubMed IDs in your PMC folder:</p>
 <blockquote>
-<ul class="simple">
-<li>wget <a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/PMC-ids.csv.gz">ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/PMC-ids.csv.gz</a></li>
+<ul>
+<li>wget <a href="ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/PMC-ids.csv.gz" class="uri">ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/PMC-ids.csv.gz</a></li>
 <li>gunzip PMC-ids.csv.gz</li>
 </ul>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-</div>
-<div class="section" id="create-tables-and-xapian-index">
-<h2>Create Tables and Xapian Index</h2>
+<h2 id="create-tables-and-xapian-index"><span class="header-section-number">9.3</span> Create Tables and Xapian Index</h2>
 <ul>
-<li><p class="first">Create a table tbl_pmcid_name_pmid in your PostgreSQL schema public:</p>
+<li><p>Create a table tbl_pmcid_name_pmid in your PostgreSQL schema public:</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>psql -h localhost -d pancreatic_cancer_db -U parser -f create_pmcid_pmid_table.sql</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Insert PMC ID mapping in your PostgreSQL database with PubMed IDs, if contained (not all PMC IDs will contain a PubMed ID mapping - nevertheless, it can be checked whether the PubMed ID is referenced to a PMC ID with this table):</p>
+</blockquote></li>
+<li><p>Insert PMC ID mapping in your PostgreSQL database with PubMed IDs, if contained (not all PMC IDs will contain a PubMed ID mapping - nevertheless, it can be checked whether the PubMed ID is referenced to a PMC ID with this table):</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>python insert_PMC_ID_PubMed_ID_mapping.py</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">If you want to count the number of uploaded PMC IDs, use the following command, e.g. in PGAdmin:</p>
+</blockquote></li>
+<li><p>If you want to count the number of uploaded PMC IDs, use the following command, e.g. in PGAdmin:</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>select count(*) from tbl_pmcid_pmid;</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Insert PMC ID mapping from file_list.txt, which also contains the file names from the downloaded archives:</p>
+</blockquote></li>
+<li><p>Insert PMC ID mapping from file_list.txt, which also contains the file names from the downloaded archives:</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>psql -h localhost -d pancreatic_cancer_db -U parser -f create_pmcid_name_pmid_table.sql</li>
 <li>python insert_PMC_ID_Name_PubMed_ID_mapping.py</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Check the total number of downloaded text files from the archives. This number will be much smaller than the number of PMC IDs in tbl_pmicid_pmid:</p>
-<blockquote>
-<ul class="simple">
-<li>select count(*) from tbl_pmcid_name_pmid;</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">Build the Xapian index - this might take a few hours in total, depending on the following options. Create a folder xapian first:</p>
+</blockquote></li>
+<li><p>Check the total number of downloaded text files from the archives. This number will be much smaller than the number of PMC IDs in tbl_pmicid_pmid:</p>
 <blockquote>
 <ul>
-<li><p class="first">mkdir xapian</p>
-</li>
-<li><p class="first">Set the boolean flag of the variable use_psql to True in line 35 in index.py (default is True) if you want to store your PMC texts in the PostgreSQL table tbl_pmcid_text, otherwise an extra Xapian data field will be used to save the file content, e.g. to read it after receiving search results.</p>
-</li>
-<li><p class="first">If you want to use the PostgreSQL database, create the table tbl_pmcid_text first:</p>
+<li>select count(*) from tbl_pmcid_name_pmid;</li>
+</ul>
+</blockquote></li>
+<li><p>Build the Xapian index - this might take a few hours in total, depending on the following options. Create a folder xapian first:</p>
 <blockquote>
-<ul class="simple">
+<ul>
+<li>mkdir xapian</li>
+<li>Set the boolean flag of the variable use_psql to True in line 35 in index.py (default is True) if you want to store your PMC texts in the PostgreSQL table tbl_pmcid_text, otherwise an extra Xapian data field will be used to save the file content, e.g. to read it after receiving search results.</li>
+<li><p>If you want to use the PostgreSQL database, create the table tbl_pmcid_text first:</p>
+<blockquote>
+<ul>
 <li>psql -h localhost -d pancreatic_cancer_db -U parser -f create_pmcid_text_table.sql</li>
 <li>The indexing process for the first of four files took over an hour with one CPU core (2,83 GHz and 8 GB RAM). Setting use_psql to True or False resulted in a similar runtime.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">python index.py</p>
-</li>
+</blockquote></li>
+<li>python index.py</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">Before the index can be used completely, it has to be merged with the compact-tool already mentioned earlier in this documentation. The following command will generate a folder xapian_PMC_complete in your PMC directory:</p>
+</blockquote></li>
+<li><p>Before the index can be used completely, it has to be merged with the compact-tool already mentioned earlier in this documentation. The following command will generate a folder xapian_PMC_complete in your PMC directory:</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>python generate_xapian_compact_command.py</li>
 <li>It is also possible to include only some selected journals in the search by using the IDs generated during the indexing process (ids.txt).</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">To search in the index with showing identified texts, run the following script with the parameter use_psql set to True (default case, line 24) and verbose set to True (default False, line 22). Create a result directory first. Similar to the already described search procedure in the Xapian chapter of this documentation, a list of synonyms can be used (synonyms/synonyms.txt):</p>
+</blockquote></li>
+<li><p>To search in the index with showing identified texts, run the following script with the parameter use_psql set to True (default case, line 24) and verbose set to True (default False, line 22). Create a result directory first. Similar to the already described search procedure in the Xapian chapter of this documentation, a list of synonyms can be used (synonyms/synonyms.txt):</p>
 <blockquote>
-<ul class="simple">
+<ul>
 <li>search.py</li>
 <li>This script rather serves as a guidline how to get the search results and should be adapted to the methods already described.</li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">The scripts which generated the results described in the other chapters can be adapted to be used with the data processed in this section.</p>
-</li>
+</blockquote></li>
+<li>The scripts which generated the results described in the other chapters can be adapted to be used with the data processed in this section.</li>
 </ul>
-</div>
-</div>
-<div class="section" id="ner">
-<h1>NER</h1>
-<table border="1" class="docutils">
+<h1 id="named-entity-recognition-tools"><span class="header-section-number">10</span> Named Entity Recognition Tools</h1>
+<ul>
+<li>The following table shows named entity recognition tools. Many stand-alone and web service applications are available. Therefore, the overview cannot be considered as complete.</li>
+<li>There will be new publications from every BioCreative challenge (<a href="http://www.biocreative.org" class="uri">http://www.biocreative.org</a>).</li>
+<li>The first 5 applications can be used easily as a web service with the PubMedPortable script call_PubTator.py (Wei et al.).</li>
+<li>DNORM was used as a stand-alone tool in the wiki section “Examples for Using BioC and PubTator”.</li>
+<li>TaggerOne can be trained to be used highlight any entity type. The publication shows benchmarked results for chemicals and diseases.</li>
+</ul>
+<table style="width:100%;">
 <colgroup>
-<col width="20%" />
-<col width="34%" />
-<col width="25%" />
-<col width="22%" />
+<col width="19%" />
+<col width="32%" />
+<col width="23%" />
+<col width="23%" />
 </colgroup>
-<thead valign="bottom">
-<tr><th class="head">Tool Name</th>
-<th class="head">Entities</th>
-<th class="head">Availability</th>
-<th class="head">Authors</th>
+<thead>
+<tr class="header">
+<th align="left">Tool Name</th>
+<th align="left">Entities</th>
+<th align="left">Availability</th>
+<th align="left">Authors</th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr><td><a class="reference external" href="http://gnat.sourceforge.net/">GNAT</a></td>
-<td>genes/proteins</td>
-<td>stand-alone tool and web service</td>
-<td><a class="reference external" href="https://dx.doi.org/10.1093/bioinformatics/btr455">Hakenberg, J. et al. 2010</a></td>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/#GNormPlus">GNormPlus</a></td>
+<td align="left">genes/proteins</td>
+<td align="left">stand-alone tool and web service</td>
+<td align="left"><a href="http://dx.doi.org/10.1155/2015/918710">Wei et al., 2015</a></td>
 </tr>
-<tr><td><a class="reference external" href="http://linnaeus.sourceforge.net/">LINNAEUS</a></td>
-<td>species/taxonomy</td>
-<td>stand-alone tool and web service</td>
-<td><a class="reference external" href="https://dx.doi.org/10.1186/1471-2105-11-85">Gerner et al., 2010</a></td>
+<tr class="even">
+<td align="left"><a href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/#DNorm">DNorm</a></td>
+<td align="left">diseases/species/taxonomy</td>
+<td align="left">stand-alone tool and web service</td>
+<td align="left"><a href="https://dx.doi.org/10.1093/bioinformatics/btt474">Leaman et al., 2013</a></td>
 </tr>
-<tr><td><a class="reference external" href="https://sourceforge.net/projects/taxongrab/">TaxonGrab</a></td>
-<td>species/taxonomy</td>
-<td>stand-alone tool</td>
-<td><a class="reference external" href="http://dx.doi.org/10.17161/bi.v2i0.17">Moritz et al., 2005</a></td>
+<tr class="odd">
+<td align="left"><a href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/#tmChem">tmChem</a></td>
+<td align="left">drugs/chemicals</td>
+<td align="left">stand-alone tool and web service</td>
+<td align="left"><a href="https://dx.doi.org/10.1186/1758-2946-7-S1-S3">Leaman et al., 2014</a></td>
 </tr>
-<tr><td><a class="reference external" href="http://www.ebi.ac.uk/webservices/whatizit/helpws.jsp;jsessionid=9243A71262F8873CA40FE4DD4DDB18A0">Whatizit</a></td>
-<td>species/taxonomy</td>
-<td>stand-alone tool and web service</td>
-<td><a class="reference external" href="https://dx.doi.org/10.1093/bioinformatics/btm557">Jimeno et al., 2008</a></td>
+<tr class="even">
+<td align="left"><a href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/#tmVar">tmVar</a></td>
+<td align="left">mutations/diseases</td>
+<td align="left">stand-alone tool and web service</td>
+<td align="left"><a href="https://dx.doi.org/10.1093/bioinformatics/btt156">Wei et al., 2013</a></td>
 </tr>
-<tr><td><a class="reference external" href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/#DNorm">DNorm</a></td>
-<td>diseases/species/taxonomy</td>
-<td>stand-alone tool</td>
-<td><a class="reference external" href="https://dx.doi.org/10.1093/bioinformatics/btt474">Leaman et al., 2013</a></td>
+<tr class="odd">
+<td align="left"><a href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/#SR4GN">SR4GN</a></td>
+<td align="left">species/genes</td>
+<td align="left">stand-alone tool and web service</td>
+<td align="left"><a href="http://dx.doi.org/10.1371/journal.pone.0038460">Wei et al., 2012</a></td>
 </tr>
-<tr><td><a class="reference external" href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/#">tmChem</a></td>
-<td>drugs/chemicals</td>
-<td>stand-alone tool</td>
-<td><a class="reference external" href="https://dx.doi.org/10.1186/1758-2946-7-S1-S3">Leaman et al., 2014</a></td>
+<tr class="even">
+<td align="left"><a href="http://gnat.sourceforge.net/">GNAT</a></td>
+<td align="left">genes/proteins</td>
+<td align="left">stand-alone tool and web service</td>
+<td align="left"><a href="https://dx.doi.org/10.1093/bioinformatics/btr455">Hakenberg, J. et al. 2010</a></td>
 </tr>
-<tr><td><a class="reference external" href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/#tmVar">tmVar</a></td>
-<td>mutations/diseases</td>
-<td>stand-alone tool</td>
-<td><a class="reference external" href="https://dx.doi.org/10.1093/bioinformatics/btt156">Wei et al., 2013</a></td>
+<tr class="odd">
+<td align="left"><a href="http://linnaeus.sourceforge.net/">LINNAEUS</a></td>
+<td align="left">species/taxonomy</td>
+<td align="left">stand-alone tool and web service</td>
+<td align="left"><a href="https://dx.doi.org/10.1186/1471-2105-11-85">Gerner et al., 2010</a></td>
 </tr>
-<tr><td><a class="reference external" href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/#SR4GN">SR4GN</a></td>
-<td>species/genes</td>
-<td>standalone tool</td>
-<td><a class="reference external" href="http://dx.doi.org/10.1371/journal.pone.0038460">Wei et al., 2012</a></td>
+<tr class="even">
+<td align="left"><a href="https://sourceforge.net/projects/taxongrab/">TaxonGrab</a></td>
+<td align="left">species/taxonomy</td>
+<td align="left">stand-alone tool</td>
+<td align="left">Moritz et al., 2005_</td>
 </tr>
-<tr><td><a class="reference external" href="http://bionlp.sourceforge.net/">MutationFinder(BioNLP)</a></td>
-<td>mutations</td>
-<td>standalone tool</td>
-<td><a class="reference external" href="https://dx.doi.org/10.1093/bioinformatics/btm235">Caporaso et al., 2007</a></td>
+<tr class="odd">
+<td align="left"><a href="http://www.ebi.ac.uk/webservices/whatizit/helpws.jsp;jsessionid=9243A71262F8873CA40FE4DD4DDB18A0">Whatizit</a></td>
+<td align="left">species/taxonomy</td>
+<td align="left">web service</td>
+<td align="left"><a href="https://dx.doi.org/10.1093/bioinformatics/btm557">Rebholz-Schuhmann et al., 2008</a></td>
 </tr>
-<tr><td><a class="reference external" href="http://ctdbase.org/">CTD</a></td>
-<td>genes/proteins/chemicals/protein interactions</td>
-<td>web service</td>
-<td><a class="reference external" href="https://dx.doi.org/10.1093/database/bau050">Wiegers et al., 2014</a></td>
+<tr class="even">
+<td align="left"><a href="http://bionlp.sourceforge.net/">MutationFinder(BioNLP)</a></td>
+<td align="left">mutations</td>
+<td align="left">standalone tool</td>
+<td align="left"><a href="https://dx.doi.org/10.1093/bioinformatics/btm235">Caporaso et al., 2007</a></td>
 </tr>
-<tr><td><a class="reference external" href="http://gnat.sourceforge.net/">Reflect</a></td>
-<td>proteins</td>
-<td>stand alone tool and web service</td>
-<td><a class="reference external" href="https://dx.doi.org/doi:10.1038/nbt0609-508">Pafilis et al., 2009</a></td>
+<tr class="odd">
+<td align="left"><a href="http://ctdbase.org/">CTD</a></td>
+<td align="left">genes/proteins/chemicals/protein interactions</td>
+<td align="left">web service</td>
+<td align="left"><a href="https://dx.doi.org/10.1093/database/bau050">Wiegers et al., 2014</a></td>
 </tr>
-<tr><td><a class="reference external" href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/demo/TaggerOne/demo.cgi">TaggerOne</a></td>
-<td>diseases/chemicals</td>
-<td>web service</td>
-<td><a class="reference external" href="https://dx.doi.org/10.1093/bioinformatics/btw343">Leanman et al., 2016</a></td>
+<tr class="even">
+<td align="left"><a href="http://gnat.sourceforge.net/">Reflect</a></td>
+<td align="left">proteins/chemicals</td>
+<td align="left">stand-alone tool and web service</td>
+<td align="left"><a href="https://dx.doi.org/doi:10.1038/nbt0609-508">Pafilis et al., 2009</a></td>
 </tr>
-<tr><td><a class="reference external" href="http://clinicalnlptool.com/cdr/cdr.html">CD-REST</a></td>
-<td>chemicals/diseases</td>
-<td>web service</td>
-<td><a class="reference external" href="https://dx.doi.org/10.1093/database/baw036">Xu et al., 2016</a></td>
+<tr class="odd">
+<td align="left"><a href="http://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/demo/TaggerOne/demo.cgi">TaggerOne</a></td>
+<td align="left">chemicals/diseases</td>
+<td align="left">web service</td>
+<td align="left"><a href="https://dx.doi.org/10.1093/bioinformatics/btw343">Leanman et al., 2016</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="http://clinicalnlptool.com/cdr/cdr.html">CD-REST</a></td>
+<td align="left">chemicals/diseases</td>
+<td align="left">web service</td>
+<td align="left"><a href="https://dx.doi.org/10.1093/database/baw036">Xu et al., 2016</a></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="contact">
-<h1>Contact</h1>
+<h1 id="contact"><span class="header-section-number">11</span> Contact</h1>
 <ul>
-<li><p class="first">Please, write an e-mail, if you have questions, feedback, improvements, or new ideas:</p>
+<li><p>Please, write an e-mail, if you have questions, feedback, improvements, or new ideas:</p>
 <blockquote>
-<ul class="simple">
-<li><a class="reference external" href="mailto:kersten.doering&#64;gmail.com">kersten.doering&#64;gmail.com</a></li>
+<ul>
+<li><script type="text/javascript">
+<!--
+h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x6b;&#x65;&#114;&#x73;&#116;&#x65;&#110;&#46;&#100;&#x6f;&#x65;&#114;&#x69;&#110;&#x67;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x6b;&#x65;&#114;&#x73;&#116;&#x65;&#110;&#46;&#100;&#x6f;&#x65;&#114;&#x69;&#110;&#x67;&#32;&#x61;&#116;&#32;&#x67;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript></li>
 </ul>
-</blockquote>
-</li>
-<li><p class="first">If you are interested in related projects, visit our working group's homepage:</p>
+</blockquote></li>
+<li><p>If you are interested in related projects, visit our working group’s homepage:</p>
 <blockquote>
-<ul class="simple">
-<li><a class="reference external" href="http://www.pharmaceutical-bioinformatics.de">http://www.pharmaceutical-bioinformatics.de</a></li>
+<ul>
+<li><a href="http://www.pharmaceutical-bioinformatics.de" class="uri">http://www.pharmaceutical-bioinformatics.de</a></li>
 </ul>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-<div class="section" id="license">
-<h2>License</h2>
-<ul class="simple">
-<li>PubMedPortable is published with an ISC license given in &quot;license.txt&quot;.</li>
+<h2 id="license"><span class="header-section-number">11.1</span> License</h2>
+<ul>
+<li>PubMedPortable is published with an ISC license given in “license.txt”.</li>
 </ul>
-</div>
-</div>
-</div>
 </body>
 </html>

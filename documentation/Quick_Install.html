@@ -34,7 +34,7 @@
 </ul></li>
 </ul>
 </div>
-<h1 id="introduction"><a href="#introduction"><span class="header-section-number">1</span> Introduction</a></h1>
+<h1 id="introduction"><span class="header-section-number">1</span> Introduction</h1>
 <ul>
 <li>PubMedPortable processes XML files that can be downloaded from NCBI and builds up a PostgreSQL database containing all abstracts of the data set (no full texts).</li>
 <li>Furthermore, PubMedPortable generates a full text index with Xapian such that titles, abstracts, keywords, MeSH terms, and substances can be queried with search terms.</li>
@@ -43,16 +43,16 @@
 <li>If the examples from this documentations are used, there will be around 745 MB of disk space needed. There are no other hardware requirements.</li>
 <li>Start by copying the whole project folder from GitHub to your local disk.</li>
 </ul>
-<h1 id="download-a-data-set"><a href="#download-a-data-set"><span class="header-section-number">2</span> Download a Data Set</a></h1>
+<h1 id="download-a-data-set"><span class="header-section-number">2</span> Download a Data Set</h1>
 <ul>
 <li>After downloading your data set, you can insert the XML files in an extra directory in your project folder “data” or somewhere else. The only important thing is to use only one type of topic or XML files in one folder, because the programme will insert all files of type XML in a directory into the database given (next step: “Build up a Relational Database in PostgreSQL”).</li>
 </ul>
-<h2 id="download-with-a-web-browser"><a href="#download-with-a-web-browser"><span class="header-section-number">2.1</span> Download with a Web Browser</a></h2>
+<h2 id="download-with-a-web-browser"><span class="header-section-number">2.1</span> Download with a Web Browser</h2>
 <ul>
 <li><p>Type in the following URL into your browser and search for “pancreatic cancer”:</p>
 <blockquote>
 <ul>
-<li><a href="http://www.ncbi.nlm.nih.gov/pubmed/">http://www.ncbi.nlm.nih.gov/pubmed/</a></li>
+<li><a href="http://www.ncbi.nlm.nih.gov/pubmed/" class="uri">http://www.ncbi.nlm.nih.gov/pubmed/</a></li>
 <li>The quote signs are important for the exact search.</li>
 <li>Click on “Send to:” and “File” and select “XML”.</li>
 <li>16th April 2015: 23258 PubMed-IDs</li>
@@ -60,7 +60,7 @@
 </ul>
 </blockquote></li>
 </ul>
-<h2 id="download-with-a-web-browser-and-efetch"><a href="#download-with-a-web-browser-and-efetch"><span class="header-section-number">2.2</span> Download with a Web Browser and EFetch</a></h2>
+<h2 id="download-with-a-web-browser-and-efetch"><span class="header-section-number">2.2</span> Download with a Web Browser and EFetch</h2>
 <blockquote>
 <ul>
 <li><p>You can also download only the PubMed-ID list from your browser by selecting “PMID List” instead of “XML” and then use EFetch (tested only on Ubuntu):</p>
@@ -76,22 +76,22 @@
 </blockquote></li>
 </ul>
 </blockquote>
-<h2 id="download-pubmed"><a href="#download-pubmed"><span class="header-section-number">2.3</span> Download PubMed</a></h2>
+<h2 id="download-pubmed"><span class="header-section-number">2.3</span> Download PubMed</h2>
 <ul>
 <li><p>It is also possible to download the whole PubMed via license:</p>
 <blockquote>
 <ul>
-<li><a href="http://www.nlm.nih.gov/databases/journal.html">http://www.nlm.nih.gov/databases/journal.html</a></li>
-<li><a href="http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_doc.html">http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_doc.html</a></li>
+<li><a href="http://www.nlm.nih.gov/databases/journal.html" class="uri">http://www.nlm.nih.gov/databases/journal.html</a></li>
+<li><a href="http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_doc.html" class="uri">http://www.nlm.nih.gov/bsd/licensee/2015_stats/baseline_doc.html</a></li>
 </ul>
 </blockquote></li>
 </ul>
-<h1 id="installation"><a href="#installation"><span class="header-section-number">3</span> Installation</a></h1>
-<h2 id="operating-system"><a href="#operating-system"><span class="header-section-number">3.1</span> Operating System</a></h2>
+<h1 id="installation"><span class="header-section-number">3</span> Installation</h1>
+<h2 id="operating-system"><span class="header-section-number">3.1</span> Operating System</h2>
 <ul>
 <li>PubMedPortable was tested on Ubuntu and Fedora.</li>
 </ul>
-<h3 id="ubuntu"><a href="#ubuntu"><span class="header-section-number">3.1.1</span> Ubuntu</a></h3>
+<h3 id="ubuntu"><span class="header-section-number">3.1.1</span> Ubuntu</h3>
 <ul>
 <li><p>These are the packages that need to be installed to use PubMedPortable:</p>
 <blockquote>
@@ -117,13 +117,13 @@
 </ul>
 </blockquote></li>
 </ul>
-<h3 id="fedora"><a href="#fedora"><span class="header-section-number">3.1.2</span> Fedora</a></h3>
+<h3 id="fedora"><span class="header-section-number">3.1.2</span> Fedora</h3>
 <ul>
 <li>This section describes how to install required packages and how to adjust PostgreSQL settings in Fedora.</li>
 <li><p>To install the Fedora packages use the following command. It will install all required packages:</p>
 <blockquote>
 <ul>
-<li>“sudo -E yum install python python-xappy python-sqlalchemy python-psycopg2 postgresql postgresql-server postgresql-contrib”</li>
+<li>“sudo -E dnf install python python-xappy python-sqlalchemy python-psycopg2 postgresql postgresql-server postgresql-contrib”</li>
 </ul>
 </blockquote></li>
 <li><p>To enable PostgreSQL in Fedora, use the following steps:</p>
@@ -148,13 +148,13 @@
 <li>“sudo postgresql-setup initdb”</li>
 </ul>
 </blockquote></li>
-<li><p>To allow read access to postgres, SELinux should be modified. This can be done with the following command:</p>
+<li><p>To allow read access to postgres, SELinux should be modified. The SELinux is required upto Fedora 23. This can be done with the following command:</p>
 <blockquote>
 <ul>
 <li>“grep postgres /var/log/audit/audit.log | audit2allow -M mypol”</li>
 </ul>
 </blockquote></li>
-<li><p>Then you can do this:</p>
+<li><p>Then you can do this (this is also required upto Fedora 23):</p>
 <blockquote>
 <ul>
 <li>“sudo semodule -i mypol.pp”</li>
@@ -170,7 +170,7 @@
 </ul>
 </blockquote></li>
 </ul>
-<h2 id="creation-of-postgresql-superuser"><a href="#creation-of-postgresql-superuser"><span class="header-section-number">3.2</span> Creation of PostgreSQL superuser</a></h2>
+<h2 id="creation-of-postgresql-superuser"><span class="header-section-number">3.2</span> Creation of PostgreSQL superuser</h2>
 <ul>
 <li><p>If there is not yet a superuser for the PostgreSQL database, create one with the name of your local account</p>
 <blockquote>
@@ -192,18 +192,18 @@
 </ul>
 </blockquote></li>
 </ul>
-<h2 id="installation-with-docker"><a href="#installation-with-docker"><span class="header-section-number">3.3</span> Installation with Docker</a></h2>
+<h2 id="installation-with-docker"><span class="header-section-number">3.3</span> Installation with Docker</h2>
 <ul>
 <li>Docker is similar to a virtual machine, but it is easier to deploy and more efficient. It was tested in Ubuntu and Windows.</li>
 <li>You can use the PubMedPortable image to create a PostgreSQL relational database and a Xapian full text index without installing the packages mentioned above in basically two steps.</li>
 <li><p>Install Docker - it was tested on Ubuntu (64-bit required):</p>
 <blockquote>
 <ul>
-<li><a href="https://docs.docker.com/installation/ubuntulinux/">https://docs.docker.com/installation/ubuntulinux/</a></li>
+<li><a href="https://docs.docker.com/installation/ubuntulinux/" class="uri">https://docs.docker.com/installation/ubuntulinux/</a></li>
 <li><p>There are many different operating systems supported:</p>
 <blockquote>
 <ul>
-<li><a href="https://docs.docker.com/installation/#installation">https://docs.docker.com/installation/#installation</a></li>
+<li><a href="https://docs.docker.com/installation/#installation" class="uri">https://docs.docker.com/installation/#installation</a></li>
 </ul>
 </blockquote></li>
 </ul>
@@ -248,13 +248,13 @@
 <li><p>It is not recommended to run the PubMedPortable examples or to develop new scripts within the Docker container. If you want to modify the image, use the Docker documentation and this repository:</p>
 <blockquote>
 <ul>
-<li><a href="https://github.com/bgruening/docker-recipes/tree/master/pubmed2go">https://github.com/bgruening/docker-recipes/tree/master/pubmed2go</a></li>
+<li><a href="https://github.com/bgruening/docker-recipes/tree/master/pubmed2go" class="uri">https://github.com/bgruening/docker-recipes/tree/master/pubmed2go</a></li>
 </ul>
 </blockquote></li>
-<li>If you want to try the examples given in the wiki, copy the Xapian directory from the &lt;folder_of_your_choice&gt; into the folder “PubMedPortable/full_text_index/xapian/” from “<a href="https://github.com/KerstenDoering/PubMedPortable">https://github.com/KerstenDoering/PubMedPortable</a>” and run the Docker container in background.</li>
+<li>If you want to try the examples given in the wiki, copy the Xapian directory from the &lt;folder_of_your_choice&gt; into the folder “PubMedPortable/full_text_index/xapian/” from “<a href="https://github.com/KerstenDoering/PubMedPortable" class="uri">https://github.com/KerstenDoering/PubMedPortable</a>” and run the Docker container in background.</li>
 <li>After successful installation, the rest of this documentation can be skipped.</li>
 </ul>
-<h1 id="build-up-a-relational-database-in-postgresql"><a href="#build-up-a-relational-database-in-postgresql"><span class="header-section-number">4</span> Build up a Relational Database in PostgreSQL</a></h1>
+<h1 id="build-up-a-relational-database-in-postgresql"><span class="header-section-number">4</span> Build up a Relational Database in PostgreSQL</h1>
 <ul>
 <li><p>Open a Terminal and type in:</p>
 <blockquote>
@@ -308,7 +308,7 @@
 </blockquote></li>
 <li>Now, a schema “pubmed” exists in your database “pancreatic_cancer_db” that contains all abstracts, titles, authors, etc. More information will be given in the wiki, containing SQL queries and small programming examples.</li>
 </ul>
-<h1 id="build-up-a-full-text-index-with-xapian-and-search-it"><a href="#build-up-a-full-text-index-with-xapian-and-search-it"><span class="header-section-number">5</span> Build up a Full Text Index with Xapian and Search It</a></h1>
+<h1 id="build-up-a-full-text-index-with-xapian-and-search-it"><span class="header-section-number">5</span> Build up a Full Text Index with Xapian and Search It</h1>
 <ul>
 <li>The results from this section can be found in “full_text_index/results/results_from_documentation/”.</li>
 <li>Change into the directory “full_text_index” in your terminal.</li>
@@ -324,7 +324,7 @@
 <li><p>This file contains manually chosen names of drugs, genes, proteins, and diseases related to pancreatic cancer, manually extracted from DrugBank (exact search with quotes for “pancreatic cancer”) and OMIM:</p>
 <blockquote>
 <ul>
-<li><a href="http://www.drugbank.ca/">http://www.drugbank.ca/</a></li>
+<li><a href="http://www.drugbank.ca/" class="uri">http://www.drugbank.ca/</a></li>
 <li><a href="http://omim.org/entry/260350?search=%22pancreatic%20cancer%22">http://omim.org/entry/260350?search=%22pancreatic%20cancer%22</a></li>
 </ul>
 </blockquote></li>
@@ -337,7 +337,7 @@
 </blockquote></li>
 <li>For the given example, 10392 lines were generated in “results.csv”.</li>
 </ul>
-<h1 id="contact"><a href="#contact"><span class="header-section-number">6</span> Contact</a></h1>
+<h1 id="contact"><span class="header-section-number">6</span> Contact</h1>
 <ul>
 <li><p>Please, write an e-mail, if you have questions, feedback, improvements, or new ideas:</p>
 <blockquote>
@@ -345,7 +345,7 @@
 <li><script type="text/javascript">
 <!--
 h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x6b;&#x65;&#114;&#x73;&#116;&#x65;&#110;&#46;&#100;&#x6f;&#x65;&#114;&#x69;&#110;&#x67;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
 // -->
 </script><noscript>&#x6b;&#x65;&#114;&#x73;&#116;&#x65;&#110;&#46;&#100;&#x6f;&#x65;&#114;&#x69;&#110;&#x67;&#32;&#x61;&#116;&#32;&#x67;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript></li>
 </ul>
@@ -353,11 +353,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li><p>If you are interested in related projects, visit our working group’s homepage:</p>
 <blockquote>
 <ul>
-<li><a href="http://www.pharmaceutical-bioinformatics.de">http://www.pharmaceutical-bioinformatics.de</a></li>
+<li><a href="http://www.pharmaceutical-bioinformatics.de" class="uri">http://www.pharmaceutical-bioinformatics.de</a></li>
 </ul>
 </blockquote></li>
 </ul>
-<h2 id="license"><a href="#license"><span class="header-section-number">6.1</span> License</a></h2>
+<h2 id="license"><span class="header-section-number">6.1</span> License</h2>
 <ul>
 <li>PubMedPortable is published with an ISC license given in “license.txt”.</li>
 </ul>
