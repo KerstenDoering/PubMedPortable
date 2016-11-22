@@ -177,11 +177,11 @@ Installation with Docker
 
 - Install Docker - it was tested on Ubuntu (64-bit required):
 
-    - https://docs.docker.com/installation/ubuntulinux/
+    - https://docs.docker.com/engine/installation/linux/ubuntulinux/
 
     - There are many different operating systems supported:
 
-        - https://docs.docker.com/installation/#installation
+        - https://docs.docker.com/engine/installation/
 
 - Run Docker with the PubMedPortable image:
 
@@ -193,7 +193,7 @@ Installation with Docker
 
     - Open a terminal and type in this command:
 
-        - "sudo docker run -d -v /home/<user_name>/<folder_of_your_choice>/:/export/ -p 9999:5432 bgruening/pubmed2go"
+        - "sudo docker run -d -v /home/<user_name>/<folder_of_your_choice>/:/export/ -p 9999:5432 bgruening/pubmedportable"
 
         - This will create the PostgreSQL folder as well as the full text index database folder within the <folder_of_your_choice>.
 
@@ -207,7 +207,15 @@ Installation with Docker
 
         - If you have created another folder with a name <folder_of_your_choice> and the directory "import_data", you can create another database on port "9998" and another full text index with different data there:
 
-            - "sudo docker run -d -v /home/<user_name>/<folder_of_your_choice>/:/export/ -p 9998:5432 bgruening/pubmed2go"
+            - "sudo docker run -d -v /home/<user_name>/<folder_of_your_choice>/:/export/ -p 9998:5432 bgruening/pubmedportable"
+
+        - You can use other parameters to open the docker container first, e.g. if you want to modify software versions:
+
+            - "sudo docker run -i -t -v /home/<user_name>/<folder_of_your_choice>/:/export/ -p 9998:5432 bgruening/pubmedportable /bin/bash"
+
+            - "startup" will initialize the building process in your docker container.
+
+        - If you want to check which version of a software is installed, you open your container first and run "pip freeze" or you can execute e.g. "sudo docker run -it bgruening/pubmedportable python -c 'import sqlalchemy; print sqlalchemy.__version__'".
 
         - In case of replacing or creating a database on a port that is already used, delete the complete directory <folder_of_your_choice> and repeat the configuration steps.
 
@@ -215,15 +223,23 @@ Installation with Docker
 
 - This also means that you need a default PostgreSQL installation on your operating system. Restart a closed Docker session on port "9999" with the command:
 
-    - "sudo docker run -d -v /home/<user_name>/<folder_of_your_choice>/:/export/ -p 9999:5432 bgruening/pubmed2go"
+    - "sudo docker run -d -v /home/<user_name>/<folder_of_your_choice>/:/export/ -p 9999:5432 bgruening/pubmedportable"
 
 - It is not recommended to run the PubMedPortable examples or to develop new scripts within the Docker container. If you want to modify the image, use the Docker documentation and this repository:
 
-    - https://github.com/bgruening/docker-recipes/tree/master/pubmed2go
+    - https://github.com/bgruening/docker-recipes/tree/master/pubmedportable
 
 - If you want to try the examples given in the wiki, copy the Xapian directory from the <folder_of_your_choice> into the folder "PubMedPortable/full_text_index/xapian/" from "https://github.com/KerstenDoering/PubMedPortable" and run the Docker container in background.
 
 - After successful installation, the rest of this documentation can be skipped.
+
+- During the revision process of the PubMedPortable publication, the original name PubMed2Go was changed to PubMedPortable.
+
+    - The bgruening GitHub repository name changed to pubmedportable, but the scripts and the generated outputs still contain the name pubmed2go.
+
+    - The docker container bgruening/pubmed2go still exists and contains the same version as bgruening/pubmedportable.
+
+    - Users with an older version of the docker container should execute "sudo docker pull bgruening/pubmed2go" to update their version.  
 
 
 ********************************************

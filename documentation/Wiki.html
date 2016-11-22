@@ -225,11 +225,11 @@
 <li><p>Install Docker - it was tested on Ubuntu (64-bit required):</p>
 <blockquote>
 <ul>
-<li><a href="https://docs.docker.com/installation/ubuntulinux/" class="uri">https://docs.docker.com/installation/ubuntulinux/</a></li>
+<li><a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/" class="uri">https://docs.docker.com/engine/installation/linux/ubuntulinux/</a></li>
 <li><p>There are many different operating systems supported:</p>
 <blockquote>
 <ul>
-<li><a href="https://docs.docker.com/installation/#installation" class="uri">https://docs.docker.com/installation/#installation</a></li>
+<li><a href="https://docs.docker.com/engine/installation/" class="uri">https://docs.docker.com/engine/installation/</a></li>
 </ul>
 </blockquote></li>
 </ul>
@@ -243,7 +243,7 @@
 <li><p>Open a terminal and type in this command:</p>
 <blockquote>
 <ul>
-<li>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9999:5432 bgruening/pubmed2go”</li>
+<li>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9999:5432 bgruening/pubmedportable”</li>
 <li>This will create the PostgreSQL folder as well as the full text index database folder within the &lt;folder_of_your_choice&gt;.</li>
 <li>You can see that Docker is running by typing in “sudo docker ps”. This will show a randomly generated name for your process.</li>
 <li>Stopping Docker is possible by doing “sudo docker stop &lt;name&gt;”.</li>
@@ -256,9 +256,17 @@
 <li><p>If you have created another folder with a name &lt;folder_of_your_choice&gt; and the directory “import_data”, you can create another database on port “9998” and another full text index with different data there:</p>
 <blockquote>
 <ul>
-<li>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9998:5432 bgruening/pubmed2go”</li>
+<li>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9998:5432 bgruening/pubmedportable”</li>
 </ul>
 </blockquote></li>
+<li><p>You can use other parameters to open the docker container first, e.g. if you want to modify software versions:</p>
+<blockquote>
+<ul>
+<li>“sudo docker run -i -t -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9998:5432 bgruening/pubmedportable /bin/bash”</li>
+<li>“startup” will initialize the building process in your docker container.</li>
+</ul>
+</blockquote></li>
+<li>If you want to check which version of a software is installed, you open your container first and run “pip freeze” or you can execute e.g. “sudo docker run -it bgruening/pubmedportable python -c ‘import sqlalchemy; print sqlalchemy.__version__’”.</li>
 <li>In case of replacing or creating a database on a port that is already used, delete the complete directory &lt;folder_of_your_choice&gt; and repeat the configuration steps.</li>
 </ul>
 </blockquote></li>
@@ -268,16 +276,24 @@
 <li><p>This also means that you need a default PostgreSQL installation on your operating system. Restart a closed Docker session on port “9999” with the command:</p>
 <blockquote>
 <ul>
-<li>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9999:5432 bgruening/pubmed2go”</li>
+<li>“sudo docker run -d -v /home/&lt;user_name&gt;/&lt;folder_of_your_choice&gt;/:/export/ -p 9999:5432 bgruening/pubmedportable”</li>
 </ul>
 </blockquote></li>
 <li><p>It is not recommended to run the PubMedPortable examples or to develop new scripts within the Docker container. If you want to modify the image, use the Docker documentation and this repository:</p>
 <blockquote>
 <ul>
-<li><a href="https://github.com/bgruening/docker-recipes/tree/master/pubmed2go" class="uri">https://github.com/bgruening/docker-recipes/tree/master/pubmed2go</a></li>
+<li><a href="https://github.com/bgruening/docker-recipes/tree/master/pubmedportable" class="uri">https://github.com/bgruening/docker-recipes/tree/master/pubmedportable</a></li>
 </ul>
 </blockquote></li>
 <li>If you want to try the examples given in the sections 5 to 8, copy the Xapian directory from the &lt;folder_of_your_choice&gt; into the folder “PubMedPortable/full_text_index/xapian/” from “<a href="https://github.com/KerstenDoering/PubMedPortable" class="uri">https://github.com/KerstenDoering/PubMedPortable</a>” and run the Docker container in background. In case of using Docker, you can completely skip section 4.</li>
+<li><p>During the revision process of the PubMedPortable publication, the original name PubMed2Go was changed to PubMedPortable.</p>
+<blockquote>
+<ul>
+<li>The bgruening GitHub repository name changed to pubmedportable, but the scripts and the generated outputs still contain the name pubmed2go.</li>
+<li>The docker container bgruening/pubmed2go still exists and contains the same version as bgruening/pubmedportable.</li>
+<li>Users with an older version of the docker container should execute “sudo docker pull bgruening/pubmed2go” to update their version.</li>
+</ul>
+</blockquote></li>
 </ul>
 <h1 id="build-up-a-relational-database-in-postgresql"><span class="header-section-number">4</span> Build up a Relational Database in PostgreSQL</h1>
 <ul>
