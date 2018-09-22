@@ -251,10 +251,14 @@ class MedlineParser:
                             if len(temp_forname) < 100:
                                 DBAuthor.fore_name = temp_forname
                             else:
-                                DBAuthor.fore_name = author.find("ForeName").text[0:97] + "..."
+                                DBAuthor.fore_name = temp_forname[0:97] + "..."
 
                         if author.find("Initials") != None:
-                            DBAuthor.initials = author.find("Initials").text
+                            temp_initials = author.find("Initials").text
+                            if len(temp_initials) < 10:
+                                DBAuthor.initials = temp_initials
+                            else:
+                                DBAuthor.initials = temp_initials[0:7] + "..."
 
                         # Suffix is restricted to 20 characters
                         if author.find("Suffix") != None and author.find("Suffix").text != None:
