@@ -104,7 +104,7 @@ class PMID_File_Mapping(Base):
 class XMLFile(Base):
     __tablename__ = "tbl_xml_file"
 
-    id = Column(Integer, nullable=False)
+    id = Column(Integer, nullable=False, autoincrement=True)
     xml_file_name = Column(VARCHAR(50), nullable=False)
     doc_type_name = Column(VARCHAR(100))
     dtd_public_id = Column(VARCHAR(200))#,   nullable=False)
@@ -699,21 +699,6 @@ class SupplMeshName(Base):
         {'schema': SCHEMA}
     )
     citation = relation(Citation, backref=backref('suppl_mesh_names', order_by=suppl_mesh_name, cascade="all, delete-orphan"))
-
-##old code not used:
-#def create_tssearch(engine):
-#    """
-#        Its currently not possible to set TSVECTOR and TSQUERY column types through SqlAlchemy,
-#        so do it ...
-#    """
-
-#    Session = sessionmaker(bind=engine)
-#    session = Session()
-#    connection = session.connection()
-
-#    connection.execute("""CREATE TRIGGER xapianupdate AFTER INSERT ON pubmed.tbl_medline_citation FOR EACH ROW EXECUTE PROCEDURE pubmed.add_to_xapian();""")
-#    session.commit()
-#    session.close()
 
 def init(db):
     """
